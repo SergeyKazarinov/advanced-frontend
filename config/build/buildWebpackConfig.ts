@@ -4,6 +4,7 @@ import path from "path"
 import { buildLoaders } from "./buildLoaders"
 import { buildPlugins } from "./buildPlugins"
 import { buildResolves } from "./buildResolves"
+import { buildDevServer } from "./buildDevServer"
 
 export const buildWebpackConfig = (options: IBuildOptions): Configuration => {
   const {paths, mode} = options;
@@ -21,5 +22,7 @@ export const buildWebpackConfig = (options: IBuildOptions): Configuration => {
       rules: buildLoaders(),
     },
     resolve: buildResolves(),
+    devtool: 'inline-source-map',
+    devServer: buildDevServer(options)
   }
 }

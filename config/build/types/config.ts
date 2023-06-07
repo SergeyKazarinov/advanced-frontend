@@ -12,3 +12,8 @@ export interface IBuildOptions {
   isDev: boolean,
   port: number,
 }
+
+export interface IBuildEnv {
+  mode: TBuildMode;
+  port: number;
+}

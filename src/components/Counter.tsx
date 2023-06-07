@@ -1,16 +1,17 @@
-import { useState } from "react"
+import { useState } from "react";
+import s from './Counter.module.scss';
 
 export const Counter = () => {
   const [count, setCount] = useState(0)
 
-  const increment = () => {
+  const handleClick = () => {
     setCount((state) => state + 1)
   }
 
   return (
-    <div>
+    <>
       <h1>{count}</h1>
-      <button onClick={increment}>Increment</button>
-    </div>
+      <button className={s.button} onClick={handleClick}>Plus</button>
+    </>
   )
 }

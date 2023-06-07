@@ -1,7 +1,7 @@
 export type TBuildMode = 'production' | 'development';
 
 export interface IBuildPaths {
-  entry: string | {[name: string]: string};
+  entry: string;
   build: string;
   html: string;
 }

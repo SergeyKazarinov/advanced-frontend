@@ -9,8 +9,8 @@ import { IBuildEnv, IBuildPaths } from './config/build/types/config';
 export default (env: IBuildEnv) => {
   const paths: IBuildPaths = {
     entry: {
-      RANDOM: path.resolve(__dirname, 'src', 'index.ts'),
-      main: path.resolve(__dirname, 'src', 'index.ts'),
+      RANDOM: path.resolve(__dirname, 'src', 'index.tsx'),
+      main: path.resolve(__dirname, 'src', 'index.tsx'),
     },
     build: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html')

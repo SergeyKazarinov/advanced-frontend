@@ -4,6 +4,20 @@ import { IBuildOptions } from "./types/config"
 
 export const buildLoaders = (options: IBuildOptions): RuleSetRule[] => {
 
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  }
+
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  }
+
   //Если не используем TS, то необходимо использовать babel
   const tsLoader = {
     test: /\.tsx?$/,
@@ -35,6 +49,8 @@ export const buildLoaders = (options: IBuildOptions): RuleSetRule[] => {
   }
 
   return [
+    fileLoader,
+    svgLoader,
     tsLoader,
     sccLoader,
   ]

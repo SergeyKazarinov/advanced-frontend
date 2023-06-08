@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { AboutPageLazy } from "..//pages/AboutPage/AboutPage.lazy";
-import { MainPageLazy } from "../pages/MainPage/MainPage.lazy";
 import { Suspense } from "react";
-import { useTheme } from "..//theme/useTheme";
-import { classNames } from "../helpers/classNames/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
+import { useTheme } from "app/providers/ThemeProvider";
+import { AboutPageLazy } from "pages/AboutPage";
+import { MainPageLazy } from "pages/MainPage";
 
 const App = () => {
   const {theme, toggleTheme} = useTheme();

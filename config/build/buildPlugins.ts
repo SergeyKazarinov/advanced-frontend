@@ -10,6 +10,7 @@ import MiniCssExtractPlugin  from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 export const buildPlugins = ({paths, isDev}: IBuildOptions): WebpackPluginInstance[] => {
+
   return [
     new HtmlWebpackPlugin({
       template: paths.html,
@@ -22,7 +23,7 @@ export const buildPlugins = ({paths, isDev}: IBuildOptions): WebpackPluginInstan
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev)
     }),
-    isDev && new ReactRefreshWebpackPlugin(),
-    isDev && new HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
+    new HotModuleReplacementPlugin(),
   ]
 }

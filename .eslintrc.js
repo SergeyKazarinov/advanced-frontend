@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'plugin:i18next/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -15,6 +16,7 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'i18next',
   ],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],

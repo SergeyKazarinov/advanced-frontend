@@ -1,4 +1,5 @@
 import { FC, Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Routes, Route } from 'react-router-dom';
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 
@@ -7,6 +8,7 @@ interface AppRouterProps {
 }
 
 const AppRouter: FC<AppRouterProps> = () => {
+  const { t } = useTranslation();
   const routes = Object
     .values(routeConfig)
     .map(({ element, path }) => (
@@ -18,7 +20,7 @@ const AppRouter: FC<AppRouterProps> = () => {
     ));
 
   return (
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense fallback={<div>{t('Loading')}</div>}>
       <Routes>
         {routes}
       </Routes>

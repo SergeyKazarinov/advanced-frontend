@@ -1,3 +1,3 @@
 export const someFn = (arg: number) => {
-  console.log(`number ${arg}`)
-}
+  console.log(`number ${arg}`);
+};

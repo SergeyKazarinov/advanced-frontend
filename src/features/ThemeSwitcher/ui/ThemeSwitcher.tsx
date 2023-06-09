@@ -4,7 +4,6 @@ import { ThemeEnum, useTheme } from 'app/providers/ThemeProvider';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import Button, { ThemeButtonEnum } from 'shared/ui/Button/Button';
-import s from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
   className?: string

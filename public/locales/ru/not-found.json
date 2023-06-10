@@ -1,3 +1,9 @@
 {
-  "Page not found": "Страница не найдена"
+  "Page not found": "Страница не найдена",
+  "page-error": {
+    "Update page": "Обновить страницу"
+  },
+  "not-found": {
+    "Throw Error": "Бросить ошибку"
+  }
 }

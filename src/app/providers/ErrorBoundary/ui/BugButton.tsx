@@ -1,13 +1,14 @@
 import { FC, useEffect, useState } from 'react';
-import Button from 'shared/ui/Button/Button';
+import Button, { ThemeButtonEnum } from 'shared/ui/Button/Button';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 
 interface BugButtonProps {
   className?: string;
+  theme?: ThemeButtonEnum;
 }
 
-const BugButton: FC<BugButtonProps> = ({ className }) => {
+const BugButton: FC<BugButtonProps> = ({ className, theme }) => {
   const { t } = useTranslation('not-found');
   const [error, setError] = useState(false);
 
@@ -22,7 +23,7 @@ const BugButton: FC<BugButtonProps> = ({ className }) => {
   }, [error]);
 
   return (
-    <Button onClick={onThrow} className={classNames('', {}, [className])}>
+    <Button theme={theme} onClick={onThrow} className={classNames('', {}, [className])}>
       {t('Throw Error')}
     </Button>
   );

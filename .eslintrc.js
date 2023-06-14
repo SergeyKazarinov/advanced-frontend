@@ -19,8 +19,11 @@ module.exports = {
     'react',
     '@typescript-eslint',
     'i18next',
+    'react-hooks',
   ],
   rules: {
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/react-in-jsx-scope': [0],
     'react/react-default-props': 'off',
@@ -35,6 +38,8 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'react/jsx-props-no-spreading': ['error', { html: 'ignore', exceptions: ['Link'] }],
     'max-len': [2, { ignoreComments: true, code: 100 }],
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
   },
   overrides: [{
     files: ['**/src/**/*.test.{ts,tsx}'],

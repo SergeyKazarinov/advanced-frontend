@@ -18,6 +18,39 @@
   margin-left: 20px;
 }
 
+.collapseBtn {
+  position: absolute;
+  right: -32px;
+  bottom: 40px;
+  cursor: pointer;
+}
+
+.items {
+  margin-top: 20px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  margin-left: 10px;
+  opacity: 1;
+  display: block;
+  transition: 1s;
+}
+
+
+
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
@@ -29,11 +62,10 @@
   .lang {
     margin-left: 0;
   }
-}
 
-.collapseBtn {
-  position: absolute;
-  right: -32px;
-  bottom: 40px;
-  cursor: pointer;
+  .link {
+    opacity: 0;
+    display: none;
+    transition: 1s;
+  }
 }

@@ -44,6 +44,9 @@ const config: Config = {
       'jestEmptyComponent.tsx',
     ),
   },
+  globals: {
+    __IS_DEV__: true,
+  },
 };
 
 export default config;

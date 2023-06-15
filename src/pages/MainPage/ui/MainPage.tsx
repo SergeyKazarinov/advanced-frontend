@@ -1,6 +1,7 @@
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { useTranslation } from 'react-i18next';
 import { ThemeButtonEnum } from 'shared/ui/Button/Button';
+import { Counter } from '../../../entities/Counter';
 
 const MainPage = () => {
   const { t } = useTranslation('main');
@@ -9,6 +10,7 @@ const MainPage = () => {
     <div>
       <BugButton theme={ThemeButtonEnum.OUTLINE} />
       {t('Main page')}
+      <Counter />
     </div>
   );
 };

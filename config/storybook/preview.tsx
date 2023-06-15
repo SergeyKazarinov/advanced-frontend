@@ -2,6 +2,7 @@ import { Preview } from '@storybook/react';
 import '../../src/app/styles/index.scss';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator';
 import { RouteDecorator } from '../../src/shared/config/storybook/RouteDecorator';
+import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator';
 import { ThemeEnum } from '../../src/app/providers/ThemeProvider';
 
 const preview: Preview = {
@@ -17,6 +18,7 @@ const preview: Preview = {
   decorators: [
     ThemeDecorator(ThemeEnum.LIGHT),
     RouteDecorator,
+    StoreDecorator,
   ],
 };
 

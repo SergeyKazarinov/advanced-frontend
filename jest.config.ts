@@ -16,7 +16,7 @@ const config: Config = {
 
   moduleDirectories: [
     'node_modules',
-    'src',
+    'scr',
   ],
   moduleFileExtensions: [
     'js',
@@ -32,9 +32,8 @@ const config: Config = {
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
   ],
-  modulePaths: [
-    '<rootDir>/src',
-  ],
+  modulePaths: ['<rootDir>src/'],
+
   setupFilesAfterEnv: ['./config/jest/setupTests.ts'],
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',

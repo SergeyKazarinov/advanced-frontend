@@ -40,6 +40,7 @@ module.exports = {
     'max-len': [2, { ignoreComments: true, code: 100 }],
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
+    'no-param-reassign': 'off',
   },
   overrides: [{
     files: ['**/src/**/*.test.{ts,tsx}'],

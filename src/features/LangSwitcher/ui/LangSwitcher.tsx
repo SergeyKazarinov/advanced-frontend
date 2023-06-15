@@ -21,7 +21,7 @@ const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
       theme={ThemeButtonEnum.CLEAR}
       onClick={toggleTranslate}
     >
-      {short ? t('LanguageShort') : t('Language')}
+      {short ? t('En') : t('English')}
     </Button>
   );
 };

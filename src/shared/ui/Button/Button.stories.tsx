@@ -25,6 +25,29 @@ export const Clear: Story = {
   },
 };
 
+export const ClearInverted: Story = {
+  args: {
+    children: 'text',
+    theme: ThemeButtonEnum.CLEAR_INVERTED,
+  },
+};
+
+export const ClearDark: Story = {
+  args: {
+    children: 'text',
+    theme: ThemeButtonEnum.CLEAR,
+  },
+  decorators: [ThemeDecorator(ThemeEnum.DARK)],
+};
+
+export const ClearInvertedDark: Story = {
+  args: {
+    children: 'text',
+    theme: ThemeButtonEnum.CLEAR_INVERTED,
+  },
+  decorators: [ThemeDecorator(ThemeEnum.DARK)],
+};
+
 export const Outline: Story = {
   args: {
     children: 'text',

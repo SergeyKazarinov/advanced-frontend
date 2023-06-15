@@ -8,13 +8,13 @@
     "build": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "lint": "eslint \"**/*.{ts,tsx}\"",
-    "lint-fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
-    "lint:scss-fix": "npx stylelint \"**/*.scss\" --fix",
+    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test": "jest",
     "test:ui": "npx loki test",
-    "test:ui-ok": "npx loki approve",
-    "test:ui-ci": "npm run build-storybook -c ./config/storybook && loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ok": "npx loki approve",
+    "test:ui:ci": "npm run build-storybook -c ./config/storybook && loki --requireReference --reactUri file:./storybook-static",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
     "visual:report": "npm-run-all visual:report:*",
@@ -99,6 +99,7 @@
     "react-router-dom": "^6.2.1"
   },
   "loki": {
+    "chromeSelector": "body > *",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",

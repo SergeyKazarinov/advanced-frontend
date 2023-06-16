@@ -1,12 +1,13 @@
 import { StoryFn } from '@storybook/react';
 import { ThemeEnum, ThemeProvider } from 'app/providers/ThemeProvider';
+import Modal from 'shared/ui/Modal/Modal';
 
-export const ThemeDecorator = (theme: ThemeEnum) => function (Story: StoryFn) {
+export const ThemeDecoratorWithFullHeight = (theme: ThemeEnum) => function (Story: StoryFn) {
   return (
     <ThemeProvider initialTheme={theme}>
       <body className={theme}>
 
-        <div className="">
+        <div className="app">
           <Story />
         </div>
       </body>

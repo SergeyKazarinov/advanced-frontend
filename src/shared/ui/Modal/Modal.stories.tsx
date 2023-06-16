@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
+import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecoratorWithFullHeight';
 import Modal from './Modal';
 
 const meta = {
@@ -17,6 +17,7 @@ export const Light: Story = {
     isOpen: true,
     children: 'Text',
   },
+  decorators: [ThemeDecoratorWithFullHeight(ThemeEnum.LIGHT)],
 };
 
 export const Dark: Story = {
@@ -24,5 +25,5 @@ export const Dark: Story = {
     isOpen: true,
     children: 'Text',
   },
-  decorators: [ThemeDecorator(ThemeEnum.DARK)],
+  decorators: [ThemeDecoratorWithFullHeight(ThemeEnum.DARK)],
 };

@@ -6,12 +6,11 @@
 body {
   font: var(--font-m);
   color: var(--primary-color);
-  min-height: 100vh;
+  background: var(--bg-color);
 }
 
-
 .app {
-  background: var(--bg-color);
+  min-height: 100vh;
 }
 
 .content-page {

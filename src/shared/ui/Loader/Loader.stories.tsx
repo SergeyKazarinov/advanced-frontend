@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
+import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecoratorWithFullHeight';
 import Loader from './Loader';
 
 const meta = {
@@ -15,10 +15,11 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {
   args: {
   },
+  decorators: [ThemeDecoratorWithFullHeight(ThemeEnum.LIGHT)],
 };
 
 export const Dark: Story = {
   args: {
   },
-  decorators: [ThemeDecorator(ThemeEnum.DARK)],
+  decorators: [ThemeDecoratorWithFullHeight(ThemeEnum.DARK)],
 };

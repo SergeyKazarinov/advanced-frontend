@@ -13,11 +13,16 @@
       "postId": 1
     }
   ],
-  "user": [
+  "users": [
     {
       "id": 1,
       "username": "admin",
       "password": "123"
+    },
+    {
+      "id": 2,
+      "username": "admin2",
+      "password": "1234"
     }
   ],
   "profile": {

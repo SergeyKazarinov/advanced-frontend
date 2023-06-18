@@ -1,9 +1,12 @@
 const fs = require('fs');
 const jsonServer = require('json-server');
-// const jwt = require('jsonwebtoken');
 const path = require('path');
+const cors = require('cors');
 
 const server = jsonServer.create();
+// server.use(jsonServer.defaults({ noCors: true }));
+server.use(jsonServer.bodyParser);
+server.use(cors());
 
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
@@ -13,17 +16,6 @@ server.use(async (req, res, next) => {
   }));
   next();
 });
-// eslint-disable-next-line
-server.use((req, res, next) => {
-  if (!req.headers.authorization) {
-    return res.status(403).json({ message: 'Auth Error' });
-  }
-
-  next();
-});
-
-server.use(jsonServer.defaults());
-server.use(router);
 
 server.post('/login', (req, res) => {
   const { username, password } = req.body;
@@ -34,12 +26,23 @@ server.post('/login', (req, res) => {
     (user) => user.username === username && user.password === password,
   );
 
-  if (userFromBd) {
-    return res.json(userFromBd);
+  if (!userFromBd) {
+    return res.status(403).json({ message: 'Auth Error' });
+  }
+  console.log(userFromBd);
+  return res.json(userFromBd);
+});
+
+// eslint-disable-next-line
+server.use((req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({ message: 'Auth Error' });
   }
 
-  return res.status(403).json({ message: 'Auth Error' });
+  next();
 });
+
+server.use(router);
 
 server.listen(8000, () => {
   console.log('server is running on 8000 port');

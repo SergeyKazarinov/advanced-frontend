@@ -2,6 +2,8 @@
   "About": "About",
   "About site": "About site",
   "An unexpected error has occurred": "An unexpected error has occurred",
+  "Authorization": "",
+  "Autorization": "",
   "Decrement": "Decrement",
   "En": "",
   "English": "",
@@ -15,8 +17,10 @@
   "Main page": "Main page",
   "Page not found": "Page not found",
   "Sign In": "",
+  "The username or password you entered is incorrect": "",
   "Throw Error": "Throw Error",
   "Update page": "Update page",
+  "authorization": "",
   "button": "button",
   "sdlkfjwoebwlk wlkdjoiwejf wlksnvoweinv wdknvlsd nvlsdnv ": "sdlkfjwoebwlk wlkdjoiwejf wlksnvoweinv wdknvlsd nvlsdnv "
 }

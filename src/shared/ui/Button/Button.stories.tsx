@@ -165,3 +165,11 @@ export const SquareSizeXLDark: Story = {
   },
   decorators: [ThemeDecorator(ThemeEnum.DARK)],
 };
+
+export const Disabled: Story = {
+  args: {
+    children: 'text',
+    theme: ThemeButtonEnum.CLEAR,
+    disabled: true,
+  },
+};

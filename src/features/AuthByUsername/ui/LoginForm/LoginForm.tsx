@@ -9,7 +9,7 @@ import Button, { ThemeButtonEnum } from 'shared/ui/Button/Button';
 import Input from 'shared/ui/Input/Input';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { IStateSchema } from 'app/providers/StoreProvider';
-import TextComponent, { TextThemeEnum } from 'shared/ui/Text/TextComponent';
+import TextComponent, { TextThemeEnum } from 'shared/ui/TextComponent/TextComponent';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import loginByUsername from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions } from '../../model/slice/loginSlice';

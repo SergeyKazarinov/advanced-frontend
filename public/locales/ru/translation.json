@@ -8,5 +8,7 @@
   "English": "Русский",
   "En": "Ру",
   "Increment": "Увеличение",
-  "Decrement": "Уменьшение"
+  "Decrement": "Уменьшение",
+  "Enter username": "Введите пользователя",
+  "Enter password": "Введите пароль"
 }

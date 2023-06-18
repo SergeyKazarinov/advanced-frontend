@@ -13,14 +13,14 @@
       "postId": 1
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
   "user": [
     {
       "id": 1,
       "username": "admin",
       "password": "123"
     }
-  ]
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

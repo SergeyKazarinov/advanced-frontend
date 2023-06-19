@@ -10,9 +10,9 @@ export const buildWebpackConfig = (options: IBuildOptions): Configuration => {
 
   return {
     mode,
-    entry: paths.entry,
+    entry: paths!.entry,
     output: {
-      path: paths.build,
+      path: paths!.build,
       filename: '[name].[contenthash].js', // contenthash - решает проблему хэширования
       clean: true,
     },

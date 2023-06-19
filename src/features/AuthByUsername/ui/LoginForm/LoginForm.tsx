@@ -29,6 +29,8 @@ const LoginFrom: FC<LoginFromProps> = ({ className }) => {
   const {
     username, password, isLoading, error,
   } = useSelector(getLoginState);
+
+  const errorMessage = t('The username or password you entered is incorrect');
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
   }, [dispatch]);
@@ -56,7 +58,7 @@ const LoginFrom: FC<LoginFromProps> = ({ className }) => {
         value={password}
         onChange={onChangePassword}
       />
-      {error && <TextComponent text={error} theme={TextThemeEnum.ERROR} />}
+      {error && <TextComponent text={errorMessage} theme={TextThemeEnum.ERROR} />}
       <Button
         className={s.loginBtn}
         theme={ThemeButtonEnum.CLEAR}

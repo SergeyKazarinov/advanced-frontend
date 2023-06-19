@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecoratorWithFullHeight';
-import LoginFrom from './LoginForm';
+import LoginForm from './LoginForm';
 
 const meta = {
   title: 'feature/LoginForm',
-  component: LoginFrom,
+  component: LoginForm,
   tags: ['autodocs'],
-} satisfies Meta<typeof LoginFrom>;
+} satisfies Meta<typeof LoginForm>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

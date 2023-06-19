@@ -9,9 +9,11 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { IBuildOptions } from './types/config';
 
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 export const buildPlugins = ({ paths, isDev }: IBuildOptions): WebpackPluginInstance[] => [
   new HtmlWebpackPlugin({
-    template: paths.html,
+    template: paths!.html,
   }),
   new ProgressPlugin(),
   new MiniCssExtractPlugin({
@@ -23,4 +25,6 @@ export const buildPlugins = ({ paths, isDev }: IBuildOptions): WebpackPluginInst
   }),
   new ReactRefreshWebpackPlugin(),
   new HotModuleReplacementPlugin(),
+
+  // new BundleAnalyzerPlugin({ openAnalyzer: false }),
 ];

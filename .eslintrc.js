@@ -37,7 +37,7 @@ module.exports = {
     'no-unused-vars': ['warn', { argsIgnorePattern: '^__' }],
     'no-underscore-dangle': 'off',
     'react/jsx-props-no-spreading': ['error', { html: 'ignore', exceptions: ['Link'] }],
-    'max-len': [2, { ignoreComments: true, code: 100 }],
+    'max-len': [2, { ignoreComments: true, code: 120 }],
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'no-param-reassign': 'off',

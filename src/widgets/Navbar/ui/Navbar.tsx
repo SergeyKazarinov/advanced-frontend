@@ -1,4 +1,6 @@
-import { FC, useCallback, useState } from 'react';
+import {
+  FC, memo, useCallback, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Button, { ThemeButtonEnum } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
@@ -57,4 +59,4 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

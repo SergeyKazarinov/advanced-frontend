@@ -12,6 +12,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import Button, { ThemeButtonEnum } from 'shared/ui/Button/Button';
 import Input from 'shared/ui/Input/Input';
 import TextComponent, { TextThemeEnum } from 'shared/ui/TextComponent/TextComponent';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
@@ -21,19 +22,16 @@ import s from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: TReducerList = {
   loginForm: loginReducer,
 };
 
-const LoginForm: FC<LoginFormProps> = ({ className }) => {
+const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
   const { t } = useTranslation();
-  const dispatch: ThunkDispatch<
-    IStateSchema,
-    undefined,
-    AnyAction
-  > & Dispatch<AnyAction> = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
@@ -48,9 +46,12 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, username, password]);
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [onSuccess, dispatch, username, password]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>

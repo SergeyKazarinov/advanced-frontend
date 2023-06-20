@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeEnum, useTheme } from 'app/providers/ThemeProvider';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
@@ -23,4 +23,4 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
   );
 };
 
-export default ThemeSwitcher;
+export default memo(ThemeSwitcher);

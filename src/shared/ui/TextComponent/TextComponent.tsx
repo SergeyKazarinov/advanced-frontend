@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import s from './TextComponent.module.scss';
 
@@ -23,4 +23,4 @@ const Text: FC<TextProps> = ({
   </div>
 );
 
-export default Text;
+export default memo(Text);

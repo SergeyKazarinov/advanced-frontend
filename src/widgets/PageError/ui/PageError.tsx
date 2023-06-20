@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import Button from 'shared/ui/Button/Button';
@@ -26,4 +26,4 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
   );
 };
 
-export default PageError;
+export default memo(PageError);

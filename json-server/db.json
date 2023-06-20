@@ -27,7 +27,7 @@
   ],
   "profile": {
     "name": "Sergey",
-    "lastname": "Kazarinov",
+    "lastName": "Kazarinov",
     "age": 31,
     "currency": "RUB",
     "country": "Russia",

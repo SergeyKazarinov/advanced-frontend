@@ -11,7 +11,7 @@ import { IBuildOptions } from './types/config';
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-export const buildPlugins = ({ paths, isDev }: IBuildOptions): WebpackPluginInstance[] => [
+export const buildPlugins = ({ paths, isDev, apiUrl }: IBuildOptions): WebpackPluginInstance[] => [
   new HtmlWebpackPlugin({
     template: paths!.html,
   }),
@@ -22,6 +22,7 @@ export const buildPlugins = ({ paths, isDev }: IBuildOptions): WebpackPluginInst
   }),
   new DefinePlugin({
     __IS_DEV__: JSON.stringify(isDev),
+    __API__: JSON.stringify(apiUrl),
   }),
   new ReactRefreshWebpackPlugin(),
   new HotModuleReplacementPlugin(),

@@ -30,7 +30,6 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
   }, [dispatch]);
-  console.log(userAuthData);
 
   if (userAuthData) {
     return (

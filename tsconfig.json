@@ -5,6 +5,7 @@
     "module": "ESNext", // указываем модульную систему
     "target": "es5", // В какую спецификацию компилируем
     "jsx": "react-jsx",
+    "strict": true,
     "allowJs": true, //позволяет обрабатывать не только ts файлы, но и js
     "moduleResolution": "node", // определяет то, какие импорты будут
     // позволяет работать с пакетами, которые используют common js как с обычными пакетами с помощью import 
@@ -15,6 +16,9 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
+      "@entities/*": [
+        "./src/entities/*"
+      ],
       "*": [
         "./src/*"
       ],

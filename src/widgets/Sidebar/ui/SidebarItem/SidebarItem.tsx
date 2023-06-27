@@ -6,7 +6,7 @@ import { ISidebarItem } from 'widgets/Sidebar/model/items';
 import s from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
-  item?: ISidebarItem;
+  item: ISidebarItem;
   collapsed: boolean;
 }
 

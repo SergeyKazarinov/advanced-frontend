@@ -1,5 +1,9 @@
 {
+  "Profile Page": "Страница профиля",
+  "Profile": "Профиль",
+  "Edit": "Редактировать",
   "profile": {
-    "Profile Page": "Страница профиля"
+    "Your name": "Ваше имя",
+    "Your Lastname": "Ваша фамилия"
   }
 }

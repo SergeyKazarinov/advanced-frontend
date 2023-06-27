@@ -1,9 +1,14 @@
-import React, {
-  FC, ReactNode, MouseEvent, useEffect, useCallback, useState,
+import {
+  FC,
+  MouseEvent,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import s from './Modal.module.scss';
+import { TMods, classNames } from 'shared/lib/classNames/classNames';
 import Portal from '../Portal/Portal';
+import s from './Modal.module.scss';
 
 interface ModalProps {
   className?: string;
@@ -31,7 +36,7 @@ const Modal: FC<ModalProps> = ({
   };
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' && onClose) {
       onClose();
     }
   }, [onClose]);
@@ -50,7 +55,7 @@ const Modal: FC<ModalProps> = ({
     e.stopPropagation();
   };
 
-  const mods: Record<string, boolean> = {
+  const mods: TMods = {
     [s.opened]: isOpen,
   };
 

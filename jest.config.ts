@@ -42,6 +42,7 @@ const config: Config = {
       './config/jest',
       'jestEmptyComponent.tsx',
     ),
+    '^@entities(.*)$': '<rootDir>src/entities$1',
   },
   globals: {
     __IS_DEV__: true,

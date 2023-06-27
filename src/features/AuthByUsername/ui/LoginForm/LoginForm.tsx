@@ -1,18 +1,15 @@
-import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
-import { IStateSchema } from 'app/providers/StoreProvider';
 import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
 import {
-  Dispatch,
   FC, memo, useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import DynamicModuleLoader, { TReducerList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import Button, { ThemeButtonEnum } from 'shared/ui/Button/Button';
 import Input from 'shared/ui/Input/Input';
 import TextComponent, { TextThemeEnum } from 'shared/ui/TextComponent/TextComponent';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
@@ -56,15 +53,15 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={classNames(s.loginForm, {}, [className])}>
-        <TextComponent title={t('Authorization')} className={s.title} />
+        <TextComponent title={t('Authorization') ?? ''} className={s.title} />
         <Input
           autoFocus
-          placeholder={t('Enter username')}
+          placeholder={t('Enter username') ?? ''}
           value={username}
           onChange={onChangeUsername}
         />
         <Input
-          placeholder={t('Enter password')}
+          placeholder={t('Enter password') ?? ''}
           type="password"
           value={password}
           onChange={onChangePassword}

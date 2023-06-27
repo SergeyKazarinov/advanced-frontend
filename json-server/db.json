@@ -11,6 +11,16 @@
       "id": 1,
       "body": "some comment",
       "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "2some comment",
+      "postId": 1
+    },
+    {
+      "id": 3,
+      "body": "3some comment",
+      "postId": 1
     }
   ],
   "users": [

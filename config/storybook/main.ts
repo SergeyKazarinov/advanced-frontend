@@ -1,5 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
+const path = require('path');
+
 const config: StorybookConfig = {
   stories: [
     '../../src/**/*.mdx',
@@ -19,6 +21,13 @@ const config: StorybookConfig = {
   },
   core: {
     builder: '@storybook/builder-webpack5',
+  },
+  webpackFinal: async (config, { configType }) => {
+    config!.resolve!.alias = {
+      ...config.resolve?.alias,
+      '@entities': path.resolve(__dirname, '..', '..', 'src/entities'),
+    };
+    return config;
   },
 };
 export default config;

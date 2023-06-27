@@ -23,12 +23,12 @@ const Input: FC<InputProps> = ({
 }) => {
   const [isFocus, setIsFocus] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
-  const ref = useRef<HTMLInputElement>();
+  const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (autoFocus) {
       setIsFocus(true);
-      ref.current.focus();
+      ref.current?.focus();
     }
   }, [autoFocus]);
 
@@ -50,7 +50,7 @@ const Input: FC<InputProps> = ({
   };
 
   return (
-    <div className={s.inputWrapper}>
+    <div className={classNames(s.inputWrapper, {}, [className])}>
 
       {placeholder && (
         <div className={s.placeHolder}>
@@ -62,7 +62,7 @@ const Input: FC<InputProps> = ({
           ref={ref}
           onBlur={onBlur}
           onFocus={onFocus}
-          className={classNames(s.input, {}, [className])}
+          className={classNames(s.input, {}, [])}
           type={type}
           value={value}
           onChange={handleChange}

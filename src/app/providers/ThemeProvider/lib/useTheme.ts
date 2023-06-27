@@ -11,11 +11,11 @@ export const useTheme = (): IUseThemeResult => {
 
   const toggleTheme = () => {
     const newTheme = theme === ThemeEnum.DARK ? ThemeEnum.LIGHT : ThemeEnum.DARK;
-    setTheme(newTheme);
+    setTheme?.(newTheme);
 
     document.body.className = newTheme;
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
 
-  return { theme, toggleTheme };
+  return { theme: theme || ThemeEnum.LIGHT, toggleTheme };
 };

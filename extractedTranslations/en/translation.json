@@ -4,6 +4,7 @@
   "An unexpected error has occurred": "An unexpected error has occurred",
   "Authorization": "Authorization",
   "Decrement": "Decrement",
+  "Edit": "Edit",
   "En": "En",
   "English": "English",
   "Enter password": "Enter password",
@@ -13,9 +14,12 @@
   "Main": "Main",
   "Main page": "Main page",
   "Page not found": "Page not found",
+  "Profile": "Profile",
   "Profile Page": "Profile Page",
   "Sign In": "Sign In",
   "The username or password you entered is incorrect": "The username or password you entered is incorrect",
   "Throw Error": "Throw Error",
-  "Update page": "Update page"
+  "Update page": "Update page",
+  "Your Lastname": "Your Lastname",
+  "Your name": "Your name"
 }

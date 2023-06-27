@@ -1,8 +1,10 @@
-import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
+import {
+  CombinedState, Reducer, ReducersMapObject, configureStore,
+} from '@reduxjs/toolkit';
 import { $api } from 'shared/api/api';
 import { To, NavigateOptions } from 'react-router-dom';
-import { counterReducer } from '../../../../entities/Counter';
-import { userReducer } from '../../../../entities/User';
+import { counterReducer } from '@entities/Counter';
+import { userReducer } from '@entities/User';
 import { IStateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -20,7 +22,7 @@ export const createReduxStore = (
   const reducerManager = createReducerManager(rootReducers);
 
   const store = configureStore({
-    reducer: reducerManager.reduce,
+    reducer: reducerManager.reduce as Reducer<CombinedState<IStateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({

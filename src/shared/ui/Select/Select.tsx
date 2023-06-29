@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useMemo } from 'react';
+import { ChangeEvent, FC, memo, useMemo } from 'react';
 import { TMods, classNames } from 'shared/lib/classNames/classNames';
 import s from './Select.module.scss';
 
@@ -51,4 +51,4 @@ const Select: FC<SelectProps> = ({
   );
 };
 
-export default Select;
+export default memo(Select);

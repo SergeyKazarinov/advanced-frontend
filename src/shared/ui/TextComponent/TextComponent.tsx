@@ -26,7 +26,7 @@ const TextComponent: FC<TextProps> = ({
   title,
   text,
   theme = TextThemeEnum.PRIMARY,
-  align = TextAlignEnum.RIGHT,
+  align = TextAlignEnum.LEFT,
 }) => (
   <div className={(classNames(s.textComponent, {}, [className, s[theme], s[align]]))}>
     {title && <p className={s.title}>{title}</p>}

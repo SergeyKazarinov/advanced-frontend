@@ -1,11 +1,13 @@
 import {
   ProfileCard,
+  ValidateProfileErrorEnum,
   fetchProfileData,
   getProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
   getProfileReadonly,
+  getProfileValidateErrors,
   profileActions,
   profileReducer,
 } from '@entities/Profile';
@@ -15,6 +17,8 @@ import DynamicModuleLoader, { TReducerList } from 'shared/lib/DynamicModuleLoade
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { CurrencyEnum } from '@entities/Currency';
 import { CountryEnum } from '@entities/Country';
+import TextComponent, { TextThemeEnum } from 'shared/ui/TextComponent/TextComponent';
+import { useTranslation } from 'react-i18next';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: TReducerList = {
@@ -22,11 +26,21 @@ const reducers: TReducerList = {
 };
 
 const ProfilePage = () => {
+  const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const form = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorTranslates = {
+    [ValidateProfileErrorEnum.SERVER_ERROR]: t('Server error'),
+    [ValidateProfileErrorEnum.INCORRECT_AGE]: t('Incorrect age'),
+    [ValidateProfileErrorEnum.INCORRECT_COUNTRY]: t('Incorrect country'),
+    [ValidateProfileErrorEnum.INCORRECT_USER_DATA]: t('Incorrect user data'),
+    [ValidateProfileErrorEnum.NO_DATA]: t('No data'),
+  };
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -67,6 +81,9 @@ const ProfilePage = () => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <ProfilePageHeader />
+      {validateErrors?.length && validateErrors.map((err) => (
+        <TextComponent key={err} theme={TextThemeEnum.ERROR} text={validateErrorTranslates[err]} />
+      ))}
       <ProfileCard
         data={form}
         error={error}

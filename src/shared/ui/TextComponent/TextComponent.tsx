@@ -7,20 +7,31 @@ export enum TextThemeEnum {
   ERROR = 'error'
 }
 
+export enum TextAlignEnum {
+  RIGHT = 'right',
+  CENTER = 'center',
+  LEFT = 'left'
+}
+
 interface TextProps {
   className?: string;
   title?: string;
   text?: string;
   theme?: TextThemeEnum;
+  align?: TextAlignEnum;
 }
 
-const Text: FC<TextProps> = ({
-  className, title, text, theme = TextThemeEnum.PRIMARY,
+const TextComponent: FC<TextProps> = ({
+  className,
+  title,
+  text,
+  theme = TextThemeEnum.PRIMARY,
+  align = TextAlignEnum.RIGHT,
 }) => (
-  <div className={(classNames(s.textComponent, {}, [className, s[theme]]))}>
+  <div className={(classNames(s.textComponent, {}, [className, s[theme], s[align]]))}>
     {title && <p className={s.title}>{title}</p>}
     {text && <p className={s.text}>{text}</p>}
   </div>
 );
 
-export default memo(Text);
+export default memo(TextComponent);

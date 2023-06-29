@@ -4,12 +4,13 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import s from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends HTMLInputProps {
   className?: string;
   onChange?: (value: string) => void;
-  value?: string;
+  value?: string | number;
+  readonly?: boolean;
 }
 
 const Input: FC<InputProps> = ({
@@ -19,11 +20,13 @@ const Input: FC<InputProps> = ({
   onChange,
   placeholder,
   autoFocus,
+  readonly,
   ...otherProps
 }) => {
   const [isFocus, setIsFocus] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
   const ref = useRef<HTMLInputElement>(null);
+  const isCaretVisible = isFocus && !readonly;
 
   useEffect(() => {
     if (autoFocus) {
@@ -49,8 +52,12 @@ const Input: FC<InputProps> = ({
     setCaretPosition(e?.target?.selectionStart || 0);
   };
 
+  const mods = {
+    [s.readonly]: readonly,
+  };
+
   return (
-    <div className={classNames(s.inputWrapper, {}, [className])}>
+    <div className={classNames(s.inputWrapper, mods, [className])}>
 
       {placeholder && (
         <div className={s.placeHolder}>
@@ -67,9 +74,10 @@ const Input: FC<InputProps> = ({
           value={value}
           onChange={handleChange}
           onSelect={onSelect}
+          readOnly={readonly}
           {...otherProps}
         />
-        {isFocus && <span className={s.caret} style={{ left: `${caretPosition * 9}px` }} />}
+        {isCaretVisible && <span className={s.caret} style={{ left: `${caretPosition * 9}px` }} />}
       </div>
 
     </div>

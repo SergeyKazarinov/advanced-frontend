@@ -11,12 +11,15 @@ import { IBuildOptions } from './types/config';
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-export const buildPlugins = ({
-  paths,
-  isDev,
-  apiUrl,
-  project,
-}: IBuildOptions): WebpackPluginInstance[] => [
+export const buildPlugins = (options: IBuildOptions): WebpackPluginInstance[] => {
+  const {
+    paths,
+    isDev,
+    apiUrl,
+    project,
+  } = options;
+
+  return [
     new HtmlWebpackPlugin({
       template: paths!.html,
     }),
@@ -35,3 +38,4 @@ export const buildPlugins = ({
 
     // new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
+};

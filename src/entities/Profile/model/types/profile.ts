@@ -5,6 +5,7 @@ export enum ValidateProfileErrorEnum {
   INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
   INCORRECT_AGE = 'INCORRECT_AGE',
   INCORRECT_COUNTRY = 'INCORRECT_COUNTRY',
+  INCORRECT_CITY = 'INCORRECT_CITY',
   NO_DATA = 'NO_DATA',
   SERVER_ERROR = 'SERVER_ERROR',
 }
@@ -23,7 +24,7 @@ export interface IProfile {
 export interface IProfileSchema {
   data?: IProfile;
   form?: IProfile;
-  isLoading: boolean;
+  isLoading?: boolean;
   error?: string;
   readonly: boolean;
   validateError?: ValidateProfileErrorEnum[];

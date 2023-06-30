@@ -18,5 +18,6 @@
   "Incorrect age": "Неверный возраст",
   "Incorrect country": "Неверная страна",
   "Incorrect user data": "Неверные данные пользователя",
-  "No data": "Нет данных"
+  "No data": "Нет данных",
+  "Incorrect city": "Неверный город"
 }

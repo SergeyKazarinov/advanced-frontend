@@ -38,11 +38,14 @@ const ProfilePage = () => {
     [ValidateProfileErrorEnum.INCORRECT_AGE]: t('Incorrect age'),
     [ValidateProfileErrorEnum.INCORRECT_COUNTRY]: t('Incorrect country'),
     [ValidateProfileErrorEnum.INCORRECT_USER_DATA]: t('Incorrect user data'),
+    [ValidateProfileErrorEnum.INCORRECT_CITY]: t('Incorrect city'),
     [ValidateProfileErrorEnum.NO_DATA]: t('No data'),
   };
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const onChangeName = useCallback((value?: string) => {

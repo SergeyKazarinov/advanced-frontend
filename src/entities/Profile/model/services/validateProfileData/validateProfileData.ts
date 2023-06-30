@@ -6,7 +6,7 @@ export const validateProfileData = (profile?: IProfile) => {
   }
 
   const {
-    name, lastName, age, country,
+    name, lastName, age, country, city,
   } = profile;
 
   const errors: ValidateProfileErrorEnum[] = [];
@@ -21,6 +21,10 @@ export const validateProfileData = (profile?: IProfile) => {
 
   if (!country) {
     errors.push(ValidateProfileErrorEnum.INCORRECT_COUNTRY);
+  }
+
+  if (!city) {
+    errors.push(ValidateProfileErrorEnum.INCORRECT_CITY);
   }
 
   return errors;

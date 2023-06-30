@@ -1,8 +1,7 @@
-import { createAsyncThunk, isRejectedWithValue } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IThunkConfig } from 'app/providers/StoreProvider';
-import { rejects } from 'assert';
-import { IProfile, ValidateProfileErrorEnum } from '../../types/profile';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
+import { IProfile, ValidateProfileErrorEnum } from '../../types/profile';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 const updateProfileData = createAsyncThunk<IProfile, void, IThunkConfig<ValidateProfileErrorEnum[]>>(
@@ -16,6 +15,10 @@ const updateProfileData = createAsyncThunk<IProfile, void, IThunkConfig<Validate
     }
     try {
       const response = await thunkAPI.extra.api.put<IProfile>('/profile', formData);
+
+      if (!response.data) {
+        throw new Error();
+      }
 
       return response.data;
     } catch (e) {

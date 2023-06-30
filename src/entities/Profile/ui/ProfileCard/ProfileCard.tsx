@@ -1,12 +1,12 @@
 import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TMods, classNames } from 'shared/lib/classNames/classNames';
-import Avatar from 'shared/ui/Avatar/Avatar';
-import Input from 'shared/ui/Input/Input';
-import Loader from 'shared/ui/Loader/Loader';
-import TextComponent, { TextAlignEnum, TextThemeEnum } from 'shared/ui/TextComponent/TextComponent';
+import { TMods, classNames } from 'shared/lib/classNames';
+import { TextComponent, TextAlignEnum, TextThemeEnum } from 'shared/ui/TextComponent';
 import { CountryEnum, CountrySelect } from '@entities/Country';
+import { Avatar } from 'shared/ui/Avatar';
+import { Input } from 'shared/ui/Input';
+import { Loader } from 'shared/ui/Loader';
 import { IProfile } from '../../model/types/profile';
 import s from './ProfileCard.module.scss';
 

@@ -1,11 +1,11 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button, { ThemeButtonEnum } from 'shared/ui/Button/Button';
-import TextComponent from 'shared/ui/TextComponent/TextComponent';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { TextComponent } from 'shared/ui/TextComponent';
+import { classNames } from 'shared/lib/classNames';
 import { useSelector } from 'react-redux';
 import { getProfileReadonly, profileActions, updateProfileData } from '@entities/Profile';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Button, ThemeButtonEnum } from 'shared/ui/Button';
 import s from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {

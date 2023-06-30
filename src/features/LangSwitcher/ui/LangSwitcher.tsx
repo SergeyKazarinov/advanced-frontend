@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button, { ThemeButtonEnum } from 'shared/ui/Button/Button';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames';
+import { Button, ThemeButtonEnum } from 'shared/ui/Button';
 
 interface LangSwitcherProps {
   className?: string

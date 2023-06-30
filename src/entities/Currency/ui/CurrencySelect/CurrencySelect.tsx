@@ -1,8 +1,8 @@
 import { CurrencyEnum } from '@entities/Currency/model/types/currency';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import Select from 'shared/ui/Select/Select';
+import { classNames } from 'shared/lib/classNames';
+import { Select } from 'shared/ui/Select';
 
 interface CurrencySelectProps {
   className?: string;

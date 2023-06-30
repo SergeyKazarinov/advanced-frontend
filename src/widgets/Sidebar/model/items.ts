@@ -1,5 +1,5 @@
 import { IconType } from 'react-icons/lib';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/config/routeConfig';
 import { AiFillHome } from 'react-icons/ai';
 import { BsCardList } from 'react-icons/bs';
 import { CgProfile } from 'react-icons/cg';

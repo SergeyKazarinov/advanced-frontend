@@ -1,8 +1,9 @@
+import { CountryEnum } from '@entities/Country';
+import { CurrencyEnum } from '@entities/Currency';
 import {
   ProfileCard,
   ValidateProfileErrorEnum,
   fetchProfileData,
-  getProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
@@ -12,13 +13,11 @@ import {
   profileReducer,
 } from '@entities/Profile';
 import { useCallback, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import DynamicModuleLoader, { TReducerList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { CurrencyEnum } from '@entities/Currency';
-import { CountryEnum } from '@entities/Country';
-import TextComponent, { TextThemeEnum } from 'shared/ui/TextComponent/TextComponent';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: TReducerList = {

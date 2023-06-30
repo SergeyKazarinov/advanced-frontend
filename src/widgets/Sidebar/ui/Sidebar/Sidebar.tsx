@@ -3,9 +3,9 @@ import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import {
   FC, memo, useMemo, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import Button, { SizeButtonEnum, ThemeButtonEnum } from 'shared/ui/Button/Button';
+import { classNames } from 'shared/lib/classNames';
 import { SidebarItemsList } from 'widgets/Sidebar/model/items';
+import { Button, ThemeButtonEnum, SizeButtonEnum } from 'shared/ui/Button';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import s from './Sidebar.module.scss';
 

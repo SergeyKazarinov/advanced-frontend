@@ -1,15 +1,15 @@
-import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
 import {
   FC, memo, useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import DynamicModuleLoader, { TReducerList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import Button, { ThemeButtonEnum } from 'shared/ui/Button/Button';
-import Input from 'shared/ui/Input/Input';
-import TextComponent, { TextThemeEnum } from 'shared/ui/TextComponent/TextComponent';
+import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
+import { classNames } from 'shared/lib/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Button, ThemeButtonEnum } from 'shared/ui/Button';
+import { Input } from 'shared/ui/Input';
+import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';

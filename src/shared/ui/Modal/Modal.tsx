@@ -6,8 +6,8 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { TMods, classNames } from 'shared/lib/classNames/classNames';
-import Portal from '../Portal/Portal';
+import { TMods, classNames } from 'shared/lib/classNames';
+import { Portal } from '../Portal';
 import s from './Modal.module.scss';
 
 interface ModalProps {

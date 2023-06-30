@@ -1,5 +1,7 @@
-import { ChangeEvent, FC, memo, useMemo } from 'react';
-import { TMods, classNames } from 'shared/lib/classNames/classNames';
+import {
+  ChangeEvent, FC, memo, useMemo,
+} from 'react';
+import { TMods, classNames } from 'shared/lib/classNames';
 import s from './Select.module.scss';
 
 export interface ISelectOption {

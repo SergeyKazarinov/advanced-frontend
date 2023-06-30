@@ -1,8 +1,7 @@
+import { IUser, userActions } from '@entities/User';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IThunkConfig } from 'app/providers/StoreProvider';
 import { USER_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
-import { $api } from 'shared/api/api';
-import { IUser, userActions } from '@entities/User';
 
 interface ILoginByUsernameProps {
   username: string;

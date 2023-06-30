@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames';
 import Loader from 'shared/ui/Loader/Loader';
 import s from './PageLoader.module.scss';
 

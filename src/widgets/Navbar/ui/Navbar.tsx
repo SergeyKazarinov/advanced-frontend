@@ -1,12 +1,12 @@
 import {
   FC, memo, useCallback, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import Button, { ThemeButtonEnum } from 'shared/ui/Button/Button';
+import { classNames } from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserAuthData, userActions } from '@entities/User';
+import { Button, ThemeButtonEnum } from 'shared/ui/Button';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {

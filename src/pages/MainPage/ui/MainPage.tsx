@@ -1,6 +1,6 @@
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { useTranslation } from 'react-i18next';
-import { ThemeButtonEnum } from 'shared/ui/Button/Button';
+import { ThemeButtonEnum } from 'shared/ui/Button';
 import { Counter } from '@entities/Counter';
 
 const MainPage = () => {

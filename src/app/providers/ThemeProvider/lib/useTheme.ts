@@ -10,7 +10,20 @@ export const useTheme = (): IUseThemeResult => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    const newTheme = theme === ThemeEnum.DARK ? ThemeEnum.LIGHT : ThemeEnum.DARK;
+    let newTheme: ThemeEnum;
+    switch (theme) {
+      case ThemeEnum.DARK:
+        newTheme = ThemeEnum.LIGHT;
+        break;
+      case ThemeEnum.LIGHT:
+        newTheme = ThemeEnum.PURE;
+        break;
+      case ThemeEnum.PURE:
+        newTheme = ThemeEnum.DARK;
+        break;
+      default:
+        newTheme = ThemeEnum.LIGHT;
+    }
     setTheme?.(newTheme);
 
     document.body.className = newTheme;

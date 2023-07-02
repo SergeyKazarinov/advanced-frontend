@@ -3,6 +3,7 @@ import { USER_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
 import { IUser, IUserSchema } from '../types/user';
 
 const initialState: IUserSchema = {
+  isLoadPage: false,
 };
 
 const userSlice = createSlice({
@@ -13,10 +14,12 @@ const userSlice = createSlice({
       state.authData = action.payload;
     },
     initAuthData: (state) => {
+      state.isLoadPage = false;
       const user = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
       if (user) {
         state.authData = JSON.parse(user);
       }
+      state.isLoadPage = true;
     },
     logout: (state) => {
       state.authData = undefined;

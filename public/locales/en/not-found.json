@@ -1,9 +1,5 @@
 {
   "Page not found": "Page not found",
-  "page-error": {
-    "Update page": "Update page"
-  },
-  "not-found": {
-    "Throw Error": "Throw Error"
-  }
+  "Update page": "Update page",
+  "Throw Error": "Throw Error"
 }

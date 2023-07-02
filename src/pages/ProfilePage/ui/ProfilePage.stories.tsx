@@ -16,26 +16,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const data = {
+  profile: {
+    form: {
+      name: 'Name',
+      lastName: 'LastName',
+      age: 22,
+      city: 'Perm',
+      country: CountryEnum.Russia,
+      currency: CurrencyEnum.RUB,
+      username: 'UserName',
+      avatar,
+    },
+  },
+};
 export const Light: Story = {
   args: {
 
   },
   decorators: [
     ThemeDecoratorWithFullHeight(ThemeEnum.LIGHT),
-    StoreDecorator({
-      profile: {
-        form: {
-          name: 'Name',
-          lastName: 'LastName',
-          age: 22,
-          city: 'Perm',
-          country: CountryEnum.Russia,
-          currency: CurrencyEnum.RUB,
-          username: 'UserName',
-          avatar,
-        },
-      },
-    }),
+    StoreDecorator(data),
   ],
 };
 
@@ -43,19 +44,14 @@ export const Dark: Story = {
   args: {},
   decorators: [
     ThemeDecoratorWithFullHeight(ThemeEnum.DARK),
-    StoreDecorator({
-      profile: {
-        form: {
-          name: 'Name',
-          lastName: 'LastName',
-          age: 22,
-          city: 'Perm',
-          country: CountryEnum.Russia,
-          currency: CurrencyEnum.RUB,
-          username: 'UserName',
-          avatar,
-        },
-      },
-    }),
+    StoreDecorator(data),
+  ],
+};
+
+export const Pure: Story = {
+  args: {},
+  decorators: [
+    ThemeDecoratorWithFullHeight(ThemeEnum.PURE),
+    StoreDecorator(data),
   ],
 };

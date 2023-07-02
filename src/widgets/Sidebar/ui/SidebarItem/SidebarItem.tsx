@@ -15,7 +15,6 @@ interface SidebarItemProps {
 const SidebarItem: FC<SidebarItemProps> = ({ item, collapsed }) => {
   const { t } = useTranslation();
   const isAuth = useSelector(getUserAuthData);
-
   if (item.authOnly && !isAuth) {
     return null;
   }

@@ -16,7 +16,6 @@ const loginByUsername = createAsyncThunk<IUser, ILoginByUsernameProps, IThunkCon
       if (!response.data) {
         throw new Error();
       }
-
       localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
 
       thunkAPI.dispatch(userActions.setAuthData(response.data));

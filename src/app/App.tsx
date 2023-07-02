@@ -1,13 +1,15 @@
+import { getUserIsLoadPage, userActions } from 'entities/User';
+import { Suspense, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'entities/User';
 import { AppRouter } from './providers/routing';
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const isLoadPage = useSelector(getUserIsLoadPage);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
@@ -19,7 +21,7 @@ const App = () => {
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          {isLoadPage && <AppRouter />}
         </div>
       </Suspense>
     </div>

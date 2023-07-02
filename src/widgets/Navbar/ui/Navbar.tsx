@@ -1,11 +1,11 @@
+import { getUserAuthData, userActions } from '@entities/User';
+import { LoginModal } from 'features/AuthByUsername';
 import {
   FC, memo, useCallback, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
-import { LoginModal } from 'features/AuthByUsername';
-import { useSelector, useDispatch } from 'react-redux';
-import { getUserAuthData, userActions } from '@entities/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { classNames } from 'shared/lib/classNames';
 import { Button, ThemeButtonEnum } from 'shared/ui/Button';
 import s from './Navbar.module.scss';
 
@@ -27,9 +27,9 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
     setIsAuthModal(true);
   }, []);
 
-  const onLogout = useCallback(() => {
+  const onLogout = () => {
     dispatch(userActions.logout());
-  }, [dispatch]);
+  };
 
   if (userAuthData) {
     return (

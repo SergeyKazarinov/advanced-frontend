@@ -7,7 +7,6 @@ const fetchProfileData = createAsyncThunk<IProfile, void, IThunkConfig<string>>(
   async (_, thunkAPI) => {
     try {
       const response = await thunkAPI.extra.api.get<IProfile>('/profile');
-
       if (!response.data) {
         throw new Error();
       }

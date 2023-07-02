@@ -1,1 +1,1 @@
-export { AppRoutesEnum, RoutePath, routeConfig } from './routeConfig';
+export * from './routeConfig';

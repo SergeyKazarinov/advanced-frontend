@@ -2,8 +2,10 @@
   "": "",
   "About": "About",
   "About site": "About site",
+  "An error occurred while loading the page": "An error occurred while loading the page",
   "An error occurred while loading the profile": "An error occurred while loading the profile",
   "An unexpected error has occurred": "An unexpected error has occurred",
+  "Article not found": "Article not found",
   "Authorization": "Authorization",
   "Cancel": "Cancel",
   "Decrement": "Decrement",
@@ -21,6 +23,7 @@
   "Main": "Main",
   "Main page": "Main page",
   "No data": "No data",
+  "Not Found": "Not Found",
   "Page not found": "Page not found",
   "Profile": "Profile",
   "Profile Page": "Profile Page",
@@ -40,5 +43,6 @@
   "Your name": "Your name",
   "Your username": "Your username",
   "Попробуйте обновить страницу": "Попробуйте обновить страницу",
-  "Произошла ошибка при загрузке профиля": "Произошла ошибка при загрузке профиля"
+  "Произошла ошибка при загрузке профиля": "Произошла ошибка при загрузке профиля",
+  "Произошла ошибка при загрузке страницы": "Произошла ошибка при загрузке страницы"
 }

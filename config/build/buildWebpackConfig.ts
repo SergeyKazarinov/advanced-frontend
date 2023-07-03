@@ -15,6 +15,7 @@ export const buildWebpackConfig = (options: IBuildOptions): Configuration => {
       path: paths!.build,
       filename: '[name].[contenthash].js', // contenthash - решает проблему хэширования
       clean: true,
+      publicPath: '/',
     },
     plugins: buildPlugins(options),
     module: {

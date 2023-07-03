@@ -1,3 +1,4 @@
+import { IArticleDetailsSchema } from '@entities/Article';
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
@@ -15,6 +16,7 @@ export interface IStateSchema {
   // async reducers
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;
+  articleDetails?: IArticleDetailsSchema;
 }
 
 export type TStateSchemaKey = keyof IStateSchema;

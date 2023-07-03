@@ -44,5 +44,5 @@ export interface IArticle {
   views: number;
   createdAt: string;
   type: string[];
-  block: TArticleBlock[];
+  blocks: TArticleBlock[];
 }

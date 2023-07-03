@@ -1,1 +1,3 @@
-export { default as TextComponent, TextThemeEnum, TextAlignEnum } from './TextComponent';
+export {
+  default as TextComponent, TextThemeEnum, TextAlignEnum, TextSizeEnum,
+} from './TextComponent';

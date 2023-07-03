@@ -1,11 +1,16 @@
-import { FC, memo, useEffect } from 'react';
+import {
+  FC, memo, useCallback, useEffect,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
 import { classNames } from 'shared/lib/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { TextComponent } from 'shared/ui/TextComponent';
+import { TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
 import { Skeleton } from 'shared/ui/Skeleton';
+import { Avatar } from 'shared/ui/Avatar';
+import { AiFillEye } from 'react-icons/ai';
+import { ImCalendar } from 'react-icons/im';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import {
@@ -14,6 +19,10 @@ import {
 import fetchArticleById from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import s from './ArticleDetails.module.scss';
+import { ArticleBlockTypeEnum, TArticleBlock } from '../../model/types/article';
+import ArticleCodeBlock from '../ArticleCodeBlock/ArticleCodeBlock';
+import ArticleImageBlock from '../ArticleImageBlock/ArticleImageBlock';
+import ArticleTextBlock from '../ArticleTextBlock/ArticleTextBlock';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -28,8 +37,21 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
-  const data = useSelector(getArticleDetailsData);
+  const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
+
+  const renderBlock = useCallback((block: TArticleBlock) => {
+    switch (block.type) {
+      case ArticleBlockTypeEnum.CODE:
+        return <ArticleCodeBlock key={block.id} className={s.block} block={block} />;
+      case ArticleBlockTypeEnum.IMAGE:
+        return <ArticleImageBlock key={block.id} className={s.block} block={block} />;
+      case ArticleBlockTypeEnum.TEXT:
+        return <ArticleTextBlock key={block.id} className={s.block} block={block} />;
+      default:
+        return null;
+    }
+  }, []);
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
@@ -39,7 +61,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
 
   let content;
 
-  if (!isLoading) {
+  if (isLoading) {
     content = (
       <div>
         <Skeleton className={s.avatar} width={200} height={200} border="50%" />
@@ -54,7 +76,33 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
     );
   } else {
     content = (
-      <div>{t('ArticleDetails')}</div>
+      <>
+        <div className={s.avatarWrapper}>
+          <Avatar
+            size={200}
+            src={article?.img}
+            className={s.avatar}
+          />
+        </div>
+        <TextComponent
+          title={article?.title}
+          text={article?.subtitle}
+          size={TextSizeEnum.L}
+        />
+        <div className={s.articleInfo}>
+          <AiFillEye />
+          <TextComponent
+            text={String(article?.views)}
+          />
+        </div>
+        <div className={s.articleInfo}>
+          <ImCalendar />
+          <TextComponent
+            text={article?.createdAt}
+          />
+        </div>
+        {article?.blocks.map(renderBlock)}
+      </>
     );
   }
 

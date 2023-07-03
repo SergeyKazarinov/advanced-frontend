@@ -1,4 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { IUser } from '@entities/User';
+import { USER_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
 import { ILoginSchema } from '../types/loginSchema';
 import loginByUsername from '../services/loginByUsername/loginByUsername';
 
@@ -25,8 +27,9 @@ const loginSlice = createSlice({
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(loginByUsername.fulfilled, (state, action) => {
+      .addCase(loginByUsername.fulfilled, (state, action: PayloadAction<IUser>) => {
         state.isLoading = false;
+        localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(action.payload));
       })
       .addCase(loginByUsername.rejected, (state, action) => {
         state.isLoading = false;

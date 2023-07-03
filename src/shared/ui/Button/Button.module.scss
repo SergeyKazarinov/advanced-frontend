@@ -2,6 +2,11 @@
   cursor: pointer;
   color: var(--primary-color);
   padding: 10px 15px;
+  transition: 0.3s;
+  
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 .clear {
@@ -78,4 +83,8 @@
 .disabled {
   opacity: 0.5;
   cursor: auto;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }

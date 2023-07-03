@@ -29,7 +29,7 @@ server.post('/login', (req, res) => {
   if (!userFromBd) {
     return res.status(403).json({ message: 'Auth Error' });
   }
-  console.log(userFromBd);
+
   return res.json(userFromBd);
 });
 
@@ -47,3 +47,10 @@ server.use(router);
 server.listen(8000, () => {
   console.log('server is running on 8000 port');
 });
+
+const v8 = require('v8');
+
+const heapStatistics = v8.getHeapStatistics();
+const heapLimitInMB = heapStatistics.heap_size_limit / (1024 * 1024);
+
+console.log('Текущий предел памяти для JavaScript-кучи:', heapLimitInMB, 'МБ');

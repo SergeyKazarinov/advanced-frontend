@@ -9,7 +9,7 @@ interface ArticlesPageProps {
 const ArticlesPage: FC<ArticlesPageProps> = () => {
   const { t } = useTranslation('article');
   return (
-    <div />
+    <div className={s.articlePage} />
   );
 };
 

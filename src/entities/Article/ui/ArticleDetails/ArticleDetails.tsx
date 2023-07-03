@@ -11,6 +11,7 @@ import { Skeleton } from 'shared/ui/Skeleton';
 import { Avatar } from 'shared/ui/Avatar';
 import { AiFillEye } from 'react-icons/ai';
 import { ImCalendar } from 'react-icons/im';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import {
@@ -53,11 +54,9 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
     }
   }, []);
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    dispatch(fetchArticleById(id));
+  });
 
   let content;
 

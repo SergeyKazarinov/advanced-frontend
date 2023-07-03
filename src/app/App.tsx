@@ -15,16 +15,22 @@ const App = () => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
 
+  if (!isLoadPage) {
+    return null;
+  }
+
   return (
-    <div className={classNames('app', {}, [])}>
-      <Suspense fallback="loading">
-        <Navbar />
-        <div className="content-page">
-          <Sidebar />
-          {isLoadPage && <AppRouter />}
-        </div>
-      </Suspense>
-    </div>
+    isLoadPage && (
+      <div className={classNames('app', {}, [])}>
+        <Suspense fallback="loading">
+          <Navbar />
+          <div className="content-page">
+            <Sidebar />
+            <AppRouter />
+          </div>
+        </Suspense>
+      </div>
+    )
   );
 };
 

@@ -7,6 +7,7 @@ import { ICounterSchema } from 'entities/Counter';
 import { IProfileSchema } from 'entities/Profile';
 import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/AuthByUsername';
+import { IArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { NavigateOptions, To } from 'react-router-dom';
 
 export interface IStateSchema {
@@ -17,6 +18,7 @@ export interface IStateSchema {
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;
   articleDetails?: IArticleDetailsSchema;
+  articleDetailsComments?: IArticleDetailsCommentSchema;
 }
 
 export type TStateSchemaKey = keyof IStateSchema;

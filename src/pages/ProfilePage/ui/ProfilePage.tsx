@@ -12,11 +12,12 @@ import {
   profileActions,
   profileReducer,
 } from '@entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
@@ -42,11 +43,9 @@ const ProfilePage = () => {
     [ValidateProfileErrorEnum.NO_DATA]: t('No data'),
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  useInitialEffect(() => {
+    dispatch(fetchProfileData());
+  });
 
   const onChangeName = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ name: value || '' }));

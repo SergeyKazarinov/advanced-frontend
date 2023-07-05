@@ -15,6 +15,7 @@ const fetchCommentsByArticleId = createAsyncThunk<IComment[], string | undefined
           _expand: 'user',
         },
       });
+
       if (!response.data) {
         throw new Error();
       }

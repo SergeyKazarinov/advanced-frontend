@@ -19,6 +19,7 @@ import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoade
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
+import { useParams } from 'react-router-dom';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: TReducerList = {
@@ -27,6 +28,7 @@ const reducers: TReducerList = {
 
 const ProfilePage = () => {
   const { t } = useTranslation('profile');
+  const { profileId } = useParams<{ profileId: string }>();
   const dispatch = useAppDispatch();
   const form = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
@@ -44,7 +46,9 @@ const ProfilePage = () => {
   };
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData());
+    if (profileId) {
+      dispatch(fetchProfileData(profileId));
+    }
   });
 
   const onChangeName = useCallback((value?: string) => {

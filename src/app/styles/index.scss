@@ -4,14 +4,16 @@
 @import 'themes/dark';
 @import 'themes/pure';
 
-body, .stories {
+body, .stories, {
   font: var(--font-m);
   color: var(--primary-color);
   background: var(--bg-color);
+
 }
 
 .app {
   min-height: 100vh;
+  background: var(--bg-color);
 }
 
 .content-page {
@@ -23,7 +25,7 @@ body, .stories {
   padding: 20px 20px 20px 45px;
   height: calc(100vh - var(--navbar-height));
   overflow-y: auto;
-  width: 100%;
+  flex-shrink: 100;
 }
 
 :root {

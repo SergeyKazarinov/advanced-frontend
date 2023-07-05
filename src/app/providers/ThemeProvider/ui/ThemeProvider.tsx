@@ -7,7 +7,7 @@ import {
   ThemeEnum,
 } from 'app/providers/ThemeProvider/lib/ThemeContext';
 
-const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeEnum || ThemeEnum.LIGHT;
+const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeEnum || ThemeEnum.DARK;
 
 interface ThemeProviderProps {
   children?: ReactNode;

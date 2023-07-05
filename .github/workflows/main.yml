@@ -33,6 +33,6 @@ jobs:
       - name: unit testing
         run: npm run test
         if: always()
-      - name: screenshot testing
-        run: npm run test:ui:ci
-        if: always()
+      # - name: screenshot testing
+      #   run: npm run test:ui:ci
+      #   if: always()

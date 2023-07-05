@@ -24,7 +24,7 @@ export const Primary: Story = {
   },
 };
 
-export const PrimaryWIthLabel: Story = {
+export const PrimaryWithLabel: Story = {
   args: {
     label: 'label',
   },

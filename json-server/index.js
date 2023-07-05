@@ -12,7 +12,7 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
 server.use(async (req, res, next) => {
   await new Promise(((res) => {
-    setTimeout(res, 8000);
+    setTimeout(res, 1000);
   }));
   next();
 });
@@ -47,10 +47,3 @@ server.use(router);
 server.listen(8000, () => {
   console.log('server is running on 8000 port');
 });
-
-const v8 = require('v8');
-
-const heapStatistics = v8.getHeapStatistics();
-const heapLimitInMB = heapStatistics.heap_size_limit / (1024 * 1024);
-
-console.log('Текущий предел памяти для JavaScript-кучи:', heapLimitInMB, 'МБ');

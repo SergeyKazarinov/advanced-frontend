@@ -3,5 +3,7 @@
   "An error occurred while loading the page": "Произошла ошибка при загрузке страницы",
   "article.ArticleDetails": "Детали Статьи",
   "Comments": "Комментарии",
-  "No comments": "Коментарии отсутствуют"
+  "No comments": "Коментарии отсутствуют",
+  "Enter message text": "Введите текст сообщения",
+  "Send": "Отправить"
 }

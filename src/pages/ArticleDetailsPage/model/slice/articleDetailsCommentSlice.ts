@@ -1,4 +1,3 @@
-import { IArticle } from '@entities/Article';
 import { IComment } from '@entities/Comment';
 import {
   PayloadAction,

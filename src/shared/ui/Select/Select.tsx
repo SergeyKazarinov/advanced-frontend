@@ -40,7 +40,7 @@ const Select: FC<SelectProps> = ({
 
   return (
     <div className={classNames(s.select, mods, [className])}>
-      {label && <span className={classNames(s.selectElement, { [s.disabled]: readonly }, [])}>{`${label} >  `}</span>}
+      {label && <span className={classNames(s.label, { [s.disabled]: readonly }, [])}>{`${label} >  `}</span>}
       <select
         className={s.selectElement}
         value={value}

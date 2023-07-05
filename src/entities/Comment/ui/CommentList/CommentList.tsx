@@ -14,6 +14,17 @@ interface CommentListProps {
 
 const CommentList: FC<CommentListProps> = ({ className, comments, isLoading }) => {
   const { t } = useTranslation('article');
+
+  if (isLoading) {
+    return (
+      <div className={(classNames(s.commentList, {}, [className]))}>
+        <CommentItem isLoading />
+        <CommentItem isLoading />
+        <CommentItem isLoading />
+      </div>
+    );
+  }
+
   return (
     <div className={(classNames(s.commentList, {}, [className]))}>
       {(comments?.length)

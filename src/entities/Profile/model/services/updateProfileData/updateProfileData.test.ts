@@ -1,10 +1,11 @@
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
 import { ValidateProfileErrorEnum } from '../../types/profile';
 import updateProfileData from './updateProfileData';
 
 const data = {
+  id: '1',
   name: 'Name',
   lastName: 'LastName',
   age: 22,

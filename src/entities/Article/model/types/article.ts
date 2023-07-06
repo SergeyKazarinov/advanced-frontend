@@ -1,3 +1,5 @@
+import { IUser } from '@entities/User';
+
 export enum ArticleTypeEnum {
   IT = 'IT',
   SCIENCE = 'SCIENCE',
@@ -10,6 +12,11 @@ export enum ArticleBlockTypeEnum {
   IMAGE = 'IMAGE',
   TEXT = 'TEXT',
 
+}
+
+export enum ArticleViewEnum {
+  BIG = 'BIG',
+  SMALL = 'SMALL'
 }
 
 export interface IArticleBlockBase {
@@ -38,6 +45,7 @@ export type TArticleBlock = IArticleCodeBlock | IArticleImageBlock | IArticleTex
 
 export interface IArticle {
   id: string;
+  user: IUser;
   title: string;
   subtitle: string;
   img: string;

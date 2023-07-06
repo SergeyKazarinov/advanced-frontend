@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
-import { ISidebarItem } from 'widgets/Sidebar/model/items';
+import { ISidebarItem } from 'widgets/Sidebar/model/types/sidebar';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@entities/User';
 import { AppLink, AppLinkThemeEnum } from 'shared/ui/AppLink';

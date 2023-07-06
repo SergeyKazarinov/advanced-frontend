@@ -6,7 +6,7 @@ const fetchCommentsByArticleId = createAsyncThunk<IComment[], string | undefined
   'articleDetailsPage/fetchCommentsByArticleId',
   async (articleId, thunkAPI) => {
     if (!articleId) {
-      return thunkAPI.rejectWithValue('error');
+      return thunkAPI.rejectWithValue('no articleId');
     }
     try {
       const response = await thunkAPI.extra.api.get<IComment[]>('/comments', {

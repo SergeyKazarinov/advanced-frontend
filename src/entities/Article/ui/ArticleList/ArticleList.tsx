@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import s from './ArticleList.module.scss';
 import { ArticleViewEnum, IArticle } from '../../model/types/article';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
+import ArticleListItemSkeleton from '../ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {
   className?: string;
@@ -23,6 +24,23 @@ const ArticleList: FC<ArticleListProps> = ({
   const renderArticle = (article: IArticle) => (
     <ArticleListItem key={article.id} view={view} article={article} className={s.card} />
   );
+
+  const getSkeletons = (view: ArticleViewEnum) => (
+    new Array(view === ArticleViewEnum.SMALL ? 9 : 3)
+      .fill(0)
+      .map((item, index) => (
+        // eslint-disable-next-line
+        <ArticleListItemSkeleton key={index} view={view} />
+      ))
+  );
+
+  if (isLoading) {
+    return (
+      <div className={classNames(s.articleList, {}, [className, s[view]])}>
+        {getSkeletons(view)}
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(s.articleList, {}, [className, s[view]])}>

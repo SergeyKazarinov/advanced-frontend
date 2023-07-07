@@ -1,7 +1,7 @@
+import { ArticleViewEnum } from '@entities/Article/model/types/article';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { StoreDecorator, ThemeDecorator } from 'shared/config/storybook';
-import { ArticleBlockTypeEnum, ArticleViewEnum } from '@entities/Article/model/types/article';
+import { ThemeDecorator } from 'shared/config/storybook';
 import { ARTICLE } from '../../utils/article';
 import ArticleList from './ArticleList';
 

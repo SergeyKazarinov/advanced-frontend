@@ -13,18 +13,6 @@ const addCommentFormSlice = createSlice({
       state.text = action.payload;
     },
   },
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(loginByUsername.pending, (state) => {
-  //       state.error = undefined;
-  //     })
-  //     .addCase(loginByUsername.fulfilled, (state, action: PayloadAction<IAddCommentFormSchema>) => {
-  //       localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(action.payload));
-  //     })
-  //     .addCase(loginByUsername.rejected, (state, action) => {
-  //       state.error = action.payload;
-  //     });
-  // },
 });
 
 export const addCommentFormActions = addCommentFormSlice.actions;

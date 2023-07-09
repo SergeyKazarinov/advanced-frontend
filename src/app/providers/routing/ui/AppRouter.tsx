@@ -12,9 +12,7 @@ const AppRouter: FC = () => {
   const isAuth = useSelector(getUserAuthData);
 
   const renderWithWrapper = (route: AppRoutesProps) => {
-    const element = (
-      <div className="page-wrapper">{route.element}</div>
-    );
+    const { element } = route;
     return (
       <Route
         key={route.path}

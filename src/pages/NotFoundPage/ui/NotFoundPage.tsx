@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
+import { Page } from 'shared/ui/Page';
 import s from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {
@@ -10,9 +11,9 @@ interface NotFoundPageProps {
 const NotFoundPage: FC<NotFoundPageProps> = ({ className }) => {
   const { t } = useTranslation('not-found');
   return (
-    <div className={classNames(s.notFoundPage, {}, [className])}>
+    <Page className={classNames(s.notFoundPage, {}, [className])}>
       {t('Page not found')}
-    </div>
+    </Page>
   );
 };
 

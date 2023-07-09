@@ -33,7 +33,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
 
   if (userAuthData) {
     return (
-      <div className={classNames(s.navbar, {}, [className])}>
+      <header className={classNames(s.navbar, {}, [className])}>
         <Button
           theme={ThemeButtonEnum.BACKGROUND}
           className={s.links}
@@ -41,11 +41,11 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
         >
           {t('Logout')}
         </Button>
-      </div>
+      </header>
     );
   }
   return (
-    <div className={classNames(s.navbar, {}, [className])}>
+    <header className={classNames(s.navbar, {}, [className])}>
       <Button
         theme={ThemeButtonEnum.BACKGROUND}
         className={s.links}
@@ -54,7 +54,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
         {t('Sign In')}
       </Button>
       {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
-    </div>
+    </header>
   );
 };
 

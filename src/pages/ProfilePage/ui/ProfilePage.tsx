@@ -20,6 +20,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: TReducerList = {
@@ -85,24 +86,26 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <ProfilePageHeader />
-      {validateErrors?.length && validateErrors.map((err) => (
-        <TextComponent key={err} theme={TextThemeEnum.ERROR} text={validateErrorTranslates[err]} />
-      ))}
-      <ProfileCard
-        data={form}
-        error={error}
-        isLoading={isLoading}
-        onChangeName={onChangeName}
-        onChangeLastName={onChangeLastName}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeUsername={onChangeUsername}
-        onChangeAvatar={onChangeAvatar}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-        readonly={readonly}
-      />
+      <Page>
+        <ProfilePageHeader />
+        {validateErrors?.length && validateErrors.map((err) => (
+          <TextComponent key={err} theme={TextThemeEnum.ERROR} text={validateErrorTranslates[err]} />
+        ))}
+        <ProfileCard
+          data={form}
+          error={error}
+          isLoading={isLoading}
+          onChangeName={onChangeName}
+          onChangeLastName={onChangeLastName}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeUsername={onChangeUsername}
+          onChangeAvatar={onChangeAvatar}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+          readonly={readonly}
+        />
+      </Page>
     </DynamicModuleLoader>
   );
 };

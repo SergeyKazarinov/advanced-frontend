@@ -10,6 +10,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { TextComponent } from 'shared/ui/TextComponent';
 import { Button } from 'shared/ui/Button';
+import { Page } from 'shared/ui/Page';
 import addCommentForArticle from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import fetchCommentsByArticleId from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -49,7 +50,7 @@ const ArticleDetailsPage: FC = () => {
   }
   return (
     <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
-      <div className={s.articleDetailsPage}>
+      <Page className={s.articleDetailsPage}>
         <Button
           onClick={handleBack}
         >
@@ -59,7 +60,7 @@ const ArticleDetailsPage: FC = () => {
         <TextComponent title={t('Comments')} className={s.commentTitle} />
         <AddCommentForm onSendComment={handleSendComment} />
         <CommentList comments={comments} isLoading={isLoading} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

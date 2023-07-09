@@ -33,7 +33,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
   ), [collapsed, sidebarItemsList]);
 
   return (
-    <div
+    <menu
       data-testid="sidebar"
       className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [className])}
     >
@@ -57,7 +57,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
         <ThemeSwitcher />
         <LangSwitcher className={s.lang} short={collapsed} />
       </div>
-    </div>
+    </menu>
   );
 };
 

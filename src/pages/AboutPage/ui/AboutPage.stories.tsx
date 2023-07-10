@@ -1,12 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
 import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecoratorWithFullHeight';
+import { StoreDecorator } from 'shared/config/storybook';
 import AboutPage from './AboutPage';
 
 const meta = {
   title: 'pages/AboutPage',
   component: AboutPage,
   tags: ['autodocs'],
+  decorators: [
+    StoreDecorator({ scroll: { scroll: {} } }),
+  ],
 } satisfies Meta<typeof AboutPage>;
 
 export default meta;

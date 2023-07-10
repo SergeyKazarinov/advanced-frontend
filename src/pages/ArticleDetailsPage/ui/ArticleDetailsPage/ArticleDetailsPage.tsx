@@ -10,7 +10,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { TextComponent } from 'shared/ui/TextComponent';
 import { Button } from 'shared/ui/Button';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import addCommentForArticle from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import fetchCommentsByArticleId from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

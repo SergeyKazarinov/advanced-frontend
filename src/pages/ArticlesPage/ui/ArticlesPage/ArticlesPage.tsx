@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
 import { getArticlePageError } from '../../model/selectors/getArticlePageError/getArticlePageError';
 import { getArticlePageIsLoading } from '../../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';

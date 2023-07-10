@@ -10,7 +10,6 @@ import { ILoginSchema } from 'features/AuthByUsername';
 import { IAddCommentFormSchema } from 'features/addComment';
 import { IArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { IArticlePageSchema } from 'pages/ArticlesPage';
-import { NavigateOptions, To } from 'react-router-dom';
 
 export interface IStateSchema {
   counter: ICounterSchema;
@@ -27,20 +26,23 @@ export interface IStateSchema {
 
 export type TStateSchemaKey = keyof IStateSchema;
 
+export type TMountedReducers = OptionalRecord<TStateSchemaKey, boolean>;
+
 export interface IReducerManager {
   getReducerMap: () => ReducersMapObject<IStateSchema>;
   reduce: (state: IStateSchema, action: AnyAction) => CombinedState<IStateSchema>;
   add: (key: TStateSchemaKey, reducer: Reducer) => void;
   remove: (key: TStateSchemaKey) => void;
+  // true - редюсер монтирован, fasle редюсер не монтирован
+  getMountedReducers: () => TMountedReducers
 }
 
 export interface IReduxStoreWithManager extends EnhancedStore<IStateSchema> {
-  reducerManager?: IReducerManager;
+  reducerManager: IReducerManager;
 }
 
 export interface IThunkExtraArg {
   api: AxiosInstance;
-  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface IThunkConfig<T> {

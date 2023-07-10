@@ -10,6 +10,7 @@ const data: DeepPartial<IArticlePageSchema> = {
   view: ArticleViewEnum.SMALL,
   ids: [],
   entities: {},
+  inited: false,
 };
 
 describe('articlePageSlice', () => {
@@ -25,7 +26,9 @@ describe('articlePageSlice', () => {
     expect(articlePageReducer(
       state as IArticlePageSchema,
       articlePageActions.initState(),
-    )).toEqual({ ...data, view: localStorage.getItem(ARTICLE_VIEW_LOCAL_STORAGE_KEY), limit: 4 });
+    )).toEqual({
+      ...data, view: localStorage.getItem(ARTICLE_VIEW_LOCAL_STORAGE_KEY), limit: 4, inited: true,
+    });
   });
 
   test('fetchArticleList service pending', () => {

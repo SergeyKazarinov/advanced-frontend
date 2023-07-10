@@ -8,7 +8,7 @@ interface fetchArticleListProps {
 }
 
 const fetchArticleList = createAsyncThunk<IArticle[], fetchArticleListProps, IThunkConfig<string>>(
-  'articleDetailsPage/fetchArticleList',
+  'articlesPage/fetchArticleList',
   async ({ page = 1 }, thunkAPI) => {
     const limit = getArticlePageLimit(thunkAPI.getState());
     try {

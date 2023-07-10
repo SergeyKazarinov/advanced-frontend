@@ -1,17 +1,15 @@
+import { counterReducer } from '@entities/Counter';
+import { userReducer } from '@entities/User';
 import {
   CombinedState, Reducer, ReducersMapObject, configureStore,
 } from '@reduxjs/toolkit';
 import { $api } from 'shared/api/api';
-import { To, NavigateOptions } from 'react-router-dom';
-import { counterReducer } from '@entities/Counter';
-import { userReducer } from '@entities/User';
 import { IStateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
 export const createReduxStore = (
   initialState?: IStateSchema,
   asyncReducers?: ReducersMapObject<IStateSchema>,
-  navigate?: (to: To, options?: NavigateOptions) => void,
 ) => {
   const rootReducers: ReducersMapObject<IStateSchema> = {
     ...asyncReducers,
@@ -29,7 +27,6 @@ export const createReduxStore = (
       thunk: {
         extraArgument: {
           api: $api,
-          navigate,
         },
       },
     }),

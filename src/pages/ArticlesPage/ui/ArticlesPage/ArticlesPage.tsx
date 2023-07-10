@@ -2,8 +2,8 @@ import {
   ArticleList, ArticleViewEnum,
 } from '@entities/Article';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import fetchArticleList from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList';
 import fetchNextArticlesPage from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import initArticlesPage from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
@@ -33,10 +33,7 @@ const ArticlesPage: FC = () => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlePageActions.initState());
-    dispatch(fetchArticleList({
-      page: 1,
-    }));
+    dispatch(initArticlesPage());
   });
 
   const handleChangeView = useCallback((newView: ArticleViewEnum) => {
@@ -48,7 +45,7 @@ const ArticlesPage: FC = () => {
   }
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page className={s.articlePage} onScrollEnd={handleLoadNextPart}>
         <ArticleViewSelector view={view} onViewClick={handleChangeView} />
         <ArticleList

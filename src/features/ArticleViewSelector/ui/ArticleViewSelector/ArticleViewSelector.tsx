@@ -34,6 +34,7 @@ const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({ className, view, on
     <div className={classNames(s.articleViewSelector, {}, [className])}>
       {viewTypes.map((viewType) => (
         <Button
+          key={viewType.view}
           theme={ThemeButtonEnum.CLEAR}
           onClick={handleClick(viewType.view)}
           className={classNames('', { [s.viewSelected]: viewType.view === view })}

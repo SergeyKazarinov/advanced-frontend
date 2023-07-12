@@ -5,7 +5,7 @@ import { ARTICLE } from '../../utils/article';
 import ArticleDetails from './ArticleDetails';
 
 const meta = {
-  title: 'entities/ArticlesDetails',
+  title: 'entities/article/ArticlesDetails',
   component: ArticleDetails,
   tags: ['autodocs'],
   args: {

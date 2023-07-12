@@ -7,7 +7,7 @@ import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecor
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const meta = {
-  title: 'pages/ArticlesDetailsPage',
+  title: 'pages/articles/ArticlesDetailsPage',
   component: ArticleDetailsPage,
   tags: ['autodocs'],
   decorators: [
@@ -21,7 +21,6 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
 export const Light: Story = {
   args: {},
   decorators: [

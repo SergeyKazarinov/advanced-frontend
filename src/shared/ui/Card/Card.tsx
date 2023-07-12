@@ -4,13 +4,22 @@ import {
 import { classNames } from 'shared/lib/classNames';
 import s from './Card.module.scss';
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  className?: string;
-  children: ReactNode
+export enum CardThemeEnum {
+  NORMAL = 'normal',
+  OUTLINE = 'outline',
+
 }
 
-const Card: FC<CardProps> = ({ className, children, ...otherProps }) => (
-  <div className={classNames(s.card, {}, [className])} {...otherProps}>
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  className?: string;
+  children: ReactNode;
+  theme?: CardThemeEnum
+}
+
+const Card: FC<CardProps> = ({
+  className, children, theme = CardThemeEnum.NORMAL, ...otherProps
+}) => (
+  <div className={classNames(s.card, {}, [className, s[theme]])} {...otherProps}>
     {children}
   </div>
 );

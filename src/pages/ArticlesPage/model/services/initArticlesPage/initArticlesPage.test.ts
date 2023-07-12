@@ -10,7 +10,7 @@ describe('initArticlesPage', () => {
       },
     });
     thunk.api.get.mockReturnValue(Promise.resolve({ view: ArticleViewEnum.BIG, limit: 4, inited: true }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(new URLSearchParams());
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4);
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -23,7 +23,7 @@ describe('initArticlesPage', () => {
       },
     });
     thunk.api.get.mockReturnValue(Promise.resolve({ view: ArticleViewEnum.BIG, limit: 4, inited: true }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(new URLSearchParams());
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(result.meta.requestStatus).toBe('fulfilled');

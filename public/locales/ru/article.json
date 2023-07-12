@@ -7,5 +7,18 @@
   "Enter message text": "Введите текст сообщения",
   "Send": "Отправить",
   "Read more": "Читать далее...",
-  "Back": "Назад"
+  "Back": "Назад",
+  "Serach": "Поиск",
+  "Sort by": "Сортировать по",
+  "By": "По",
+  "ascending": "возрастанию",
+  "descending": "убыванию",
+  "date of creation": "дате создания",
+  "name": "названию",
+  "views": "просмотрам",
+  "IT": "IT",
+  "All": "Все",
+  "Economics": "Экономика",
+  "Science": "Наука",
+  "Articles not found": "Статьи не найдены"
 }

@@ -15,9 +15,7 @@ const fetchNextArticlesPage = createAsyncThunk<void, void, IThunkConfig<string>>
 
     if (hasMore && !isLoading) {
       thunkAPI.dispatch(articlePageActions.setPage(page + 1));
-      thunkAPI.dispatch(fetchArticleList({
-        page: page + 1,
-      }));
+      thunkAPI.dispatch(fetchArticleList({}));
     }
   },
 );

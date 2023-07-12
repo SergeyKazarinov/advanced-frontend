@@ -15,7 +15,7 @@ describe('fetchArticleList', () => {
       },
     });
     thunk.api.get.mockReturnValue(Promise.resolve({ data: [ARTICLE] }));
-    const result = await thunk.callThunk({ page: 2 });
+    const result = await thunk.callThunk({});
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
@@ -26,7 +26,7 @@ describe('fetchArticleList', () => {
   test('rejected fetchArticleList', async () => {
     const thunk = new TestAsyncThunk(fetchArticleList);
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk({ page: 2 });
+    const result = await thunk.callThunk({});
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(result.meta.requestStatus).toBe('rejected');

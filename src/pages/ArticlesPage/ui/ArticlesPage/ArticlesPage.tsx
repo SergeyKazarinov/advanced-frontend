@@ -1,20 +1,21 @@
 import {
-  ArticleList, ArticleViewEnum,
+  ArticleList,
 } from '@entities/Article';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import fetchNextArticlesPage from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import initArticlesPage from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Page } from 'widgets/Page';
 import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
+import { Page } from 'widgets/Page';
 import { getArticlePageError } from '../../model/selectors/getArticlePageError/getArticlePageError';
 import { getArticlePageIsLoading } from '../../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';
 import { getArticlePageView } from '../../model/selectors/getArticlePageView/getArticlePageView';
-import { articlePageActions, articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
+import { articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
+import ArticlesPageFilter from '../ArticlesPageFilter/ArticlesPageFilter';
 import s from './ArticlesPage.module.scss';
 
 const reducers: TReducerList = {
@@ -27,18 +28,15 @@ const ArticlesPage: FC = () => {
   const isLoading = useSelector(getArticlePageIsLoading);
   const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
+  const [searchParams] = useSearchParams();
 
   const handleLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
-
-  const handleChangeView = useCallback((newView: ArticleViewEnum) => {
-    dispatch(articlePageActions.setView(newView));
-  }, [dispatch]);
 
   if (error) {
     return <TextComponent text={error} theme={TextThemeEnum.ERROR} />;
@@ -47,11 +45,12 @@ const ArticlesPage: FC = () => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page className={s.articlePage} onScrollEnd={handleLoadNextPart}>
-        <ArticleViewSelector view={view} onViewClick={handleChangeView} />
+        <ArticlesPageFilter />
         <ArticleList
           isLoading={isLoading}
           articles={articles}
           view={view}
+          className={s.list}
         />
       </Page>
     </DynamicModuleLoader>

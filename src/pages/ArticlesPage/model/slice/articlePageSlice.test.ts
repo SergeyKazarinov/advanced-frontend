@@ -1,4 +1,6 @@
-import { ArticleViewEnum } from '@entities/Article';
+import {
+  ARTICLE, ArticleSortFieldEnum, ArticleTypeEnum, ArticleViewEnum,
+} from '@entities/Article';
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
 import fetchArticleList from '../services/fetchArticleList/fetchArticleList';
 import { IArticlePageSchema } from '../types/articlePageSchema';
@@ -9,8 +11,15 @@ const data: DeepPartial<IArticlePageSchema> = {
   error: undefined,
   view: ArticleViewEnum.SMALL,
   ids: [],
-  entities: {},
+  entities: { 1: ARTICLE },
   inited: false,
+  page: 1,
+  order: 'asc',
+  sort: ArticleSortFieldEnum.CREATED,
+  search: 'search',
+  type: ArticleTypeEnum.ALL,
+  hasMore: true,
+  limit: 5,
 };
 
 describe('articlePageSlice', () => {
@@ -20,6 +29,41 @@ describe('articlePageSlice', () => {
       state as IArticlePageSchema,
       articlePageActions.setView(ArticleViewEnum.BIG),
     )).toEqual({ ...data, view: ArticleViewEnum.BIG });
+  });
+
+  test('setPage reducer', () => {
+    expect(articlePageReducer(
+      state as IArticlePageSchema,
+      articlePageActions.setPage(2),
+    )).toEqual({ ...data, page: 2 });
+  });
+
+  test('setOrder reducer', () => {
+    expect(articlePageReducer(
+      state as IArticlePageSchema,
+      articlePageActions.setOrder('desc'),
+    )).toEqual({ ...data, order: 'desc' });
+  });
+
+  test('setSort reducer', () => {
+    expect(articlePageReducer(
+      state as IArticlePageSchema,
+      articlePageActions.setSort(ArticleSortFieldEnum.TITLE),
+    )).toEqual({ ...data, sort: ArticleSortFieldEnum.TITLE });
+  });
+
+  test('setSearch reducer', () => {
+    expect(articlePageReducer(
+      state as IArticlePageSchema,
+      articlePageActions.setSearch('search'),
+    )).toEqual({ ...data, search: 'search' });
+  });
+
+  test('setType reducer', () => {
+    expect(articlePageReducer(
+      state as IArticlePageSchema,
+      articlePageActions.setType(ArticleTypeEnum.ECONOMICS),
+    )).toEqual({ ...data, type: ArticleTypeEnum.ECONOMICS });
   });
 
   test('initState reducer', () => {
@@ -34,8 +78,8 @@ describe('articlePageSlice', () => {
   test('fetchArticleList service pending', () => {
     expect(articlePageReducer(
       state as IArticlePageSchema,
-      fetchArticleList.pending,
-    )).toEqual({ ...data, isLoading: true });
+      fetchArticleList.pending('', {}),
+    )).toEqual({ ...data, isLoading: true, error: undefined });
   });
 
   // test('fetchArticleList service fulfilled', () => {
@@ -45,12 +89,15 @@ describe('articlePageSlice', () => {
 
   //   expect(articlePageReducer(
   //     state as IArticlePageSchema,
-  //     fetchArticleList.fulfilled([ARTICLE], '', {}),
+  //     fetchArticleList.fulfilled([ARTICLE, ARTICLE], '', {}),
   //   )).toEqual({
   //     isLoading: false,
   //     error: undefined,
-  //     ids: ['1'],
-  //     entities: { 1: ARTICLE },
+  //     ids: ['1', '2'],
+  //     entities: {
+  //       1: ARTICLE,
+  //       2: ARTICLE,
+  //     },
   //   });
   // });
 

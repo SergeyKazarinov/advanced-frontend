@@ -6,7 +6,7 @@ import { ARTICLE, ArticleViewEnum } from '@entities/Article';
 import ArticlesPage from './ArticlesPage';
 
 const meta = {
-  title: 'pages/ArticlesPage',
+  title: 'pages/articles/ArticlesPage',
   component: ArticlesPage,
   tags: ['autodocs'],
   decorators: [

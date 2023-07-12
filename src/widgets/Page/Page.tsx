@@ -49,7 +49,7 @@ const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
       onScroll={handleScroll}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd && <div className={s.trigger} ref={triggerRef} />}
     </section>
   );
 };

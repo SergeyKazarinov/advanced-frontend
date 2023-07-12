@@ -8,7 +8,6 @@ const meta = {
   component: Skeleton,
   tags: ['autodocs'],
   decorators: [
-    // ThemeDecoratorWithFullHeight(ThemeEnum.PURE),
     ThemeDecorator(ThemeEnum.DARK),
   ],
 } satisfies Meta<typeof Skeleton>;

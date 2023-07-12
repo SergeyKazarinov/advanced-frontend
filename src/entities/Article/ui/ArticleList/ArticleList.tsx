@@ -1,6 +1,7 @@
 import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
+import { TextAlignEnum, TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
 import s from './ArticleList.module.scss';
 import { ArticleViewEnum, IArticle } from '../../model/types/article';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
@@ -19,7 +20,7 @@ const ArticleList: FC<ArticleListProps> = ({
   isLoading,
   view = ArticleViewEnum.SMALL,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('article');
 
   const renderArticle = (article: IArticle) => (
     <ArticleListItem key={article.id} view={view} article={article} className={s.card} />
@@ -33,6 +34,14 @@ const ArticleList: FC<ArticleListProps> = ({
         <ArticleListItemSkeleton key={index} view={view} />
       ))
   );
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames(s.articleList, {}, [className, s[view]])}>
+        <TextComponent size={TextSizeEnum.L} text={t('Articles not found')} align={TextAlignEnum.CENTER} />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(s.articleList, {}, [className, s[view]])}>

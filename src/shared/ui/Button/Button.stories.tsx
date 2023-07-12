@@ -6,6 +6,7 @@ import Button, { SizeButtonEnum, ThemeButtonEnum } from './Button';
 const meta = {
   title: 'shared/Button',
   component: Button,
+  argTypes: { onClick: { action: 'clicked' } },
   tags: ['autodocs'],
 } satisfies Meta<typeof Button>;
 

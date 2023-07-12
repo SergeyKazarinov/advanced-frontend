@@ -4,23 +4,23 @@ import {
 import { TMods, classNames } from 'shared/lib/classNames';
 import s from './Select.module.scss';
 
-export interface ISelectOption {
-  value: string;
+export interface ISelectOption<T extends string> {
+  value: T;
   content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string;
   label?: string;
-  options?: ISelectOption[];
-  value?: string;
-  onChange?: (value: string) => void;
+  options?: ISelectOption<T>[];
+  value?: T;
+  onChange?: (value: T) => void;
   readonly?: boolean;
 }
 
-const Select: FC<SelectProps> = ({
+const Select = <T extends string>({
   className, label, options, value, onChange, readonly,
-}) => {
+}: SelectProps<T>) => {
   const optionList = useMemo(() => options?.map((item) => (
     <option
       key={item.content}
@@ -35,7 +35,7 @@ const Select: FC<SelectProps> = ({
   };
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value);
+    onChange?.(e.target.value as T);
   };
 
   return (
@@ -53,4 +53,4 @@ const Select: FC<SelectProps> = ({
   );
 };
 
-export default memo(Select);
+export default Select;

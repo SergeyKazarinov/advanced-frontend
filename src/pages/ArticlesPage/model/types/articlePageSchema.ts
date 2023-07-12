@@ -1,5 +1,8 @@
-import { ArticleViewEnum, IArticle } from '@entities/Article';
+import {
+  ArticleSortFieldEnum, ArticleTypeEnum, ArticleViewEnum, IArticle,
+} from '@entities/Article';
 import { EntityState } from '@reduxjs/toolkit';
+import { TSortOrder } from 'shared/types';
 
 export interface IArticlePageSchema extends EntityState<IArticle> {
   isLoading?: boolean;
@@ -8,8 +11,13 @@ export interface IArticlePageSchema extends EntityState<IArticle> {
 
   // pagination
   page: number;
-  limit?: number;
+  limit: number;
   hasMore: boolean;
 
   inited: boolean;
+
+  order: TSortOrder;
+  sort: ArticleSortFieldEnum;
+  search: string;
+  type: ArticleTypeEnum;
 }

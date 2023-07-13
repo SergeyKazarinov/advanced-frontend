@@ -21,8 +21,7 @@ const reducers: TReducerList = {
 };
 
 const AddCommentForm: FC<AddCommentFormProps> = ({ className, onSendComment }) => {
-  // todo: add arg 'article'
-  const { t } = useTranslation();
+  const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const text = useSelector(getAddCommentFormText);
   const error = useSelector(getAddCommentFormError);

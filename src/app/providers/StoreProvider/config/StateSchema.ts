@@ -9,7 +9,7 @@ import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/AuthByUsername';
 import { IScrollSaveSchema } from 'features/ScrollSave';
 import { IAddCommentFormSchema } from 'features/addComment';
-import { IArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
+import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { IArticlePageSchema } from 'pages/ArticlesPage';
 
 export interface IStateSchema {
@@ -21,9 +21,9 @@ export interface IStateSchema {
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;
   articleDetails?: IArticleDetailsSchema;
-  articleDetailsComments?: IArticleDetailsCommentSchema;
   addCommentForm?: IAddCommentFormSchema;
   articlesPage?: IArticlePageSchema;
+  articleDetailsPage?: IArticleDetailsPageSchema
 }
 
 export type TStateSchemaKey = keyof IStateSchema;

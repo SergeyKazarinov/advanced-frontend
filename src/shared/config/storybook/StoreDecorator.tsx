@@ -4,7 +4,7 @@ import { StoryFn } from '@storybook/react';
 import { IStateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { addCommentFormReducer } from 'features/addComment/model/slice/addCommentFormSlice';
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentSlice';
+import { articleDetailsPageReducers } from 'pages/ArticleDetailsPage/model/slice';
 import { articlePageReducer } from 'pages/ArticlesPage/model/slice/articlePageSlice';
 import { TReducerList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 
@@ -13,7 +13,7 @@ const defaultAsyncReducers: TReducerList = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducers,
   articlesPage: articlePageReducer,
 };
 

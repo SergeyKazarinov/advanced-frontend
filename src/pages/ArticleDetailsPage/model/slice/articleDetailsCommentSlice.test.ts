@@ -1,5 +1,4 @@
 import { IComment } from '@entities/Comment';
-import { error } from 'console';
 import fetchCommentsByArticleId from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { IArticleDetailsCommentSchema } from '../types/articleDetailsCommentSchema';
 import { articleDetailsCommentsReducer } from './articleDetailsCommentSlice';

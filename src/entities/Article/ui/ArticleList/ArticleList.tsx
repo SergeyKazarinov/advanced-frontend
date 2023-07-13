@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
 import { TextAlignEnum, TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
@@ -12,6 +12,7 @@ interface ArticleListProps {
   articles: IArticle[];
   isLoading?: boolean;
   view?: ArticleViewEnum;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const ArticleList: FC<ArticleListProps> = ({
@@ -19,11 +20,18 @@ const ArticleList: FC<ArticleListProps> = ({
   articles,
   isLoading,
   view = ArticleViewEnum.SMALL,
+  target,
 }) => {
   const { t } = useTranslation('article');
 
   const renderArticle = (article: IArticle) => (
-    <ArticleListItem key={article.id} view={view} article={article} className={s.card} />
+    <ArticleListItem
+      key={article.id}
+      view={view}
+      article={article}
+      className={s.card}
+      target={target}
+    />
   );
 
   const getSkeletons = (view: ArticleViewEnum) => (

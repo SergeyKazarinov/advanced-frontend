@@ -1,6 +1,7 @@
-import { ArticleDetails } from '@entities/Article';
+import { ArticleDetails, ArticleList } from '@entities/Article';
 import { CommentList } from '@entities/Comment';
-import AddCommentForm from 'features/addComment/ui/AddCommentForm/AddCommentForm';
+import { AddCommentFormAsync } from 'features/addComment';
+import { articleDetailsPageReducers } from 'pages/ArticleDetailsPage/model/slice';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,17 +9,25 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { TextComponent } from 'shared/ui/TextComponent';
 import { Button } from 'shared/ui/Button';
+import { TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
 import { Page } from 'widgets/Page';
-import addCommentForArticle from '../../model/services/addCommentForArticle/addCommentForArticle';
+import {
+  getArticleDetailsPageRecommendationError,
+  getArticleDetailsPageRecommendationIsLoading,
+} from '../../model/selectors/articleDetailsPageRecommendation';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import addCommentForArticle from '../../model/services/addCommentForArticle/addCommentForArticle';
+import fetchArticleRecommendation from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import fetchCommentsByArticleId from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentSlice';
+import { getArticleComments } from '../../model/slice/articleDetailsCommentSlice';
+import {
+  getArticlePageRecommendationAdapter,
+} from '../../model/slice/articleDetailsPageRecommendationSlice';
 import s from './ArticleDetailsPage.module.scss';
 
 const reducer: TReducerList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducers,
 };
 
 const ArticleDetailsPage: FC = () => {
@@ -28,6 +37,9 @@ const ArticleDetailsPage: FC = () => {
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
+  const recommendations = useSelector(getArticlePageRecommendationAdapter.selectAll);
+  const recommendationsIsLoading = useSelector(getArticleDetailsPageRecommendationIsLoading);
+  const recommendationsError = useSelector(getArticleDetailsPageRecommendationError);
 
   const handleSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
@@ -35,6 +47,7 @@ const ArticleDetailsPage: FC = () => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(articleId));
+    dispatch(fetchArticleRecommendation());
   });
 
   const handleBack = useCallback(() => {
@@ -57,8 +70,15 @@ const ArticleDetailsPage: FC = () => {
           {t('Back')}
         </Button>
         <ArticleDetails id={articleId} />
-        <TextComponent title={t('Comments')} className={s.commentTitle} />
-        <AddCommentForm onSendComment={handleSendComment} />
+        <TextComponent size={TextSizeEnum.L} title={t('Recomendations')} className={s.commentTitle} />
+        <ArticleList
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          className={s.recommendations}
+          target="_blank"
+        />
+        <TextComponent size={TextSizeEnum.L} title={t('Comments')} className={s.commentTitle} />
+        <AddCommentFormAsync onSendComment={handleSendComment} />
         <CommentList comments={comments} isLoading={isLoading} />
       </Page>
     </DynamicModuleLoader>

@@ -25,6 +25,7 @@ import {
   getArticlePageRecommendationAdapter,
 } from '../../model/slice/articleDetailsPageRecommendationSlice';
 import s from './ArticleDetailsPage.module.scss';
+import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 const reducer: TReducerList = {
   articleDetailsPage: articleDetailsPageReducers,
@@ -32,7 +33,6 @@ const reducer: TReducerList = {
 
 const ArticleDetailsPage: FC = () => {
   const { t } = useTranslation('article');
-  const navigate = useNavigate();
   const { articleId } = useParams<{ articleId: string; }>();
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);
@@ -50,10 +50,6 @@ const ArticleDetailsPage: FC = () => {
     dispatch(fetchArticleRecommendation());
   });
 
-  const handleBack = useCallback(() => {
-    navigate(-1);
-  }, [navigate]);
-
   if (!articleId) {
     return (
       <div>
@@ -64,11 +60,7 @@ const ArticleDetailsPage: FC = () => {
   return (
     <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
       <Page className={s.articleDetailsPage}>
-        <Button
-          onClick={handleBack}
-        >
-          {t('Back')}
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={articleId} />
         <TextComponent size={TextSizeEnum.L} title={t('Recomendations')} className={s.commentTitle} />
         <ArticleList

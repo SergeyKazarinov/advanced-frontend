@@ -7,6 +7,9 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames';
 import { Button, ThemeButtonEnum } from 'shared/ui/Button';
+import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
+import { AppLink, AppLinkThemeEnum } from 'shared/ui/AppLink';
+import { RoutePath } from 'shared/config/routeConfig';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -34,6 +37,18 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
   if (userAuthData) {
     return (
       <header className={classNames(s.navbar, {}, [className])}>
+        <TextComponent
+          theme={TextThemeEnum.INVERTED}
+          className={s.appName}
+          title={t('Frontend')}
+        />
+        <AppLink
+          theme={AppLinkThemeEnum.SECONDARY}
+          to={RoutePath.article_create}
+          className={s.createArticle}
+        >
+          {t('Create article')}
+        </AppLink>
         <Button
           theme={ThemeButtonEnum.BACKGROUND}
           className={s.links}
@@ -46,6 +61,11 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
   }
   return (
     <header className={classNames(s.navbar, {}, [className])}>
+      <TextComponent
+        theme={TextThemeEnum.INVERTED}
+        className={s.appName}
+        title={t('Frontend')}
+      />
       <Button
         theme={ThemeButtonEnum.BACKGROUND}
         className={s.links}

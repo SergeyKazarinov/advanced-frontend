@@ -4,6 +4,7 @@ import s from './TextComponent.module.scss';
 
 export enum TextThemeEnum {
   PRIMARY = 'primary',
+  INVERTED = 'inverted',
   ERROR = 'error'
 }
 

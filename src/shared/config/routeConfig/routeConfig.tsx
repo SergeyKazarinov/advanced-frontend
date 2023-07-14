@@ -1,5 +1,6 @@
 import { AboutPageLazy } from 'pages/AboutPage';
 import { ArticleDetailsPageLazy } from 'pages/ArticleDetailsPage';
+import { ArticleEditPageLazy } from 'pages/ArticleEditPage';
 import { ArticlesPageLazy } from 'pages/ArticlesPage';
 import { MainPageLazy } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
@@ -16,6 +17,8 @@ export enum AppRoutesEnum {
   PROFILE = 'profile',
   ARTICLES = 'articles',
   ARTICLE_DETAILS = 'article_details',
+  ARTICLE_CREATE = 'article_create',
+  ARTICLE_EDIT = 'article_edit',
   NOT_FOUND = 'not_found',
 }
 
@@ -24,6 +27,8 @@ export const RoutePath: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.ABOUT]: '/about',
   [AppRoutesEnum.PROFILE]: '/profile/', // + id
   [AppRoutesEnum.ARTICLES]: '/articles',
+  [AppRoutesEnum.ARTICLE_CREATE]: '/articles/create',
+  [AppRoutesEnum.ARTICLE_EDIT]: '/articles/:id/edit',
   [AppRoutesEnum.ARTICLE_DETAILS]: '/articles/', // + id
   [AppRoutesEnum.NOT_FOUND]: '*',
 };
@@ -45,6 +50,16 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.ARTICLES]: {
     path: RoutePath.articles,
     element: <ArticlesPageLazy />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.ARTICLE_CREATE]: {
+    path: RoutePath.article_create,
+    element: <ArticleEditPageLazy />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.ARTICLE_EDIT]: {
+    path: RoutePath.article_edit,
+    element: <ArticleEditPageLazy />,
     authOnly: true,
   },
   [AppRoutesEnum.ARTICLE_DETAILS]: {

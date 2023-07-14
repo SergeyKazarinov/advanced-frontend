@@ -18,15 +18,39 @@ export const LightWithUser: Story = {
   decorators: [StoreDecorator({ user: { authData: { id: '1', username: '1234' } } })],
 };
 
-export const LightWithoutUser: Story = {
-  args: {},
-  decorators: [StoreDecorator({ user: {} })],
-};
-
 export const DarkWithUser: Story = {
   args: {},
   decorators: [
     ThemeDecorator(ThemeEnum.DARK),
     StoreDecorator({ user: { authData: { id: '1', username: '1234' } } }),
+  ],
+};
+
+export const DarkWithPure: Story = {
+  args: {},
+  decorators: [
+    ThemeDecorator(ThemeEnum.PURE),
+    StoreDecorator({ user: { authData: { id: '1', username: '1234' } } }),
+  ],
+};
+
+export const LightWithoutUser: Story = {
+  args: {},
+  decorators: [StoreDecorator({ user: {} })],
+};
+
+export const DarkWithoutUser: Story = {
+  args: {},
+  decorators: [
+    ThemeDecorator(ThemeEnum.DARK),
+    StoreDecorator({ user: {} }),
+  ],
+};
+
+export const PureWithoutUser: Story = {
+  args: {},
+  decorators: [
+    ThemeDecorator(ThemeEnum.PURE),
+    StoreDecorator({ user: {} }),
   ],
 };

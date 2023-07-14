@@ -7,6 +7,7 @@ import {
 } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import { IBuildOptions } from './types/config';
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -32,6 +33,11 @@ export const buildPlugins = (options: IBuildOptions): WebpackPluginInstance[] =>
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: paths!.locales, to: paths?.buildLocales },
+      ],
     }),
     new ReactRefreshWebpackPlugin(),
     new HotModuleReplacementPlugin(),

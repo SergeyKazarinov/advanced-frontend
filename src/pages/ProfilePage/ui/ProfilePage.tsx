@@ -21,6 +21,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page';
+
+import { VStack } from 'shared/ui/Stack';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: TReducerList = {
@@ -87,24 +89,26 @@ const ProfilePage = () => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page>
-        <ProfilePageHeader />
-        {validateErrors?.length && validateErrors.map((err) => (
-          <TextComponent key={err} theme={TextThemeEnum.ERROR} text={validateErrorTranslates[err]} />
-        ))}
-        <ProfileCard
-          data={form}
-          error={error}
-          isLoading={isLoading}
-          onChangeName={onChangeName}
-          onChangeLastName={onChangeLastName}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeUsername={onChangeUsername}
-          onChangeAvatar={onChangeAvatar}
-          onChangeCurrency={onChangeCurrency}
-          onChangeCountry={onChangeCountry}
-          readonly={readonly}
-        />
+        <VStack gap="16" max>
+          <ProfilePageHeader />
+          {validateErrors?.length && validateErrors.map((err) => (
+            <TextComponent key={err} theme={TextThemeEnum.ERROR} text={validateErrorTranslates[err]} />
+          ))}
+          <ProfileCard
+            data={form}
+            error={error}
+            isLoading={isLoading}
+            onChangeName={onChangeName}
+            onChangeLastName={onChangeLastName}
+            onChangeAge={onChangeAge}
+            onChangeCity={onChangeCity}
+            onChangeUsername={onChangeUsername}
+            onChangeAvatar={onChangeAvatar}
+            onChangeCurrency={onChangeCurrency}
+            onChangeCountry={onChangeCountry}
+            readonly={readonly}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

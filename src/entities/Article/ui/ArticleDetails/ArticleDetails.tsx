@@ -1,17 +1,18 @@
 import {
-  FC, memo, useCallback, useEffect,
+  FC, memo, useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AiFillEye } from 'react-icons/ai';
+import { ImCalendar } from 'react-icons/im';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
 import { classNames } from 'shared/lib/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { Avatar } from 'shared/ui/Avatar';
-import { AiFillEye } from 'react-icons/ai';
-import { ImCalendar } from 'react-icons/im';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { Avatar } from 'shared/ui/Avatar';
+import { Skeleton } from 'shared/ui/Skeleton';
+import { HStack, VStack } from 'shared/ui/Stack';
+import { TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import {
@@ -19,11 +20,11 @@ import {
 } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
 import fetchArticleById from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import s from './ArticleDetails.module.scss';
 import { ArticleBlockTypeEnum, TArticleBlock } from '../../model/types/article';
 import ArticleCodeBlock from '../ArticleCodeBlock/ArticleCodeBlock';
 import ArticleImageBlock from '../ArticleImageBlock/ArticleImageBlock';
 import ArticleTextBlock from '../ArticleTextBlock/ArticleTextBlock';
+import s from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -62,12 +63,12 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
 
   if (isLoading) {
     content = (
-      <div>
+      <>
         <Skeleton className={s.avatar} width={200} height={200} border="50%" />
         <Skeleton className={s.title} width={300} height={32} />
         <Skeleton className={s.skeleton} width={600} height={24} />
         <Skeleton className={s.skeleton} width="100%" height={200} />
-      </div>
+      </>
     );
   } else if (error) {
     content = (
@@ -76,30 +77,33 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
   } else {
     content = (
       <>
-        <div className={s.avatarWrapper}>
+        <HStack justify="center" max className={s.avatarWrapper}>
           <Avatar
             size={200}
             src={article?.img}
             className={s.avatar}
           />
-        </div>
-        <TextComponent
-          title={article?.title}
-          text={article?.subtitle}
-          size={TextSizeEnum.L}
-        />
-        <div className={s.articleInfo}>
-          <AiFillEye />
+        </HStack>
+        <VStack max gap="4">
+
           <TextComponent
-            text={String(article?.views)}
+            title={article?.title}
+            text={article?.subtitle}
+            size={TextSizeEnum.L}
           />
-        </div>
-        <div className={s.articleInfo}>
-          <ImCalendar />
-          <TextComponent
-            text={article?.createdAt}
-          />
-        </div>
+          <HStack className={s.articleInfo}>
+            <AiFillEye />
+            <TextComponent
+              text={String(article?.views)}
+            />
+          </HStack>
+          <HStack className={s.articleInfo}>
+            <ImCalendar />
+            <TextComponent
+              text={article?.createdAt}
+            />
+          </HStack>
+        </VStack>
         {article?.blocks.map(renderBlock)}
       </>
     );
@@ -107,9 +111,9 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(s.articleDetails, {}, [className])}>
+      <VStack gap="16" max className={classNames(s.articleDetails, {}, [className])}>
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 };

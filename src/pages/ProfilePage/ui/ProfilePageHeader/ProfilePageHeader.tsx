@@ -9,7 +9,7 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ThemeButtonEnum } from 'shared/ui/Button';
 import { getUserAuthData } from '@entities/User';
-import s from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -36,42 +36,39 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(s.profilePageHeader, {}, [className])}>
+    <HStack max justify="between" className={classNames('', {}, [className])}>
       <TextComponent title={t('Profile')} />
       {canEdit && (
-        <div className={s.btnWrapper}>
+        <div>
           {readonly
             ? (
               <Button
                 theme={ThemeButtonEnum.OUTLINE}
-                className={s.editBtn}
                 onClick={onEdit}
               >
                 {t('Edit')}
               </Button>
             )
             : (
-              <>
+              <HStack>
                 <Button
                   theme={ThemeButtonEnum.OUTLINE_RED}
-                  className={s.editBtn}
                   onClick={onCancelEdit}
                 >
                   {t('Cancel')}
                 </Button>
                 <Button
                   theme={ThemeButtonEnum.OUTLINE}
-                  className={s.saveBtn}
                   onClick={onSave}
                 >
                   {t('Save')}
                 </Button>
-              </>
+              </HStack>
             )}
         </div>
       )}
 
-    </div>
+    </HStack>
   );
 };
 

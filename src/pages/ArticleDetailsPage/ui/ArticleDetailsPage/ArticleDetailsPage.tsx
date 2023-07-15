@@ -10,6 +10,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
 import { Page } from 'widgets/Page';
+import { VStack } from 'shared/ui/Stack';
 import {
   getArticleDetailsPageRecommendationError,
   getArticleDetailsPageRecommendationIsLoading,
@@ -59,18 +60,20 @@ const ArticleDetailsPage: FC = () => {
   return (
     <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
       <Page className={s.articleDetailsPage}>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails id={articleId} />
-        <TextComponent size={TextSizeEnum.L} title={t('Recomendations')} className={s.commentTitle} />
-        <ArticleList
-          articles={recommendations}
-          isLoading={recommendationsIsLoading}
-          className={s.recommendations}
-          target="_blank"
-        />
-        <TextComponent size={TextSizeEnum.L} title={t('Comments')} className={s.commentTitle} />
-        <AddCommentFormAsync onSendComment={handleSendComment} />
-        <CommentList comments={comments} isLoading={isLoading} />
+        <VStack gap="16" max>
+          <ArticleDetailsPageHeader />
+          <ArticleDetails id={articleId} />
+          <TextComponent size={TextSizeEnum.L} title={t('Recomendations')} />
+          <ArticleList
+            articles={recommendations}
+            isLoading={recommendationsIsLoading}
+            className={s.recommendations}
+            target="_blank"
+          />
+          <TextComponent size={TextSizeEnum.L} title={t('Comments')} />
+          <AddCommentFormAsync onSendComment={handleSendComment} />
+          <CommentList comments={comments} isLoading={isLoading} />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

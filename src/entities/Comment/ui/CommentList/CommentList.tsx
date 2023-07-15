@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
 import { IComment } from '@entities/Comment/model/types/comment';
 import { TextComponent } from 'shared/ui/TextComponent';
-import s from './CommentList.module.scss';
+import { VStack } from 'shared/ui/Stack';
 import CommentItem from '../CommentItem/CommentItem';
 
 interface CommentListProps {
@@ -17,27 +17,26 @@ const CommentList: FC<CommentListProps> = ({ className, comments, isLoading }) =
 
   if (isLoading) {
     return (
-      <div className={(classNames(s.commentList, {}, [className]))}>
+      <VStack gap="16" max className={(classNames('', {}, [className]))}>
         <CommentItem isLoading />
         <CommentItem isLoading />
         <CommentItem isLoading />
-      </div>
+      </VStack>
     );
   }
 
   return (
-    <div className={(classNames(s.commentList, {}, [className]))}>
+    <VStack gap="16" max className={(classNames('', {}, [className]))}>
       {(comments?.length)
         ? comments.map((comment) => (
           <CommentItem
             key={comment.id}
-            className={s.comment}
             comment={comment}
             isLoading={isLoading}
           />
         ))
         : <TextComponent text={t('No comments')} />}
-    </div>
+    </VStack>
   );
 };
 

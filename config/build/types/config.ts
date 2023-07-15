@@ -15,7 +15,7 @@ export interface IBuildOptions {
   isDev: boolean,
   port?: number,
   apiUrl?: string;
-  project: 'story' | 'frontend' | 'jest';
+  project?: 'story' | 'frontend' | 'jest';
 }
 
 export interface IBuildEnv {

@@ -6,6 +6,7 @@ import {
 import { classNames } from 'shared/lib/classNames';
 import { Button, ThemeButtonEnum, SizeButtonEnum } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
+import { VStack } from 'shared/ui/Stack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import s from './Sidebar.module.scss';
@@ -49,9 +50,9 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
         {collapsed ? '>' : '<'}
       </Button>
 
-      <div className={s.items}>
+      <VStack className={s.items}>
         {sidebarList}
-      </div>
+      </VStack>
 
       <div className={s.switchers}>
         <ThemeSwitcher />

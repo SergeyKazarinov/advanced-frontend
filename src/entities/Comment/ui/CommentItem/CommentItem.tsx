@@ -6,6 +6,7 @@ import { AppLink } from 'shared/ui/AppLink';
 import { Avatar } from 'shared/ui/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { TextComponent } from 'shared/ui/TextComponent';
+import { VStack } from 'shared/ui/Stack';
 import s from './CommentItem.module.scss';
 
 interface CommentItemProps {
@@ -31,13 +32,13 @@ const CommentItem: FC<CommentItemProps> = ({ className, comment, isLoading }) =>
     return null;
   }
   return (
-    <div className={(classNames(s.commentItem, {}, [className]))}>
+    <VStack max className={(classNames(s.commentItem, {}, [className]))}>
       <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={s.header}>
         <Avatar size={30} src={comment.user.avatar} />
         <TextComponent title={comment.user.username} />
       </AppLink>
       <TextComponent className={s.text} text={comment.text} />
-    </div>
+    </VStack>
   );
 };
 

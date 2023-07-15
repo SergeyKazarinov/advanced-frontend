@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
+import { HStack } from 'shared/ui/Stack';
 import { getAddCommentFormError } from '../../model/selectors/getAddCommentFormError/getAddCommentFormError';
 import { getAddCommentFormText } from '../../model/selectors/getAddCommentFormText/getAddCommentFormText';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
@@ -37,7 +38,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ className, onSendComment }) =
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(s.addCommentForm, {}, [className])}>
+      <HStack max justify="between" className={classNames(s.addCommentForm, {}, [className])}>
         <Input
           className={s.input}
           placeholder={t('Enter message text')}
@@ -49,7 +50,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ className, onSendComment }) =
         >
           {t('Send')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 };

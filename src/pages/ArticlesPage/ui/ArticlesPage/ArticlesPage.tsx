@@ -1,8 +1,6 @@
 import {
   ArticleList,
 } from '@entities/Article';
-import fetchNextArticlesPage from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import initArticlesPage from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
@@ -11,6 +9,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
 import { Page } from 'widgets/Page';
+import initArticlesPage from '../../model/services/initArticlesPage/initArticlesPage';
+import fetchNextArticlesPage from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { getArticlePageError } from '../../model/selectors/getArticlePageError/getArticlePageError';
 import { getArticlePageIsLoading } from '../../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';
 import { getArticlePageView } from '../../model/selectors/getArticlePageView/getArticlePageView';

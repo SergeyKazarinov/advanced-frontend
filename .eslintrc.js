@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
+    'fsd-import-plugin',
   ],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
@@ -42,6 +43,7 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'no-param-reassign': 'off',
     'no-undef': 'off',
+    'fsd-import-plugin/path-checker': 'error',
   },
   overrides: [{
     files: ['**/src/**/*.test.{ts,tsx}'],

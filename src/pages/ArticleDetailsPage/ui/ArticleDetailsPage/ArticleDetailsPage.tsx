@@ -1,15 +1,13 @@
 import { ArticleDetails, ArticleList } from '@entities/Article';
 import { CommentList } from '@entities/Comment';
 import { AddCommentFormAsync } from 'features/addComment';
-import { articleDetailsPageReducers } from 'pages/ArticleDetailsPage/model/slice';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Button } from 'shared/ui/Button';
 import { TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
 import { Page } from 'widgets/Page';
 import {
@@ -20,12 +18,13 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import addCommentForArticle from '../../model/services/addCommentForArticle/addCommentForArticle';
 import fetchArticleRecommendation from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import fetchCommentsByArticleId from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { articleDetailsPageReducers } from '../../model/slice';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentSlice';
 import {
   getArticlePageRecommendationAdapter,
 } from '../../model/slice/articleDetailsPageRecommendationSlice';
-import s from './ArticleDetailsPage.module.scss';
 import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import s from './ArticleDetailsPage.module.scss';
 
 const reducer: TReducerList = {
   articleDetailsPage: articleDetailsPageReducers,

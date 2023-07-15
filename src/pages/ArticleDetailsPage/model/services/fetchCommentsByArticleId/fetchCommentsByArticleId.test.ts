@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { COMMENT_DATA } from 'pages/ArticleDetailsPage/utils/commentData';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
+import { COMMENT_DATA } from '../../../utils/commentData';
 import fetchCommentsByArticleId from './fetchCommentsByArticleId';
 
 jest.mock('axios');

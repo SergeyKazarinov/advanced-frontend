@@ -34,7 +34,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
   ), [collapsed, sidebarItemsList]);
 
   return (
-    <menu
+    <aside
       data-testid="sidebar"
       className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [className])}
     >
@@ -50,7 +50,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
         {collapsed ? '>' : '<'}
       </Button>
 
-      <VStack className={s.items}>
+      <VStack role="navigation" className={s.items}>
         {sidebarList}
       </VStack>
 
@@ -58,7 +58,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
         <ThemeSwitcher />
         <LangSwitcher className={s.lang} short={collapsed} />
       </div>
-    </menu>
+    </aside>
   );
 };
 

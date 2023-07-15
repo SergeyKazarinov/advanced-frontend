@@ -1,4 +1,6 @@
-import { FC, ReactNode, memo } from 'react';
+import {
+  DetailedHTMLProps, FC, ReactNode, memo,
+} from 'react';
 import { TMods, classNames } from 'shared/lib/classNames';
 import s from './Flex.module.scss';
 
@@ -29,10 +31,11 @@ const gapClasses: Record<TFlexGap, string> = {
   8: s.gap8,
   16: s.gap16,
   32: s.gap32,
-
 };
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+export interface FlexProps extends DivProps {
   className?: string;
   children: ReactNode;
   justify?: TFlexJustify;

@@ -30,6 +30,16 @@ interface TextProps {
   size?: TextSizeEnum;
 }
 
+type THeaderTag = 'h1' | 'h2' | 'h3' | 'h4'
+
+const mapSizeToHeaderTag: Record<TextSizeEnum, THeaderTag> = {
+  [TextSizeEnum.S]: 'h4',
+  [TextSizeEnum.M]: 'h3',
+  [TextSizeEnum.L]: 'h2',
+  [TextSizeEnum.XL]: 'h1',
+
+};
+
 const TextComponent: FC<TextProps> = ({
   className,
   title,
@@ -37,11 +47,14 @@ const TextComponent: FC<TextProps> = ({
   theme = TextThemeEnum.PRIMARY,
   align = TextAlignEnum.LEFT,
   size = TextSizeEnum.M,
-}) => (
-  <div className={(classNames(s.textComponent, {}, [className, s[theme], s[align], s[size]]))}>
-    {title && <p className={s.title}>{title}</p>}
-    {text && <p className={s.text}>{text}</p>}
-  </div>
-);
+}) => {
+  const HeaderTag = mapSizeToHeaderTag[size];
+  return (
+    <div className={(classNames(s.textComponent, {}, [className, s[theme], s[align], s[size]]))}>
+      {title && <HeaderTag className={s.title}>{title}</HeaderTag>}
+      {text && <p className={s.text}>{text}</p>}
+    </div>
+  );
+};
 
 export default memo(TextComponent);

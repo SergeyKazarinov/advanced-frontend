@@ -38,7 +38,7 @@ const CountrySelect: FC<CountrySelectProps> = ({
       label={t('Specify the country')}
       readonly={readonly}
       items={optionList}
-      direction="top"
+      direction="topRight"
     />
   );
 };

@@ -3,6 +3,7 @@ import {
   FC, Fragment, ReactNode, memo,
 } from 'react';
 import { classNames } from 'shared/lib/classNames';
+import { TDropDownDirection } from 'shared/types/ui';
 import { Button } from '../Button';
 import { HStack } from '../Stack';
 import s from './ListBox.module.scss';
@@ -12,8 +13,6 @@ export interface IListBoxItem {
   content: ReactNode;
   disabled?: boolean;
 }
-
-type TDropDownDirection = 'top' | 'bottom';
 
 interface ListBoxProps {
   className?: string;
@@ -27,7 +26,7 @@ interface ListBoxProps {
 }
 
 const ListBox: FC<ListBoxProps> = ({
-  className, items, value, defaultValue, onChange, readonly, direction = 'bottom', label,
+  className, items, value, defaultValue, onChange, readonly, direction = 'bottomLeft', label,
 }) => (
   <HStack gap="4">
     {label && <span>{`${label} > `}</span>}

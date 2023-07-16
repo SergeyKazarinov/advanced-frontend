@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook';
+import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook';
 import ListBox from './ListBox';
 
 const meta = {
@@ -30,7 +30,8 @@ const meta = {
     ],
   },
   decorators: [
-    ThemeDecorator(ThemeEnum.LIGHT),
+    ThemeDecoratorWithFullHeight(ThemeEnum.LIGHT),
+    (Story) => <div style={{ padding: 100 }}><Story /></div>,
   ],
 } satisfies Meta<typeof ListBox>;
 
@@ -46,7 +47,7 @@ export const Dark: Story = {
   args: {
   },
   decorators: [
-    ThemeDecorator(ThemeEnum.DARK),
+    ThemeDecoratorWithFullHeight(ThemeEnum.DARK),
   ],
 };
 
@@ -54,6 +55,6 @@ export const Pure: Story = {
   args: {
   },
   decorators: [
-    ThemeDecorator(ThemeEnum.PURE),
+    ThemeDecoratorWithFullHeight(ThemeEnum.PURE),
   ],
 };

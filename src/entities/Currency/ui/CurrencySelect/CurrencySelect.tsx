@@ -36,7 +36,7 @@ const CurrencySelect: FC<CurrencySelectProps> = ({
       label={t('Specify the currency')}
       readonly={readonly}
       items={optionList}
-      direction="top"
+      direction="topRight"
     />
   );
 };

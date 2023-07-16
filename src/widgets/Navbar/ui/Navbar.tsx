@@ -10,6 +10,8 @@ import { Button, ThemeButtonEnum } from 'shared/ui/Button';
 import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
 import { AppLink, AppLinkThemeEnum } from 'shared/ui/AppLink';
 import { RoutePath } from 'shared/config/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown';
+import { Avatar } from 'shared/ui/Avatar';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -49,13 +51,21 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
         >
           {t('Create article')}
         </AppLink>
-        <Button
-          theme={ThemeButtonEnum.BACKGROUND}
-          className={s.links}
-          onClick={onLogout}
-        >
-          {t('Logout')}
-        </Button>
+        <Dropdown
+          direction="bottomLeft"
+          className={s.dropdown}
+          trigger={<Avatar size={30} src={userAuthData.avatar} />}
+          items={[
+            {
+              content: t('User profile'),
+              href: RoutePath.profile + userAuthData.id,
+            },
+            {
+              content: t('Logout'),
+              onClick: onLogout,
+            },
+          ]}
+        />
       </header>
     );
   }

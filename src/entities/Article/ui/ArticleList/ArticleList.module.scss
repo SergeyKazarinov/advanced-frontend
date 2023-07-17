@@ -2,9 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  margin-top: 30px;
 
   .card {
-    display: inline-flex
+    display: inline-flex;
+    height: 300px;
   }
 
   .row {
@@ -14,6 +16,8 @@
 }
 
 .BIG {
+  margin-top: 30px;
+
   .card {
     margin-bottom: 30px;
   }

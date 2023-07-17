@@ -88,7 +88,12 @@ const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, profileI
       <VStack max className={classNames('', {}, [className])}>
         <EditableProfileCardHeader />
         {validateErrors?.length && validateErrors.map((err) => (
-          <TextComponent key={err} theme={TextThemeEnum.ERROR} text={validateErrorTranslates[err]} />
+          <TextComponent
+            key={err}
+            theme={TextThemeEnum.ERROR}
+            text={validateErrorTranslates[err]}
+            data-testid="EditableProfileCard.Error"
+          />
         ))}
         <ProfileCard
           data={form}

@@ -46,6 +46,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ classNa
               <Button
                 theme={ThemeButtonEnum.OUTLINE}
                 onClick={onEdit}
+                data-testid="EditableProfileCardHeader.EditButton"
               >
                 {t('Edit')}
               </Button>
@@ -55,12 +56,14 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ classNa
                 <Button
                   theme={ThemeButtonEnum.OUTLINE_RED}
                   onClick={onCancelEdit}
+                  data-testid="EditableProfileCardHeader.CancelButton"
                 >
                   {t('Cancel')}
                 </Button>
                 <Button
                   theme={ThemeButtonEnum.OUTLINE}
                   onClick={onSave}
+                  data-testid="EditableProfileCardHeader.SaveButton"
                 >
                   {t('Save')}
                 </Button>

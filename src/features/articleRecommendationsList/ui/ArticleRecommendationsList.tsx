@@ -14,7 +14,7 @@ const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = ({ class
   const { t } = useTranslation('article');
   const { data: articles, isLoading, error } = useArticleRecommendationsList(3);
 
-  if (isLoading || error) {
+  if (isLoading || error || !articles) {
     return null;
   }
 
@@ -27,6 +27,7 @@ const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = ({ class
       <ArticleList
         articles={articles}
         target="_blank"
+        virtualized={false}
       />
     </VStack>
   );

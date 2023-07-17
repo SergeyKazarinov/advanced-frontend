@@ -28,6 +28,8 @@ interface TextProps {
   theme?: TextThemeEnum;
   align?: TextAlignEnum;
   size?: TextSizeEnum;
+
+  'data-testid'?: string;
 }
 
 type THeaderTag = 'h1' | 'h2' | 'h3' | 'h4'
@@ -47,12 +49,13 @@ const TextComponent: FC<TextProps> = ({
   theme = TextThemeEnum.PRIMARY,
   align = TextAlignEnum.LEFT,
   size = TextSizeEnum.M,
+  'data-testid': dataTestId = 'Text',
 }) => {
   const HeaderTag = mapSizeToHeaderTag[size];
   return (
     <div className={(classNames(s.textComponent, {}, [className, s[theme], s[align], s[size]]))}>
-      {title && <HeaderTag className={s.title}>{title}</HeaderTag>}
-      {text && <p className={s.text}>{text}</p>}
+      {title && <HeaderTag className={s.title} data-testid={`${dataTestId}.Header`}>{title}</HeaderTag>}
+      {text && <p className={s.text} data-testid={`${dataTestId}.Paragraph`}>{text}</p>}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/dom';
 import '@testing-library/jest-dom';
-import { userEvent } from '@storybook/testing-library';
+import userEvent from '@testing-library/user-event';
 import { componentRender } from 'shared/lib/tests/componentRender';
 import Counter from './Counter';
 
@@ -12,19 +12,19 @@ describe('Counter', () => {
     expect(screen.getByTestId('value-title')).toHaveTextContent('10');
   });
 
-  test('Increment', () => {
+  test('Increment', async () => {
     componentRender(<Counter />, {
       initialState: { counter: { value: 10 } },
     });
-    userEvent.click(screen.getByTestId('increment-btn'));
+    await userEvent.click(screen.getByTestId('increment-btn'));
     expect(screen.getByTestId('value-title')).toHaveTextContent('11');
   });
 
-  test('Increment', () => {
+  test('Increment', async () => {
     componentRender(<Counter />, {
       initialState: { counter: { value: 10 } },
     });
-    userEvent.click(screen.getByTestId('decrement-btn'));
+    await userEvent.click(screen.getByTestId('decrement-btn'));
     expect(screen.getByTestId('value-title')).toHaveTextContent('9');
   });
 });

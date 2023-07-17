@@ -54,10 +54,10 @@ const ArticleList: FC<ArticleListProps> = ({
       items.push(
         <ArticleListItem
           view={view}
-          article={articles[index]}
+          article={articles[i]}
           className={s.card}
           target={target}
-          key={`str${index}`}
+          key={`str${i}`}
         />,
       );
     }

@@ -33,7 +33,7 @@ const DropDown: FC<DropDownProps> = ({
         {trigger}
       </Menu.Button>
       <Menu.Items className={classNames(s.menu, {}, [s[direction]])}>
-        {items.map((item) => {
+        {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               type="button"
@@ -47,14 +47,16 @@ const DropDown: FC<DropDownProps> = ({
 
           if (item.href) {
             return (
-              <Menu.Item as={AppLink} to={item.href} disabled={item.disabled}>
+              // eslint-disable-next-line
+              <Menu.Item as={AppLink} to={item.href} key={index} disabled={item.disabled}>
                 {content}
               </Menu.Item>
             );
           }
 
           return (
-            <Menu.Item as={Fragment} disabled={item.disabled}>
+            // eslint-disable-next-line
+            <Menu.Item as={Fragment} key={index} disabled={item.disabled}>
               {content}
             </Menu.Item>
           );

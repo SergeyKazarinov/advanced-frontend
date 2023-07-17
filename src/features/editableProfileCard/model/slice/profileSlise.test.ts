@@ -1,8 +1,8 @@
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
-import { IProfileSchema, ValidateProfileErrorEnum } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
 import updateProfileData from '../services/updateProfileData/updateProfileData';
+import { IProfileSchema, ValidateProfileErrorEnum } from '../types/editableProfileCardSchema';
 
 const data = {
   name: 'Name',

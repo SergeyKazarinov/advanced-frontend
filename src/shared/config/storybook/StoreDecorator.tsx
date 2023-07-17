@@ -1,9 +1,9 @@
 import { articleDetailsReducer } from '@entities/Article/model/slice/articleDetailsSlice';
-import { profileReducer } from '@entities/Profile';
 import { StoryFn } from '@storybook/react';
 import { IStateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { addCommentFormReducer } from 'features/addComment/model/slice/addCommentFormSlice';
+import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
 import { articleDetailsPageReducers } from 'pages/ArticleDetailsPage/model/slice';
 import { articlePageReducer } from 'pages/ArticlesPage/model/slice/articlePageSlice';
 import { TReducerList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';

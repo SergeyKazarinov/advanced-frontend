@@ -19,5 +19,6 @@
   "Incorrect country": "Неверная страна",
   "Incorrect user data": "Неверные данные пользователя",
   "No data": "Нет данных",
-  "Incorrect city": "Неверный город"
+  "Incorrect city": "Неверный город",
+  "Profile not found": "Профиль не найден"
 }

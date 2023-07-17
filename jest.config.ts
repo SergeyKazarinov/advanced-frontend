@@ -33,7 +33,6 @@ const config: Config = {
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
   ],
   modulePaths: ['<rootDir>src/'],
-
   setupFilesAfterEnv: ['./config/jest/setupTests.ts'],
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
@@ -49,6 +48,13 @@ const config: Config = {
     __API__: '',
     __PROJECT__: 'jest',
   },
+  reporters: [
+    'default',
+    ['./node_modules/jest-html-reporter', {
+      pageTitle: 'Test Report',
+
+    }],
+  ],
 };
 
 export default config;

@@ -19,13 +19,6 @@ const ArticleDetailsPage: FC = () => {
   const { t } = useTranslation('article');
   const { articleId } = useParams<{ articleId: string; }>();
 
-  if (!articleId) {
-    return (
-      <div>
-        {t('Article not found')}
-      </div>
-    );
-  }
   return (
     <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
       <Page className={s.articleDetailsPage}>

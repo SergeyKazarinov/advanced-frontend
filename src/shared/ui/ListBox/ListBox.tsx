@@ -29,7 +29,7 @@ const ListBox: FC<ListBoxProps> = ({
   className, items, value, defaultValue, onChange, readonly, direction = 'bottomLeft', label,
 }) => (
   <HStack gap="4">
-    {label && <span>{`${label} > `}</span>}
+    {label && <span className={classNames('', { [s.disabled]: readonly }, [])}>{`${label} > `}</span>}
     <HListBox
       as="div"
       className={classNames(s.listBox, {}, [className])}

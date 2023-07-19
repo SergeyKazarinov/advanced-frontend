@@ -10,7 +10,11 @@ import { StoreProvider } from 'app/providers/StoreProvider';
 import 'shared/config/i18n/i18n';
 
 const container = document.getElementById('root');
-const root = createRoot(container!);
+
+if (!container) {
+  throw new Error('Контейнер root не найден. Не удалось вмонтировать реакт приложение');
+}
+const root = createRoot(container);
 
 root.render(
   <BrowserRouter>

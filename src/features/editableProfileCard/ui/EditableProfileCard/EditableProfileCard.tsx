@@ -22,7 +22,7 @@ import EditableProfileCardHeader from '../EditableProfileCardHeader/EditableProf
 
 interface EditableProfileCardProps {
   className?: string;
-  profileId: string;
+  profileId?: string;
 }
 
 const reducers: TReducerList = {
@@ -48,7 +48,9 @@ const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, profileI
   };
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData(profileId));
+    if (profileId) {
+      dispatch(fetchProfileData(profileId));
+    }
   });
 
   const onChangeName = useCallback((value?: string) => {

@@ -9,10 +9,6 @@ const ProfilePage = () => {
   const { t } = useTranslation('profile');
   const { profileId } = useParams<{ profileId: string }>();
 
-  if (!profileId) {
-    return <TextComponent text={t('Profile not found')} />;
-  }
-
   return (
     <Page>
       <VStack gap="16" max>

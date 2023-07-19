@@ -1,18 +1,18 @@
 import {
-  FC, HTMLAttributeAnchorTarget, memo, useCallback,
+  FC, HTMLAttributeAnchorTarget, memo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiFillEye } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig';
 import { classNames } from 'shared/lib/classNames';
+import { AppLink } from 'shared/ui/AppLink';
 import { Avatar } from 'shared/ui/Avatar';
 import { Button, ThemeButtonEnum } from 'shared/ui/Button';
 import { Card } from 'shared/ui/Card';
 import { TextComponent } from 'shared/ui/TextComponent';
-import { AppLink } from 'shared/ui/AppLink';
+import { ArticleBlockTypeEnum, ArticleViewEnum } from '../../model/consts/consts';
 import {
-  ArticleBlockTypeEnum, ArticleViewEnum, IArticle, IArticleTextBlock,
+  IArticle, IArticleTextBlock,
 } from '../../model/types/article';
 import ArticleTextBlock from '../ArticleTextBlock/ArticleTextBlock';
 import s from './ArticleListItem.module.scss';

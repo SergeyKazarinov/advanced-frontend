@@ -1,4 +1,4 @@
-export type TMods = Record<string, boolean | string | undefined>
+import { TMods } from './classNames.types';
 
 export const classNames = (
   cls: string,

@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 
-import { IArticle, ArticleTypeEnum, ArticleBlockTypeEnum } from '../model/types/article';
+import { IArticle } from '../model/types/article';
+import { ArticleTypeEnum, ArticleBlockTypeEnum } from '../model/consts/consts';
 
 export const ARTICLE: IArticle = {
   id: '1',

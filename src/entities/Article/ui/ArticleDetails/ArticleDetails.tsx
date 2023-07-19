@@ -13,6 +13,7 @@ import { Avatar } from 'shared/ui/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
+import { ArticleBlockTypeEnum } from '../../model/consts/consts';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import {
@@ -20,7 +21,7 @@ import {
 } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
 import fetchArticleById from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ArticleBlockTypeEnum, TArticleBlock } from '../../model/types/article';
+import { TArticleBlock } from '../../model/types/article';
 import ArticleCodeBlock from '../ArticleCodeBlock/ArticleCodeBlock';
 import ArticleImageBlock from '../ArticleImageBlock/ArticleImageBlock';
 import ArticleTextBlock from '../ArticleTextBlock/ArticleTextBlock';

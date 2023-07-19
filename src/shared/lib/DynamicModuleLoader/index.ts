@@ -1,1 +1,2 @@
-export { default as DynamicModuleLoader, TReducerList } from './DynamicModuleLoader';
+export { default as DynamicModuleLoader } from './DynamicModuleLoader';
+export type { TReducerList } from './DynamicModuleLoader.types';

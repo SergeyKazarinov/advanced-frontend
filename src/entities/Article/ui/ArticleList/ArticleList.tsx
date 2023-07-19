@@ -8,7 +8,8 @@ import {
 import { classNames } from 'shared/lib/classNames';
 import { TextAlignEnum, TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
 import { PAGE_ID } from 'widgets/Page/Page';
-import { ArticleViewEnum, IArticle } from '../../model/types/article';
+import { ArticleViewEnum } from '../../model/consts/consts';
+import { IArticle } from '../../model/types/article';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
 import ArticleListItemSkeleton from '../ArticleListItem/ArticleListItemSkeleton';
 import s from './ArticleList.module.scss';

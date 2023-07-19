@@ -2,9 +2,7 @@ import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import { Card } from 'shared/ui/Card';
 import { Skeleton } from 'shared/ui/Skeleton';
-import {
-  ArticleViewEnum,
-} from '../../model/types/article';
+import { ArticleViewEnum } from '../../model/consts/consts';
 import s from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {

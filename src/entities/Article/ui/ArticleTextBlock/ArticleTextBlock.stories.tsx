@@ -1,7 +1,8 @@
-import { ArticleBlockTypeEnum, IArticleTextBlock } from '@entities/Article/model/types/article';
+import { IArticleTextBlock } from '@entities/Article/model/types/article';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook';
+import { ArticleBlockTypeEnum } from '../../model/consts/consts';
 import { ARTICLE } from '../../utils/article';
 import ArticleTextBlock from './ArticleTextBlock';
 

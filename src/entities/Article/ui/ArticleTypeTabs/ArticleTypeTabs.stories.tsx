@@ -1,7 +1,7 @@
-import { ArticleTypeEnum } from '@entities/Article/model/types/article';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook';
+import { ArticleTypeEnum } from '../../model/consts/consts';
 import ArticleTypeTabs from './ArticleTypeTabs';
 
 const meta = {

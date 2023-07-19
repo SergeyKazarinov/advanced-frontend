@@ -5,8 +5,8 @@ import { classNames } from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/ui/Select';
 import { ISelectOption } from 'shared/ui/Select/Select';
-import { ArticleSortFieldEnum } from '@entities/Article/model/types/article';
 import { TSortOrder } from 'shared/types';
+import { ArticleSortFieldEnum } from '../../model/consts/consts';
 import s from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {

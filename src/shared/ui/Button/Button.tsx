@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, FC, memo } from 'react';
-import { TMods, classNames } from '../../lib/classNames/classNames';
+import { TMods } from 'shared/lib/classNames';
+import { classNames } from '../../lib/classNames/classNames';
 import s from './Button.module.scss';
 
 export enum ThemeButtonEnum {

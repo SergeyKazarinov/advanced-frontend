@@ -2,5 +2,7 @@
   "Main page": "Main page",
   "Frontend": "front end",
   "Create article": "Create article",
-  "User profile": "User Profile"
+  "User profile": "User Profile",
+  "Admin panel": "Admin panel",
+  "Forbidden page": "You do not have access to this page"
 }

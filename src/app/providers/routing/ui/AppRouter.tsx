@@ -1,16 +1,13 @@
-import { getUserAuthData } from '@entities/User';
 import {
   FC, Suspense, memo,
 } from 'react';
-import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
 import RequireAuth from './RequireAuth';
+import RequireRole from './RequireRole';
 
 const AppRouter: FC = () => {
-  const isAuth = useSelector(getUserAuthData);
-
   const renderWithWrapper = (route: AppRoutesProps) => {
     const { element } = route;
     return (
@@ -18,7 +15,13 @@ const AppRouter: FC = () => {
         key={route.path}
         path={route.path}
         element={route.authOnly
-          ? <RequireAuth isAuth={isAuth}>{element}</RequireAuth>
+          ? (
+            <RequireAuth>
+              <RequireRole roles={route.roles}>
+                {element}
+              </RequireRole>
+            </RequireAuth>
+          )
           : element}
       />
     );

@@ -2,5 +2,7 @@
   "Main page": "Главная страница",
   "Frontend": "Frontend",
   "Create article": "Создать статью",
-  "User profile": "Провиль пользователя"
+  "User profile": "Профиль пользователя",
+  "Admin panel": "Админ панель",
+  "Forbidden page": "У вас нет доступа к этой странице"
 }

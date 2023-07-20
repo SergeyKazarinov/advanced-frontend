@@ -1,14 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
 import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecoratorWithFullHeight';
-import Modal from './Modal';
+import Drawer from './Drawer';
 
 const meta = {
-  title: 'shared/Modal',
-  component: Modal,
+  title: 'shared/Drawer',
+  component: Drawer,
   tags: ['autodocs'],
-
-} satisfies Meta<typeof Modal>;
+} satisfies Meta<typeof Drawer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

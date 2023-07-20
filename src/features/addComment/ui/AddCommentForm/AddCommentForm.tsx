@@ -1,7 +1,7 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
+import { DynamicModuleLoader, TReducerList } from 'shared/lib/ui/DynamicModuleLoader';
 import { classNames } from 'shared/lib/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button } from 'shared/ui/Button';

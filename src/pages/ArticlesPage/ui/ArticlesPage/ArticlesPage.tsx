@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { DynamicModuleLoader, TReducerList } from 'shared/lib/DynamicModuleLoader';
+import { DynamicModuleLoader, TReducerList } from 'shared/lib/ui/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Page } from 'widgets/Page';

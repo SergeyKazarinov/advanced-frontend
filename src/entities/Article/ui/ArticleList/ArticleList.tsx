@@ -20,7 +20,7 @@ interface ArticleListProps {
   isLoading?: boolean;
   view?: ArticleViewEnum;
   target?: HTMLAttributeAnchorTarget;
-  virtualized?: boolean
+  virtualized?: boolean;
 }
 
 const ArticleList: FC<ArticleListProps> = ({

@@ -2,27 +2,16 @@ import { RuleSetRule } from 'webpack';
 import { IBuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export const buildLoaders = (options: IBuildOptions): RuleSetRule[] => {
-  const babelLoader = {
-    test: /\.(js|jsx|ts|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: [
-          [
-            'i18next-extract',
-            {
-              locales: ['ru', 'en'],
-              keyAsDefaultValue: true,
-            },
-          ],
-        ],
-      },
-    },
-  };
+export interface BuildBabelLoaderProps extends IBuildOptions {
+  isTsx?: boolean;
+}
+
+export const buildLoaders = (options: BuildBabelLoaderProps): RuleSetRule[] => {
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
+
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff2|woff)$/i,
     use: [
@@ -46,8 +35,8 @@ export const buildLoaders = (options: IBuildOptions): RuleSetRule[] => {
   return [
     fileLoader,
     svgLoader,
-    babelLoader,
-    tsLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
     sccLoader,
   ];
 };

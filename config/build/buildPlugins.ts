@@ -8,6 +8,8 @@ import {
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { IBuildOptions } from './types/config';
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -39,9 +41,13 @@ export const buildPlugins = (options: IBuildOptions): WebpackPluginInstance[] =>
         { from: paths!.locales, to: paths?.buildLocales },
       ],
     }),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true,
+    }),
     new ReactRefreshWebpackPlugin(),
     new HotModuleReplacementPlugin(),
-
+    new ForkTsCheckerWebpackPlugin(),
     // new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
 };

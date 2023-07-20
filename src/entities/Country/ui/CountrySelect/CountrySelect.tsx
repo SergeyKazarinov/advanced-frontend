@@ -1,9 +1,7 @@
 import { CountryEnum } from '@entities/Country/model/types/country';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames';
 import { ListBox } from 'shared/ui/ListBox';
-import { Select } from 'shared/ui/Select';
 
 interface CountrySelectProps {
   className?: string;

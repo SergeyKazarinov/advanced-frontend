@@ -1,12 +1,7 @@
 import { useTheme } from 'app/providers/ThemeProvider';
-import {
-  FC,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import { FC, ReactNode } from 'react';
 import { TMods, classNames } from 'shared/lib/classNames';
+import { useModal } from 'shared/lib/hooks/useModal';
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 import s from './Modal.module.scss';
@@ -22,44 +17,8 @@ interface ModalProps {
 const Modal: FC<ModalProps> = ({
   className, children, isOpen, onClose, lazy,
 }) => {
-  const [isMounted, setIsMounted] = useState(false);
   const { theme } = useTheme();
-  const [opened, setOpened] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-    }
-  }, [isOpen]);
-
-  const handleClose = useCallback(() => {
-    if (onClose) {
-      setOpened(false);
-      setTimeout(() => {
-        onClose();
-      }, 500);
-    }
-  }, [onClose]);
-
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape' && onClose) {
-      handleClose();
-    }
-  }, [onClose, handleClose]);
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-
-      setTimeout(() => {
-        setOpened(true);
-      }, 0);
-    }
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, handleKeyDown]);
+  const { handleClose, isMounted, opened } = useModal({ isOpen, animationDelay: 500, onClose });
 
   const mods: TMods = {
     [s.opened]: (opened && isOpen),

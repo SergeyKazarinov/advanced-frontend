@@ -4,9 +4,10 @@ import {
 } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import { TDropDownDirection } from 'shared/types/ui';
-import { Button } from '../Button';
-import { HStack } from '../Stack';
+import { Button } from '../../../Button';
+import { HStack } from '../../../Stack';
 import s from './ListBox.module.scss';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface IListBoxItem {
   value: string;
@@ -29,22 +30,22 @@ const ListBox: FC<ListBoxProps> = ({
   className, items, value, defaultValue, onChange, readonly, direction = 'bottomLeft', label,
 }) => (
   <HStack gap="4">
-    {label && <span className={classNames('', { [s.disabled]: readonly }, [])}>{`${label} > `}</span>}
+    {label && <span className={classNames('', { [popupCls.disabled]: readonly }, [])}>{`${label} > `}</span>}
     <HListBox
       as="div"
-      className={classNames(s.listBox, {}, [className])}
+      className={classNames('', {}, [className, popupCls.popup])}
       value={value}
       onChange={onChange}
       disabled={readonly}
     >
       <HListBox.Button
-        className={s.btn}
+        className={popupCls.btn}
       >
         <Button disabled={readonly}>
           {value ?? defaultValue}
         </Button>
       </HListBox.Button>
-      <HListBox.Options className={classNames(s.options, {}, [s[direction]])}>
+      <HListBox.Options className={classNames(s.options, {}, [popupCls[direction]])}>
         {items?.map((item) => (
           <HListBox.Option
             key={item.value}
@@ -54,7 +55,13 @@ const ListBox: FC<ListBoxProps> = ({
           >
             {({ active, selected }) => (
               <li
-                className={classNames(s.listBox, { [s.active]: active, [s.disabled]: item.disabled }, [className])}
+                className={
+                  classNames(
+                    '',
+                    { [popupCls.active]: active, [popupCls.disabled]: item.disabled },
+                    [className, popupCls.popup],
+                  )
+                }
               >
                 {selected && <>!!</>}
                 {item.value}

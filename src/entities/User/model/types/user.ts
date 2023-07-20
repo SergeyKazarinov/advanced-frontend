@@ -4,7 +4,7 @@ export interface IUser {
   id: string;
   username: string;
   avatar?: string;
-  roles?: UserRoleEnum
+  roles?: UserRoleEnum[];
 }
 
 export interface IUserSchema {

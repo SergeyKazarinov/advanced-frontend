@@ -20,3 +20,8 @@ export const Dark: Story = {
   args: {},
   decorators: [ThemeDecorator(ThemeEnum.DARK)],
 };
+
+export const Pure: Story = {
+  args: {},
+  decorators: [ThemeDecorator(ThemeEnum.PURE)],
+};

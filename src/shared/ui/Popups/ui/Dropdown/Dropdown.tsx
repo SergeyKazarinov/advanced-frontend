@@ -6,7 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
 import { TDropDownDirection } from 'shared/types/ui';
 import s from './Dropdown.module.scss';
-import { AppLink } from '../AppLink';
+import { AppLink } from '../../../AppLink';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface IDropdownItem {
   disabled?: boolean;
@@ -19,7 +20,7 @@ interface DropDownProps {
   className?: string;
   items: IDropdownItem[];
   trigger: ReactNode;
-  direction?: TDropDownDirection
+  direction?: TDropDownDirection;
 }
 
 const DropDown: FC<DropDownProps> = ({
@@ -28,18 +29,18 @@ const DropDown: FC<DropDownProps> = ({
   const { t } = useTranslation();
 
   return (
-    <Menu as="div" className={classNames(s.dropdown, {}, [className])}>
-      <Menu.Button className={s.btn}>
+    <Menu as="div" className={classNames('', {}, [className, popupCls.popup])}>
+      <Menu.Button className={popupCls.btn}>
         {trigger}
       </Menu.Button>
-      <Menu.Items className={classNames(s.menu, {}, [s[direction]])}>
+      <Menu.Items className={classNames(s.menu, {}, [popupCls[direction]])}>
         {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               type="button"
               disabled={item.disabled}
               onClick={item.onClick}
-              className={classNames(s.item, { [s.active]: active })}
+              className={classNames(s.item, { [popupCls.active]: active })}
             >
               {item.content}
             </button>

@@ -9,7 +9,6 @@ const meta = {
   component: ArticleRecommendationsList,
   tags: ['autodocs'],
   args: {},
-
   decorators: [
     ThemeDecorator(ThemeEnum.LIGHT),
     StoreDecorator({}),

@@ -1,19 +1,21 @@
-import { ArticleSortFieldEnum, ArticleViewEnum } from '@entities/Article';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook';
-import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecoratorWithFullHeight';
-import ArticleEditPage from './ArticleEditPage';
+import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook';
+import Popover from './Popover';
 
 const meta = {
-  title: 'pages/articles/ArticleEditPage',
-  component: ArticleEditPage,
+  title: 'shared/Popover',
+  component: Popover,
   tags: ['autodocs'],
+  args: {
+    children: (<div>asdf</div>),
+    trigger: (<div>Triger</div>),
+  },
   decorators: [
     ThemeDecoratorWithFullHeight(ThemeEnum.LIGHT),
-    StoreDecorator({}),
+    (Story) => <div style={{ padding: 100 }}><Story /></div>,
   ],
-} satisfies Meta<typeof ArticleEditPage>;
+} satisfies Meta<typeof Popover>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -24,14 +26,16 @@ export const Light: Story = {
 };
 
 export const Dark: Story = {
-  args: {},
+  args: {
+  },
   decorators: [
     ThemeDecoratorWithFullHeight(ThemeEnum.DARK),
   ],
 };
 
 export const Pure: Story = {
-  args: {},
+  args: {
+  },
   decorators: [
     ThemeDecoratorWithFullHeight(ThemeEnum.PURE),
   ],

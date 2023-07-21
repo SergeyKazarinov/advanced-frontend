@@ -42,11 +42,9 @@ const NotificationButton: FC<NotificationButtonProps> = ({ className }) => {
       </BrowserView>
       <MobileView>
         {trigger}
-        <AnimationProvider>
-          <Drawer isOpen={openDrawer} onClose={closeModalDrawer}>
-            <NotificationList />
-          </Drawer>
-        </AnimationProvider>
+        <Drawer isOpen={openDrawer} onClose={closeModalDrawer}>
+          <NotificationList />
+        </Drawer>
       </MobileView>
 
     </div>

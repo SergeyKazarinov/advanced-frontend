@@ -4,7 +4,7 @@ import {
 } from 'react';
 import { TMods, classNames } from '@shared/lib/classNames';
 import { useModal } from '@shared/lib/hooks/useModal';
-import { useAnimationLibs } from '@shared/lib/ui/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@shared/lib/ui/AnimationProvider';
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 import s from './Drawer.module.scss';
@@ -94,7 +94,7 @@ const DrawerContent: FC<ModalProps> = ({
   );
 };
 
-const Drawer: FC<ModalProps> = memo((props) => {
+const DrawerLazy: FC<ModalProps> = memo((props) => {
   const { isLoaded } = useAnimationLibs();
   if (!isLoaded) {
     return null;
@@ -102,5 +102,12 @@ const Drawer: FC<ModalProps> = memo((props) => {
   // eslint-disable-next-line
   return <DrawerContent {...props} />;
 });
+
+const Drawer: FC<ModalProps> = (props) => (
+  <AnimationProvider>
+    {/* eslint-disable-next-line */}
+    <DrawerLazy {...props} />
+  </AnimationProvider>
+);
 
 export default Drawer;

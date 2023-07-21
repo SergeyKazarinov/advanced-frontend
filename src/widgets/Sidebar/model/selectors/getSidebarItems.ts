@@ -3,7 +3,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import { AiFillHome } from 'react-icons/ai';
 import { BsCardList, BsNewspaper } from 'react-icons/bs';
 import { CgProfile } from 'react-icons/cg';
-import { RoutePath } from 'shared/config/routeConfig';
+import { RoutePath } from '@shared/config/routeConfig';
 import { ISidebarItem } from '../types/sidebar';
 
 export const getSidebarItems = createSelector(

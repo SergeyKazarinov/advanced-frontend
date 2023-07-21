@@ -1,9 +1,9 @@
 import { ArticleList } from '@entities/Article';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames';
-import { VStack } from 'shared/ui/Stack';
-import { TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
+import { classNames } from '@shared/lib/classNames';
+import { VStack } from '@shared/ui/Stack';
+import { TextComponent, TextSizeEnum } from '@shared/ui/TextComponent';
 import { useArticleRecommendationsList } from '../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {
@@ -27,7 +27,6 @@ const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = ({ class
       <ArticleList
         articles={articles}
         target="_blank"
-        virtualized={false}
       />
     </VStack>
   );

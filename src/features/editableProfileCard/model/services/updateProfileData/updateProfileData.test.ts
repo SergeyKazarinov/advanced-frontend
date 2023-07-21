@@ -1,8 +1,8 @@
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
-import updateProfileData from './updateProfileData';
+import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk';
 import { ValidateProfileErrorEnum } from '../../types/editableProfileCardSchema';
+import updateProfileData from './updateProfileData';
 
 const data = {
   id: '1',

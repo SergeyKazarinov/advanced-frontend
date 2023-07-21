@@ -1,12 +1,12 @@
-import { getUserIsLoadPage, userActions } from 'entities/User';
+import { getUserIsLoadPage, userActions } from '@entities/User';
+import { classNames } from '@shared/lib/classNames';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { Navbar } from '@widgets/Navbar';
+import { Sidebar } from '@widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
-import { AppRouter } from './providers/routing';
 import { useTheme } from './providers/ThemeProvider';
+import { AppRouter } from './providers/routing';
 
 const App = () => {
   const { theme } = useTheme();

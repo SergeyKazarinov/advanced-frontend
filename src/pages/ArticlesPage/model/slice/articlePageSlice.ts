@@ -6,9 +6,9 @@ import {
   createEntityAdapter,
   createSlice,
 } from '@reduxjs/toolkit';
-import { IStateSchema } from 'app/providers/StoreProvider';
-import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
-import { TSortOrder } from 'shared/types';
+import { IStateSchema } from '@app/providers/StoreProvider';
+import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from '@shared/const/localStorage';
+import { TSortOrder } from '@shared/types';
 import fetchArticleList from '../services/fetchArticleList/fetchArticleList';
 import { IArticlePageSchema } from '../types/articlePageSchema';
 

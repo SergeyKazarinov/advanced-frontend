@@ -1,11 +1,11 @@
 import { screen } from '@testing-library/dom';
 import '@testing-library/jest-dom';
-import { componentRender } from 'shared/lib/tests/componentRender';
+import { componentRender } from '@shared/lib/tests/componentRender';
 import { IProfile } from '@entities/Profile';
 import { CurrencyEnum } from '@entities/Currency';
 import { CountryEnum } from '@entities/Country';
 import userEvent from '@testing-library/user-event';
-import { $api } from 'shared/api/api';
+import { $api } from '@shared/api/api';
 import { profileReducer } from '../../model/slice/profileSlice';
 import EditableProfileCard from './EditableProfileCard';
 

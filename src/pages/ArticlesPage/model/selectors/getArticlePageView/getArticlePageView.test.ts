@@ -1,5 +1,5 @@
 import { ArticleViewEnum } from '@entities/Article';
-import { IStateSchema } from 'app/providers/StoreProvider';
+import { IStateSchema } from '@app/providers/StoreProvider';
 import { IArticlePageSchema } from '../../types/articlePageSchema';
 import { getArticlePageView } from './getArticlePageView';
 

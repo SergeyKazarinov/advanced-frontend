@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecoratorWithFullHeight';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import avatar from 'shared/assets/tests/avatar.jpg';
+import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
+import { StoreDecorator } from '@shared/config/storybook/StoreDecorator';
+import avatar from '@shared/assets/tests/avatar.jpg';
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import ProfilePage from './ProfilePage';

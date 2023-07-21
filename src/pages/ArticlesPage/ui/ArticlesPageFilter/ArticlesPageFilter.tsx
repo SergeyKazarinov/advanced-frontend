@@ -1,18 +1,18 @@
 import {
   ArticleSortFieldEnum, ArticleSortSelector, ArticleTypeEnum, ArticleTypeTabs, ArticleViewEnum,
 } from '@entities/Article';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
+import { ArticleViewSelector } from '@features/ArticleViewSelector';
 import {
   FC, memo, useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { TSortOrder } from 'shared/types';
-import { Card } from 'shared/ui/Card';
-import { Input } from 'shared/ui/Input';
+import { classNames } from '@shared/lib/classNames';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useDebounce } from '@shared/lib/hooks/useDebounce';
+import { TSortOrder } from '@shared/types';
+import { Card } from '@shared/ui/Card';
+import { Input } from '@shared/ui/Input';
 import { getArticlePageOrder } from '../../model/selectors/getArticlePageOrder/getArticlePageOrder';
 import { getArticlePageSearch } from '../../model/selectors/getArticlePageSearch/getArticlePageSearch';
 import { getArticlePageSort } from '../../model/selectors/getArticlePageSort/getArticlePageSort';

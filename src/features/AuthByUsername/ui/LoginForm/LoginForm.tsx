@@ -3,12 +3,12 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { DynamicModuleLoader, TReducerList } from 'shared/lib/ui/DynamicModuleLoader';
-import { classNames } from 'shared/lib/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, ThemeButtonEnum } from 'shared/ui/Button';
-import { Input } from 'shared/ui/Input';
-import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
+import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
+import { classNames } from '@shared/lib/classNames';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { Button, ThemeButtonEnum } from '@shared/ui/Button';
+import { Input } from '@shared/ui/Input';
+import { TextComponent, TextThemeEnum } from '@shared/ui/TextComponent';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';

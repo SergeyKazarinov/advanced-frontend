@@ -1,4 +1,4 @@
-import { IStateSchema } from 'app/providers/StoreProvider';
+import { IStateSchema } from '@app/providers/StoreProvider';
 import { ArticleSortFieldEnum } from '@entities/Article';
 import { IArticlePageSchema } from '../../types/articlePageSchema';
 import { getArticlePageSort } from './getArticlePageSort';

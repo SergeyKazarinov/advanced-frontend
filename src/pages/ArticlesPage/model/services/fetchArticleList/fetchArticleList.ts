@@ -1,7 +1,7 @@
 import { ArticleTypeEnum, IArticle } from '@entities/Article';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IThunkConfig } from 'app/providers/StoreProvider';
-import { addQueryParams } from 'shared/lib/url/addQueryParams';
+import { IThunkConfig } from '@app/providers/StoreProvider';
+import { addQueryParams } from '@shared/lib/url/addQueryParams';
 import { getArticlePageLimit } from '../../selectors/getArticlePageLimit/getArticlePageLimit';
 import { getArticlePageNumber } from '../../selectors/getArticlePageNumber/getArticlePageNumber';
 import { getArticlePageOrder } from '../../selectors/getArticlePageOrder/getArticlePageOrder';

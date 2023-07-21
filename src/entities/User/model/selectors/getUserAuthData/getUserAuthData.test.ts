@@ -1,5 +1,5 @@
 import { USER_DATA } from '@entities/User/utils/userData';
-import { IStateSchema } from 'app/providers/StoreProvider';
+import { IStateSchema } from '@app/providers/StoreProvider';
 import { getUserAuthData } from './getUserAuthData';
 
 describe('getUserAuthData selectors', () => {

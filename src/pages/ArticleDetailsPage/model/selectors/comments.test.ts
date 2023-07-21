@@ -1,4 +1,4 @@
-import { IStateSchema } from 'app/providers/StoreProvider';
+import { IStateSchema } from '@app/providers/StoreProvider';
 import { IArticleDetailsCommentSchema } from '../types/articleDetailsCommentSchema';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from './comments';
 

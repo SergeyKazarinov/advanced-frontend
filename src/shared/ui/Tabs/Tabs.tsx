@@ -1,7 +1,7 @@
 import {
   FC, memo, useCallback,
 } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from '@shared/lib/classNames';
 import { Card, CardThemeEnum } from '../Card';
 import s from './Tabs.module.scss';
 import { ITabItem } from './Tabs.types';

@@ -1,6 +1,6 @@
+import { componentRender } from '@shared/lib/tests/componentRender';
 import { fireEvent, screen } from '@testing-library/dom';
 import '@testing-library/jest-dom';
-import { componentRender } from 'shared/lib/tests/componentRender';
 import Sidebar from './Sidebar';
 
 describe('Sidebar', () => {

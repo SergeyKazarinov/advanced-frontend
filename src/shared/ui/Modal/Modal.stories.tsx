@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecoratorWithFullHeight';
+import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
 import Modal from './Modal';
 
 const meta = {

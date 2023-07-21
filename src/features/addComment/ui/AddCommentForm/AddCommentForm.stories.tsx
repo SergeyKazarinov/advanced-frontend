@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { ThemeDecorator } from '@shared/config/storybook';
+import { StoreDecorator } from '@shared/config/storybook/StoreDecorator';
 import AddCommentForm from './AddCommentForm';
 
 const meta = {

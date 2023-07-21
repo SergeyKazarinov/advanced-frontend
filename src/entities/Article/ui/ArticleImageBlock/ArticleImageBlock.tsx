@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from '@shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
-import { TextAlignEnum, TextComponent } from 'shared/ui/TextComponent';
+import { TextAlignEnum, TextComponent } from '@shared/ui/TextComponent';
 import { IArticleImageBlock } from '../../model/types/article';
 import s from './ArticleImageBlock.module.scss';
 

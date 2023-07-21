@@ -1,7 +1,7 @@
 import {
   DetailedHTMLProps, FC, ReactNode, memo,
 } from 'react';
-import { TMods, classNames } from 'shared/lib/classNames';
+import { TMods, classNames } from '@shared/lib/classNames';
 import s from './Flex.module.scss';
 
 export type TFlexJustify = 'start' | 'center' | 'end' | 'between';

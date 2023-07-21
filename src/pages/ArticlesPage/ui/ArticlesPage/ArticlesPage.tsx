@@ -1,9 +1,9 @@
 import { FC, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { DynamicModuleLoader, TReducerList } from 'shared/lib/ui/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Page } from 'widgets/Page';
+import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
+import { Page } from '@widgets/Page';
 import fetchNextArticlesPage from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import initArticlesPage from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlePageReducer } from '../../model/slice/articlePageSlice';

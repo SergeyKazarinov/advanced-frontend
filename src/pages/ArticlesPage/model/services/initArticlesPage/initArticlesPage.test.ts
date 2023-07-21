@@ -1,5 +1,5 @@
 import { ArticleViewEnum } from '@entities/Article';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
+import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk';
 import initArticlesPage from './initArticlesPage';
 
 describe('initArticlesPage', () => {

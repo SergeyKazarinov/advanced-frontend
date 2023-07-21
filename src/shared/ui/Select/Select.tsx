@@ -1,5 +1,5 @@
 import { ChangeEvent, useMemo } from 'react';
-import { TMods, classNames } from 'shared/lib/classNames';
+import { TMods, classNames } from '@shared/lib/classNames';
 import s from './Select.module.scss';
 import { ISelectOption } from './Select.types';
 

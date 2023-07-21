@@ -1,7 +1,7 @@
+import { classNames } from '@shared/lib/classNames';
+import { Button, ThemeButtonEnum } from '@shared/ui/Button';
 import { FC, useEffect, useState } from 'react';
-import { classNames } from 'shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
-import { ThemeButtonEnum, Button } from 'shared/ui/Button';
 
 interface BugButtonProps {
   className?: string;

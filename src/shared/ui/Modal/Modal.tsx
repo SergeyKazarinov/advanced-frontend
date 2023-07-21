@@ -1,7 +1,7 @@
-import { useTheme } from 'app/providers/ThemeProvider';
+import { useTheme } from '@app/providers/ThemeProvider';
 import { FC, ReactNode } from 'react';
-import { TMods, classNames } from 'shared/lib/classNames';
-import { useModal } from 'shared/lib/hooks/useModal';
+import { TMods, classNames } from '@shared/lib/classNames';
+import { useModal } from '@shared/lib/hooks/useModal';
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 import s from './Modal.module.scss';

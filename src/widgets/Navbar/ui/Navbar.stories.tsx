@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import avatar from 'shared/assets/tests/avatar.jpg';
+import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
+import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { StoreDecorator } from '@shared/config/storybook/StoreDecorator';
+import avatar from '@shared/assets/tests/avatar.jpg';
 import Navbar from './Navbar';
 
 const meta = {

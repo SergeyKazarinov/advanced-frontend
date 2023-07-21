@@ -1,7 +1,7 @@
 import {
   ARTICLE, ArticleSortFieldEnum, ArticleTypeEnum, ArticleViewEnum,
 } from '@entities/Article';
-import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
+import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from '@shared/const/localStorage';
 import fetchArticleList from '../services/fetchArticleList/fetchArticleList';
 import { IArticlePageSchema } from '../types/articlePageSchema';
 import { articlePageActions, articlePageReducer } from './articlePageSlice';

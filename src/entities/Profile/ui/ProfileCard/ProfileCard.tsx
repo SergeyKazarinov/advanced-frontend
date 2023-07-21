@@ -1,13 +1,13 @@
 import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TMods, classNames } from 'shared/lib/classNames';
-import { TextComponent, TextAlignEnum, TextThemeEnum } from 'shared/ui/TextComponent';
+import { TMods, classNames } from '@shared/lib/classNames';
+import { TextComponent, TextAlignEnum, TextThemeEnum } from '@shared/ui/TextComponent';
 import { CountryEnum, CountrySelect } from '@entities/Country';
-import { Avatar } from 'shared/ui/Avatar';
-import { Input } from 'shared/ui/Input';
-import { Loader } from 'shared/ui/Loader';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { Avatar } from '@shared/ui/Avatar';
+import { Input } from '@shared/ui/Input';
+import { Loader } from '@shared/ui/Loader';
+import { HStack, VStack } from '@shared/ui/Stack';
 import { IProfile } from '../../model/types/profile';
 import s from './ProfileCard.module.scss';
 

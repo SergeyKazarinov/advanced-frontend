@@ -1,12 +1,12 @@
 import { NotificationList } from '@entities/Notification';
 import { FC, memo, useState } from 'react';
 import { IoMdNotificationsOutline } from 'react-icons/io';
-import { classNames } from 'shared/lib/classNames';
-import { Button, ThemeButtonEnum } from 'shared/ui/Button';
-import { Popover } from 'shared/ui/Popups';
-import { Drawer } from 'shared/ui/Drawer';
+import { classNames } from '@shared/lib/classNames';
+import { Button, ThemeButtonEnum } from '@shared/ui/Button';
+import { Popover } from '@shared/ui/Popups';
+import { Drawer } from '@shared/ui/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { AnimationProvider } from 'shared/lib/ui/AnimationProvider';
+import { AnimationProvider } from '@shared/lib/ui/AnimationProvider';
 import s from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {

@@ -1,10 +1,10 @@
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import avatar from 'shared/assets/tests/avatar.jpg';
+import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { StoreDecorator } from '@shared/config/storybook';
+import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
+import avatar from '@shared/assets/tests/avatar.jpg';
 import { ValidateProfileErrorEnum } from '../../model/types/editableProfileCardSchema';
 import EditableProfileCard from './EditableProfileCard';
 

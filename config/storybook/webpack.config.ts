@@ -15,10 +15,6 @@ export default ({ config }): { config: Configuration } => {
   };
   config.resolve.modules.push(paths.src);
   config.resolve.extensions.push('.ts', '.tsx');
-  // config.resolve.alias = {
-  //   ...config.resolve.alias,
-  //   '@entities': [paths.src, 'entities'],
-  // };
 
   // eslint-disable-next-line no-param-reassign
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import avatar from 'shared/assets/tests/avatar.jpg';
+import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
+import avatar from '@shared/assets/tests/avatar.jpg';
 import CommentList from './CommentList';
 
 const meta = {

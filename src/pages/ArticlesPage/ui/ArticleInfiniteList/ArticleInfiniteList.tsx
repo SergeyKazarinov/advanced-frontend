@@ -1,7 +1,7 @@
 import { ArticleList } from '@entities/Article';
 import { FC, memo } from 'react';
 import { useSelector } from 'react-redux';
-import { TextComponent, TextThemeEnum } from 'shared/ui/TextComponent';
+import { TextComponent, TextThemeEnum } from '@shared/ui/TextComponent';
 import { getArticlePageError } from '../../model/selectors/getArticlePageError/getArticlePageError';
 import { getArticlePageIsLoading } from '../../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';
 import { getArticlePageView } from '../../model/selectors/getArticlePageView/getArticlePageView';

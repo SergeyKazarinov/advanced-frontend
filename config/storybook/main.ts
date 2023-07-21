@@ -27,6 +27,11 @@ const config: StorybookConfig = {
     config!.resolve!.alias = {
       ...config.resolve?.alias,
       '@entities': path.resolve(__dirname, '..', '..', 'src/entities'),
+      '@features': path.resolve(__dirname, '..', '..', 'src/features'),
+      '@shared': path.resolve(__dirname, '..', '..', 'src/shared'),
+      '@app': path.resolve(__dirname, '..', '..', 'src/app'),
+      '@widgets': path.resolve(__dirname, '..', '..', 'src/widgets'),
+      '@pages': path.resolve(__dirname, '..', '..', 'src/pages'),
     };
     return config;
   },

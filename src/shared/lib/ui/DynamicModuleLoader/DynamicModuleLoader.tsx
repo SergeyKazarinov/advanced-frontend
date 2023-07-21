@@ -1,5 +1,5 @@
-import { IReduxStoreWithManager } from 'app/providers/StoreProvider';
-import { TStateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
+import { IReduxStoreWithManager } from '@app/providers/StoreProvider';
+import { TStateSchemaKey } from '@app/providers/StoreProvider/config/StateSchema';
 import {
   FC, ReactNode, useEffect,
 } from 'react';

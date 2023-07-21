@@ -1,8 +1,8 @@
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames';
-import { TSortOrder } from 'shared/types';
-import { Select, ISelectOption } from 'shared/ui/Select';
+import { classNames } from '@shared/lib/classNames';
+import { TSortOrder } from '@shared/types';
+import { Select, ISelectOption } from '@shared/ui/Select';
 import { ArticleSortFieldEnum } from '../../model/consts/consts';
 import s from './ArticleSortSelector.module.scss';
 

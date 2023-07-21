@@ -2,7 +2,7 @@ import {
   FC, memo, useCallback, useMemo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ITabItem, Tabs } from 'shared/ui/Tabs';
+import { ITabItem, Tabs } from '@shared/ui/Tabs';
 import { ArticleTypeEnum } from '../../model/consts/consts';
 
 interface ArticleTypeTabsProps {

@@ -1,4 +1,4 @@
-import { IStateSchema } from 'app/providers/StoreProvider';
+import { IStateSchema } from '@app/providers/StoreProvider';
 import { IArticleDetailsRecommendationSchema } from '../types/articleDetailsPageRecommendation';
 import {
   getArticleDetailsPageRecommendationError,

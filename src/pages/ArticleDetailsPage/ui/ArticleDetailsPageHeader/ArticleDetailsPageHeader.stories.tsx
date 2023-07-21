@@ -1,8 +1,8 @@
 import { ARTICLE } from '@entities/Article';
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook';
-import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecoratorWithFullHeight';
+import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { StoreDecorator } from '@shared/config/storybook';
+import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
 import ArticleDetailsPageHeader from './ArticleDetailsPageHeader';
 
 const meta = {

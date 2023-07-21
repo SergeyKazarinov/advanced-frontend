@@ -1,9 +1,9 @@
 import { UserRoleEnum } from '@entities/User';
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecoratorWithFullHeight } from 'shared/config/storybook/ThemeDecoratorWithFullHeight';
-import avatar from 'shared/assets/tests/avatar.jpg';
+import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { StoreDecorator } from '@shared/config/storybook/StoreDecorator';
+import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
+import avatar from '@shared/assets/tests/avatar.jpg';
 import AvatarDropdown from './AvatarDropdown';
 
 const meta = {

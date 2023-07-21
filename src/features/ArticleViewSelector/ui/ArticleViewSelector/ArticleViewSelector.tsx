@@ -1,10 +1,10 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from '@shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleViewEnum } from '@entities/Article';
 import { BsList } from 'react-icons/bs';
 import { AiOutlineTable } from 'react-icons/ai';
-import { Button, ThemeButtonEnum } from 'shared/ui/Button';
+import { Button, ThemeButtonEnum } from '@shared/ui/Button';
 import s from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {

@@ -1,13 +1,13 @@
 import { UserRoleEnum } from '@entities/User/model/consts/consts';
-import { AboutPageLazy } from 'pages/AboutPage';
-import { AdminPanelPageLazy } from 'pages/AdminPanelPage';
-import { ArticleDetailsPageLazy } from 'pages/ArticleDetailsPage';
-import { ArticleEditPageLazy } from 'pages/ArticleEditPage';
-import { ArticlesPageLazy } from 'pages/ArticlesPage';
-import { ForbiddenPageLazy } from 'pages/ForbiddenPage';
-import { MainPageLazy } from 'pages/MainPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
-import { ProfilePageLazy } from 'pages/ProfilePage';
+import { AboutPageLazy } from '@pages/AboutPage';
+import { AdminPanelPageLazy } from '@pages/AdminPanelPage';
+import { ArticleDetailsPageLazy } from '@pages/ArticleDetailsPage';
+import { ArticleEditPageLazy } from '@pages/ArticleEditPage';
+import { ArticlesPageLazy } from '@pages/ArticlesPage';
+import { ForbiddenPageLazy } from '@pages/ForbiddenPage';
+import { MainPageLazy } from '@pages/MainPage';
+import { NotFoundPage } from '@pages/NotFoundPage';
+import { ProfilePageLazy } from '@pages/ProfilePage';
 import { RouteProps } from 'react-router-dom';
 
 export type AppRoutesProps = RouteProps & {

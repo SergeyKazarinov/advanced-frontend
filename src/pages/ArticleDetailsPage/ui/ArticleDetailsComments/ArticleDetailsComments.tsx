@@ -1,16 +1,16 @@
 import { CommentList } from '@entities/Comment';
-import { AddCommentFormAsync } from 'features/addComment';
+import { AddCommentFormAsync } from '@features/addComment';
 import {
   FC, Suspense, memo, useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { TextComponent, TextSizeEnum } from 'shared/ui/TextComponent';
-import { VStack } from 'shared/ui/Stack';
-import { Loader } from 'shared/ui/Loader';
+import { classNames } from '@shared/lib/classNames';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
+import { TextComponent, TextSizeEnum } from '@shared/ui/TextComponent';
+import { VStack } from '@shared/ui/Stack';
+import { Loader } from '@shared/ui/Loader';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import addCommentForArticle from '../../model/services/addCommentForArticle/addCommentForArticle';
 import fetchCommentsByArticleId from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

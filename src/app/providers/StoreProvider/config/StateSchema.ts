@@ -3,15 +3,15 @@ import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ICounterSchema } from 'entities/Counter';
-import { IUserSchema } from 'entities/User';
-import { ILoginSchema } from 'features/AuthByUsername';
-import { IScrollSaveSchema } from 'features/ScrollSave';
-import { IAddCommentFormSchema } from 'features/addComment';
-import { IProfileSchema } from 'features/editableProfileCard';
-import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { IArticlePageSchema } from 'pages/ArticlesPage';
-import { rtkApi } from 'shared/api/rtkApi';
+import { ICounterSchema } from '@entities/Counter';
+import { IUserSchema } from '@entities/User';
+import { ILoginSchema } from '@features/AuthByUsername';
+import { IScrollSaveSchema } from '@features/ScrollSave';
+import { IAddCommentFormSchema } from '@features/addComment';
+import { IProfileSchema } from '@features/editableProfileCard';
+import { IArticleDetailsPageSchema } from '@pages/ArticleDetailsPage';
+import { IArticlePageSchema } from '@pages/ArticlesPage';
+import { rtkApi } from '@shared/api/rtkApi';
 
 export interface IStateSchema {
   counter: ICounterSchema;

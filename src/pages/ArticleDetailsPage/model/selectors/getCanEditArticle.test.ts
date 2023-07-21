@@ -1,5 +1,5 @@
+import { IStateSchema } from '@app/providers/StoreProvider';
 import { ARTICLE } from '@entities/Article';
-import { IStateSchema } from 'app/providers/StoreProvider';
 import { getCanEditArticle } from './getCanEditArticle';
 
 const data: DeepPartial<IStateSchema> = {

@@ -5,7 +5,7 @@ import {
   LOCAL_STORAGE_THEME_KEY,
   ThemeContext,
   ThemeEnum,
-} from 'app/providers/ThemeProvider/lib/ThemeContext';
+} from '@app/providers/ThemeProvider/lib/ThemeContext';
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeEnum || ThemeEnum.DARK;
 

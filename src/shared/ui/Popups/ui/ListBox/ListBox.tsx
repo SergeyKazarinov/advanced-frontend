@@ -39,6 +39,7 @@ const ListBox: FC<ListBoxProps> = ({
       disabled={readonly}
     >
       <HListBox.Button
+        as="div"
         className={popupCls.btn}
       >
         <Button disabled={readonly}>

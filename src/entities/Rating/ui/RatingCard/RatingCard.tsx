@@ -20,14 +20,15 @@ interface RatingCardProps {
   hasFeedback?: boolean;
   onCancel?: (starsCount: number) => void;
   onAccept?: (starsCount: number, feedback?: string) => void;
+  rate?: number;
 }
 
 const RatingCard: FC<RatingCardProps> = ({
-  className, title, feedbackTitle, hasFeedback, onCancel, onAccept,
+  className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('article');
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate ?? 0);
   const [feedback, setFeedback] = useState('');
 
   const handleSelectStars = useCallback((selectedStarsCount: number) => {
@@ -57,16 +58,16 @@ const RatingCard: FC<RatingCardProps> = ({
   );
 
   return (
-    <Card className={classNames('', {}, [className])}>
+    <Card max className={classNames('', {}, [className])}>
       <VStack align="center">
-        <TextComponent title={title} />
-        <StarRating size={40} onSelect={handleSelectStars} />
+        <TextComponent title={starsCount ? t('Thanks') : title} />
+        <StarRating selectedStars={starsCount} size={40} onSelect={handleSelectStars} />
       </VStack>
       <BrowserView>
         <Modal isOpen={isOpenModal}>
           <VStack max gap="32">
             {modalContent}
-            <HStack gap="16" justify="end">
+            <HStack gap="16" max justify="end">
               <Button
                 theme={ThemeButtonEnum.OUTLINE_RED}
                 onClick={handleCancel}

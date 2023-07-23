@@ -1,7 +1,6 @@
-import { FC, memo, useState } from 'react';
 import { classNames } from '@shared/lib/classNames';
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
-import { useHover } from '@shared/lib/hooks/useHover';
+import { FC, memo, useState } from 'react';
+import { AiFillStar } from 'react-icons/ai';
 import s from './StarRating.module.scss';
 
 interface StarRatingProps {
@@ -18,7 +17,7 @@ const StarRating: FC<StarRatingProps> = ({
   selectedStars = 0,
 }) => {
   const starts = [1, 2, 3, 4, 5];
-  const [currentStarsCount, setCurrentStarsCount] = useState(0);
+  const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
   const handleHover = (starsCount: number) => () => {

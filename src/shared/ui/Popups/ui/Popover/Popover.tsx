@@ -19,8 +19,7 @@ const Popover: FC<PopoverProps> = ({
   const { t } = useTranslation();
   return (
     <PopoverUI className={classNames(s.popover, {}, [className, popupCls.popup])}>
-      <PopoverUI.Button className={popupCls.btn}>{trigger}</PopoverUI.Button>
-
+      <PopoverUI.Button as="div" className={popupCls.btn}>{trigger}</PopoverUI.Button>
       <PopoverUI.Panel className={classNames(s.panel, {}, [popupCls[direction]])}>
         {children}
       </PopoverUI.Panel>

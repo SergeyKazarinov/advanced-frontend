@@ -93,13 +93,17 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
             size={TextSizeEnum.L}
           />
           <HStack className={s.articleInfo}>
-            <AiFillEye />
+            <AiFillEye
+              className={s.icon}
+            />
             <TextComponent
               text={String(article?.views)}
             />
           </HStack>
           <HStack className={s.articleInfo}>
-            <ImCalendar />
+            <ImCalendar
+              className={s.icon}
+            />
             <TextComponent
               text={article?.createdAt}
             />

@@ -1,11 +1,12 @@
 import { ArticleDetails } from '@entities/Article';
+import { ArticleRatingLazy } from '@features/articleRating';
 import { ArticleRecommendationsList } from '@features/articleRecommendationsList';
-import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
 import { VStack } from '@shared/ui/Stack';
 import { Page } from '@widgets/Page';
+import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import { articleDetailsPageReducers } from '../../model/slice';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
@@ -19,12 +20,17 @@ const ArticleDetailsPage: FC = () => {
   const { t } = useTranslation('article');
   const { articleId } = useParams<{ articleId: string; }>();
 
+  if (!articleId) {
+    return null;
+  }
+
   return (
     <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
       <Page className={s.articleDetailsPage}>
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={articleId} />
+          <ArticleRatingLazy articleId={articleId} />
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={articleId} />
         </VStack>

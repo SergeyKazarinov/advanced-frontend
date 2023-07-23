@@ -9,7 +9,7 @@ import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 import s from './Drawer.module.scss';
 
-interface ModalProps {
+interface DrawerProps {
   className?: string;
   children?: ReactNode;
   isOpen?: boolean;
@@ -18,7 +18,7 @@ interface ModalProps {
 
 const height = window.innerHeight - 100;
 
-const DrawerContent: FC<ModalProps> = ({
+const DrawerContent: FC<DrawerProps> = ({
   className, children, isOpen, onClose,
 }) => {
   const { Gesture, Spring } = useAnimationLibs();
@@ -94,7 +94,7 @@ const DrawerContent: FC<ModalProps> = ({
   );
 };
 
-const DrawerLazy: FC<ModalProps> = memo((props) => {
+const DrawerLazy: FC<DrawerProps> = memo((props) => {
   const { isLoaded } = useAnimationLibs();
   if (!isLoaded) {
     return null;
@@ -103,7 +103,7 @@ const DrawerLazy: FC<ModalProps> = memo((props) => {
   return <DrawerContent {...props} />;
 });
 
-const Drawer: FC<ModalProps> = (props) => (
+const Drawer: FC<DrawerProps> = (props) => (
   <AnimationProvider>
     {/* eslint-disable-next-line */}
     <DrawerLazy {...props} />

@@ -24,6 +24,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   size?: SizeButtonEnum;
   disabled?: boolean;
+  fullWidth?: boolean;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -33,11 +34,13 @@ const Button: FC<ButtonProps> = ({
   square,
   size = SizeButtonEnum.M,
   disabled,
+  fullWidth,
   ...otherProps
 }) => {
   const mods: TMods = {
     [s.square]: square,
     [s.disabled]: disabled,
+    [s.fullWidth]: fullWidth,
   };
 
   return (

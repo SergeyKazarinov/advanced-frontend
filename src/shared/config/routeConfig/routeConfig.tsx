@@ -1,4 +1,4 @@
-import { UserRoleEnum } from '@entities/User/model/consts/consts';
+import { UserRoleEnum } from '@entities/User';
 import { AboutPageLazy } from '@pages/AboutPage';
 import { AdminPanelPageLazy } from '@pages/AdminPanelPage';
 import { ArticleDetailsPageLazy } from '@pages/ArticleDetailsPage';

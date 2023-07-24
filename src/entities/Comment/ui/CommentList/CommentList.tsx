@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
 import { classNames } from '@shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
-import { IComment } from '@entities/Comment/model/types/comment';
 import { TextComponent } from '@shared/ui/TextComponent';
 import { VStack } from '@shared/ui/Stack';
+import { IComment } from '../../model/types/comment';
 import CommentItem from '../CommentItem/CommentItem';
 
 interface CommentListProps {

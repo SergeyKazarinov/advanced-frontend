@@ -1,4 +1,4 @@
-import { USER_DATA } from '@entities/User/utils/userData';
+import { USER_DATA } from '../../utils/userData';
 import { IUserSchema } from '../types/user';
 import { userActions, userReducer } from './userSlice';
 

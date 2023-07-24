@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeEnum } from '@app/providers/ThemeProvider';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from '@shared/config/storybook';
-import { INotification } from '@entities/Notification/model/types/notification';
+import { INotification } from '../../model/types/notification';
 import NotificationList from './NotificationList';
 
 const data: INotification = {
@@ -12,7 +12,7 @@ const data: INotification = {
 };
 
 const meta = {
-  title: 'feature/NotificationList',
+  title: 'entities/Notification/NotificationList',
   component: NotificationList,
   tags: ['autodocs'],
   decorators: [

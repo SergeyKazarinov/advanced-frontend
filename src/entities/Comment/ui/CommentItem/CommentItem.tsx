@@ -1,4 +1,3 @@
-import { IComment } from '@entities/Comment/model/types/comment';
 import { FC, memo } from 'react';
 import { RoutePath } from '@shared/config/routeConfig';
 import { classNames } from '@shared/lib/classNames';
@@ -7,6 +6,7 @@ import { Avatar } from '@shared/ui/Avatar';
 import { Skeleton } from '@shared/ui/Skeleton';
 import { TextComponent } from '@shared/ui/TextComponent';
 import { VStack } from '@shared/ui/Stack';
+import { IComment } from '../../model/types/comment';
 import s from './CommentItem.module.scss';
 
 interface CommentItemProps {

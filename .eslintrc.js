@@ -43,7 +43,11 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'no-param-reassign': 'off',
     'no-undef': 'off',
-    'fsd-import-plugin/path-checker': 'error',
+    'fsd-import-plugin/path-checker': ['error', { alias: '@' }],
+    'fsd-import-plugin/public-api-imports': ['error', {
+      alias: '@',
+      testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
+    }],
   },
   overrides: [{
     files: ['**/src/**/*.test.{ts,tsx}', '**/src/**/*.stories.{ts,tsx}'],

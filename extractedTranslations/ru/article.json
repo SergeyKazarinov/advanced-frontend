@@ -4,6 +4,7 @@
   "Articles not found": "Articles not found",
   "Back": "Back",
   "By": "By",
+  "Close": "Close",
   "Comments": "Comments",
   "Economics": "Economics",
   "Edit": "Edit",
@@ -18,9 +19,11 @@
   "Send": "Send",
   "Serach": "Serach",
   "Sort by": "Sort by",
+  "Thanks": "Thanks",
   "ascending": "ascending",
   "date of creation": "date of creation",
   "descending": "descending",
+  "feedback": "feedback",
   "name": "name",
   "views": "views"
 }

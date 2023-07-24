@@ -1,7 +1,7 @@
-import { CountryEnum } from '@entities/Country/model/types/country';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListBox } from '@shared/ui/Popups';
+import { CountryEnum } from '../../model/types/country';
 
 interface CountrySelectProps {
   className?: string;

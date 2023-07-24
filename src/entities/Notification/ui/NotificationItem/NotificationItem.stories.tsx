@@ -4,7 +4,7 @@ import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
 import NotificationItem from './NotificationItem';
 
 const meta = {
-  title: 'feature/NotificationItem',
+  title: 'entities/Notification/NotificationItem',
   component: NotificationItem,
   tags: ['autodocs'],
   args: {

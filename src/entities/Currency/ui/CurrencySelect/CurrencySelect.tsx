@@ -1,9 +1,9 @@
-import { CurrencyEnum } from '@entities/Currency/model/types/currency';
 import {
   FC, memo, useCallback, useMemo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListBox } from '@shared/ui/Popups';
+import { CurrencyEnum } from '../../model/types/currency';
 
 interface CurrencySelectProps {
   className?: string;

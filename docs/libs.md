@@ -13,10 +13,10 @@
 - storybook-addon-mock
 - eslint
 - eslint-config-airbnb
-- eslint-plugin-fsd-import-plugin
-- eslint-plugin-react-hooks
-- stylelint
-- circular-dependency-plugin
+- [eslint-plugin-fsd-import-plugin](https://www.npmjs.com/package/eslint-plugin-fsd-import-plugin) - Собсвенный ESLint-plugin для контроля импортов в соответствии с FSD архитектурой
+- [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) - Плагин ESLint обеспечивает соблюдение правил хуков
+- [stylelint](https://stylelint.io/) - мощный линтер CSS, который поможет избежать ошибок и обеспечить соблюдение соглашений
+- [circular-dependency-plugin](https://www.npmjs.com/package/circular-dependency-plugin) - Обнаружение модулей с циклическими зависимостями
 - [concurrently](https://www.npmjs.com/package/concurrently) - Запуск нескольких команд одновременно.
 - [Headless UI](https://headlessui.com/) - gолностью не стилизованные, полностью доступные компоненты пользовательского интерфейса, разработанные для прекрасной интеграции с Tailwind CSS.
 - [use-gesture](https://use-gesture.netlify.app/) - библиотека, которая позволяет привязывать более богатые события мыши и касания к любому компоненту или представлению

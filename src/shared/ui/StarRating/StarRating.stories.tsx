@@ -1,4 +1,4 @@
-import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { ThemeEnum } from '@shared/const/theme';
 import { ThemeDecorator } from '@shared/config/storybook';
 import type { Meta, StoryObj } from '@storybook/react';
 import StarRating from './StarRating';

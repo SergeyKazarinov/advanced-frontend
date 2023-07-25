@@ -1,6 +1,6 @@
 import { ARTICLE } from '@entities/Article';
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { ThemeEnum } from '@shared/const/theme';
 import { StoreDecorator, ThemeDecorator } from '@shared/config/storybook';
 import ArticleRecommendationsList from './ArticleRecommendationsList';
 

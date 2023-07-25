@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from '@app/providers/ThemeProvider';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
+import { ThemeEnum } from '@shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
 import CurrencySelect from './CurrencySelect';
 
 const meta = {

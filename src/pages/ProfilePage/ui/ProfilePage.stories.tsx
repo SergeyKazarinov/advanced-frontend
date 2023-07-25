@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { ThemeEnum } from '@shared/const/theme';
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
 import { StoreDecorator } from '@shared/config/storybook/StoreDecorator';
 import avatar from '@shared/assets/tests/avatar.jpg';

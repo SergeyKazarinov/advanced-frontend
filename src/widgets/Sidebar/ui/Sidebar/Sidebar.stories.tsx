@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
-import { ThemeEnum } from '@app/providers/ThemeProvider';
 import { StoreDecorator } from '@shared/config/storybook';
+import { ThemeEnum } from '@shared/const/theme';
 import Sidebar from './Sidebar';
 
 const meta = {

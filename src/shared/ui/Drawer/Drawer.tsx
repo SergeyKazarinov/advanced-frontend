@@ -1,10 +1,10 @@
-import { useTheme } from '@app/providers/ThemeProvider';
+import { TMods, classNames } from '@shared/lib/classNames';
+import { useModal } from '@shared/lib/hooks/useModal';
+import { useTheme } from '@shared/lib/hooks/useTheme/useTheme';
+import { AnimationProvider, useAnimationLibs } from '@shared/lib/ui/AnimationProvider';
 import {
   FC, ReactNode, memo, useCallback, useEffect,
 } from 'react';
-import { TMods, classNames } from '@shared/lib/classNames';
-import { useModal } from '@shared/lib/hooks/useModal';
-import { AnimationProvider, useAnimationLibs } from '@shared/lib/ui/AnimationProvider';
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 import s from './Drawer.module.scss';

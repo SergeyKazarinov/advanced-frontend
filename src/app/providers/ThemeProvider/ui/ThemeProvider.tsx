@@ -1,11 +1,9 @@
+import { LOCAL_STORAGE_THEME_KEY } from '@shared/const/localStorage';
+import { ThemeEnum } from '@shared/const/theme';
+import { ThemeContext } from '@shared/lib/context/ThemeContext';
 import {
   FC, ReactNode, useMemo, useState,
 } from 'react';
-import {
-  LOCAL_STORAGE_THEME_KEY,
-  ThemeContext,
-  ThemeEnum,
-} from '@app/providers/ThemeProvider/lib/ThemeContext';
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeEnum || ThemeEnum.DARK;
 

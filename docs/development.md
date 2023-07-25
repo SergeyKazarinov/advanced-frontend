@@ -75,4 +75,4 @@
  - Добавлен [vite](https://vitejs.dev/) config
  - Добавлена возможность оценки статьи и отправки фидбека
  - Добавлено свойство **alias** в существующее правилео собственного плагина
- - Добавлено новое правило в [собсвенный Eslint конфиг](https://www.npmjs.com/package/eslint-plugin-fsd-import-plugin) и произведен рефакторин в соответствии с плагином (добавлен testing public api)
+ - Добавлено два новых правила в [собсвенный Eslint плагин](https://www.npmjs.com/package/eslint-plugin-fsd-import-plugin) и произведен рефакторин в соответствии с плагином (добавлен testing public api)

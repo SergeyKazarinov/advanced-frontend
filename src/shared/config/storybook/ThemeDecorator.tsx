@@ -1,5 +1,7 @@
+// eslint-disable-next-line
+import { ThemeProvider } from '@app/providers/ThemeProvider';
+import { ThemeEnum } from '@shared/const/theme';
 import { StoryFn } from '@storybook/react';
-import { ThemeEnum, ThemeProvider } from '@app/providers/ThemeProvider';
 
 export const ThemeDecorator = (theme: ThemeEnum) => function (Story: StoryFn) {
   return (

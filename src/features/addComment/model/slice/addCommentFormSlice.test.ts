@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import { IArticlePageSchema } from '@pages/ArticlesPage';
 import { IAddCommentFormSchema } from '../types/addCommentFormSchema';
 import { addCommentFormActions, addCommentFormReducer } from './addCommentFormSlice';

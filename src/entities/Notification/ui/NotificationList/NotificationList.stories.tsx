@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from '@app/providers/ThemeProvider';
+import { ThemeEnum } from '@shared/const/theme';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from '@shared/config/storybook';
 import { INotification } from '../../model/types/notification';

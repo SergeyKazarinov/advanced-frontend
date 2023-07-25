@@ -4,10 +4,10 @@ import {
 import { t } from 'i18next';
 import { FC, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RoutePath } from '@shared/config/routeConfig';
 import { classNames } from '@shared/lib/classNames';
 import { Avatar } from '@shared/ui/Avatar';
 import { Dropdown } from '@shared/ui/Popups';
+import { RoutePath } from '@shared/const/router';
 
 interface AvatarDropdownProps {
   className?: string;

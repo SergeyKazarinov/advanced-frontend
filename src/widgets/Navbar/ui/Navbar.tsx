@@ -7,12 +7,12 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RoutePath } from '@shared/config/routeConfig';
 import { classNames } from '@shared/lib/classNames';
 import { AppLink, AppLinkThemeEnum } from '@shared/ui/AppLink';
 import { Button, ThemeButtonEnum } from '@shared/ui/Button';
 import { HStack } from '@shared/ui/Stack';
 import { TextComponent, TextThemeEnum } from '@shared/ui/TextComponent';
+import { RoutePath } from '@shared/const/router';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {

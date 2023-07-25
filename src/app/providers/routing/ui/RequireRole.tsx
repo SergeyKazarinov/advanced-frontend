@@ -1,8 +1,8 @@
 import { UserRoleEnum, getUserRoles } from '@entities/User';
+import { RoutePath } from '@shared/const/router';
 import { FC, ReactNode, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { RoutePath } from '@shared/config/routeConfig';
 
 interface RequireRoleProps {
   children: ReactNode;

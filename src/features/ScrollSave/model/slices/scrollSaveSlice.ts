@@ -1,5 +1,4 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import path from 'path';
 import { IScrollSaveSchema } from '../types/scrollSaveSchema';
 
 const initialState: IScrollSaveSchema = {

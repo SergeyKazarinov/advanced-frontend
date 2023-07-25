@@ -2,7 +2,6 @@ import { EditableProfileCard } from '@features/editableProfileCard';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { VStack } from '@shared/ui/Stack';
-import { TextComponent } from '@shared/ui/TextComponent';
 import { Page } from '@widgets/Page';
 
 const ProfilePage = () => {

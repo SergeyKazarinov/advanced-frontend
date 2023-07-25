@@ -21,8 +21,10 @@ module.exports = {
     'i18next',
     'react-hooks',
     'fsd-import-plugin',
+    'unused-imports',
   ],
   rules: {
+    'unused-imports/no-unused-imports': 'error',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],

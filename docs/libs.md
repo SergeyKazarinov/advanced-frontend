@@ -13,6 +13,8 @@
 - storybook-addon-mock
 - eslint
 - eslint-config-airbnb
+- [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) - Этот плагин предназначен для поддержки анализа синтаксиса импорта/экспорта ES2015+ (ES6+) и предотвращения проблем с орфографическими ошибками в путях к файлам и именах импорта.
+- [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports) - Плагин для удаления не используемых импортов
 - [eslint-plugin-fsd-import-plugin](https://www.npmjs.com/package/eslint-plugin-fsd-import-plugin) - Собсвенный ESLint-plugin для контроля импортов в соответствии с FSD архитектурой
 - [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) - Плагин ESLint обеспечивает соблюдение правил хуков
 - [stylelint](https://stylelint.io/) - мощный линтер CSS, который поможет избежать ошибок и обеспечить соблюдение соглашений

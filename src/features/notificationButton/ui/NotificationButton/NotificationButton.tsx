@@ -6,7 +6,6 @@ import { Button, ThemeButtonEnum } from '@shared/ui/Button';
 import { Popover } from '@shared/ui/Popups';
 import { Drawer } from '@shared/ui/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { AnimationProvider } from '@shared/lib/ui/AnimationProvider';
 import s from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {

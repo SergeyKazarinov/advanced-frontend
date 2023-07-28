@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@shared/lib/classNames';
 import { Avatar } from '@shared/ui/Avatar';
 import { Dropdown } from '@shared/ui/Popups';
-import { RoutePath } from '@shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '@shared/const/router';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -37,11 +37,11 @@ const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
       items={[
         ...(isAdminPanelAvailable ? [{
           content: t('Admin panel'),
-          href: RoutePath.admin_panel,
+          href: getRouteAdmin(),
         }] : []),
         {
           content: t('User profile'),
-          href: RoutePath.profile + userAuthData.id,
+          href: getRouteProfile(userAuthData.id),
         },
         {
           content: t('Logout'),

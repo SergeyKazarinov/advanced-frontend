@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { classNames } from '@shared/lib/classNames';
 import { Button } from '@shared/ui/Button';
 import { HStack } from '@shared/ui/Stack';
-import { RoutePath } from '@shared/const/router';
+import { getRouteArticleEdit } from '@shared/const/router';
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle';
 
 interface ArticleDetailsPageHeaderProps {
@@ -19,8 +19,10 @@ const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = ({ className
   const article = useSelector(getArticleDetailsData);
   const canEdit = useSelector(getCanEditArticle);
   const handleEdit = useCallback(() => {
-    navigate(`${RoutePath.articles}/${article?.id}/edit`);
-  }, [navigate, article?.id]);
+    if (article) {
+      navigate(getRouteArticleEdit(article.id));
+    }
+  }, [navigate, article]);
 
   const handleBack = useCallback(() => {
     navigate(-1);

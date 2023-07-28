@@ -47,7 +47,7 @@ const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
 
   return (
     <div className={classNames(s.articleSortSelector, {}, [className])}>
-      <Select
+      <Select<ArticleSortFieldEnum>
         options={sortFieldOptions}
         label={t('Sort by')}
         value={sort}

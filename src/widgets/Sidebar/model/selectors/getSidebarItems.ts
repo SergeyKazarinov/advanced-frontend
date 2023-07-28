@@ -1,9 +1,14 @@
 import { getUserAuthData } from '@entities/User';
 import { createSelector } from '@reduxjs/toolkit';
+import {
+  getRouteAbout,
+  getRouteArticles,
+  getRouteMain,
+  getRouteProfile,
+} from '@shared/const/router';
 import { AiFillHome } from 'react-icons/ai';
 import { BsCardList, BsNewspaper } from 'react-icons/bs';
 import { CgProfile } from 'react-icons/cg';
-import { RoutePath } from '@shared/const/router';
 import { ISidebarItem } from '../types/sidebar';
 
 export const getSidebarItems = createSelector(
@@ -11,12 +16,12 @@ export const getSidebarItems = createSelector(
   (userData) => {
     const sidebarItemsList: ISidebarItem[] = [
       {
-        path: RoutePath.main,
+        path: getRouteMain(),
         text: 'Main',
         Icon: AiFillHome,
       },
       {
-        path: RoutePath.about,
+        path: getRouteAbout(),
         text: 'About',
         Icon: BsCardList,
       },
@@ -25,13 +30,13 @@ export const getSidebarItems = createSelector(
     if (userData) {
       sidebarItemsList.push(
         {
-          path: RoutePath.profile + userData.id,
+          path: getRouteProfile(userData.id),
           text: 'Profile',
           Icon: CgProfile,
           authOnly: true,
         },
         {
-          path: RoutePath.articles,
+          path: getRouteArticles(),
           text: 'Articles',
           Icon: BsNewspaper,
           authOnly: true,

@@ -1,4 +1,4 @@
-import { RoutePath } from '@shared/const/router';
+import { getRouteArticlesDetails } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';
 import { AppLink } from '@shared/ui/AppLink';
 import { Avatar } from '@shared/ui/Avatar';
@@ -55,7 +55,7 @@ const ArticleListItem: FC<ArticleListItemProps> = ({
           )}
           <div className={s.footer}>
             <AppLink
-              to={RoutePath.article_details + article.id}
+              to={getRouteArticlesDetails(article.id)}
             >
               <Button
                 theme={ThemeButtonEnum.CLEAR}
@@ -72,7 +72,7 @@ const ArticleListItem: FC<ArticleListItemProps> = ({
   return (
     <AppLink
       target={target}
-      to={RoutePath.article_details + article.id}
+      to={getRouteArticlesDetails(article.id)}
       className={classNames(s.articleListItem, {}, [className, s[view]])}
     >
       <Card>

@@ -1,5 +1,5 @@
 import { UserRoleEnum, getUserRoles } from '@entities/User';
-import { RoutePath } from '@shared/const/router';
+import { getRouteForbidden } from '@shared/const/router';
 import { FC, ReactNode, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
@@ -24,7 +24,7 @@ const RequireRole: FC<RequireRoleProps> = ({ children, roles }) => {
     });
   }, [useRoles, roles]);
 
-  return !hasRequireRoles ? <Navigate to={RoutePath.forbidden} state={{ state: location }} replace /> : children;
+  return !hasRequireRoles ? <Navigate to={getRouteForbidden()} state={{ state: location }} replace /> : children;
 };
 
 export default RequireRole;

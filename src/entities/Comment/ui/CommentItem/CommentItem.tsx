@@ -5,7 +5,7 @@ import { Avatar } from '@shared/ui/Avatar';
 import { Skeleton } from '@shared/ui/Skeleton';
 import { TextComponent } from '@shared/ui/TextComponent';
 import { VStack } from '@shared/ui/Stack';
-import { RoutePath } from '@shared/const/router';
+import { getRouteProfile } from '@shared/const/router';
 import { IComment } from '../../model/types/comment';
 import s from './CommentItem.module.scss';
 
@@ -33,7 +33,7 @@ const CommentItem: FC<CommentItemProps> = ({ className, comment, isLoading }) =>
   }
   return (
     <VStack max className={(classNames(s.commentItem, {}, [className]))}>
-      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={s.header}>
+      <AppLink to={getRouteProfile(comment.user.id)} className={s.header}>
         <Avatar size={30} src={comment.user.avatar} />
         <TextComponent title={comment.user.username} />
       </AppLink>

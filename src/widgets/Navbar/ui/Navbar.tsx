@@ -12,7 +12,7 @@ import { AppLink, AppLinkThemeEnum } from '@shared/ui/AppLink';
 import { Button, ThemeButtonEnum } from '@shared/ui/Button';
 import { HStack } from '@shared/ui/Stack';
 import { TextComponent, TextThemeEnum } from '@shared/ui/TextComponent';
-import { RoutePath } from '@shared/const/router';
+import { getRouteArticleCreate } from '@shared/const/router';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -42,7 +42,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
         />
         <AppLink
           theme={AppLinkThemeEnum.SECONDARY}
-          to={RoutePath.article_create}
+          to={getRouteArticleCreate()}
           className={s.createArticle}
         >
           {t('Create article')}

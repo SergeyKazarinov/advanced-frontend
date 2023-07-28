@@ -12,6 +12,7 @@
 - [Конфигурация проекта](#config)
 - [CI pipeline и pre commit хуки](#ci)
 - [Работа с данными](#server)
+- [Сущности (entities)](#entities)
 - [Этапы разработки](#development)
 - [Что планируется сделать](#next)
 
@@ -139,14 +140,26 @@ npm run start:dev
 Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
 [DynamicModuleLoader](/src/shared/lib/ui/DynamicModuleLoader/DynamicModuleLoader.tsx)
 
+## <a id="entities" ></a>Сущности (entities)
+
+- [Article](/src/entities/Article/Readme.md)
+- [Comment](/src/entities/Comment/Readme.md)
+- [Country](/src/entities/Country/Readme.md)
+- [Currency](/src/entities/Currency/Readme.md)
+- [Notification](/src/entities/Notification/Readme.md)
+- [Profile](/src/entities/Profile/Readme.md)
+- [Rating](/src/entities/Rating/Readme.md)
+- [User](/src/entities/User/Readme.md)
+
 ## <a id="development" ></a>Этапы разработки
 
 Более подробную информацию об этапах разработки можете ознакомиться [здесь](/docs/development.md)
 
+
+
 ## <a id="next" ></a> Что планируется сделать
 - Задокументировать entities и features
 - Покрыть проект e2e тестированием, а также дописать тесты на существующие компоненты, функции
-- Добавить оценку статьи
 - Расширить собственный ESLint плагин новыми правилами
 - Добавить prettier
 - Сделать редизайн проекта

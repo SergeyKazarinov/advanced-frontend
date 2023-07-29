@@ -10,6 +10,8 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiFillEye } from 'react-icons/ai';
+import { AppImage } from '@shared/ui/AppImage';
+import { Skeleton } from '@shared/ui/Skeleton';
 import { ArticleBlockTypeEnum, ArticleViewEnum } from '../../model/consts/consts';
 import {
   IArticle, IArticleTextBlock,
@@ -49,7 +51,12 @@ const ArticleListItem: FC<ArticleListItemProps> = ({
           </div>
           <TextComponent title={article.title} className={s.title} />
           {types}
-          <img src={article.img} className={s.image} alt={article.title} />
+          <AppImage
+            src={article.img}
+            className={s.image}
+            alt={article.title}
+            fallback={<Skeleton width="100%" height={250} />}
+          />
           {textBlock && (
             <ArticleTextBlock block={textBlock} className={s.textBlock} />
           )}
@@ -77,7 +84,12 @@ const ArticleListItem: FC<ArticleListItemProps> = ({
     >
       <Card>
         <div className={s.imageWrapper}>
-          <img src={article.img} className={s.image} alt={article.title} />
+          <AppImage
+            src={article.img}
+            className={s.image}
+            alt={article.title}
+            fallback={<Skeleton width={200} height={200} />}
+          />
           <TextComponent text={article.createdAt} className={s.date} />
 
         </div>

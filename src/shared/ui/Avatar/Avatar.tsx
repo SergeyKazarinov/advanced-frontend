@@ -1,6 +1,9 @@
 import { CSSProperties, FC, useMemo } from 'react';
 import { classNames } from '@shared/lib/classNames';
+import { RxAvatar } from 'react-icons/rx';
 import s from './Avatar.module.scss';
+import { AppImage } from '../AppImage';
+import { Skeleton } from '../Skeleton';
 
 interface AvatarProps {
   className?: string;
@@ -17,12 +20,17 @@ const Avatar: FC<AvatarProps> = ({
     height: size || 100,
   }), [size]);
 
+  const fallback = <Skeleton width={size} height={size} border="50%" />;
+  const errorFallback = <RxAvatar />;
+
   return (
-    <img
+    <AppImage
       src={src}
       style={styles}
       className={classNames(s.avatar, {}, [className])}
       alt={alt || 'avatar'}
+      fallback={fallback}
+      errorFallback={errorFallback}
     />
   );
 };

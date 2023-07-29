@@ -7,15 +7,9 @@ export const buildBabelLoader = (options: BuildBabelLoaderProps) => ({
   use: {
     loader: 'babel-loader',
     options: {
+      cacheDirectory: true,
       presets: ['@babel/preset-env'],
       plugins: [
-        [
-          'i18next-extract',
-          {
-            locales: ['ru', 'en'],
-            keyAsDefaultValue: true,
-          },
-        ],
         [
           '@babel/plugin-transform-typescript',
           {
@@ -23,7 +17,7 @@ export const buildBabelLoader = (options: BuildBabelLoaderProps) => ({
           },
         ],
         '@babel/plugin-transform-runtime',
-        options.isTsx && [
+        options.isTsx && !options.isDev && [
           babelRemovePropsPlugin(),
           {
             props: ['data-testid'],

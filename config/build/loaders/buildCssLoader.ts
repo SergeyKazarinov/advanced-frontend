@@ -3,6 +3,7 @@ import { IBuildOptions } from '../types/config';
 
 export const buildCssLoader = ({ isDev }: IBuildOptions) => ({
   test: /\.s?[ac]ss$/i,
+  exclude: /node_modules/,
   use: [
     // Creates `style` nodes from JS strings
     isDev ? 'style-loader' : MiniCssExtractPlugin.loader,

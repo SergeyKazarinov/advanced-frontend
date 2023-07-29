@@ -1,11 +1,11 @@
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook';
 import { ThemeEnum } from '@shared/const/theme';
 import type { Meta, StoryObj } from '@storybook/react';
-import { ArticleSortFieldEnum } from '../../model/consts/consts';
+import { ArticleSortFieldEnum } from '@entities/Article';
 import ArticleSortSelector from './ArticleSortSelector';
 
 const meta = {
-  title: 'entities/article/ArticleSortSelector',
+  title: 'features/article/ArticleSortSelector',
   component: ArticleSortSelector,
   tags: ['autodocs'],
   args: {

@@ -1,3 +1,3 @@
-import { IStateSchema } from '@app/providers/StoreProvider';
+import { buildSelector } from '@shared/lib/store';
 
-export const getCounter = (state: IStateSchema) => state.counter;
+export const [useCounter, getCounter] = buildSelector((state) => state.counter);

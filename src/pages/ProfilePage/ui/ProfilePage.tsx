@@ -9,7 +9,7 @@ const ProfilePage = () => {
   const { profileId } = useParams<{ profileId: string }>();
 
   return (
-    <Page>
+    <Page data-testid="ProfilePage">
       <VStack gap="16" max>
         <EditableProfileCard profileId={profileId} />
       </VStack>

@@ -77,3 +77,4 @@
  - Добавлено свойство **alias** в существующее правилео собственного плагина
  - Добавлено два новых правила в [собсвенный Eslint плагин](https://www.npmjs.com/package/eslint-plugin-fsd-import-plugin) и произведен рефакторин в соответствии с плагином (добавлен testing public api)
  - Добавлены [buildSelector](../src/shared/lib/store/buildSelector.ts) и [buildSlice](../src/shared/lib/store/buildSlice.ts) для удобной работы с actions и state-селекторами
+ - Добавлен [lint-staged](https://www.npmjs.com/package/lint-staged?activeTab=readme) для пре-коммит хуков

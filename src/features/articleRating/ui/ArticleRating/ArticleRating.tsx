@@ -18,7 +18,7 @@ const ArticleRating: FC<ArticleRatingProps> = ({ className, articleId }) => {
     articleId,
     userId: userData?.id ?? '',
   });
-  console.log(data);
+
   const [rateArticleMutation] = useRateArticle();
 
   const handleRateArticle = useCallback((starsCount: number, feedback?: string) => {

@@ -8,7 +8,6 @@ import { ForbiddenPageLazy } from '@pages/ForbiddenPage';
 import { MainPageLazy } from '@pages/MainPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
 import { ProfilePageLazy } from '@pages/ProfilePage';
-import { AppRoutesProps } from '@shared/types/router';
 import {
   AppRoutesEnum,
   getRouteAbout,
@@ -22,6 +21,7 @@ import {
   getRouteNotFound,
   getRouteProfile,
 } from '@shared/const/router';
+import { AppRoutesProps } from '@shared/types';
 
 export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.MAIN]: {
@@ -61,13 +61,13 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: getRouteAdmin(),
     element: <AdminPanelPageLazy />,
     authOnly: true,
-    roles: [UserRoleEnum.ADMIN, UserRoleEnum.ADMIN],
+    roles: [UserRoleEnum.ADMIN, UserRoleEnum.MANAGER],
   },
   [AppRoutesEnum.FORBIDDEN]: {
     path: getRouteForbidden(),
     element: <ForbiddenPageLazy />,
     authOnly: true,
-    roles: [UserRoleEnum.ADMIN, UserRoleEnum.ADMIN],
+    roles: [UserRoleEnum.ADMIN, UserRoleEnum.MANAGER],
   },
   [AppRoutesEnum.NOT_FOUND]: {
     path: getRouteNotFound(),

@@ -11,7 +11,7 @@ interface RequireRoleProps {
 
 const RequireRole: FC<RequireRoleProps> = ({ children, roles }) => {
   const location = useLocation();
-  const useRoles = useSelector(getUserRoles);
+  const userRoles = useSelector(getUserRoles);
 
   const hasRequireRoles = useMemo(() => {
     if (!roles) {
@@ -19,10 +19,10 @@ const RequireRole: FC<RequireRoleProps> = ({ children, roles }) => {
     }
 
     return roles.some((item) => {
-      const hasRole = useRoles?.includes(item);
+      const hasRole = userRoles?.includes(item);
       return hasRole;
     });
-  }, [useRoles, roles]);
+  }, [userRoles, roles]);
 
   return !hasRequireRoles ? <Navigate to={getRouteForbidden()} state={{ state: location }} replace /> : children;
 };

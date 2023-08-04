@@ -25,8 +25,7 @@
     "visual:report": "npm-run-all visual:report:*",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
-    "prepare": "husky install",
-    "postinstall": "rmdir /s /q .\\node-modules\\.cache"
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
@@ -91,6 +90,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "jest-html-reporter": "^3.10.1",
     "json-server": "^0.17.3",
+    "lint-staged": "^13.2.3",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.7.6",
     "react-refresh": "^0.14.0",
@@ -154,5 +154,8 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
   }
 }

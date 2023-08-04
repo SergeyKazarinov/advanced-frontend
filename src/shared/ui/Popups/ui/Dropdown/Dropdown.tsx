@@ -4,7 +4,7 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@shared/lib/classNames';
-import { TDropDownDirection } from '@shared/types/ui';
+import { TDropDownDirection } from '@shared/types';
 import s from './Dropdown.module.scss';
 import { AppLink } from '../../../AppLink';
 import popupCls from '../../styles/popup.module.scss';

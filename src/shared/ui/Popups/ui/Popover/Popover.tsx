@@ -2,7 +2,7 @@ import { Popover as PopoverUI } from '@headlessui/react';
 import { FC, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@shared/lib/classNames';
-import { TDropDownDirection } from '@shared/types/ui';
+import { TDropDownDirection } from '@shared/types';
 import popupCls from '../../styles/popup.module.scss';
 import s from './Popover.module.scss';
 

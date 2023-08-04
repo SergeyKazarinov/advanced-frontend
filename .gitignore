@@ -10,6 +10,7 @@
 
 # testing
 /coverage
+/reports/unit.html
 storybook-static
 .loki/report.html
 .loki/report.json

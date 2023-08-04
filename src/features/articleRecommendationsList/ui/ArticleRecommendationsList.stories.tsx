@@ -23,7 +23,7 @@ export const Light: Story = {
   parameters: {
     mockData: [
       {
-        url: `${__API__}/articles?_limit=3`,
+        url: `${__API__}/articles/?_limit=3`,
         method: 'GET',
         status: 200,
         response: [ARTICLE, { ...ARTICLE, id: '2' }, { ...ARTICLE, id: '3' }],

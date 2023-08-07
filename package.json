@@ -15,7 +15,8 @@
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-    "test": "jest",
+    "test:unit": "jest",
+    "test:e2e": "cypress open",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "npm run build-storybook -c ./config/storybook && loki --requireReference --reactUri file:./storybook-static",
@@ -60,8 +61,8 @@
     "@types/react-virtualized": "^9.21.22",
     "@types/webpack": "^5.28.0",
     "@types/webpack-dev-server": "^4.7.2",
-    "@typescript-eslint/eslint-plugin": "^5.59.9",
-    "@typescript-eslint/parser": "^5.59.11",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
     "@vitejs/plugin-react": "^4.0.3",
     "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
@@ -70,12 +71,13 @@
     "concurrently": "^8.2.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^5.2.6",
+    "cypress": "^12.17.3",
     "eslint": "^8.45.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-fsd-import-plugin": "^0.0.7",
     "eslint-plugin-i18next": "^6.0.2",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-kss-fsd-imports": "^0.0.11",
     "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.28.0",
@@ -119,6 +121,11 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "overrides": {
+    "loki": {
+      "@storybook/react": "$@storybook/react"
+    }
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",

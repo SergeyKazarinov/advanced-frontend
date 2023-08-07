@@ -29,7 +29,11 @@ const ArticlesPage: FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page className={s.articlePage} onScrollEnd={handleLoadNextPart}>
+      <Page
+        data-testid="ArticlesPage"
+        className={s.articlePage}
+        onScrollEnd={handleLoadNextPart}
+      >
         <ArticlesPageFilter />
         <ArticleInfiniteList />
       </Page>

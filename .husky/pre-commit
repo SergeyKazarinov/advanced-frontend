@@ -3,7 +3,7 @@
 
 npx lint-staged
 npm run lint:scss
-npm run test
+npm run test:unit
 npm run build
 npm run build-storybook
 # npm run test:ui

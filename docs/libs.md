@@ -30,3 +30,4 @@
 - [vite](https://vitejs.dev/) - инструмент для настройки среды разработки
 - [ts-morph](https://ts-morph.com/) - библиотека для изменения TypeScript кода
 - [lint-staged](https://www.npmjs.com/package/lint-staged?activeTab=readme) - библиотека для pre-commit хуков. Запуск команд только для измененных файлов.
+- [Cypress](https://www.cypress.io/) - библиотека для e2e тестов

@@ -51,7 +51,8 @@ npm run start:dev
 - `npm run lint:fix` - Исправление ts файлов линтером
 - `npm run lint:scss` - Проверка scss файлов style линтером
 - `npm run lint:scss:fix` - Исправление scss файлов style линтером
-- `npm run test` - Запуск unit тестов с jest
+- `npm run test:unit` - Запуск unit тестов с jest
+- `npm run test:e2e` - Запуск e2e тестов
 - `npm run test:ui` - Запуск скриншотных тестов с loki
 - `npm run test:ui:ok` - Подтверждение новых скриншотов
 - `npm run test:ui:ci` - Запуск скриншотных тестов в CI
@@ -82,10 +83,11 @@ npm run start:dev
 
 ## <a id="tests" ></a>Тесты
 
-В проекте используются 3 вида тестов:
-1) Обычные unit тесты на jest - `npm run test`
-2) Тесты на компоненты с React testing library -`npm run test`
+В проекте используются 4 вида тестов:
+1) Обычные unit тесты на jest - `npm run test:unit`
+2) Тесты на компоненты с React testing library -`npm run test:unit`
 3) Скриншотное тестирование с loki `npm run test:ui`
+4) e2e тесты `npm run test:e2e`
 
 ## <a id="linting" ></a>Линтинг
 

@@ -20,7 +20,7 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
-    'fsd-import-plugin',
+    'kss-fsd-imports',
     'unused-imports',
   ],
   rules: {
@@ -45,12 +45,12 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'no-param-reassign': 'off',
     'no-undef': 'off',
-    'fsd-import-plugin/path-checker': ['error', { alias: '@' }],
-    'fsd-import-plugin/public-api-imports': ['error', {
+    'kss-fsd-imports/path-checker': ['error', { alias: '@' }],
+    'kss-fsd-imports/public-api-imports': ['error', {
       alias: '@',
       testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
     }],
-    'fsd-import-plugin/layer-imports': ['error', {
+    'kss-fsd-imports/layer-imports': ['error', {
       alias: '@',
       ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
     }],

@@ -18,7 +18,10 @@ interface CommentItemProps {
 const CommentItem: FC<CommentItemProps> = ({ className, comment, isLoading }) => {
   if (isLoading) {
     return (
-      <div className={(classNames(s.commentItem, {}, [className, s.loading]))}>
+      <div
+        data-testid="CommentItem.Loading"
+        className={(classNames(s.commentItem, {}, [className, s.loading]))}
+      >
         <div className={s.header}>
           <Skeleton width={30} height={30} border="50%" />
           <Skeleton height={16} width={100} />
@@ -32,7 +35,11 @@ const CommentItem: FC<CommentItemProps> = ({ className, comment, isLoading }) =>
     return null;
   }
   return (
-    <VStack max className={(classNames(s.commentItem, {}, [className]))}>
+    <VStack
+      data-testid="CommentItem.Content"
+      max
+      className={(classNames(s.commentItem, {}, [className]))}
+    >
       <AppLink to={getRouteProfile(comment.user.id)} className={s.header}>
         <Avatar size={30} src={comment.user.avatar} />
         <TextComponent title={comment.user.username} />

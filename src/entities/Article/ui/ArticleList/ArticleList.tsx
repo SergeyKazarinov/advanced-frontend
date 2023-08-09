@@ -47,6 +47,7 @@ const ArticleList: FC<ArticleListProps> = ({
   return (
     <div
       className={classNames(s.articleList, {}, [className, s[view]])}
+      data-testid="ArticleList"
     >
 
       {articles.map((item) => (

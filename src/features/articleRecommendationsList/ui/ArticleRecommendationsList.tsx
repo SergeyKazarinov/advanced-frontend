@@ -19,7 +19,10 @@ const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = ({ class
   }
 
   return (
-    <VStack className={classNames('', {}, [className])}>
+    <VStack
+      data-testid="ArticleRecommendationsList"
+      className={classNames('', {}, [className])}
+    >
       <TextComponent
         size={TextSizeEnum.L}
         title={t('Recomendations')}

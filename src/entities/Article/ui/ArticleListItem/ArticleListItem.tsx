@@ -42,7 +42,10 @@ const ArticleListItem: FC<ArticleListItemProps> = ({
   if (view === ArticleViewEnum.BIG) {
     const textBlock = article.blocks.find((block) => block.type === ArticleBlockTypeEnum.TEXT) as IArticleTextBlock;
     return (
-      <div className={classNames(s.articleListItem, {}, [className, s[view]])}>
+      <div
+        data-testid="ArticleListItem"
+        className={classNames(s.articleListItem, {}, [className, s[view]])}
+      >
         <Card>
           <div className={s.header}>
             <Avatar size={30} src={article.user.avatar} />
@@ -78,6 +81,7 @@ const ArticleListItem: FC<ArticleListItemProps> = ({
 
   return (
     <AppLink
+      data-testid="ArticleListItem"
       target={target}
       to={getRouteArticlesDetails(article.id)}
       className={classNames(s.articleListItem, {}, [className, s[view]])}

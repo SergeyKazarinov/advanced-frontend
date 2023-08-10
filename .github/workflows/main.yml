@@ -40,15 +40,15 @@
 name: linting, testing, building
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 permissions:
   contents: write
   pages: write
   id-token: write
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: true
 jobs:
   build-and-ui-testing:
@@ -60,7 +60,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -73,7 +73,7 @@ jobs:
         run: npm run build
         if: always()
       - name: build storybook
-        run: npm run storybook:build
+        run: npm run storybook
         if: always()
       - name: unit testing
         if: always()
@@ -81,11 +81,11 @@ jobs:
       - name: screenshot testing
         run: npm run test:ui:ci
         if: always()
-      - name: move loki report
-        run: mv .loki reports/
-        if: always()
       - name: Generate HTML report
         run: npm run test:ui:report
+        if: always()
+      - name: move loki report
+        run: mv .loki reports/
         if: always()
       - name: Setup Pages
         uses: actions/configure-pages@v2
@@ -104,7 +104,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}

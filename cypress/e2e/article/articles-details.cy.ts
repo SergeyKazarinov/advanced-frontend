@@ -27,6 +27,7 @@ describe('Пользователь заходит на страницу стат
     cy.get(selectByTestId('CommentItem.Content')).should('have.length', 1);
   });
   it('Оставить рейтинг', () => {
+    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
     cy.get(selectByTestId('ArticleDetails.Info'));
     cy.get(selectByTestId('ArticleRating')).scrollIntoView();
     cy.setRate(5, 'feedback');

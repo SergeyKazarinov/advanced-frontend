@@ -1,5 +1,5 @@
 import { componentRender } from '@shared/lib/tests/componentRender';
-import { getRouteAbout, getRouteAdmin } from '@shared/const/router';
+import { getRouteAbout, getRouteAdmin, getRouteProfile } from '@shared/const/router';
 import { screen } from '@testing-library/dom';
 import { UserRoleEnum } from '@entities/User';
 import AppRouter from './AppRouter';
@@ -23,29 +23,29 @@ describe('app/router/AppRouter', () => {
     expect(page).toBeInTheDocument();
   });
 
-  // test('Redirect to main page unauthorized user', async () => {
-  //   componentRender(<AppRouter />, {
-  //     route: getRouteProfile('1'),
-  //   });
+  test.skip('Redirect to main page unauthorized user', async () => {
+    componentRender(<AppRouter />, {
+      route: getRouteProfile('1'),
+    });
 
-  //   const page = await screen.findByTestId('MainPage');
-  //   expect(page).toBeInTheDocument();
-  // });
+    const page = await screen.findByTestId('MainPage');
+    expect(page).toBeInTheDocument();
+  });
 
-  // test('Access to a closed page for an authorized user ', async () => {
-  //   componentRender(<AppRouter />, {
-  //     route: getRouteProfile('1'),
-  //     initialState: {
-  //       user: {
-  //         authData: {},
-  //         isLoadPage: false,
-  //       },
-  //     },
-  //   });
+  test.skip('Access to a closed page for an authorized user ', async () => {
+    componentRender(<AppRouter />, {
+      route: getRouteProfile('1'),
+      initialState: {
+        user: {
+          authData: {},
+          isLoadPage: false,
+        },
+      },
+    });
 
-  //   const page = await screen.findByTestId('ProfilePage');
-  //   expect(page).toBeInTheDocument();
-  // });
+    const page = await screen.findByTestId('ProfilePage');
+    expect(page).toBeInTheDocument();
+  });
 
   // test('Access denied, missing role', async () => {
   //   componentRender(<AppRouter />, {

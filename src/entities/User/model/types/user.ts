@@ -1,3 +1,5 @@
+import { IFeatureFlags } from '@shared/types';
+
 import { UserRoleEnum } from '../consts/consts';
 
 export interface IUser {
@@ -5,6 +7,7 @@ export interface IUser {
   username: string;
   avatar?: string;
   roles?: UserRoleEnum[];
+  features?: IFeatureFlags;
 }
 
 export interface IUserSchema {

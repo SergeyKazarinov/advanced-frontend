@@ -1,4 +1,5 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
+
 import { getArticleDetailsIsLoading } from './getArticleDetailsIsLoading';
 
 describe('getArticleDetailsIsLoading', () => {
@@ -12,6 +13,8 @@ describe('getArticleDetailsIsLoading', () => {
   });
   test('should work with empty state', () => {
     const state: DeepPartial<IStateSchema> = {};
-    expect(getArticleDetailsIsLoading(state as IStateSchema)).toEqual(undefined);
+    expect(getArticleDetailsIsLoading(state as IStateSchema)).toEqual(
+      undefined,
+    );
   });
 });

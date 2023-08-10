@@ -1,8 +1,7 @@
-import {
-  FC, memo, useCallback, useMemo,
-} from 'react';
+import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListBox } from '@shared/ui/Popups';
+
 import { CurrencyEnum } from '../../model/types/currency';
 
 interface CurrencySelectProps {
@@ -13,19 +12,28 @@ interface CurrencySelectProps {
 }
 
 const CurrencySelect: FC<CurrencySelectProps> = ({
-  className, value, onChange, readonly,
+  className,
+  value,
+  onChange,
+  readonly,
 }) => {
   const { t } = useTranslation('profile');
 
-  const optionList = useMemo(() => [
-    { value: CurrencyEnum.RUB, content: CurrencyEnum.RUB },
-    { value: CurrencyEnum.EUR, content: CurrencyEnum.EUR },
-    { value: CurrencyEnum.USD, content: CurrencyEnum.USD },
-  ], []);
+  const optionList = useMemo(
+    () => [
+      { value: CurrencyEnum.RUB, content: CurrencyEnum.RUB },
+      { value: CurrencyEnum.EUR, content: CurrencyEnum.EUR },
+      { value: CurrencyEnum.USD, content: CurrencyEnum.USD },
+    ],
+    [],
+  );
 
-  const handleChange = useCallback((value: string) => {
-    onChange?.(value as CurrencyEnum);
-  }, [onChange]);
+  const handleChange = useCallback(
+    (value: string) => {
+      onChange?.(value as CurrencyEnum);
+    },
+    [onChange],
+  );
 
   return (
     <ListBox

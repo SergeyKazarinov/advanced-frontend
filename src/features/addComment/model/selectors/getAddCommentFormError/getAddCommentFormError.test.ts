@@ -1,4 +1,5 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
+
 import { getAddCommentFormError } from './getAddCommentFormError';
 
 describe('getAddCommentFormError', () => {

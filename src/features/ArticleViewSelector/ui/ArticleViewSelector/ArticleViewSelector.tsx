@@ -1,10 +1,11 @@
 import { FC, memo } from 'react';
-import { classNames } from '@shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArticleViewEnum } from '@entities/Article';
-import { BsList } from 'react-icons/bs';
 import { AiOutlineTable } from 'react-icons/ai';
+import { BsList } from 'react-icons/bs';
+import { ArticleViewEnum } from '@entities/Article';
+import { classNames } from '@shared/lib/classNames';
 import { Button, ThemeButtonEnum } from '@shared/ui/Button';
+
 import s from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
@@ -24,7 +25,11 @@ const viewTypes = [
   },
 ];
 
-const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({ className, view, onViewClick }) => {
+const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({
+  className,
+  view,
+  onViewClick,
+}) => {
   const { t } = useTranslation();
 
   const handleClick = (newView: ArticleViewEnum) => () => {
@@ -37,7 +42,9 @@ const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({ className, view, on
           key={viewType.view}
           theme={ThemeButtonEnum.CLEAR}
           onClick={handleClick(viewType.view)}
-          className={classNames('', { [s.viewSelected]: viewType.view === view })}
+          className={classNames('', {
+            [s.viewSelected]: viewType.view === view,
+          })}
         >
           <viewType.Icon size={28} />
         </Button>

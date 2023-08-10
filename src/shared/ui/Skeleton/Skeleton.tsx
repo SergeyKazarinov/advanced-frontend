@@ -1,5 +1,6 @@
-import { FC, memo, CSSProperties } from 'react';
+import { CSSProperties, FC, memo } from 'react';
 import { classNames } from '@shared/lib/classNames';
+
 import s from './Skeleton.module.scss';
 
 interface SkeletonProps {
@@ -9,9 +10,7 @@ interface SkeletonProps {
   border?: string;
 }
 
-const Skeleton: FC<SkeletonProps> = ({
-  className, height, width, border,
-}) => {
+const Skeleton: FC<SkeletonProps> = ({ className, height, width, border }) => {
   const styles: CSSProperties = {
     width,
     height,

@@ -7,12 +7,10 @@ export const classNames = (
 ): string => {
   const newAdditional = additional ? additional.filter(Boolean) : [];
   const newMods = mods
-    ? Object.entries(mods).filter(([key, value]) => Boolean(value)).map(([key, value]) => key)
+    ? Object.entries(mods)
+        .filter(([key, value]) => Boolean(value))
+        .map(([key, value]) => key)
     : [];
 
-  return [
-    cls,
-    ...newMods,
-    ...newAdditional,
-  ].join(' ');
+  return [cls, ...newMods, ...newAdditional].join(' ');
 };

@@ -1,6 +1,7 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
+
 import { getProfileData } from './getProfileData';
 
 describe('getProfileData', () => {

@@ -1,7 +1,9 @@
 import { componentRender } from '@shared/lib/tests/componentRender';
 import { screen } from '@testing-library/dom';
-import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+
+import '@testing-library/jest-dom';
+
 import Counter from './Counter';
 
 describe('Counter', () => {

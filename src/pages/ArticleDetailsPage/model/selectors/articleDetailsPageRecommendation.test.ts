@@ -1,5 +1,7 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
+
 import { IArticleDetailsRecommendationSchema } from '../types/articleDetailsPageRecommendation';
+
 import {
   getArticleDetailsPageRecommendationError,
   getArticleDetailsPageRecommendationIsLoading,
@@ -15,22 +17,30 @@ describe('articleDetailsPageRecommendation comment selectors', () => {
     const state: DeepPartial<IStateSchema> = {
       articleDetailsPage: { recommendations: data },
     };
-    expect(getArticleDetailsPageRecommendationIsLoading(state as IStateSchema)).toEqual(false);
+    expect(
+      getArticleDetailsPageRecommendationIsLoading(state as IStateSchema),
+    ).toEqual(false);
   });
   test('should return comments error', () => {
     const state: DeepPartial<IStateSchema> = {
       articleDetailsPage: { recommendations: data },
     };
-    expect(getArticleDetailsPageRecommendationError(state as IStateSchema)).toEqual('error');
+    expect(
+      getArticleDetailsPageRecommendationError(state as IStateSchema),
+    ).toEqual('error');
   });
 
   test('should work with empty state', () => {
     const state: DeepPartial<IStateSchema> = {};
-    expect(getArticleDetailsPageRecommendationIsLoading(state as IStateSchema)).toEqual(undefined);
+    expect(
+      getArticleDetailsPageRecommendationIsLoading(state as IStateSchema),
+    ).toEqual(undefined);
   });
 
   test('should work with empty state', () => {
     const state: DeepPartial<IStateSchema> = {};
-    expect(getArticleDetailsPageRecommendationIsLoading(state as IStateSchema)).toEqual(undefined);
+    expect(
+      getArticleDetailsPageRecommendationIsLoading(state as IStateSchema),
+    ).toEqual(undefined);
   });
 });

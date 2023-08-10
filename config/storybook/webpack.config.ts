@@ -1,8 +1,9 @@
-import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
-import { IBuildPaths } from '../build/types/config';
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
+
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
+import { IBuildPaths } from '../build/types/config';
 
 export default ({ config }): { config: Configuration } => {
   const paths: IBuildPaths = {
@@ -20,7 +21,8 @@ export default ({ config }): { config: Configuration } => {
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
       return {
-        ...rule, exclude: /\.svg$/i,
+        ...rule,
+        exclude: /\.svg$/i,
       };
     }
 

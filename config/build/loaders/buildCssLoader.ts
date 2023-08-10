@@ -1,4 +1,5 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
 import { IBuildOptions } from '../types/config';
 
 export const buildCssLoader = ({ isDev }: IBuildOptions) => ({

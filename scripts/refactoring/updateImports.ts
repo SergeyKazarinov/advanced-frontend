@@ -8,7 +8,8 @@ const files = project.getSourceFiles();
 
 const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
 
-const isAbsolute = (value: string) => layers.some((layer) => value.startsWith(layer));
+const isAbsolute = (value: string) =>
+  layers.some((layer) => value.startsWith(layer));
 
 files.forEach((sourceFile) => {
   const importDeclarations = sourceFile.getImportDeclarations();

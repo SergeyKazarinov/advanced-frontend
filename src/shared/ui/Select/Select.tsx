@@ -1,7 +1,9 @@
 import { ChangeEvent, useMemo } from 'react';
-import { TMods, classNames } from '@shared/lib/classNames';
-import s from './Select.module.scss';
+import { classNames, TMods } from '@shared/lib/classNames';
+
 import { ISelectOption } from './Select.types';
+
+import s from './Select.module.scss';
 
 interface SelectProps<T extends string> {
   className?: string;
@@ -13,20 +15,23 @@ interface SelectProps<T extends string> {
 }
 
 const Select = <T extends string>({
-  className, label, options, value, onChange, readonly,
+  className,
+  label,
+  options,
+  value,
+  onChange,
+  readonly,
 }: SelectProps<T>) => {
-  const optionList = useMemo(() => options?.map((item) => (
-    <option
-      key={item.content}
-      className={s.option}
-      value={item.value}
-    >
-      {item.content}
-    </option>
-  )), [options]);
-  const mods: TMods = {
-
-  };
+  const optionList = useMemo(
+    () =>
+      options?.map((item) => (
+        <option key={item.content} className={s.option} value={item.value}>
+          {item.content}
+        </option>
+      )),
+    [options],
+  );
+  const mods: TMods = {};
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     onChange?.(e.target.value as T);
@@ -34,7 +39,11 @@ const Select = <T extends string>({
 
   return (
     <div className={classNames(s.select, mods, [className])}>
-      {label && <span className={classNames(s.label, { [s.disabled]: readonly }, [])}>{`${label} >  `}</span>}
+      {label && (
+        <span
+          className={classNames(s.label, { [s.disabled]: readonly }, [])}
+        >{`${label} >  `}</span>
+      )}
       <select
         className={s.selectElement}
         value={value}

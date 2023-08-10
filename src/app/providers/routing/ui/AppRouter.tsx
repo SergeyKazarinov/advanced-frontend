@@ -1,12 +1,12 @@
-import {
-  FC, Suspense, memo,
-} from 'react';
+import { FC, memo, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { PageLoader } from '@widgets/PageLoader';
 import { AppRoutesProps } from '@shared/types';
+import { PageLoader } from '@widgets/PageLoader';
+
+import { routeConfig } from '../config/routeConfig';
+
 import RequireAuth from './RequireAuth';
 import RequireRole from './RequireRole';
-import { routeConfig } from '../config/routeConfig';
 
 const AppRouter: FC = () => {
   const renderWithWrapper = (route: AppRoutesProps) => {
@@ -15,15 +15,15 @@ const AppRouter: FC = () => {
       <Route
         key={route.path}
         path={route.path}
-        element={route.authOnly
-          ? (
+        element={
+          route.authOnly ? (
             <RequireAuth>
-              <RequireRole roles={route.roles}>
-                {element}
-              </RequireRole>
+              <RequireRole roles={route.roles}>{element}</RequireRole>
             </RequireAuth>
+          ) : (
+            element
           )
-          : element}
+        }
       />
     );
   };
@@ -31,9 +31,7 @@ const AppRouter: FC = () => {
 
   return (
     <Suspense fallback={<PageLoader />}>
-      <Routes>
-        {routesAuth.map(renderWithWrapper)}
-      </Routes>
+      <Routes>{routesAuth.map(renderWithWrapper)}</Routes>
     </Suspense>
   );
 };

@@ -1,15 +1,23 @@
-import { classNames } from '@shared/lib/classNames';
-import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
-import { Button } from '@shared/ui/Button';
-import { Input } from '@shared/ui/Input';
-import { HStack } from '@shared/ui/Stack';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
+import { classNames } from '@shared/lib/classNames';
+import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import {
+  DynamicModuleLoader,
+  TReducerList,
+} from '@shared/lib/ui/DynamicModuleLoader';
+import { Button } from '@shared/ui/Button';
+import { Input } from '@shared/ui/Input';
+import { HStack } from '@shared/ui/Stack';
+
 import { getAddCommentFormError } from '../../model/selectors/getAddCommentFormError/getAddCommentFormError';
 import { getAddCommentFormText } from '../../model/selectors/getAddCommentFormText/getAddCommentFormText';
+import {
+  addCommentFormActions,
+  addCommentFormReducer,
+} from '../../model/slice/addCommentFormSlice';
+
 import s from './AddCommentForm.module.scss';
 
 interface AddCommentFormProps {
@@ -21,15 +29,21 @@ const reducers: TReducerList = {
   addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm: FC<AddCommentFormProps> = ({ className, onSendComment }) => {
+const AddCommentForm: FC<AddCommentFormProps> = ({
+  className,
+  onSendComment,
+}) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const text = useSelector(getAddCommentFormText);
   const error = useSelector(getAddCommentFormError);
 
-  const handleChange = useCallback((value: string) => {
-    dispatch(addCommentFormActions.setText(value));
-  }, [dispatch]);
+  const handleChange = useCallback(
+    (value: string) => {
+      dispatch(addCommentFormActions.setText(value));
+    },
+    [dispatch],
+  );
 
   const handleSendComment = useCallback(() => {
     onSendComment(text);
@@ -51,10 +65,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ className, onSendComment }) =
           value={text}
           onChange={handleChange}
         />
-        <Button
-          data-testid="AddCommentForm.Button"
-          onClick={handleSendComment}
-        >
+        <Button data-testid="AddCommentForm.Button" onClick={handleSendComment}>
           {t('Send')}
         </Button>
       </HStack>

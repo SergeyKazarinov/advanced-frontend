@@ -1,6 +1,8 @@
 import { IComment } from '@entities/Comment';
+
 import fetchCommentsByArticleId from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { IArticleDetailsCommentSchema } from '../types/articleDetailsCommentSchema';
+
 import { articleDetailsCommentsReducer } from './articleDetailsCommentSlice';
 
 const comment: IComment = {
@@ -30,10 +32,12 @@ describe('articleDetailsCommentReducer', () => {
       entities: {},
     };
 
-    expect(articleDetailsCommentsReducer(
-      state as IArticleDetailsCommentSchema,
-      fetchCommentsByArticleId.pending,
-    )).toEqual({
+    expect(
+      articleDetailsCommentsReducer(
+        state as IArticleDetailsCommentSchema,
+        fetchCommentsByArticleId.pending,
+      ),
+    ).toEqual({
       isLoading: true,
       error: undefined,
       ids: [],
@@ -46,10 +50,12 @@ describe('articleDetailsCommentReducer', () => {
       isLoading: true,
     };
 
-    expect(articleDetailsCommentsReducer(
-      state as IArticleDetailsCommentSchema,
-      fetchCommentsByArticleId.fulfilled([comment], '', '', undefined),
-    )).toEqual({
+    expect(
+      articleDetailsCommentsReducer(
+        state as IArticleDetailsCommentSchema,
+        fetchCommentsByArticleId.fulfilled([comment], '', '', undefined),
+      ),
+    ).toEqual({
       isLoading: false,
       error: undefined,
       ids: ['1'],
@@ -64,10 +70,17 @@ describe('articleDetailsCommentReducer', () => {
       isLoading: true,
     };
 
-    expect(articleDetailsCommentsReducer(
-      state as IArticleDetailsCommentSchema,
-      fetchCommentsByArticleId.fulfilled([comment, anotherComment], '', '', undefined),
-    )).toEqual({
+    expect(
+      articleDetailsCommentsReducer(
+        state as IArticleDetailsCommentSchema,
+        fetchCommentsByArticleId.fulfilled(
+          [comment, anotherComment],
+          '',
+          '',
+          undefined,
+        ),
+      ),
+    ).toEqual({
       isLoading: false,
       error: undefined,
       ids: ['1', '2'],
@@ -83,10 +96,17 @@ describe('articleDetailsCommentReducer', () => {
       isLoading: true,
     };
 
-    expect(articleDetailsCommentsReducer(
-      state as IArticleDetailsCommentSchema,
-      fetchCommentsByArticleId.rejected(new Error(), '', '', 'Something wrong'),
-    )).toEqual({
+    expect(
+      articleDetailsCommentsReducer(
+        state as IArticleDetailsCommentSchema,
+        fetchCommentsByArticleId.rejected(
+          new Error(),
+          '',
+          '',
+          'Something wrong',
+        ),
+      ),
+    ).toEqual({
       error: 'Something wrong',
       isLoading: false,
     });

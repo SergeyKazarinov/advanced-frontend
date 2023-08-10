@@ -1,3 +1,4 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
 
-export const getProfileValidateErrors = (state: IStateSchema) => state.profile?.validateError;
+export const getProfileValidateErrors = (state: IStateSchema) =>
+  state.profile?.validateError;

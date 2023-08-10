@@ -1,4 +1,5 @@
 import { buildSlice } from '@shared/lib/store';
+
 import { ICounterSchema } from '../types/counterSchema';
 
 const initialState: ICounterSchema = {

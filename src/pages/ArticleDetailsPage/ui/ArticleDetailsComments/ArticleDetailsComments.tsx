@@ -1,16 +1,15 @@
-import { CommentList } from '@entities/Comment';
-import { AddCommentFormAsync } from '@features/addComment';
-import {
-  FC, Suspense, memo, useCallback,
-} from 'react';
+import { FC, memo, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { CommentList } from '@entities/Comment';
+import { AddCommentFormAsync } from '@features/addComment';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
-import { TextComponent, TextSizeEnum } from '@shared/ui/TextComponent';
-import { VStack } from '@shared/ui/Stack';
 import { Loader } from '@shared/ui/Loader';
+import { VStack } from '@shared/ui/Stack';
+import { TextComponent, TextSizeEnum } from '@shared/ui/TextComponent';
+
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import addCommentForArticle from '../../model/services/addCommentForArticle/addCommentForArticle';
 import fetchCommentsByArticleId from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -21,7 +20,10 @@ interface ArticleDetailsCommentsProps {
   id?: string;
 }
 
-const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({ className, id }) => {
+const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({
+  className,
+  id,
+}) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);
@@ -31,9 +33,12 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({ className, id
     dispatch(fetchCommentsByArticleId(id));
   });
 
-  const handleSendComment = useCallback((text: string) => {
-    dispatch(addCommentForArticle(text));
-  }, [dispatch]);
+  const handleSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch],
+  );
 
   return (
     <VStack max className={classNames('', {}, [className])}>

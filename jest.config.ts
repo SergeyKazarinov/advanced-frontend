@@ -10,14 +10,9 @@ const config: Config = {
   // verbose: true,
   clearMocks: true,
   testEnvironment: 'jsdom',
-  coveragePathIgnorePatterns: [
-    '\\\\node_modules\\\\',
-  ],
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
 
-  moduleDirectories: [
-    'node_modules',
-    'scr',
-  ],
+  moduleDirectories: ['node_modules', 'scr'],
   moduleFileExtensions: [
     'js',
     'mjs',
@@ -29,9 +24,7 @@ const config: Config = {
     'node',
   ],
   rootDir: '.',
-  testMatch: [
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-  ],
+  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
   modulePaths: ['<rootDir>src/'],
   setupFilesAfterEnv: ['./config/jest/setupTests.ts'],
   moduleNameMapper: {
@@ -55,10 +48,13 @@ const config: Config = {
   },
   reporters: [
     'default',
-    ['./node_modules/jest-html-reporter', {
-      pageTitle: 'Test Report',
-      outputPath: '<rootDir>/reports/unit.html',
-    }],
+    [
+      './node_modules/jest-html-reporter',
+      {
+        pageTitle: 'Test Report',
+        outputPath: '<rootDir>/reports/unit.html',
+      },
+    ],
   ],
 };
 

@@ -1,13 +1,13 @@
+import { FC, Fragment, memo, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import {
-  FC, Fragment, ReactNode, memo,
-} from 'react';
 import { classNames } from '@shared/lib/classNames';
 import { TDropDownDirection } from '@shared/types';
+
 import { Button } from '../../../Button';
 import { HStack } from '../../../Stack';
-import s from './ListBox.module.scss';
+
 import popupCls from '../../styles/popup.module.scss';
+import s from './ListBox.module.scss';
 
 export interface IListBoxItem {
   value: string;
@@ -27,10 +27,21 @@ interface ListBoxProps {
 }
 
 const ListBox: FC<ListBoxProps> = ({
-  className, items, value, defaultValue, onChange, readonly, direction = 'bottomLeft', label,
+  className,
+  items,
+  value,
+  defaultValue,
+  onChange,
+  readonly,
+  direction = 'bottomLeft',
+  label,
 }) => (
   <HStack gap="4">
-    {label && <span className={classNames('', { [popupCls.disabled]: readonly }, [])}>{`${label} > `}</span>}
+    {label && (
+      <span
+        className={classNames('', { [popupCls.disabled]: readonly }, [])}
+      >{`${label} > `}</span>
+    )}
     <HListBox
       as="div"
       className={classNames('', {}, [className, popupCls.popup])}
@@ -38,15 +49,12 @@ const ListBox: FC<ListBoxProps> = ({
       onChange={onChange}
       disabled={readonly}
     >
-      <HListBox.Button
-        as="div"
-        className={popupCls.btn}
-      >
-        <Button disabled={readonly}>
-          {value ?? defaultValue}
-        </Button>
+      <HListBox.Button as="div" className={popupCls.btn}>
+        <Button disabled={readonly}>{value ?? defaultValue}</Button>
       </HListBox.Button>
-      <HListBox.Options className={classNames(s.options, {}, [popupCls[direction]])}>
+      <HListBox.Options
+        className={classNames(s.options, {}, [popupCls[direction]])}
+      >
         {items?.map((item) => (
           <HListBox.Option
             key={item.value}
@@ -56,13 +64,14 @@ const ListBox: FC<ListBoxProps> = ({
           >
             {({ active, selected }) => (
               <li
-                className={
-                  classNames(
-                    '',
-                    { [popupCls.active]: active, [popupCls.disabled]: item.disabled },
-                    [className, popupCls.popup],
-                  )
-                }
+                className={classNames(
+                  '',
+                  {
+                    [popupCls.active]: active,
+                    [popupCls.disabled]: item.disabled,
+                  },
+                  [className, popupCls.popup],
+                )}
               >
                 {selected && <>!!</>}
                 {item.value}

@@ -1,5 +1,5 @@
-import { selectByTestId } from '../../helpers/selectByTestId';
 import { IArticle } from '../../../src/entities/Article';
+import { selectByTestId } from '../../helpers/selectByTestId';
 
 export const addComment = (text: string) => {
   cy.get(selectByTestId('AddCommentForm.Input')).type(text);
@@ -9,7 +9,7 @@ export const addComment = (text: string) => {
 declare global {
   namespace Cypress {
     interface Chainable {
-      addComment(text: string): Chainable<IArticle>
+      addComment(text: string): Chainable<IArticle>;
     }
   }
 }

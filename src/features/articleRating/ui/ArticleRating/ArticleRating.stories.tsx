@@ -1,7 +1,8 @@
-import { ThemeEnum } from '@shared/const/theme';
-import { StoreDecorator, ThemeDecorator } from '@shared/config/storybook';
-import type { Meta, StoryObj } from '@storybook/react';
 import { IRating } from '@entities/Rating';
+import { StoreDecorator, ThemeDecorator } from '@shared/config/storybook';
+import { ThemeEnum } from '@shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import ArticleRating from './ArticleRating';
 
 const rating: IRating = {
@@ -41,24 +42,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
-
-};
+export const Light: Story = {};
 
 export const Dark: Story = {
-  args: {
-  },
-  decorators: [
-    ThemeDecorator(ThemeEnum.DARK),
-  ],
+  args: {},
+  decorators: [ThemeDecorator(ThemeEnum.DARK)],
 };
 
 export const Pure: Story = {
-  args: {
-  },
-  decorators: [
-    ThemeDecorator(ThemeEnum.PURE),
-  ],
+  args: {},
+  decorators: [ThemeDecorator(ThemeEnum.PURE)],
 };
 
 export const LightWithRating: Story = {

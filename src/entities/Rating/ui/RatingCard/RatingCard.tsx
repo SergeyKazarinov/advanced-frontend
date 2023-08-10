@@ -1,17 +1,15 @@
-import {
-  FC, memo, useCallback, useState,
-} from 'react';
-import { classNames } from '@shared/lib/classNames';
-import { HStack, VStack } from '@shared/ui/Stack';
-import { Card } from '@shared/ui/Card';
-import { useTranslation } from 'react-i18next';
-import { TextComponent } from '@shared/ui/TextComponent';
-import { StarRating } from '@shared/ui/StarRating';
-import { Modal } from '@shared/ui/Modal';
-import { Input } from '@shared/ui/Input';
-import { Button, SizeButtonEnum, ThemeButtonEnum } from '@shared/ui/Button';
-import { Drawer } from '@shared/ui/Drawer';
+import { FC, memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@shared/lib/classNames';
+import { Button, SizeButtonEnum, ThemeButtonEnum } from '@shared/ui/Button';
+import { Card } from '@shared/ui/Card';
+import { Drawer } from '@shared/ui/Drawer';
+import { Input } from '@shared/ui/Input';
+import { Modal } from '@shared/ui/Modal';
+import { HStack, VStack } from '@shared/ui/Stack';
+import { StarRating } from '@shared/ui/StarRating';
+import { TextComponent } from '@shared/ui/TextComponent';
 
 interface RatingCardProps {
   className?: string;
@@ -24,21 +22,30 @@ interface RatingCardProps {
 }
 
 const RatingCard: FC<RatingCardProps> = ({
-  className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate,
+  className,
+  title,
+  feedbackTitle,
+  hasFeedback,
+  onCancel,
+  onAccept,
+  rate,
 }) => {
   const { t } = useTranslation('article');
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [starsCount, setStarsCount] = useState(rate ?? 0);
   const [feedback, setFeedback] = useState('');
 
-  const handleSelectStars = useCallback((selectedStarsCount: number) => {
-    setStarsCount(selectedStarsCount);
-    if (hasFeedback) {
-      setIsOpenModal(true);
-    } else {
-      onAccept?.(selectedStarsCount);
-    }
-  }, [hasFeedback, onAccept]);
+  const handleSelectStars = useCallback(
+    (selectedStarsCount: number) => {
+      setStarsCount(selectedStarsCount);
+      if (hasFeedback) {
+        setIsOpenModal(true);
+      } else {
+        onAccept?.(selectedStarsCount);
+      }
+    },
+    [hasFeedback, onAccept],
+  );
 
   const handleAccept = useCallback(() => {
     setIsOpenModal(false);
@@ -70,7 +77,11 @@ const RatingCard: FC<RatingCardProps> = ({
     >
       <VStack align="center">
         <TextComponent title={starsCount ? t('Thanks') : title} />
-        <StarRating selectedStars={starsCount} size={40} onSelect={handleSelectStars} />
+        <StarRating
+          selectedStars={starsCount}
+          size={40}
+          onSelect={handleSelectStars}
+        />
       </VStack>
       <BrowserView>
         <Modal isOpen={isOpenModal}>
@@ -111,7 +122,6 @@ const RatingCard: FC<RatingCardProps> = ({
           </VStack>
         </Drawer>
       </MobileView>
-
     </Card>
   );
 };

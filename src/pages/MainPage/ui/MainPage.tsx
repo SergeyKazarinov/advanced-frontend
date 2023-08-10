@@ -1,7 +1,7 @@
+import { useTranslation } from 'react-i18next';
 import { Counter } from '@entities/Counter';
 import { RatingCard } from '@entities/Rating';
 import { Page } from '@widgets/Page';
-import { useTranslation } from 'react-i18next';
 
 const MainPage = () => {
   const { t } = useTranslation('main');
@@ -15,7 +15,6 @@ const MainPage = () => {
         feedbackTitle="Оставьте пожалуйста отзыв"
         hasFeedback
       />
-
     </Page>
   );
 };

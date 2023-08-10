@@ -1,7 +1,8 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { IArticleDetailsSchema } from '../types/ArticleDetailsSchema';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import fetchArticleById from '../services/fetchArticleById/fetchArticleById';
 import { IArticle } from '../types/article';
+import { IArticleDetailsSchema } from '../types/ArticleDetailsSchema';
 
 const initialState: IArticleDetailsSchema = {
   isLoading: false,
@@ -12,18 +13,20 @@ const initialState: IArticleDetailsSchema = {
 const articleDetailsSlice = createSlice({
   name: 'articleDetails',
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchArticleById.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<IArticle>) => {
-        state.isLoading = false;
-        state.data = action.payload;
-      })
+      .addCase(
+        fetchArticleById.fulfilled,
+        (state, action: PayloadAction<IArticle>) => {
+          state.isLoading = false;
+          state.data = action.payload;
+        },
+      )
       .addCase(fetchArticleById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;

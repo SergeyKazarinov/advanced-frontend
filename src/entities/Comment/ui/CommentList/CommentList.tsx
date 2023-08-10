@@ -1,10 +1,11 @@
 import { FC, memo } from 'react';
-import { classNames } from '@shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
-import { TextComponent } from '@shared/ui/TextComponent';
+import { classNames } from '@shared/lib/classNames';
 import { VStack } from '@shared/ui/Stack';
-import CommentItem from '../CommentItem/CommentItem';
+import { TextComponent } from '@shared/ui/TextComponent';
+
 import { IComment } from '../../model/types/comment';
+import CommentItem from '../CommentItem/CommentItem';
 
 interface CommentListProps {
   className?: string;
@@ -12,12 +13,16 @@ interface CommentListProps {
   isLoading?: boolean;
 }
 
-const CommentList: FC<CommentListProps> = ({ className, comments, isLoading }) => {
+const CommentList: FC<CommentListProps> = ({
+  className,
+  comments,
+  isLoading,
+}) => {
   const { t } = useTranslation('article');
 
   if (isLoading) {
     return (
-      <VStack gap="16" max className={(classNames('', {}, [className]))}>
+      <VStack gap="16" max className={classNames('', {}, [className])}>
         <CommentItem isLoading />
         <CommentItem isLoading />
         <CommentItem isLoading />
@@ -26,16 +31,18 @@ const CommentList: FC<CommentListProps> = ({ className, comments, isLoading }) =
   }
 
   return (
-    <VStack gap="16" max className={(classNames('', {}, [className]))}>
-      {(comments?.length)
-        ? comments.map((comment) => (
+    <VStack gap="16" max className={classNames('', {}, [className])}>
+      {comments?.length ? (
+        comments.map((comment) => (
           <CommentItem
             key={comment.id}
             comment={comment}
             isLoading={isLoading}
           />
         ))
-        : <TextComponent text={t('No comments')} />}
+      ) : (
+        <TextComponent text={t('No comments')} />
+      )}
     </VStack>
   );
 };

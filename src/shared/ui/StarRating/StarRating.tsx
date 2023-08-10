@@ -1,13 +1,14 @@
-import { classNames } from '@shared/lib/classNames';
 import { FC, memo, useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
+import { classNames } from '@shared/lib/classNames';
+
 import s from './StarRating.module.scss';
 
 interface StarRatingProps {
   className?: string;
   onSelect?: (starCount: number) => void;
   size?: number;
-  selectedStars?: number
+  selectedStars?: number;
 }
 
 const StarRating: FC<StarRatingProps> = ({
@@ -45,10 +46,14 @@ const StarRating: FC<StarRatingProps> = ({
         <AiFillStar
           fill="none"
           strokeWidth={90}
-          className={classNames(s.star, {
-            [s.hovered]: currentStarsCount >= starNumber,
-            [s.selected]: isSelected,
-          }, [])}
+          className={classNames(
+            s.star,
+            {
+              [s.hovered]: currentStarsCount >= starNumber,
+              [s.selected]: isSelected,
+            },
+            [],
+          )}
           size={size}
           key={starNumber}
           onMouseEnter={handleHover(starNumber)}

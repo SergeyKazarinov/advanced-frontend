@@ -1,7 +1,8 @@
 import { FC, memo } from 'react';
-import { classNames } from '@shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@shared/lib/classNames';
 import { Button } from '@shared/ui/Button';
+
 import s from './PageError.module.scss';
 
 interface PageErrorProps {
@@ -19,9 +20,7 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
   return (
     <div className={classNames(s.pageError, {}, [className])}>
       <p>{t('An unexpected error has occurred')}</p>
-      <Button onClick={reloadPage}>
-        {t('Update page')}
-      </Button>
+      <Button onClick={reloadPage}>{t('Update page')}</Button>
     </div>
   );
 };

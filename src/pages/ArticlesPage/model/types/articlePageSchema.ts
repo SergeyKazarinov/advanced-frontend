@@ -1,5 +1,8 @@
 import {
-  ArticleSortFieldEnum, ArticleTypeEnum, ArticleViewEnum, IArticle,
+  ArticleSortFieldEnum,
+  ArticleTypeEnum,
+  ArticleViewEnum,
+  IArticle,
 } from '@entities/Article';
 import { EntityState } from '@reduxjs/toolkit';
 import { TSortOrder } from '@shared/types';

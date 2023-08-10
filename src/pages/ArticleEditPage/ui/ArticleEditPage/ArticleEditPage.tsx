@@ -7,11 +7,7 @@ const ArticleEditPage: FC = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const isEdit = Boolean(id);
-  return (
-    <Page>
-      {t('No data')}
-    </Page>
-  );
+  return <Page>{t('No data')}</Page>;
 };
 
 export default memo(ArticleEditPage);

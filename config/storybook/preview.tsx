@@ -1,7 +1,13 @@
 import { Preview } from '@storybook/react';
-import '../../src/app/styles/index.scss';
+
+import {
+  RouteDecorator,
+  SuspenseDecorator,
+  ThemeDecorator,
+} from '../../src/shared/config/storybook';
 import { ThemeEnum } from '../../src/shared/const/theme';
-import { RouteDecorator, SuspenseDecorator, ThemeDecorator } from '../../src/shared/config/storybook';
+
+import '../../src/app/styles/index.scss';
 
 const preview: Preview = {
   parameters: {
@@ -19,7 +25,6 @@ const preview: Preview = {
         { name: 'light', class: ThemeEnum.LIGHT, color: '#dedede' },
         { name: 'dark', class: ThemeEnum.DARK, color: '#0b0b1f' },
         { name: 'pure', class: ThemeEnum.PURE, color: '#3b0f3b' },
-
       ],
     },
     backgrounds: { disable: true },

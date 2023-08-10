@@ -1,9 +1,14 @@
 import {
-  ARTICLE, ArticleSortFieldEnum, ArticleTypeEnum, ArticleViewEnum,
+  ARTICLE,
+  ArticleSortFieldEnum,
+  ArticleTypeEnum,
+  ArticleViewEnum,
 } from '@entities/Article';
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from '@shared/const/localStorage';
+
 import fetchArticleList from '../services/fetchArticleList/fetchArticleList';
 import { IArticlePageSchema } from '../types/articlePageSchema';
+
 import { articlePageActions, articlePageReducer } from './articlePageSlice';
 
 const data: DeepPartial<IArticlePageSchema> = {
@@ -25,61 +30,96 @@ const data: DeepPartial<IArticlePageSchema> = {
 describe('articlePageSlice', () => {
   const state: DeepPartial<IArticlePageSchema> = data;
   test('setView reducer', () => {
-    expect(articlePageReducer(
-      state as IArticlePageSchema,
-      articlePageActions.setView(ArticleViewEnum.BIG),
-    )).toEqual({ ...data, view: ArticleViewEnum.BIG });
+    expect(
+      articlePageReducer(
+        state as IArticlePageSchema,
+        articlePageActions.setView(ArticleViewEnum.BIG),
+      ),
+    ).toEqual({
+      ...data,
+      view: ArticleViewEnum.BIG,
+    });
   });
 
   test('setPage reducer', () => {
-    expect(articlePageReducer(
-      state as IArticlePageSchema,
-      articlePageActions.setPage(2),
-    )).toEqual({ ...data, page: 2 });
+    expect(
+      articlePageReducer(
+        state as IArticlePageSchema,
+        articlePageActions.setPage(2),
+      ),
+    ).toEqual({
+      ...data,
+      page: 2,
+    });
   });
 
   test('setOrder reducer', () => {
-    expect(articlePageReducer(
-      state as IArticlePageSchema,
-      articlePageActions.setOrder('desc'),
-    )).toEqual({ ...data, order: 'desc' });
+    expect(
+      articlePageReducer(
+        state as IArticlePageSchema,
+        articlePageActions.setOrder('desc'),
+      ),
+    ).toEqual({
+      ...data,
+      order: 'desc',
+    });
   });
 
   test('setSort reducer', () => {
-    expect(articlePageReducer(
-      state as IArticlePageSchema,
-      articlePageActions.setSort(ArticleSortFieldEnum.TITLE),
-    )).toEqual({ ...data, sort: ArticleSortFieldEnum.TITLE });
+    expect(
+      articlePageReducer(
+        state as IArticlePageSchema,
+        articlePageActions.setSort(ArticleSortFieldEnum.TITLE),
+      ),
+    ).toEqual({ ...data, sort: ArticleSortFieldEnum.TITLE });
   });
 
   test('setSearch reducer', () => {
-    expect(articlePageReducer(
-      state as IArticlePageSchema,
-      articlePageActions.setSearch('search'),
-    )).toEqual({ ...data, search: 'search' });
+    expect(
+      articlePageReducer(
+        state as IArticlePageSchema,
+        articlePageActions.setSearch('search'),
+      ),
+    ).toEqual({
+      ...data,
+      search: 'search',
+    });
   });
 
   test('setType reducer', () => {
-    expect(articlePageReducer(
-      state as IArticlePageSchema,
-      articlePageActions.setType(ArticleTypeEnum.ECONOMICS),
-    )).toEqual({ ...data, type: ArticleTypeEnum.ECONOMICS });
+    expect(
+      articlePageReducer(
+        state as IArticlePageSchema,
+        articlePageActions.setType(ArticleTypeEnum.ECONOMICS),
+      ),
+    ).toEqual({ ...data, type: ArticleTypeEnum.ECONOMICS });
   });
 
   test('initState reducer', () => {
-    expect(articlePageReducer(
-      state as IArticlePageSchema,
-      articlePageActions.initState(),
-    )).toEqual({
-      ...data, view: localStorage.getItem(ARTICLE_VIEW_LOCAL_STORAGE_KEY), limit: 4, inited: true,
+    expect(
+      articlePageReducer(
+        state as IArticlePageSchema,
+        articlePageActions.initState(),
+      ),
+    ).toEqual({
+      ...data,
+      view: localStorage.getItem(ARTICLE_VIEW_LOCAL_STORAGE_KEY),
+      limit: 4,
+      inited: true,
     });
   });
 
   test('fetchArticleList service pending', () => {
-    expect(articlePageReducer(
-      state as IArticlePageSchema,
-      fetchArticleList.pending('', {}),
-    )).toEqual({ ...data, isLoading: true, error: undefined });
+    expect(
+      articlePageReducer(
+        state as IArticlePageSchema,
+        fetchArticleList.pending('', {}),
+      ),
+    ).toEqual({
+      ...data,
+      isLoading: true,
+      error: undefined,
+    });
   });
 
   // test('fetchArticleList service fulfilled', () => {
@@ -106,10 +146,12 @@ describe('articlePageSlice', () => {
       isLoading: true,
     };
 
-    expect(articlePageReducer(
-      state as IArticlePageSchema,
-      fetchArticleList.rejected(new Error(), '', {}, 'Something wrong'),
-    )).toEqual({
+    expect(
+      articlePageReducer(
+        state as IArticlePageSchema,
+        fetchArticleList.rejected(new Error(), '', {}, 'Something wrong'),
+      ),
+    ).toEqual({
       isLoading: false,
       error: 'Something wrong',
     });

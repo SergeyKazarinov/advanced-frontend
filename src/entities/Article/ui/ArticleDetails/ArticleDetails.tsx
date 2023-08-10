@@ -1,30 +1,31 @@
-import {
-  FC, memo, useCallback,
-} from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiFillEye } from 'react-icons/ai';
 import { ImCalendar } from 'react-icons/im';
 import { useSelector } from 'react-redux';
-import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
+import {
+  DynamicModuleLoader,
+  TReducerList,
+} from '@shared/lib/ui/DynamicModuleLoader';
 import { Avatar } from '@shared/ui/Avatar';
 import { Skeleton } from '@shared/ui/Skeleton';
 import { HStack, VStack } from '@shared/ui/Stack';
 import { TextComponent, TextSizeEnum } from '@shared/ui/TextComponent';
+
 import { ArticleBlockTypeEnum } from '../../model/consts/consts';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
-import {
-  getArticleDetailsIsLoading,
-} from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
+import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
 import fetchArticleById from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { TArticleBlock } from '../../model/types/article';
 import ArticleCodeBlock from '../ArticleCodeBlock/ArticleCodeBlock';
 import ArticleImageBlock from '../ArticleImageBlock/ArticleImageBlock';
 import ArticleTextBlock from '../ArticleTextBlock/ArticleTextBlock';
+
 import s from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
@@ -46,11 +47,17 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
   const renderBlock = useCallback((block: TArticleBlock) => {
     switch (block.type) {
       case ArticleBlockTypeEnum.CODE:
-        return <ArticleCodeBlock key={block.id} className={s.block} block={block} />;
+        return (
+          <ArticleCodeBlock key={block.id} className={s.block} block={block} />
+        );
       case ArticleBlockTypeEnum.IMAGE:
-        return <ArticleImageBlock key={block.id} className={s.block} block={block} />;
+        return (
+          <ArticleImageBlock key={block.id} className={s.block} block={block} />
+        );
       case ArticleBlockTypeEnum.TEXT:
-        return <ArticleTextBlock key={block.id} className={s.block} block={block} />;
+        return (
+          <ArticleTextBlock key={block.id} className={s.block} block={block} />
+        );
       default:
         return null;
     }
@@ -79,34 +86,21 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
     content = (
       <>
         <HStack justify="center" max className={s.avatarWrapper}>
-          <Avatar
-            size={200}
-            src={article?.img}
-            className={s.avatar}
-          />
+          <Avatar size={200} src={article?.img} className={s.avatar} />
         </HStack>
         <VStack max gap="4" data-testid="ArticleDetails.Info">
-
           <TextComponent
             title={article?.title}
             text={article?.subtitle}
             size={TextSizeEnum.L}
           />
           <HStack className={s.articleInfo}>
-            <AiFillEye
-              className={s.icon}
-            />
-            <TextComponent
-              text={String(article?.views)}
-            />
+            <AiFillEye className={s.icon} />
+            <TextComponent text={String(article?.views)} />
           </HStack>
           <HStack className={s.articleInfo}>
-            <ImCalendar
-              className={s.icon}
-            />
-            <TextComponent
-              text={article?.createdAt}
-            />
+            <ImCalendar className={s.icon} />
+            <TextComponent text={article?.createdAt} />
           </HStack>
         </VStack>
         {article?.blocks.map(renderBlock)}
@@ -116,7 +110,11 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <VStack gap="16" max className={classNames(s.articleDetails, {}, [className])}>
+      <VStack
+        gap="16"
+        max
+        className={classNames(s.articleDetails, {}, [className])}
+      >
         {content}
       </VStack>
     </DynamicModuleLoader>

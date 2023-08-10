@@ -1,6 +1,8 @@
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
+
 import { ValidateProfileErrorEnum } from '../../types/editableProfileCardSchema';
+
 import { validateProfileData } from './validateProfileData';
 
 const data = {

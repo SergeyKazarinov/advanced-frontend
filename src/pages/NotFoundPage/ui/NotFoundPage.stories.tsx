@@ -2,15 +2,14 @@ import { StoreDecorator } from '@shared/config/storybook';
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
 import { ThemeEnum } from '@shared/const/theme';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import NotFoundPage from './NotFoundPage';
 
 const meta = {
   title: 'pages/NotFoundPage',
   component: NotFoundPage,
   tags: ['autodocs'],
-  decorators: [
-    StoreDecorator({ scroll: { scroll: {} } }),
-  ],
+  decorators: [StoreDecorator({ scroll: { scroll: {} } })],
 } satisfies Meta<typeof NotFoundPage>;
 
 export default meta;

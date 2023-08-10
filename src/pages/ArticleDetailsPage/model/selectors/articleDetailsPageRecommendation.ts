@@ -4,6 +4,5 @@ export const getArticleDetailsPageRecommendationIsLoading = (
   state: IStateSchema,
 ) => state.articleDetailsPage?.recommendations.isLoading;
 
-export const getArticleDetailsPageRecommendationError = (
-  state: IStateSchema,
-) => state.articleDetailsPage?.recommendations.error;
+export const getArticleDetailsPageRecommendationError = (state: IStateSchema) =>
+  state.articleDetailsPage?.recommendations.error;

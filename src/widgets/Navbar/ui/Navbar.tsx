@@ -1,18 +1,17 @@
+import { FC, memo, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@entities/User';
 import { LoginModal } from '@features/AuthByUsername';
 import { AvatarDropdown } from '@features/avatarDropdown';
 import { NotificationButton } from '@features/notificationButton';
-import {
-  FC, memo, useCallback, useState,
-} from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { getRouteArticleCreate } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';
 import { AppLink, AppLinkThemeEnum } from '@shared/ui/AppLink';
 import { Button, ThemeButtonEnum } from '@shared/ui/Button';
 import { HStack } from '@shared/ui/Stack';
 import { TextComponent, TextThemeEnum } from '@shared/ui/TextComponent';
-import { getRouteArticleCreate } from '@shared/const/router';
+
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -51,7 +50,6 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
           <NotificationButton />
           <AvatarDropdown className={s.avatar} />
         </HStack>
-
       </header>
     );
   }
@@ -69,7 +67,9 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
       >
         {t('Sign In')}
       </Button>
-      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
+      {isAuthModal && (
+        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      )}
     </header>
   );
 };

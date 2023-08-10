@@ -1,11 +1,12 @@
-import { NotificationList } from '@entities/Notification';
 import { FC, memo, useState } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { IoMdNotificationsOutline } from 'react-icons/io';
+import { NotificationList } from '@entities/Notification';
 import { classNames } from '@shared/lib/classNames';
 import { Button, ThemeButtonEnum } from '@shared/ui/Button';
-import { Popover } from '@shared/ui/Popups';
 import { Drawer } from '@shared/ui/Drawer';
-import { BrowserView, MobileView } from 'react-device-detect';
+import { Popover } from '@shared/ui/Popups';
+
 import s from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -45,7 +46,6 @@ const NotificationButton: FC<NotificationButtonProps> = ({ className }) => {
           <NotificationList />
         </Drawer>
       </MobileView>
-
     </div>
   );
 };

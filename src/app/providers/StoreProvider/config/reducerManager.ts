@@ -1,8 +1,15 @@
 import {
-  AnyAction, Reducer, ReducersMapObject, combineReducers,
+  AnyAction,
+  combineReducers,
+  Reducer,
+  ReducersMapObject,
 } from '@reduxjs/toolkit';
+
 import {
-  IReducerManager, IStateSchema, TMountedReducers, TStateSchemaKey,
+  IReducerManager,
+  IStateSchema,
+  TMountedReducers,
+  TStateSchemaKey,
 } from './StateSchema';
 
 export function createReducerManager(

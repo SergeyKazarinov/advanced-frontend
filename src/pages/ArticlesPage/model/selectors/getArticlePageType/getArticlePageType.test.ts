@@ -1,6 +1,8 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
 import { ArticleTypeEnum } from '@entities/Article';
+
 import { IArticlePageSchema } from '../../types/articlePageSchema';
+
 import { getArticlePageType } from './getArticlePageType';
 
 const data: DeepPartial<IArticlePageSchema> = {
@@ -16,11 +18,15 @@ describe('getArticlePageType selectors', () => {
     const state: DeepPartial<IStateSchema> = {
       articlesPage: data,
     };
-    expect(getArticlePageType(state as IStateSchema)).toEqual(ArticleTypeEnum.ECONOMICS);
+    expect(getArticlePageType(state as IStateSchema)).toEqual(
+      ArticleTypeEnum.ECONOMICS,
+    );
   });
 
   test('should work with empty state and return type All', () => {
     const state: DeepPartial<IStateSchema> = {};
-    expect(getArticlePageType(state as IStateSchema)).toEqual(ArticleTypeEnum.ALL);
+    expect(getArticlePageType(state as IStateSchema)).toEqual(
+      ArticleTypeEnum.ALL,
+    );
   });
 });

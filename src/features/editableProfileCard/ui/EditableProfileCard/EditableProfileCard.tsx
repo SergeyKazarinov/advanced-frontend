@@ -1,15 +1,19 @@
-import { CountryEnum } from '@entities/Country';
-import { CurrencyEnum } from '@entities/Currency';
-import { ProfileCard } from '@entities/Profile';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { CountryEnum } from '@entities/Country';
+import { CurrencyEnum } from '@entities/Currency';
+import { ProfileCard } from '@entities/Profile';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
-import { TextComponent, TextThemeEnum } from '@shared/ui/TextComponent';
-import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  TReducerList,
+} from '@shared/lib/ui/DynamicModuleLoader';
 import { VStack } from '@shared/ui/Stack';
+import { TextComponent, TextThemeEnum } from '@shared/ui/TextComponent';
+
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -29,7 +33,10 @@ const reducers: TReducerList = {
   profile: profileReducer,
 };
 
-const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, profileId }) => {
+const EditableProfileCard: FC<EditableProfileCardProps> = ({
+  className,
+  profileId,
+}) => {
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const form = useSelector(getProfileForm);
@@ -53,50 +60,75 @@ const EditableProfileCard: FC<EditableProfileCardProps> = ({ className, profileI
     }
   });
 
-  const onChangeName = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ name: value || '' }));
-  }, [dispatch]);
+  const onChangeName = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ name: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeLastName = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ lastName: value || '' }));
-  }, [dispatch]);
+  const onChangeLastName = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ lastName: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeAge = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ age: Number(value) || 0 }));
-  }, [dispatch]);
+  const onChangeAge = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ age: Number(value) || 0 }));
+    },
+    [dispatch],
+  );
 
-  const onChangeCity = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ city: value || '' }));
-  }, [dispatch]);
+  const onChangeCity = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ city: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeUsername = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ username: value || '' }));
-  }, [dispatch]);
+  const onChangeUsername = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ username: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeAvatar = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ avatar: value || '' }));
-  }, [dispatch]);
+  const onChangeAvatar = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ avatar: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeCurrency = useCallback((currency: CurrencyEnum) => {
-    dispatch(profileActions.updateProfile({ currency }));
-  }, [dispatch]);
+  const onChangeCurrency = useCallback(
+    (currency: CurrencyEnum) => {
+      dispatch(profileActions.updateProfile({ currency }));
+    },
+    [dispatch],
+  );
 
-  const onChangeCountry = useCallback((country: CountryEnum) => {
-    dispatch(profileActions.updateProfile({ country }));
-  }, [dispatch]);
+  const onChangeCountry = useCallback(
+    (country: CountryEnum) => {
+      dispatch(profileActions.updateProfile({ country }));
+    },
+    [dispatch],
+  );
 
   return (
     <DynamicModuleLoader reducers={reducers}>
       <VStack max className={classNames('', {}, [className])}>
         <EditableProfileCardHeader />
-        {validateErrors?.length && validateErrors.map((err) => (
-          <TextComponent
-            key={err}
-            theme={TextThemeEnum.ERROR}
-            text={validateErrorTranslates[err]}
-            data-testid="EditableProfileCard.Error"
-          />
-        ))}
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <TextComponent
+              key={err}
+              theme={TextThemeEnum.ERROR}
+              text={validateErrorTranslates[err]}
+              data-testid="EditableProfileCard.Error"
+            />
+          ))}
         <ProfileCard
           data={form}
           error={error}

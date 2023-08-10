@@ -1,14 +1,14 @@
+import { FC, memo, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { LangSwitcher } from '@features/LangSwitcher';
 import { ThemeSwitcher } from '@features/ThemeSwitcher';
-import {
-  FC, memo, useMemo, useState,
-} from 'react';
 import { classNames } from '@shared/lib/classNames';
-import { Button, ThemeButtonEnum, SizeButtonEnum } from '@shared/ui/Button';
-import { useSelector } from 'react-redux';
+import { Button, SizeButtonEnum, ThemeButtonEnum } from '@shared/ui/Button';
 import { VStack } from '@shared/ui/Stack';
+
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import SidebarItem from '../SidebarItem/SidebarItem';
+
 import s from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -23,20 +23,20 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
     setCollapsed((state) => !state);
   };
 
-  const sidebarList = useMemo(() => (
-    sidebarItemsList.map((item) => (
-      <SidebarItem
-        key={item.path}
-        item={item}
-        collapsed={collapsed}
-      />
-    ))
-  ), [collapsed, sidebarItemsList]);
+  const sidebarList = useMemo(
+    () =>
+      sidebarItemsList.map((item) => (
+        <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+      )),
+    [collapsed, sidebarItemsList],
+  );
 
   return (
     <aside
       data-testid="sidebar"
-      className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [className])}
+      className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [
+        className,
+      ])}
     >
       <Button
         type="button"

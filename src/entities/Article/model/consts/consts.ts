@@ -1,23 +1,23 @@
 export enum ArticleSortFieldEnum {
   VIEWS = 'views',
   TITLE = 'title',
-  CREATED = 'createdAt'
+  CREATED = 'createdAt',
 }
 
 export enum ArticleTypeEnum {
   ALL = 'ALL',
   IT = 'IT',
   SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS'
+  ECONOMICS = 'ECONOMICS',
 }
 
 export enum ArticleBlockTypeEnum {
   CODE = 'CODE',
   IMAGE = 'IMAGE',
-  TEXT = 'TEXT'
+  TEXT = 'TEXT',
 }
 
 export enum ArticleViewEnum {
   BIG = 'BIG',
-  SMALL = 'SMALL'
+  SMALL = 'SMALL',
 }

@@ -1,4 +1,5 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
+
 import { getAddCommentFormText } from './getAddCommentFormText';
 
 describe('addCommentForm', () => {
@@ -6,7 +7,9 @@ describe('addCommentForm', () => {
     const state: DeepPartial<IStateSchema> = {
       addCommentForm: { text: 'comment text' },
     };
-    expect(getAddCommentFormText(state as IStateSchema)).toEqual('comment text');
+    expect(getAddCommentFormText(state as IStateSchema)).toEqual(
+      'comment text',
+    );
   });
   test('should work with empty state', () => {
     const state: DeepPartial<IStateSchema> = {};

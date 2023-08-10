@@ -1,4 +1,5 @@
 import { IProfile } from '@entities/Profile';
+
 import { ValidateProfileErrorEnum } from '../../types/editableProfileCardSchema';
 
 export const validateProfileData = (profile?: IProfile) => {
@@ -6,9 +7,7 @@ export const validateProfileData = (profile?: IProfile) => {
     return [ValidateProfileErrorEnum.NO_DATA];
   }
 
-  const {
-    name, lastName, age, country, city,
-  } = profile;
+  const { name, lastName, age, country, city } = profile;
 
   const errors: ValidateProfileErrorEnum[] = [];
 

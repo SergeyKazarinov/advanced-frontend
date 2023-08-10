@@ -1,6 +1,7 @@
 import { useContext } from 'react';
-import { ThemeEnum } from '@shared/const/theme';
 import { LOCAL_STORAGE_THEME_KEY } from '@shared/const/localStorage';
+import { ThemeEnum } from '@shared/const/theme';
+
 import { ThemeContext } from '../../context/ThemeContext';
 
 interface IUseThemeResult {

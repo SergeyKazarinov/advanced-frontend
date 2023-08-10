@@ -1,5 +1,6 @@
 import { ArticleViewEnum } from '@entities/Article';
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk';
+
 import initArticlesPage from './initArticlesPage';
 
 describe('initArticlesPage', () => {
@@ -9,7 +10,9 @@ describe('initArticlesPage', () => {
         inited: false,
       },
     });
-    thunk.api.get.mockReturnValue(Promise.resolve({ view: ArticleViewEnum.BIG, limit: 4, inited: true }));
+    thunk.api.get.mockReturnValue(
+      Promise.resolve({ view: ArticleViewEnum.BIG, limit: 4, inited: true }),
+    );
     const result = await thunk.callThunk(new URLSearchParams());
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4);
@@ -22,7 +25,9 @@ describe('initArticlesPage', () => {
         inited: true,
       },
     });
-    thunk.api.get.mockReturnValue(Promise.resolve({ view: ArticleViewEnum.BIG, limit: 4, inited: true }));
+    thunk.api.get.mockReturnValue(
+      Promise.resolve({ view: ArticleViewEnum.BIG, limit: 4, inited: true }),
+    );
     const result = await thunk.callThunk(new URLSearchParams());
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);

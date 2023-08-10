@@ -1,10 +1,14 @@
-import { RatingCard } from '@entities/Rating';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { RatingCard } from '@entities/Rating';
 import { getUserAuthData } from '@entities/User';
 import { Skeleton } from '@shared/ui/Skeleton';
-import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi/articleRatingApi';
+
+import {
+  useGetArticleRating,
+  useRateArticle,
+} from '../../api/articleRatingApi/articleRatingApi';
 
 export interface ArticleRatingProps {
   className?: string;
@@ -21,26 +25,35 @@ const ArticleRating: FC<ArticleRatingProps> = ({ className, articleId }) => {
 
   const [rateArticleMutation] = useRateArticle();
 
-  const handleRateArticle = useCallback((starsCount: number, feedback?: string) => {
-    try {
-      rateArticleMutation({
-        articleId,
-        userId: userData?.id ?? '',
-        rate: starsCount,
-        feedback,
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  }, [articleId, userData?.id, rateArticleMutation]);
+  const handleRateArticle = useCallback(
+    (starsCount: number, feedback?: string) => {
+      try {
+        rateArticleMutation({
+          articleId,
+          userId: userData?.id ?? '',
+          rate: starsCount,
+          feedback,
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    [articleId, userData?.id, rateArticleMutation],
+  );
 
-  const handleAccept = useCallback((starsCount: number, feedback?: string) => {
-    handleRateArticle(starsCount, feedback);
-  }, [handleRateArticle]);
+  const handleAccept = useCallback(
+    (starsCount: number, feedback?: string) => {
+      handleRateArticle(starsCount, feedback);
+    },
+    [handleRateArticle],
+  );
 
-  const handleCancel = useCallback((starsCount: number) => {
-    handleRateArticle(starsCount);
-  }, [handleRateArticle]);
+  const handleCancel = useCallback(
+    (starsCount: number) => {
+      handleRateArticle(starsCount);
+    },
+    [handleRateArticle],
+  );
 
   if (isLoading) {
     return <Skeleton width="100%" height={120} />;

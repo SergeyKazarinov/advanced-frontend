@@ -1,17 +1,18 @@
 import { FC, memo } from 'react';
 import { classNames } from '@shared/lib/classNames';
+
 import s from './TextComponent.module.scss';
 
 export enum TextThemeEnum {
   PRIMARY = 'primary',
   INVERTED = 'inverted',
-  ERROR = 'error'
+  ERROR = 'error',
 }
 
 export enum TextAlignEnum {
   RIGHT = 'right',
   CENTER = 'center',
-  LEFT = 'left'
+  LEFT = 'left',
 }
 
 export enum TextSizeEnum {
@@ -32,14 +33,13 @@ interface TextProps {
   'data-testid'?: string;
 }
 
-type THeaderTag = 'h1' | 'h2' | 'h3' | 'h4'
+type THeaderTag = 'h1' | 'h2' | 'h3' | 'h4';
 
 const mapSizeToHeaderTag: Record<TextSizeEnum, THeaderTag> = {
   [TextSizeEnum.S]: 'h4',
   [TextSizeEnum.M]: 'h3',
   [TextSizeEnum.L]: 'h2',
   [TextSizeEnum.XL]: 'h1',
-
 };
 
 const TextComponent: FC<TextProps> = ({
@@ -53,9 +53,24 @@ const TextComponent: FC<TextProps> = ({
 }) => {
   const HeaderTag = mapSizeToHeaderTag[size];
   return (
-    <div className={(classNames(s.textComponent, {}, [className, s[theme], s[align], s[size]]))}>
-      {title && <HeaderTag className={s.title} data-testid={`${dataTestId}.Header`}>{title}</HeaderTag>}
-      {text && <p className={s.text} data-testid={`${dataTestId}.Paragraph`}>{text}</p>}
+    <div
+      className={classNames(s.textComponent, {}, [
+        className,
+        s[theme],
+        s[align],
+        s[size],
+      ])}
+    >
+      {title && (
+        <HeaderTag className={s.title} data-testid={`${dataTestId}.Header`}>
+          {title}
+        </HeaderTag>
+      )}
+      {text && (
+        <p className={s.text} data-testid={`${dataTestId}.Paragraph`}>
+          {text}
+        </p>
+      )}
     </div>
   );
 };

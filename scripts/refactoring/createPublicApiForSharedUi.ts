@@ -1,5 +1,5 @@
-import { Project } from 'ts-morph';
 import path from 'path';
+import { Project } from 'ts-morph';
 
 const project = new Project({});
 
@@ -16,7 +16,9 @@ componentsDirs?.forEach((directory) => {
 
   if (!indexFile) {
     const sourceCode = `export * from './${directory.getBaseName()}';`;
-    const file = directory.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
+    const file = directory.createSourceFile(indexFilePath, sourceCode, {
+      overwrite: true,
+    });
 
     file.save();
   }
@@ -24,7 +26,8 @@ componentsDirs?.forEach((directory) => {
 
 const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
 
-const isAbsolute = (value: string) => layers.some((layer) => value.startsWith(layer));
+const isAbsolute = (value: string) =>
+  layers.some((layer) => value.startsWith(layer));
 
 files.forEach((sourceFile) => {
   const importDeclarations = sourceFile.getImportDeclarations();

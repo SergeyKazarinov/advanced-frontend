@@ -1,10 +1,20 @@
 import {
-  ChangeEvent, FC, InputHTMLAttributes, memo, useEffect, useRef, useState,
+  ChangeEvent,
+  FC,
+  InputHTMLAttributes,
+  memo,
+  useEffect,
+  useRef,
+  useState,
 } from 'react';
 import { classNames } from '@shared/lib/classNames';
+
 import s from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'readOnly'
+>;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
@@ -58,11 +68,8 @@ const Input: FC<InputProps> = ({
 
   return (
     <div className={classNames(s.inputWrapper, mods, [className])}>
-
       {placeholder && (
-        <div className={s.placeHolder}>
-          {`${placeholder} > `}
-        </div>
+        <div className={s.placeHolder}>{`${placeholder} > `}</div>
       )}
       <div className={s.caretWrapper}>
         <input
@@ -77,9 +84,13 @@ const Input: FC<InputProps> = ({
           readOnly={readonly}
           {...otherProps}
         />
-        {isCaretVisible && <span className={s.caret} style={{ left: `${caretPosition * 9}px` }} />}
+        {isCaretVisible && (
+          <span
+            className={s.caret}
+            style={{ left: `${caretPosition * 9}px` }}
+          />
+        )}
       </div>
-
     </div>
   );
 };

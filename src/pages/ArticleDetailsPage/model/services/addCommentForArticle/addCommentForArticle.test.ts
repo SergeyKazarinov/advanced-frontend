@@ -1,6 +1,7 @@
 import { ARTICLE } from '@entities/Article';
 import { COMMENT } from '@entities/Comment';
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk';
+
 import addCommentForArticle from './addCommentForArticle';
 
 describe('addCommentForArticle', () => {

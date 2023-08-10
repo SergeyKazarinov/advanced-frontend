@@ -1,6 +1,6 @@
 import Flex, { FlexProps } from '../Flex/Flex';
 
-type TVStackProps = Omit<FlexProps, 'direction'>
+type TVStackProps = Omit<FlexProps, 'direction'>;
 
 const VStack = (props: TVStackProps) => {
   const { align = 'start' } = props;

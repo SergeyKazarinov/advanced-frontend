@@ -1,6 +1,11 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
+
 import { IArticleDetailsCommentSchema } from '../types/articleDetailsCommentSchema';
-import { getArticleCommentsError, getArticleCommentsIsLoading } from './comments';
+
+import {
+  getArticleCommentsError,
+  getArticleCommentsIsLoading,
+} from './comments';
 
 const data: DeepPartial<IArticleDetailsCommentSchema> = {
   isLoading: false,

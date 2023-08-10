@@ -1,9 +1,9 @@
-import {
-  FC, memo, useCallback,
-} from 'react';
+import { FC, memo, useCallback } from 'react';
 import { BiCopy } from 'react-icons/bi';
 import { classNames } from '@shared/lib/classNames';
+
 import { Button, SizeButtonEnum, ThemeButtonEnum } from '../Button';
+
 import s from './Code.module.scss';
 
 interface CodeProps {
@@ -26,9 +26,7 @@ const Code: FC<CodeProps> = ({ className, text }) => {
       >
         <BiCopy />
       </Button>
-      <code>
-        {text}
-      </code>
+      <code>{text}</code>
     </pre>
   );
 };

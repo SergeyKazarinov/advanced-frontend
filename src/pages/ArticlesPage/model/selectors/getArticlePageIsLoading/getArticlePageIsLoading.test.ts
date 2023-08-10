@@ -1,5 +1,7 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
+
 import { IArticlePageSchema } from '../../types/articlePageSchema';
+
 import { getArticlePageIsLoading } from './getArticlePageIsLoading';
 
 const data: DeepPartial<IArticlePageSchema> = {

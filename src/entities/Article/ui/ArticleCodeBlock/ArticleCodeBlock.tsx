@@ -1,8 +1,10 @@
 import { FC, memo } from 'react';
-import { classNames } from '@shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@shared/lib/classNames';
 import { Code } from '@shared/ui/Code';
+
 import { IArticleCodeBlock } from '../../model/types/article';
+
 import s from './ArticleCodeBlock.module.scss';
 
 interface ArticleCodeBlockProps {

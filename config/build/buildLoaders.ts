@@ -1,8 +1,9 @@
 import { RuleSetRule } from 'webpack';
-import { IBuildOptions } from './types/config';
+
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
-import { buildBabelLoader } from './loaders/buildBabelLoader';
+import { IBuildOptions } from './types/config';
 
 export interface BuildBabelLoaderProps extends IBuildOptions {
   isTsx?: boolean;

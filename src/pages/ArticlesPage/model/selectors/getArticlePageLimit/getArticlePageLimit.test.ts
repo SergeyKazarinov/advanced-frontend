@@ -1,5 +1,7 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
+
 import { IArticlePageSchema } from '../../types/articlePageSchema';
+
 import { getArticlePageLimit } from './getArticlePageLimit';
 
 const data: DeepPartial<IArticlePageSchema> = {

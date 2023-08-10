@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from '@shared/const/theme';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
+import { ThemeEnum } from '@shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import Select from './Select';
 
 const meta = {
@@ -19,9 +20,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {
-
-  },
+  args: {},
 };
 
 export const PrimaryWithLabel: Story = {
@@ -31,7 +30,6 @@ export const PrimaryWithLabel: Story = {
 };
 
 export const PrimaryDark: Story = {
-  args: {
-  },
+  args: {},
   decorators: [ThemeDecorator(ThemeEnum.DARK)],
 };

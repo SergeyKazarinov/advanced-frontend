@@ -1,6 +1,7 @@
 import { userActions } from '@entities/User';
-import axios from 'axios';
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk';
+import axios from 'axios';
+
 import loginByUsername from './loginByUsername';
 
 jest.mock('axios');
@@ -48,7 +49,9 @@ describe('loginByUserName', () => {
     thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
     const result = await thunk.callThunk({ username: '123', password: '123' });
 
-    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
+    expect(thunk.dispatch).toHaveBeenCalledWith(
+      userActions.setAuthData(userValue),
+    );
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');

@@ -1,7 +1,8 @@
 import { ARTICLE } from '@entities/Article';
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from '@shared/const/theme';
 import { StoreDecorator, ThemeDecorator } from '@shared/config/storybook';
+import { ThemeEnum } from '@shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import ArticleRecommendationsList from './ArticleRecommendationsList';
 
 const meta = {
@@ -9,10 +10,7 @@ const meta = {
   component: ArticleRecommendationsList,
   tags: ['autodocs'],
   args: {},
-  decorators: [
-    ThemeDecorator(ThemeEnum.LIGHT),
-    StoreDecorator({}),
-  ],
+  decorators: [ThemeDecorator(ThemeEnum.LIGHT), StoreDecorator({})],
 } satisfies Meta<typeof ArticleRecommendationsList>;
 
 export default meta;
@@ -33,17 +31,11 @@ export const Light: Story = {
 };
 
 export const Dark: Story = {
-  args: {
-  },
-  decorators: [
-    ThemeDecorator(ThemeEnum.DARK),
-  ],
+  args: {},
+  decorators: [ThemeDecorator(ThemeEnum.DARK)],
 };
 
 export const Pure: Story = {
-  args: {
-  },
-  decorators: [
-    ThemeDecorator(ThemeEnum.PURE),
-  ],
+  args: {},
+  decorators: [ThemeDecorator(ThemeEnum.PURE)],
 };

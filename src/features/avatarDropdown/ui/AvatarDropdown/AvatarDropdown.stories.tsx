@@ -1,23 +1,26 @@
 import { UserRoleEnum } from '@entities/User';
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from '@shared/const/theme';
+import avatar from '@shared/assets/tests/avatar.jpg';
 import { StoreDecorator } from '@shared/config/storybook/StoreDecorator';
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
-import avatar from '@shared/assets/tests/avatar.jpg';
+import { ThemeEnum } from '@shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import AvatarDropdown from './AvatarDropdown';
 
 const meta = {
   title: 'feature/AvatarDropdown',
   component: AvatarDropdown,
   tags: ['autodocs'],
-  args: {
-  },
+  args: {},
   decorators: [
     ThemeDecoratorWithFullHeight(ThemeEnum.PURE),
     StoreDecorator({
       user: {
         authData: {
-          id: '1', username: '1234', avatar, roles: [UserRoleEnum.ADMIN, UserRoleEnum.MANAGER],
+          id: '1',
+          username: '1234',
+          avatar,
+          roles: [UserRoleEnum.ADMIN, UserRoleEnum.MANAGER],
         },
       },
     }),
@@ -27,19 +30,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LightWithUser: Story = {
-};
+export const LightWithUser: Story = {};
 
 export const DarkWithUser: Story = {
   args: {},
-  decorators: [
-    ThemeDecoratorWithFullHeight(ThemeEnum.DARK),
-  ],
+  decorators: [ThemeDecoratorWithFullHeight(ThemeEnum.DARK)],
 };
 
 export const PureWithUser: Story = {
   args: {},
-  decorators: [
-    ThemeDecoratorWithFullHeight(ThemeEnum.PURE),
-  ],
+  decorators: [ThemeDecoratorWithFullHeight(ThemeEnum.PURE)],
 };

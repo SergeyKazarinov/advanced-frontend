@@ -1,6 +1,7 @@
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
 import { ThemeEnum } from '@shared/const/theme';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import Drawer from './Drawer';
 
 const meta = {

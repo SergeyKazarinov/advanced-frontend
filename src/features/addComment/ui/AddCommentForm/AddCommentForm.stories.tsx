@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from '@shared/const/theme';
 import { ThemeDecorator } from '@shared/config/storybook';
 import { StoreDecorator } from '@shared/config/storybook/StoreDecorator';
+import { ThemeEnum } from '@shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import AddCommentForm from './AddCommentForm';
 
 const meta = {
@@ -14,8 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     StoreDecorator({ addCommentForm: { text: 'Comment 1' } }),
     ThemeDecorator(ThemeEnum.LIGHT),
@@ -23,8 +23,7 @@ export const Light: Story = {
 };
 
 export const LightError: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     StoreDecorator({ addCommentForm: { error: 'Error' } }),
     ThemeDecorator(ThemeEnum.LIGHT),
@@ -32,8 +31,7 @@ export const LightError: Story = {
 };
 
 export const Dark: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     StoreDecorator({ addCommentForm: { text: 'Comment 1' } }),
     ThemeDecorator(ThemeEnum.DARK),
@@ -41,8 +39,7 @@ export const Dark: Story = {
 };
 
 export const DarkError: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     StoreDecorator({ addCommentForm: { error: 'Error' } }),
     ThemeDecorator(ThemeEnum.DARK),
@@ -50,8 +47,7 @@ export const DarkError: Story = {
 };
 
 export const Pure: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     StoreDecorator({ addCommentForm: { text: 'Comment 1' } }),
     ThemeDecorator(ThemeEnum.PURE),
@@ -59,8 +55,7 @@ export const Pure: Story = {
 };
 
 export const PureError: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     StoreDecorator({ addCommentForm: { error: 'Error' } }),
     ThemeDecorator(ThemeEnum.PURE),

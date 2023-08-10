@@ -8,11 +8,17 @@ describe('Пользователь заходит на страницу со с�
   });
   it('Успешная загрузка страница', () => {
     cy.get(selectByTestId('ArticleList')).should('exist');
-    cy.get(selectByTestId('ArticleListItem')).should('have.length.greaterThan', 3);
+    cy.get(selectByTestId('ArticleListItem')).should(
+      'have.length.greaterThan',
+      3,
+    );
   });
   it('На стабах (фикстурах)', () => {
     cy.intercept('GET', '**/articles?*', { fixture: 'article-list.json' });
     cy.get(selectByTestId('ArticleList')).should('exist');
-    cy.get(selectByTestId('ArticleListItem')).should('have.length.greaterThan', 3);
+    cy.get(selectByTestId('ArticleListItem')).should(
+      'have.length.greaterThan',
+      3,
+    );
   });
 });

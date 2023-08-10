@@ -1,19 +1,21 @@
 ## Библиотеки, которые используются в данном проекте
 
-
-- "webpack-bundle-analyzer
-- husky
-- jest
-- React Testing Library
-- jest-html-reporter
-- loki
-- reg-cli - 
-- sass - 
-- storybook
-- storybook-addon-mock
-- eslint
-- eslint-config-airbnb
-- [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) - Этот плагин предназначен для поддержки анализа синтаксиса импорта/экспорта ES2015+ (ES6+) и предотвращения проблем с орфографическими ошибками в путях к файлам и именах импорта.
+- [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer) - Визуализируйте размер выходных файлов веб-пакета с помощью интерактивной масштабируемой древовидной карты
+- [husky](https://www.npmjs.com/package/husky) - Улучшает коммиты и многое другое
+- [lint-staged](https://www.npmjs.com/package/lint-staged?activeTab=readme) - библиотека для pre-commit хуков. Запуск команд только для измененных файлов.
+- [jest](https://jestjs.io/) - фреймворк для тестирования JavaScript
+- [React Testing Library](https://testing-library.com/) - Простые и полные утилиты тестирования, которые поощряют передовые методы тестирования
+- [jest-html-reporter](https://www.npmjs.com/package/jest-html-reporter) - Обработчик результатов теста Jest для создания сводки в формате HTML
+- [loki](https://loki.js.org/) - Loki позволяет легко протестировать проект Storybook на наличие визуальных регрессий
+- [reg-cli](https://www.npmjs.com/package/reg-cli) - Инструмент визуального регрессионного тестирования с html-репортером.
+- [sass](https://sass-lang.com/) - язык рассширений CSS
+- [storybook](https://storybook.js.org/) - это мастер-класс по внешнему интерфейсу для изолированного создания компонентов и страниц пользовательского интерфейса.
+- [storybook-addon-mock](https://www.npmjs.com/package/storybook-addon-mock) - этот аддон позволяет имитировать запросы на выборку или XMLHttprequest в сборнике рассказов. Если ваш компонент зависит от бэкэнд-запросов, а ваши бэкэнд-запросы еще не готовы для подачи вашего компонента, этот аддон предоставляет фиктивный ответ для сборки вашего компонента.
+- [eslint](https://eslint.org/) - ESLint статически анализирует ваш код, чтобы быстро найти проблемы
+- [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb) - Этот пакет предоставляет Airbnb .eslintrc в виде расширяемой общей конфигурации.
+- [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) - Этот плагин предназначен для поддержки анализа синтаксиса импорта/экспорта ES2015+ (ES6+) и предотвращения проблем с орфографическими ошибками в путях к файлам и именах импорта
+- [eslint-plugin-simple-import-sort](https://www.npmjs.com/package/eslint-plugin-simple-import-sort) - плагин для сортировки импортов
+- [prettier](https://prettier.io/) - Формартировщик кода
 - [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports) - Плагин для удаления не используемых импортов
 - [eslint-plugin-fsd-import-plugin](https://www.npmjs.com/package/eslint-plugin-fsd-import-plugin) - Собсвенный ESLint-plugin для контроля импортов в соответствии с FSD архитектурой
 - [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) - Плагин ESLint обеспечивает соблюдение правил хуков
@@ -29,5 +31,4 @@
 - [react-icons](https://react-icons.github.io/react-icons) - библиотека иконок
 - [vite](https://vitejs.dev/) - инструмент для настройки среды разработки
 - [ts-morph](https://ts-morph.com/) - библиотека для изменения TypeScript кода
-- [lint-staged](https://www.npmjs.com/package/lint-staged?activeTab=readme) - библиотека для pre-commit хуков. Запуск команд только для измененных файлов.
 - [Cypress](https://www.cypress.io/) - библиотека для e2e тестов

@@ -7,7 +7,9 @@ interface IUseModalProps {
 }
 
 export const useModal = ({
-  animationDelay, isOpen, onClose,
+  animationDelay,
+  isOpen,
+  onClose,
 }: IUseModalProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const [opened, setOpened] = useState(false);
@@ -27,11 +29,14 @@ export const useModal = ({
     }
   }, [onClose, animationDelay]);
 
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape' && onClose) {
-      handleClose();
-    }
-  }, [onClose, handleClose]);
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && onClose) {
+        handleClose();
+      }
+    },
+    [onClose, handleClose],
+  );
 
   useEffect(() => {
     if (isOpen) {

@@ -1,7 +1,7 @@
 import { IStateSchema, StoreProvider } from '@app/providers/StoreProvider';
 import { articleDetailsReducer } from '@entities/Article/testing';
-import { loginReducer } from '@features/AuthByUsername/testing';
 import { addCommentFormReducer } from '@features/addComment/testing';
+import { loginReducer } from '@features/AuthByUsername/testing';
 import { profileReducer } from '@features/editableProfileCard/testing';
 import { articleDetailsPageReducers } from '@pages/ArticleDetailsPage/testing';
 import { articlePageReducer } from '@pages/ArticlesPage/testing';
@@ -20,10 +20,14 @@ const defaultAsyncReducers: TReducerList = {
 export const StoreDecorator = (
   state: DeepPartial<IStateSchema>,
   asyncReducers?: TReducerList,
-) => function (Story: StoryFn) {
-  return (
-    <StoreProvider initialState={state as IStateSchema} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
-      <Story />
-    </StoreProvider>
-  );
-};
+) =>
+  function (Story: StoryFn) {
+    return (
+      <StoreProvider
+        initialState={state as IStateSchema}
+        asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+      >
+        <Story />
+      </StoreProvider>
+    );
+  };

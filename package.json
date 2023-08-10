@@ -11,6 +11,7 @@
     "start:dev:server": "node ./json-server/index.js",
     "build": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
+    "prettier": "npx prettier --write **/*.{ts,tsx}",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -74,6 +75,7 @@
     "cypress": "^12.17.3",
     "eslint": "^8.45.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-i18next": "^6.0.2",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
@@ -82,6 +84,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-storybook": "^0.6.12",
     "eslint-plugin-unused-imports": "^3.0.0",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
@@ -95,6 +98,7 @@
     "lint-staged": "^13.2.3",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.7.6",
+    "prettier": "3.0.1",
     "react-refresh": "^0.14.0",
     "reg-cli": "^0.17.7",
     "sass": "^1.63.3",
@@ -163,6 +167,6 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
+    "**/*.{ts,tsx}": ["eslint"]
   }
 }

@@ -2,6 +2,7 @@ import avatar from '@shared/assets/tests/avatar.jpg';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
 import { ThemeEnum } from '@shared/const/theme';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import CommentList from './CommentList';
 
 const meta = {
@@ -9,16 +10,18 @@ const meta = {
   component: CommentList,
   tags: ['autodocs'],
   args: {
-    comments: [{
-      id: '1',
-      text: 'text comment',
-      user: { id: '1', username: 'username', avatar },
-    },
-    {
-      id: '1',
-      text: 'text comment',
-      user: { id: '1', username: 'username', avatar },
-    }],
+    comments: [
+      {
+        id: '1',
+        text: 'text comment',
+        user: { id: '1', username: 'username', avatar },
+      },
+      {
+        id: '1',
+        text: 'text comment',
+        user: { id: '1', username: 'username', avatar },
+      },
+    ],
   },
 } satisfies Meta<typeof CommentList>;
 
@@ -26,9 +29,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {
-
-  },
+  args: {},
 };
 
 export const Loading: Story = {
@@ -38,9 +39,7 @@ export const Loading: Story = {
 };
 
 export const PrimaryDark: Story = {
-  args: {
-
-  },
+  args: {},
   decorators: [ThemeDecorator(ThemeEnum.DARK)],
 };
 

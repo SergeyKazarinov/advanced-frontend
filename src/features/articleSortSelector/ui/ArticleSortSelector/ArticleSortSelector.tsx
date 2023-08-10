@@ -1,9 +1,10 @@
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ArticleSortFieldEnum } from '@entities/Article';
 import { classNames } from '@shared/lib/classNames';
 import { TSortOrder } from '@shared/types';
-import { Select, ISelectOption } from '@shared/ui/Select';
-import { ArticleSortFieldEnum } from '@entities/Article';
+import { ISelectOption, Select } from '@shared/ui/Select';
+
 import s from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {
@@ -15,35 +16,45 @@ interface ArticleSortSelectorProps {
 }
 
 const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
-  className, order, sort, onChangeOrder, onChangeSort,
+  className,
+  order,
+  sort,
+  onChangeOrder,
+  onChangeSort,
 }) => {
   const { t } = useTranslation('article');
 
-  const orderOptions = useMemo<ISelectOption<TSortOrder>[]>(() => [
-    {
-      value: 'asc',
-      content: t('ascending'),
-    },
-    {
-      value: 'desc',
-      content: t('descending'),
-    },
-  ], [t]);
+  const orderOptions = useMemo<ISelectOption<TSortOrder>[]>(
+    () => [
+      {
+        value: 'asc',
+        content: t('ascending'),
+      },
+      {
+        value: 'desc',
+        content: t('descending'),
+      },
+    ],
+    [t],
+  );
 
-  const sortFieldOptions = useMemo<ISelectOption<ArticleSortFieldEnum>[]>(() => [
-    {
-      value: ArticleSortFieldEnum.CREATED,
-      content: t('date of creation'),
-    },
-    {
-      value: ArticleSortFieldEnum.TITLE,
-      content: t('name'),
-    },
-    {
-      value: ArticleSortFieldEnum.VIEWS,
-      content: t('views'),
-    },
-  ], [t]);
+  const sortFieldOptions = useMemo<ISelectOption<ArticleSortFieldEnum>[]>(
+    () => [
+      {
+        value: ArticleSortFieldEnum.CREATED,
+        content: t('date of creation'),
+      },
+      {
+        value: ArticleSortFieldEnum.TITLE,
+        content: t('name'),
+      },
+      {
+        value: ArticleSortFieldEnum.VIEWS,
+        content: t('views'),
+      },
+    ],
+    [t],
+  );
 
   return (
     <div className={classNames(s.articleSortSelector, {}, [className])}>

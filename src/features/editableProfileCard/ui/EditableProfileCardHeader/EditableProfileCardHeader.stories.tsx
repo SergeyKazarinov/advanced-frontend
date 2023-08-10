@@ -4,6 +4,7 @@ import { StoreDecorator } from '@shared/config/storybook';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
 import { ThemeEnum } from '@shared/const/theme';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import EditableProfileCardHeader from './EditableProfileCardHeader';
 
 const profile = {
@@ -22,8 +23,7 @@ const meta = {
   title: 'feature/EditableProfileCardHeader',
   component: EditableProfileCardHeader,
   tags: ['autodocs'],
-  args: {
-  },
+  args: {},
   decorators: [
     ThemeDecorator(ThemeEnum.LIGHT),
     StoreDecorator({
@@ -40,8 +40,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
-};
+export const Light: Story = {};
 
 export const Dark: Story = {
   decorators: [ThemeDecorator(ThemeEnum.DARK)],

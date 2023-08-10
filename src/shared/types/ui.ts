@@ -1,1 +1,5 @@
-export type TDropDownDirection = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
+export type TDropDownDirection =
+  | 'topLeft'
+  | 'topRight'
+  | 'bottomLeft'
+  | 'bottomRight';

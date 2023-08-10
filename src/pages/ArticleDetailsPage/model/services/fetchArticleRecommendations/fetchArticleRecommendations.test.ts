@@ -1,6 +1,7 @@
 import { ARTICLE } from '@entities/Article';
-import axios from 'axios';
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk';
+import axios from 'axios';
+
 import fetchArticleRecommendations from './fetchArticleRecommendations';
 
 jest.mock('axios');
@@ -10,7 +11,9 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;
 describe('fetchArticleRecommendations', () => {
   test('success', async () => {
     const thunk = new TestAsyncThunk(fetchArticleRecommendations);
-    thunk.api.get.mockReturnValue(Promise.resolve({ data: [ARTICLE, ARTICLE] }));
+    thunk.api.get.mockReturnValue(
+      Promise.resolve({ data: [ARTICLE, ARTICLE] }),
+    );
     const result = await thunk.callThunk();
 
     expect(thunk.api.get).toHaveBeenCalled();

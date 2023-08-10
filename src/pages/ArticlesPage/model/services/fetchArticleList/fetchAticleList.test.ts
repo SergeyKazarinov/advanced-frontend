@@ -1,6 +1,7 @@
 import { ARTICLE } from '@entities/Article';
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk';
 import axios from 'axios';
+
 import fetchArticleList from './fetchArticleList';
 
 jest.mock('axios');

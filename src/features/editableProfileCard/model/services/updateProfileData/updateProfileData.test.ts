@@ -1,7 +1,9 @@
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk';
+
 import { ValidateProfileErrorEnum } from '../../types/editableProfileCardSchema';
+
 import updateProfileData from './updateProfileData';
 
 const data = {
@@ -58,6 +60,8 @@ describe('updateProfileData', () => {
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(result.meta.requestStatus).toBe('rejected');
-    expect(result.payload).toEqual([ValidateProfileErrorEnum.INCORRECT_USER_DATA]);
+    expect(result.payload).toEqual([
+      ValidateProfileErrorEnum.INCORRECT_USER_DATA,
+    ]);
   });
 });

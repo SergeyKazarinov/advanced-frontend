@@ -1,7 +1,9 @@
 import { StoreDecorator, ThemeDecorator } from '@shared/config/storybook';
 import { ThemeEnum } from '@shared/const/theme';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { ARTICLE } from '../../utils/article';
+
 import ArticleDetails from './ArticleDetails';
 
 const meta = {
@@ -25,28 +27,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(ThemeEnum.LIGHT),
-  ],
+  decorators: [ThemeDecorator(ThemeEnum.LIGHT)],
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(ThemeEnum.DARK),
-  ],
+  decorators: [ThemeDecorator(ThemeEnum.DARK)],
 };
 
 export const Pure: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(ThemeEnum.PURE),
-  ],
+  decorators: [ThemeDecorator(ThemeEnum.PURE)],
 };
 
 export const LoadingLight: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     ThemeDecorator(ThemeEnum.LIGHT),
     StoreDecorator({
@@ -58,8 +53,7 @@ export const LoadingLight: Story = {
 };
 
 export const LoadingDark: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     ThemeDecorator(ThemeEnum.DARK),
     StoreDecorator({
@@ -71,8 +65,7 @@ export const LoadingDark: Story = {
 };
 
 export const LoadingPure: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     ThemeDecorator(ThemeEnum.PURE),
     StoreDecorator({
@@ -84,8 +77,7 @@ export const LoadingPure: Story = {
 };
 
 export const ErrorDark: Story = {
-  args: {
-  },
+  args: {},
   decorators: [
     ThemeDecorator(ThemeEnum.DARK),
     StoreDecorator({

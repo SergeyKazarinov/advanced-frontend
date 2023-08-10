@@ -1,8 +1,10 @@
-import { IReduxStoreWithManager, TStateSchemaKey } from '@app/providers/StoreProvider';
-import {
-  FC, ReactNode, useEffect,
-} from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
+import {
+  IReduxStoreWithManager,
+  TStateSchemaKey,
+} from '@app/providers/StoreProvider';
+
 import { TReducerList } from './DynamicModuleLoader.types';
 
 interface DynamicModuleLoaderProps {
@@ -12,7 +14,9 @@ interface DynamicModuleLoaderProps {
 }
 
 const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
-  children, reducers, removeAfterUnmount = true,
+  children,
+  reducers,
+  removeAfterUnmount = true,
 }) => {
   const store = useStore() as IReduxStoreWithManager;
   const dispatch = useDispatch();
@@ -20,7 +24,8 @@ const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
   useEffect(() => {
     const mountedReducers = store.reducerManager.getMountedReducers();
     Object.entries(reducers).forEach(([name, reducer]) => {
-      const mounted: boolean | undefined = mountedReducers[name as TStateSchemaKey];
+      const mounted: boolean | undefined =
+        mountedReducers[name as TStateSchemaKey];
       if (!mounted) {
         store.reducerManager?.add(name as TStateSchemaKey, reducer);
         dispatch({ type: `@INIT ${name} reducer` });
@@ -39,9 +44,7 @@ const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
   }, []);
   return (
     // eslint-disable-next-line
-    <>
-      {children}
-    </>
+    <>{children}</>
   );
 };
 

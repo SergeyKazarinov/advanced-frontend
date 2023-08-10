@@ -1,8 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from '@shared/const/theme';
+import { ArticleSortFieldEnum, ArticleViewEnum } from '@entities/Article';
 import { StoreDecorator } from '@shared/config/storybook';
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
-import { ArticleSortFieldEnum, ArticleViewEnum } from '@entities/Article';
+import { ThemeEnum } from '@shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import ArticlesPageFilter from './ArticlesPageFilter';
 
 const meta = {
@@ -16,7 +17,6 @@ const meta = {
         sort: ArticleSortFieldEnum.CREATED,
         order: 'asc',
         search: '',
-
       },
     }),
     ThemeDecoratorWithFullHeight(ThemeEnum.LIGHT),
@@ -27,20 +27,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: {
-  },
+  args: {},
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [
-    ThemeDecoratorWithFullHeight(ThemeEnum.DARK),
-  ],
+  decorators: [ThemeDecoratorWithFullHeight(ThemeEnum.DARK)],
 };
 
 export const Pure: Story = {
   args: {},
-  decorators: [
-    ThemeDecoratorWithFullHeight(ThemeEnum.PURE),
-  ],
+  decorators: [ThemeDecoratorWithFullHeight(ThemeEnum.PURE)],
 };

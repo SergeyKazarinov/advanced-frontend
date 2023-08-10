@@ -1,13 +1,16 @@
-import {
-  getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from '@entities/User';
-import { t } from 'i18next';
 import { FC, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userActions,
+} from '@entities/User';
+import { getRouteAdmin, getRouteProfile } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';
 import { Avatar } from '@shared/ui/Avatar';
 import { Dropdown } from '@shared/ui/Popups';
-import { getRouteAdmin, getRouteProfile } from '@shared/const/router';
+import { t } from 'i18next';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -35,10 +38,14 @@ const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
       direction="bottomLeft"
       trigger={<Avatar size={30} src={userAuthData.avatar} />}
       items={[
-        ...(isAdminPanelAvailable ? [{
-          content: t('Admin panel'),
-          href: getRouteAdmin(),
-        }] : []),
+        ...(isAdminPanelAvailable
+          ? [
+              {
+                content: t('Admin panel'),
+                href: getRouteAdmin(),
+              },
+            ]
+          : []),
         {
           content: t('User profile'),
           href: getRouteProfile(userAuthData.id),

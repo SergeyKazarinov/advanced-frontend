@@ -1,8 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeEnum } from '@shared/const/theme';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
-import Card, { CardThemeEnum } from './Card';
+import { ThemeEnum } from '@shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { TextComponent } from '../TextComponent';
+
+import Card, { CardThemeEnum } from './Card';
 
 const meta = {
   title: 'shared/Card',
@@ -17,19 +19,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: {
-  },
+  args: {},
 };
 
 export const Dark: Story = {
-  args: {
-  },
+  args: {},
   decorators: [ThemeDecorator(ThemeEnum.DARK)],
 };
 
 export const Pure: Story = {
-  args: {
-  },
+  args: {},
   decorators: [ThemeDecorator(ThemeEnum.PURE)],
 };
 

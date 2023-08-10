@@ -1,8 +1,12 @@
+import { IThunkConfig } from '@app/providers/StoreProvider';
 import { IComment } from '@entities/Comment';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IThunkConfig } from '@app/providers/StoreProvider';
 
-const fetchCommentsByArticleId = createAsyncThunk<IComment[], string | undefined, IThunkConfig<string>>(
+const fetchCommentsByArticleId = createAsyncThunk<
+  IComment[],
+  string | undefined,
+  IThunkConfig<string>
+>(
   'articleDetailsPage/fetchCommentsByArticleId',
   async (articleId, thunkAPI) => {
     if (!articleId) {

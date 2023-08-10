@@ -1,16 +1,15 @@
-import { IStateSchema } from '@app/providers/StoreProvider';
-import { getScrollSaveByPath, scrollSaveActions } from '@features/ScrollSave';
-import {
-  FC, MutableRefObject, ReactNode, UIEvent, memo, useRef,
-} from 'react';
+import { FC, memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { IStateSchema } from '@app/providers/StoreProvider';
+import { getScrollSaveByPath, scrollSaveActions } from '@features/ScrollSave';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@shared/lib/hooks/useInfititeScroll';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
 import { useThrottle } from '@shared/lib/hooks/useThrottle/useThrottle';
 import { ITestProps } from '@shared/types';
+
 import s from './Page.module.scss';
 
 interface PageProps extends ITestProps {
@@ -22,13 +21,18 @@ interface PageProps extends ITestProps {
 export const PAGE_ID = 'PAGE_ID';
 
 const Page: FC<PageProps> = ({
-  className, children, onScrollEnd, ...props
+  className,
+  children,
+  onScrollEnd,
+  ...props
 }) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
-  const scrollPosition = useSelector((state: IStateSchema) => getScrollSaveByPath(state, pathname));
+  const scrollPosition = useSelector((state: IStateSchema) =>
+    getScrollSaveByPath(state, pathname),
+  );
 
   useInfiniteScroll({
     wrapperRef,
@@ -41,10 +45,12 @@ const Page: FC<PageProps> = ({
   });
 
   const handleScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(scrollSaveActions.setScrollPosition({
-      position: e.currentTarget.scrollTop,
-      path: pathname,
-    }));
+    dispatch(
+      scrollSaveActions.setScrollPosition({
+        position: e.currentTarget.scrollTop,
+        path: pathname,
+      }),
+    );
   }, 500);
 
   return (

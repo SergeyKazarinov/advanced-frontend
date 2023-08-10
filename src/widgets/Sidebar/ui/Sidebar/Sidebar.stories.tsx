@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from '@shared/config/storybook';
+import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
 import { ThemeEnum } from '@shared/const/theme';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import Sidebar from './Sidebar';
 
 const meta = {
@@ -15,9 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {},
-  decorators: [
-    StoreDecorator({}),
-  ],
+  decorators: [StoreDecorator({})],
 };
 
 export const LightWithAuth: Story = {
@@ -29,10 +28,7 @@ export const LightWithAuth: Story = {
 
 export const Dark: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(ThemeEnum.DARK),
-    StoreDecorator({}),
-  ],
+  decorators: [ThemeDecorator(ThemeEnum.DARK), StoreDecorator({})],
 };
 
 export const DarkWithAuth: Story = {

@@ -1,9 +1,11 @@
 import { CSSProperties, FC, useMemo } from 'react';
-import { classNames } from '@shared/lib/classNames';
 import { RxAvatar } from 'react-icons/rx';
-import s from './Avatar.module.scss';
+import { classNames } from '@shared/lib/classNames';
+
 import { AppImage } from '../AppImage';
 import { Skeleton } from '../Skeleton';
+
+import s from './Avatar.module.scss';
 
 interface AvatarProps {
   className?: string;
@@ -12,13 +14,14 @@ interface AvatarProps {
   alt?: string;
 }
 
-const Avatar: FC<AvatarProps> = ({
-  className, src, size, alt,
-}) => {
-  const styles = useMemo<CSSProperties>(() => ({
-    width: size || 100,
-    height: size || 100,
-  }), [size]);
+const Avatar: FC<AvatarProps> = ({ className, src, size, alt }) => {
+  const styles = useMemo<CSSProperties>(
+    () => ({
+      width: size || 100,
+      height: size || 100,
+    }),
+    [size],
+  );
 
   const fallback = <Skeleton width={size} height={size} border="50%" />;
   const errorFallback = <RxAvatar size={32} className={s.icon} />;

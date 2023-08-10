@@ -14,12 +14,18 @@ describe('Пользователь заходит на страницу поль
     cy.resetProfile(profileId);
   });
   it('Профиль успешно загружается', () => {
-    cy.get(selectByTestId('ProfileCard.FirstName')).should('have.value', 'testUser');
+    cy.get(selectByTestId('ProfileCard.FirstName')).should(
+      'have.value',
+      'testUser',
+    );
   });
   it('Редактирует профиль', () => {
     cy.updateProfile('new', 'LastUser');
     cy.get(selectByTestId('ProfileCard.FirstName')).should('have.value', 'new');
-    cy.get(selectByTestId('ProfileCard.LastName')).should('have.value', 'LastUser');
+    cy.get(selectByTestId('ProfileCard.LastName')).should(
+      'have.value',
+      'LastUser',
+    );
   });
   // it('Редактирует профиль', () => {
 

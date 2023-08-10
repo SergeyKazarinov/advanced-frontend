@@ -1,4 +1,5 @@
 import { IUser } from '@entities/User';
+
 import { ArticleBlockTypeEnum, ArticleTypeEnum } from '../consts/consts';
 
 export interface IArticleBlockBase {
@@ -23,7 +24,10 @@ export interface IArticleTextBlock extends IArticleBlockBase {
   paragraphs: string[];
 }
 
-export type TArticleBlock = IArticleCodeBlock | IArticleImageBlock | IArticleTextBlock;
+export type TArticleBlock =
+  | IArticleCodeBlock
+  | IArticleImageBlock
+  | IArticleTextBlock;
 
 export interface IArticle {
   id: string;

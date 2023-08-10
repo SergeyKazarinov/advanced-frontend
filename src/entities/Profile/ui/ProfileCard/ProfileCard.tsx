@@ -1,14 +1,20 @@
-import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TMods, classNames } from '@shared/lib/classNames';
-import { TextComponent, TextAlignEnum, TextThemeEnum } from '@shared/ui/TextComponent';
 import { CountryEnum, CountrySelect } from '@entities/Country';
+import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
+import { classNames, TMods } from '@shared/lib/classNames';
 import { Avatar } from '@shared/ui/Avatar';
 import { Input } from '@shared/ui/Input';
 import { Loader } from '@shared/ui/Loader';
 import { HStack, VStack } from '@shared/ui/Stack';
+import {
+  TextAlignEnum,
+  TextComponent,
+  TextThemeEnum,
+} from '@shared/ui/TextComponent';
+
 import { IProfile } from '../../model/types/profile';
+
 import s from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -16,7 +22,7 @@ interface ProfileCardProps {
   data?: IProfile;
   error?: string;
   isLoading?: boolean;
-  readonly?: boolean
+  readonly?: boolean;
   onChangeName?: (value?: string) => void;
   onChangeLastName?: (value?: string) => void;
   onChangeAge?: (value?: string) => void;
@@ -46,7 +52,11 @@ const ProfileCard: FC<ProfileCardProps> = ({
 
   if (isLoading) {
     return (
-      <HStack max justify="center" className={classNames(s.profileCard, {}, [className, s.loading])}>
+      <HStack
+        max
+        justify="center"
+        className={classNames(s.profileCard, {}, [className, s.loading])}
+      >
         <Loader />
       </HStack>
     );
@@ -54,7 +64,11 @@ const ProfileCard: FC<ProfileCardProps> = ({
 
   if (error) {
     return (
-      <HStack max justify="center" className={classNames(s.profileCard, {}, [className, s.error])}>
+      <HStack
+        max
+        justify="center"
+        className={classNames(s.profileCard, {}, [className, s.error])}
+      >
         <TextComponent
           theme={TextThemeEnum.ERROR}
           title={t('An error occurred while loading the profile')}

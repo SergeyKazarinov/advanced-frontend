@@ -1,7 +1,12 @@
-import { componentRender } from '@shared/lib/tests/componentRender';
-import { getRouteAbout, getRouteAdmin, getRouteProfile } from '@shared/const/router';
-import { screen } from '@testing-library/dom';
 import { UserRoleEnum } from '@entities/User';
+import {
+  getRouteAbout,
+  getRouteAdmin,
+  getRouteProfile,
+} from '@shared/const/router';
+import { componentRender } from '@shared/lib/tests/componentRender';
+import { screen } from '@testing-library/dom';
+
 import AppRouter from './AppRouter';
 
 describe('app/router/AppRouter', () => {

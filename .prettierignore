@@ -1,0 +1,7 @@
+build
+coverage
+*.html
+*.scss
+*.css
+*.json
+node-modules

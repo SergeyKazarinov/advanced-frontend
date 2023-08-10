@@ -1,7 +1,6 @@
-import {
-  DetailedHTMLProps, FC, ReactNode, memo,
-} from 'react';
-import { TMods, classNames } from '@shared/lib/classNames';
+import { DetailedHTMLProps, FC, memo, ReactNode } from 'react';
+import { classNames, TMods } from '@shared/lib/classNames';
+
 import s from './Flex.module.scss';
 
 export type TFlexJustify = 'start' | 'center' | 'end' | 'between';
@@ -33,7 +32,10 @@ const gapClasses: Record<TFlexGap, string> = {
   32: s.gap32,
 };
 
-type DivProps = DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+  React.HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
 
 export interface FlexProps extends DivProps {
   className?: string;
@@ -42,7 +44,7 @@ export interface FlexProps extends DivProps {
   align?: TFlexAlign;
   direction?: TFlexDirection;
   gap?: TFlexGap;
-  max?: boolean
+  max?: boolean;
 }
 
 const Flex: FC<FlexProps> = ({

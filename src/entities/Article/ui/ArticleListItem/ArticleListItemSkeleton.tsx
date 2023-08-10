@@ -2,7 +2,9 @@ import { FC, memo } from 'react';
 import { classNames } from '@shared/lib/classNames';
 import { Card } from '@shared/ui/Card';
 import { Skeleton } from '@shared/ui/Skeleton';
+
 import { ArticleViewEnum } from '../../model/consts/consts';
+
 import s from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
@@ -10,7 +12,10 @@ interface ArticleListItemSkeletonProps {
   view: ArticleViewEnum;
 }
 
-const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ className, view }) => {
+const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({
+  className,
+  view,
+}) => {
   if (view === ArticleViewEnum.BIG) {
     return (
       <div className={classNames(s.articleListItem, {}, [className, s[view]])}>

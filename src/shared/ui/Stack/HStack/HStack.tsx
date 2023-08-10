@@ -1,6 +1,6 @@
 import Flex, { FlexProps } from '../Flex/Flex';
 
-type THStackProps = Omit<FlexProps, 'direction'>
+type THStackProps = Omit<FlexProps, 'direction'>;
 
 const HStack = (props: THStackProps) => (
   // eslint-disable-next-line

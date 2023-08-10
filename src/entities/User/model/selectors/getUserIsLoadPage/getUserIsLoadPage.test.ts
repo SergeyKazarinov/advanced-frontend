@@ -1,5 +1,7 @@
 import { IStateSchema } from '@app/providers/StoreProvider';
+
 import { USER_DATA } from '../../../utils/userData';
+
 import { getUserIsLoadPage } from './getUserIsLoadPage';
 
 describe('getUserIsLoadPage selectors', () => {

@@ -1,13 +1,17 @@
 import { counterReducer } from '@entities/Counter';
 import { userReducer } from '@entities/User';
-import {
-  CombinedState, Reducer, ReducersMapObject, configureStore,
-} from '@reduxjs/toolkit';
 import { scrollSaveReducer } from '@features/ScrollSave';
+import {
+  CombinedState,
+  configureStore,
+  Reducer,
+  ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { $api } from '@shared/api/api';
 import { rtkApi } from '@shared/api/rtkApi';
-import { IStateSchema } from './StateSchema';
+
 import { createReducerManager } from './reducerManager';
+import { IStateSchema } from './StateSchema';
 
 export const createReduxStore = (
   initialState?: IStateSchema,
@@ -27,13 +31,14 @@ export const createReduxStore = (
     reducer: reducerManager.reduce as Reducer<CombinedState<IStateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-      thunk: {
-        extraArgument: {
-          api: $api,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: {
+            api: $api,
+          },
         },
-      },
-    }).concat(rtkApi.middleware),
+      }).concat(rtkApi.middleware),
   });
 
   // @ts-ignore

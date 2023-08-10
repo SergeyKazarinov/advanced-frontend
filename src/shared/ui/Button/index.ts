@@ -1,1 +1,1 @@
-export { ThemeButtonEnum, SizeButtonEnum, default as Button } from './Button';
+export { default as Button, SizeButtonEnum, ThemeButtonEnum } from './Button';

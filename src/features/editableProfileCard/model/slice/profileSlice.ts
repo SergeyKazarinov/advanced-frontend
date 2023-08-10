@@ -1,5 +1,6 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { IProfile } from '@entities/Profile';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import fetchProfileData from '../services/fetchProfileData/fetchProfileData';
 import updateProfileData from '../services/updateProfileData/updateProfileData';
 import { IProfileSchema } from '../types/editableProfileCardSchema';
@@ -37,11 +38,14 @@ const profileSlice = createSlice({
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<IProfile>) => {
-        state.isLoading = false;
-        state.data = action.payload;
-        state.form = action.payload;
-      })
+      .addCase(
+        fetchProfileData.fulfilled,
+        (state, action: PayloadAction<IProfile>) => {
+          state.isLoading = false;
+          state.data = action.payload;
+          state.form = action.payload;
+        },
+      )
       .addCase(fetchProfileData.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
@@ -50,13 +54,16 @@ const profileSlice = createSlice({
         state.validateError = undefined;
         state.isLoading = true;
       })
-      .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<IProfile>) => {
-        state.isLoading = false;
-        state.readonly = true;
-        state.data = action.payload;
-        state.form = action.payload;
-        state.validateError = undefined;
-      })
+      .addCase(
+        updateProfileData.fulfilled,
+        (state, action: PayloadAction<IProfile>) => {
+          state.isLoading = false;
+          state.readonly = true;
+          state.data = action.payload;
+          state.form = action.payload;
+          state.validateError = undefined;
+        },
+      )
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false;
         state.validateError = action.payload;

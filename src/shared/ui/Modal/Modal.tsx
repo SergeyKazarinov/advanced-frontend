@@ -1,9 +1,11 @@
-import { TMods, classNames } from '@shared/lib/classNames';
-import { useModal } from '@shared/lib/hooks/useModal';
 import { FC, ReactNode } from 'react';
+import { classNames, TMods } from '@shared/lib/classNames';
+import { useModal } from '@shared/lib/hooks/useModal';
 import { useTheme } from '@shared/lib/hooks/useTheme/useTheme';
+
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
+
 import s from './Modal.module.scss';
 
 interface ModalProps {
@@ -15,13 +17,21 @@ interface ModalProps {
 }
 
 const Modal: FC<ModalProps> = ({
-  className, children, isOpen, onClose, lazy,
+  className,
+  children,
+  isOpen,
+  onClose,
+  lazy,
 }) => {
   const { theme } = useTheme();
-  const { handleClose, isMounted, opened } = useModal({ isOpen, animationDelay: 500, onClose });
+  const { handleClose, isMounted, opened } = useModal({
+    isOpen,
+    animationDelay: 500,
+    onClose,
+  });
 
   const mods: TMods = {
-    [s.opened]: (opened && isOpen),
+    [s.opened]: opened && isOpen,
   };
 
   const modalPortal = document.getElementById('modal') ?? document.body;
@@ -32,13 +42,9 @@ const Modal: FC<ModalProps> = ({
 
   return (
     <Portal element={modalPortal}>
-      <div className={(classNames(s.modal, mods, [className, theme]))}>
+      <div className={classNames(s.modal, mods, [className, theme])}>
         <Overlay onClick={handleClose} />
-        <div
-          className={s.content}
-        >
-          {children}
-        </div>
+        <div className={s.content}>{children}</div>
       </div>
     </Portal>
   );

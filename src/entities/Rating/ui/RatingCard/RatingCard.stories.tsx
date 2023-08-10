@@ -1,6 +1,7 @@
 import { ThemeDecorator } from '@shared/config/storybook';
 import { ThemeEnum } from '@shared/const/theme';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import RatingCard from './RatingCard';
 
 const meta = {
@@ -17,24 +18,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: {
-  },
+  args: {},
 };
 
 export const Dark: Story = {
-  args: {
-  },
-  decorators: [
-    ThemeDecorator(ThemeEnum.DARK),
-  ],
+  args: {},
+  decorators: [ThemeDecorator(ThemeEnum.DARK)],
 };
 
 export const Pure: Story = {
-  args: {
-  },
-  decorators: [
-    ThemeDecorator(ThemeEnum.PURE),
-  ],
+  args: {},
+  decorators: [ThemeDecorator(ThemeEnum.PURE)],
 };
 
 export const LightWithFeedback: Story = {
@@ -47,16 +41,12 @@ export const DarkWithFeedback: Story = {
   args: {
     hasFeedback: true,
   },
-  decorators: [
-    ThemeDecorator(ThemeEnum.DARK),
-  ],
+  decorators: [ThemeDecorator(ThemeEnum.DARK)],
 };
 
 export const PureWithFeedback: Story = {
   args: {
     hasFeedback: true,
   },
-  decorators: [
-    ThemeDecorator(ThemeEnum.PURE),
-  ],
+  decorators: [ThemeDecorator(ThemeEnum.PURE)],
 };

@@ -12,6 +12,7 @@
 - [Конфигурация проекта](#config)
 - [CI pipeline и pre commit хуки](#ci)
 - [Работа с данными](#server)
+- [Работа с feature-flags](#feature-flags)
 - [Сущности (entities)](#entities)
 - [Этапы разработки](#development)
 - [Что планируется сделать](#next)
@@ -145,6 +146,23 @@ npm run start:dev
 
 Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
 [DynamicModuleLoader](/src/shared/lib/ui/DynamicModuleLoader/DynamicModuleLoader.tsx)
+
+## <a id="feature-flags" ></a>Работа с feature-flags
+
+Разрешено использоваение feature flags только с помощью хелпера [`toggleFeatures`](/src//shared/lib/features/toggleFeatures.ts).  
+В него передается объект с опциями:  
+```javascript
+{
+  name: название фича-флага
+  on: функция, которая отработает после включения фичи
+  off: функция, которая отработает после выключения фичи
+}
+```
+
+Для автоматического удаления фичи использовать скрипт [`removefeature.ts`](./scripts/remove-feature.ts).  
+Скрипт принимает 2 аргумента:
+1. Название удаляемого фича-флага
+2. Состояние (on/off)
 
 ## <a id="entities" ></a>Сущности (entities)
 

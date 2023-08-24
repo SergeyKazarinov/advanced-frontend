@@ -92,3 +92,4 @@
 - Добавлен [lint-staged](https://www.npmjs.com/package/lint-staged?activeTab=readme) для пре-коммит хуков
 - Добавлены e2e тесты
 - Добавлен [prettier](https://prettier.io/) и сортировка импортов
+- Добавлен скрипт для автоматического удаления фичей

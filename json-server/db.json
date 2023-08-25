@@ -669,7 +669,7 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_pure_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageGasBeenOpen": false
       }

@@ -1,10 +1,11 @@
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getUserIsLoadPage, userActions } from '@entities/User';
+import { getUserIsLoadPage, initAuthData } from '@entities/User';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useTheme } from '@shared/lib/hooks/useTheme/useTheme';
 import { Navbar } from '@widgets/Navbar';
+import { PageLoader } from '@widgets/PageLoader';
 import { Sidebar } from '@widgets/Sidebar';
 
 import { AppRouter } from './providers/routing';
@@ -15,11 +16,11 @@ const App = () => {
   const isLoadPage = useSelector(getUserIsLoadPage);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    dispatch(initAuthData());
   }, [dispatch]);
 
   if (!isLoadPage) {
-    return null;
+    return <PageLoader />;
   }
 
   return (

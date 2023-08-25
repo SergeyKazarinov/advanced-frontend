@@ -1,11 +1,9 @@
 import { FC, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { ArticlePageGreeting } from '@features/articlePageGreeting';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
-import {
-  DynamicModuleLoader,
-  TReducerList,
-} from '@shared/lib/ui/DynamicModuleLoader';
+import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
 import { Page } from '@widgets/Page';
 
 import fetchNextArticlesPage from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -34,13 +32,10 @@ const ArticlesPage: FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page
-        data-testid="ArticlesPage"
-        className={s.articlePage}
-        onScrollEnd={handleLoadNextPart}
-      >
+      <Page data-testid="ArticlesPage" className={s.articlePage} onScrollEnd={handleLoadNextPart}>
         <ArticlesPageFilter />
         <ArticleInfiniteList />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   );

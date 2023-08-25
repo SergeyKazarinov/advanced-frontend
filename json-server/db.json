@@ -671,7 +671,8 @@
       "jsonSettings": {
         "theme": "app_light_theme",
         "isFirstVisit": true,
-        "settingsPageGasBeenOpen": false
+        "settingsPageGasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       }
     },
     {

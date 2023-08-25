@@ -667,6 +667,11 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_pure_theme",
+        "isFirstVisit": true,
+        "settingsPageGasBeenOpen": false
       }
     },
     {
@@ -680,6 +685,11 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageGasBeenOpen": false
       }
     },
     {
@@ -693,6 +703,11 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageGasBeenOpen": false
       }
     },
     {
@@ -707,6 +722,11 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_light_theme",
+        "isFirstVisit": true,
+        "settingsPageGasBeenOpen": false
       }
     }
   ],

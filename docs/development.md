@@ -93,3 +93,4 @@
 - Добавлены e2e тесты
 - Добавлен [prettier](https://prettier.io/) и сортировка импортов
 - Добавлен скрипт для автоматического удаления фичей
+- Добавлен компоненет [ToggleFeature](../src/shared/lib/features/ToggleFeatures/ToggleFeatures.tsx) для добавления фичей

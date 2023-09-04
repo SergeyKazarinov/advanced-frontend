@@ -27,7 +27,8 @@
     "visual:report": "npm-run-all visual:report:*",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "remove-feature": "ts-node ./scripts/remove-feature.ts"
   },
   "author": "",
   "license": "ISC",

@@ -62,6 +62,7 @@ npm run start:dev
 - `npm run storybook` - запуск Storybook
 - `npm run build-storybook` - Сборка storybook билда
 - `npm run prepare` - прекоммит хуки
+- `npm run remove-feature` - запускает скрипт автоматического удаления фичей
 
 ## <a id="fsd" ></a>Архитектура проекта
 
@@ -150,7 +151,8 @@ npm run start:dev
 ## <a id="feature-flags" ></a>Работа с feature-flags
 
 Разрешено использоваение feature flags только с помощью хелпера [`toggleFeatures`](/src//shared/lib/features/toggleFeatures.ts).  
-В него передается объект с опциями:  
+В него передается объект с опциями:
+
 ```javascript
 {
   name: название фича-флага
@@ -161,6 +163,7 @@ npm run start:dev
 
 Для автоматического удаления фичи использовать скрипт [`removefeature.ts`](./scripts/remove-feature.ts).  
 Скрипт принимает 2 аргумента:
+
 1. Название удаляемого фича-флага
 2. Состояние (on/off)
 

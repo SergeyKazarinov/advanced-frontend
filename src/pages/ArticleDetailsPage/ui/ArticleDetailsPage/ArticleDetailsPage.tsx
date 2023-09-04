@@ -1,10 +1,12 @@
 import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@entities/Article';
 import { ArticleRatingLazy } from '@features/articleRating';
 import { ArticleRecommendationsList } from '@features/articleRecommendationsList';
-import { toggleFeatures } from '@shared/lib/features';
+import { ToggleFeatures } from '@shared/lib/features';
 import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
+import { Card } from '@shared/ui/Card';
 import { VStack } from '@shared/ui/Stack';
 import { Page } from '@widgets/Page';
 
@@ -20,17 +22,11 @@ const reducer: TReducerList = {
 
 const ArticleDetailsPage: FC = () => {
   const { articleId } = useParams<{ articleId: string }>();
+  const { t } = useTranslation();
 
   if (!articleId) {
     return null;
   }
-
-  const articleFeatureRating = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    // eslint-disable-next-line
-    on: () => <ArticleRatingLazy articleId={articleId} />,
-    off: () => null,
-  })
 
   return (
     <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
@@ -38,7 +34,11 @@ const ArticleDetailsPage: FC = () => {
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={articleId} />
-          {articleFeatureRating}
+          <ToggleFeatures
+            feature="isArticleRatingEnabled"
+            on={<ArticleRatingLazy articleId={articleId} />}
+            off={<Card>{t('Скоро здесь будет новая фича')}</Card>}
+          />
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={articleId} />
         </VStack>

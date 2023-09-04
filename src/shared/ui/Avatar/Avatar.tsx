@@ -24,7 +24,7 @@ const Avatar: FC<AvatarProps> = ({ className, src, size, alt }) => {
   );
 
   const fallback = <Skeleton width={size} height={size} border="50%" />;
-  const errorFallback = <RxAvatar size={32} className={s.icon} />;
+  const errorFallback = <RxAvatar size="50%" className={s.icon} />;
 
   return (
     <AppImage

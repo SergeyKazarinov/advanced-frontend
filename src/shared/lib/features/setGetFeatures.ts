@@ -1,6 +1,10 @@
 import { IFeatureFlags } from '@shared/types';
 
-let featureFlags: IFeatureFlags;
+let featureFlags: IFeatureFlags = {
+  isAppRedesigned: false,
+  isArticleRatingEnabled: false,
+  isCounterEnabled: false,
+};
 
 export function setFeatureFlags(newFeatureFlags?: IFeatureFlags) {
   if (newFeatureFlags) {

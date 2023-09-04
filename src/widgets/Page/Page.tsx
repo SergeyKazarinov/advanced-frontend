@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { IStateSchema } from '@app/providers/StoreProvider';
 import { getScrollSaveByPath, scrollSaveActions } from '@features/ScrollSave';
 import { classNames } from '@shared/lib/classNames';
+import { toggleFeatures } from '@shared/lib/features';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@shared/lib/hooks/useInfititeScroll';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
@@ -20,19 +21,12 @@ interface PageProps extends ITestProps {
 
 export const PAGE_ID = 'PAGE_ID';
 
-const Page: FC<PageProps> = ({
-  className,
-  children,
-  onScrollEnd,
-  ...props
-}) => {
+const Page: FC<PageProps> = ({ className, children, onScrollEnd, ...props }) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
-  const scrollPosition = useSelector((state: IStateSchema) =>
-    getScrollSaveByPath(state, pathname),
-  );
+  const scrollPosition = useSelector((state: IStateSchema) => getScrollSaveByPath(state, pathname));
 
   useInfiniteScroll({
     wrapperRef,
@@ -53,10 +47,16 @@ const Page: FC<PageProps> = ({
     );
   }, 500);
 
+  const pageClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => s.pageRedesigned,
+    off: () => s.page,
+  });
+
   return (
     <main
       ref={wrapperRef}
-      className={classNames(s.page, {}, [className])}
+      className={classNames(pageClass, {}, [className])}
       onScroll={handleScroll}
       id={PAGE_ID}
       data-testid={props['data-testid'] ?? 'Page'}

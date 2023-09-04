@@ -4,7 +4,25 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr({ exportAsDefault: true })],
+  plugins: [
+    react(),
+    svgr({
+      exportAsDefault: true,
+      svgrOptions: {
+        icon: true,
+        svgoConfig: {
+          plugins: [
+            {
+              name: 'convertColors',
+              params: {
+                currentColor: true,
+              },
+            },
+          ],
+        },
+      },
+    }),
+  ],
   server: {
     port: 3000,
   },

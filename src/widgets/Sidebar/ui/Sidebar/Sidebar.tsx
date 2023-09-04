@@ -1,15 +1,12 @@
-import { FC, memo, useMemo, useState } from 'react';
+import { FC, memo, useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { LangSwitcher } from '@features/LangSwitcher';
-import { ThemeSwitcher } from '@features/ThemeSwitcher';
-import { classNames } from '@shared/lib/classNames';
-import { Button, SizeButtonEnum, ThemeButtonEnum } from '@shared/ui/Button';
-import { VStack } from '@shared/ui/Stack';
+import { ToggleFeatures } from '@shared/lib/features';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import SidebarItem from '../SidebarItem/SidebarItem';
 
-import s from './Sidebar.module.scss';
+import DeprecatedSidebar from './DeprecatedSidebar/DeprecatedSidebar';
+import RedesignedSidebar from './RedesignedSidebar/RedesignedSidebar';
 
 interface SidebarProps {
   className?: string;
@@ -19,46 +16,25 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
   const sidebarItemsList = useSelector(getSidebarItems);
 
-  const onToggle = () => {
+  const onToggle = useCallback(() => {
     setCollapsed((state) => !state);
-  };
+  }, []);
 
   const sidebarList = useMemo(
-    () =>
-      sidebarItemsList.map((item) => (
-        <SidebarItem key={item.path} item={item} collapsed={collapsed} />
-      )),
+    () => sidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />),
     [collapsed, sidebarItemsList],
   );
 
   return (
-    <aside
-      data-testid="sidebar"
-      className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [
-        className,
-      ])}
-    >
-      <Button
-        type="button"
-        onClick={onToggle}
-        data-testid="sidebar-toggle"
-        className={s.collapseBtn}
-        theme={ThemeButtonEnum.BACKGROUND_INVERTED}
-        square
-        size={SizeButtonEnum.L}
-      >
-        {collapsed ? '>' : '<'}
-      </Button>
-
-      <VStack role="navigation" className={s.items}>
-        {sidebarList}
-      </VStack>
-
-      <div className={s.switchers}>
-        <ThemeSwitcher />
-        <LangSwitcher className={s.lang} short={collapsed} />
-      </div>
-    </aside>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <RedesignedSidebar sidebarList={sidebarList} collapsed={collapsed} className={className} onToggle={onToggle} />
+      }
+      off={
+        <DeprecatedSidebar sidebarList={sidebarList} collapsed={collapsed} className={className} onToggle={onToggle} />
+      }
+    />
   );
 };
 

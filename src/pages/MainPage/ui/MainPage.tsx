@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { RatingCard } from '@entities/Rating';
 import { Page } from '@widgets/Page';
 
 const MainPage = () => {
@@ -16,7 +15,7 @@ const MainPage = () => {
     <Page data-testid="MainPage">
       {t('Main page')}
       {/* {counter} */}
-      <RatingCard title="Как вам статья" feedbackTitle="Оставьте пожалуйста отзыв" hasFeedback />
+      {/* <RatingCard title="Как вам статья" feedbackTitle="Оставьте пожалуйста отзыв" hasFeedback /> */}
     </Page>
   );
 };

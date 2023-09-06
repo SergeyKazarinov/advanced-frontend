@@ -2,7 +2,7 @@ import { ThemeDecorator } from '@shared/config/storybook';
 import { ThemeEnum } from '@shared/const/theme';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../../../deprecated/Button';
+import { Button } from '../../../Button';
 
 import Dropdown from './Dropdown';
 

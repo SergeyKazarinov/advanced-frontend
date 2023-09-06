@@ -3,12 +3,7 @@ import { BsCardList, BsNewspaper } from 'react-icons/bs';
 import { CgProfile } from 'react-icons/cg';
 import { getUserAuthData } from '@entities/User';
 import { createSelector } from '@reduxjs/toolkit';
-import {
-  getRouteAbout,
-  getRouteArticles,
-  getRouteMain,
-  getRouteProfile,
-} from '@shared/const/router';
+import { getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile } from '@shared/const/router';
 
 import { ISidebarItem } from '../types/sidebar';
 

@@ -1,0 +1,19 @@
+.primary {
+  color: var(--text-redesigned);
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--accent-redesigned);
+  }
+}
+
+
+.red {
+  color: var(--cancel-redesigned);
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

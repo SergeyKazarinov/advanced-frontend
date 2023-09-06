@@ -29,21 +29,12 @@ module.exports = {
     'unused-imports/no-unused-imports': 'error',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
-    'react/jsx-filename-extension': [
-      1,
-      { extensions: ['.js', '.jsx', '.tsx'] },
-    ],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/react-in-jsx-scope': [0],
     'react/react-default-props': 'off',
-    'react/function-component-definition': [
-      2,
-      { namedComponents: 'arrow-function' },
-    ],
+    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'react/require-default-props': 'off',
-    'react/jsx-props-no-spreading': [
-      'error',
-      { html: 'ignore', exceptions: ['Link'] },
-    ],
+    'react/jsx-props-no-spreading': ['error', { html: 'ignore', exceptions: ['Link', 'NavLink'] }],
     'import/no-extraneous-dependencies': 'warn',
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
@@ -81,11 +72,7 @@ module.exports = {
       'error',
       {
         alias: '@',
-        testFilesPatterns: [
-          '**/*.test.ts',
-          '**/*.test.ts',
-          '**/StoreDecorator.tsx',
-        ],
+        testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
       },
     ],
     'kss-fsd-imports/layer-imports': [

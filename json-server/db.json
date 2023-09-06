@@ -729,7 +729,7 @@
         "isAppRedesigned": false
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageGasBeenOpen": false,
         "isArticlesPageWasOpened": true

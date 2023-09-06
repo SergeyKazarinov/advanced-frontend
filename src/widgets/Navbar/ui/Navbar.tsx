@@ -8,10 +8,10 @@ import { NotificationButton } from '@features/notificationButton';
 import { getRouteArticleCreate } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
-import { AppLink, AppLinkThemeEnum } from '@shared/ui/AppLink';
-import { Button, ThemeButtonEnum } from '@shared/ui/Button';
-import { HStack } from '@shared/ui/Stack';
-import { TextComponent, TextThemeEnum } from '@shared/ui/TextComponent';
+import { AppLink, AppLinkThemeEnum } from '@shared/ui/deprecated/AppLink';
+import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
+import { HStack } from '@shared/ui/deprecated/Stack';
+import { TextComponent, TextThemeEnum } from '@shared/ui/deprecated/TextComponent';
 
 import s from './Navbar.module.scss';
 

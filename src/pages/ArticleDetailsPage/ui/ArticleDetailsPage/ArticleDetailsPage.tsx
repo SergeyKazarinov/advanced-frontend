@@ -6,8 +6,8 @@ import { ArticleRatingLazy } from '@features/articleRating';
 import { ArticleRecommendationsList } from '@features/articleRecommendationsList';
 import { ToggleFeatures } from '@shared/lib/features';
 import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
-import { Card } from '@shared/ui/Card';
-import { VStack } from '@shared/ui/Stack';
+import { Card } from '@shared/ui/deprecated/Card';
+import { VStack } from '@shared/ui/deprecated/Stack';
 import { Page } from '@widgets/Page';
 
 import { articleDetailsPageReducers } from '../../model/slice';

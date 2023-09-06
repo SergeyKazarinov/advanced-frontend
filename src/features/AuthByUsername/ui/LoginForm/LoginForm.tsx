@@ -3,13 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import {
-  DynamicModuleLoader,
-  TReducerList,
-} from '@shared/lib/ui/DynamicModuleLoader';
-import { Button, ThemeButtonEnum } from '@shared/ui/Button';
-import { Input } from '@shared/ui/Input';
-import { TextComponent, TextThemeEnum } from '@shared/ui/TextComponent';
+import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
+import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
+import { Input } from '@shared/ui/deprecated/Input';
+import { TextComponent, TextThemeEnum } from '@shared/ui/deprecated/TextComponent';
 
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -63,27 +60,10 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={classNames(s.loginForm, {}, [className])}>
         <TextComponent title={t('Authorization') ?? ''} className={s.title} />
-        <Input
-          autoFocus
-          placeholder={t('Enter username') ?? ''}
-          value={username}
-          onChange={onChangeUsername}
-        />
-        <Input
-          placeholder={t('Enter password') ?? ''}
-          type="password"
-          value={password}
-          onChange={onChangePassword}
-        />
-        {error && (
-          <TextComponent text={errorMessage} theme={TextThemeEnum.ERROR} />
-        )}
-        <Button
-          className={s.loginBtn}
-          theme={ThemeButtonEnum.CLEAR}
-          onClick={onLoginClick}
-          disabled={isLoading}
-        >
+        <Input autoFocus placeholder={t('Enter username') ?? ''} value={username} onChange={onChangeUsername} />
+        <Input placeholder={t('Enter password') ?? ''} type="password" value={password} onChange={onChangePassword} />
+        {error && <TextComponent text={errorMessage} theme={TextThemeEnum.ERROR} />}
+        <Button className={s.loginBtn} theme={ThemeButtonEnum.CLEAR} onClick={onLoginClick} disabled={isLoading}>
           {t('Sign In')}
         </Button>
       </div>

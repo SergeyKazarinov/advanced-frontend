@@ -4,7 +4,7 @@ import { AiOutlineTable } from 'react-icons/ai';
 import { BsList } from 'react-icons/bs';
 import { ArticleViewEnum } from '@entities/Article';
 import { classNames } from '@shared/lib/classNames';
-import { Button, ThemeButtonEnum } from '@shared/ui/Button';
+import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
 
 import s from './ArticleViewSelector.module.scss';
 
@@ -25,11 +25,7 @@ const viewTypes = [
   },
 ];
 
-const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({
-  className,
-  view,
-  onViewClick,
-}) => {
+const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({ className, view, onViewClick }) => {
   const { t } = useTranslation();
 
   const handleClick = (newView: ArticleViewEnum) => () => {

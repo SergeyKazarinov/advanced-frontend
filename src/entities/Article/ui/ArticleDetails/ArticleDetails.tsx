@@ -6,14 +6,11 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
-import {
-  DynamicModuleLoader,
-  TReducerList,
-} from '@shared/lib/ui/DynamicModuleLoader';
-import { Avatar } from '@shared/ui/Avatar';
-import { Skeleton } from '@shared/ui/Skeleton';
-import { HStack, VStack } from '@shared/ui/Stack';
-import { TextComponent, TextSizeEnum } from '@shared/ui/TextComponent';
+import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
+import { Avatar } from '@shared/ui/deprecated/Avatar';
+import { Skeleton } from '@shared/ui/deprecated/Skeleton';
+import { HStack, VStack } from '@shared/ui/deprecated/Stack';
+import { TextComponent, TextSizeEnum } from '@shared/ui/deprecated/TextComponent';
 
 import { ArticleBlockTypeEnum } from '../../model/consts/consts';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
@@ -47,17 +44,11 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
   const renderBlock = useCallback((block: TArticleBlock) => {
     switch (block.type) {
       case ArticleBlockTypeEnum.CODE:
-        return (
-          <ArticleCodeBlock key={block.id} className={s.block} block={block} />
-        );
+        return <ArticleCodeBlock key={block.id} className={s.block} block={block} />;
       case ArticleBlockTypeEnum.IMAGE:
-        return (
-          <ArticleImageBlock key={block.id} className={s.block} block={block} />
-        );
+        return <ArticleImageBlock key={block.id} className={s.block} block={block} />;
       case ArticleBlockTypeEnum.TEXT:
-        return (
-          <ArticleTextBlock key={block.id} className={s.block} block={block} />
-        );
+        return <ArticleTextBlock key={block.id} className={s.block} block={block} />;
       default:
         return null;
     }
@@ -79,9 +70,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
       </>
     );
   } else if (error) {
-    content = (
-      <TextComponent text={t('An error occurred while loading the page')} />
-    );
+    content = <TextComponent text={t('An error occurred while loading the page')} />;
   } else {
     content = (
       <>
@@ -89,11 +78,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
           <Avatar size={200} src={article?.img} className={s.avatar} />
         </HStack>
         <VStack max gap="4" data-testid="ArticleDetails.Info">
-          <TextComponent
-            title={article?.title}
-            text={article?.subtitle}
-            size={TextSizeEnum.L}
-          />
+          <TextComponent title={article?.title} text={article?.subtitle} size={TextSizeEnum.L} />
           <HStack className={s.articleInfo}>
             <AiFillEye className={s.icon} />
             <TextComponent text={String(article?.views)} />
@@ -110,11 +95,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <VStack
-        gap="16"
-        max
-        className={classNames(s.articleDetails, {}, [className])}
-      >
+      <VStack gap="16" max className={classNames(s.articleDetails, {}, [className])}>
         {content}
       </VStack>
     </DynamicModuleLoader>

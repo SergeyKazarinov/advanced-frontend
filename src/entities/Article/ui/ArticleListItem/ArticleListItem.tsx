@@ -3,18 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { AiFillEye } from 'react-icons/ai';
 import { getRouteArticlesDetails } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';
-import { AppImage } from '@shared/ui/AppImage';
-import { AppLink } from '@shared/ui/AppLink';
-import { Avatar } from '@shared/ui/Avatar';
-import { Button, ThemeButtonEnum } from '@shared/ui/Button';
-import { Card } from '@shared/ui/Card';
-import { Skeleton } from '@shared/ui/Skeleton';
-import { TextComponent } from '@shared/ui/TextComponent';
+import { AppImage } from '@shared/ui/deprecated/AppImage';
+import { AppLink } from '@shared/ui/deprecated/AppLink';
+import { Avatar } from '@shared/ui/deprecated/Avatar';
+import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
+import { Card } from '@shared/ui/deprecated/Card';
+import { Skeleton } from '@shared/ui/deprecated/Skeleton';
+import { TextComponent } from '@shared/ui/deprecated/TextComponent';
 
-import {
-  ArticleBlockTypeEnum,
-  ArticleViewEnum,
-} from '../../model/consts/consts';
+import { ArticleBlockTypeEnum, ArticleViewEnum } from '../../model/consts/consts';
 import { IArticle, IArticleTextBlock } from '../../model/types/article';
 import ArticleTextBlock from '../ArticleTextBlock/ArticleTextBlock';
 
@@ -27,17 +24,10 @@ interface ArticleListItemProps {
   target?: HTMLAttributeAnchorTarget;
 }
 
-const ArticleListItem: FC<ArticleListItemProps> = ({
-  className,
-  article,
-  view,
-  target,
-}) => {
+const ArticleListItem: FC<ArticleListItemProps> = ({ className, article, view, target }) => {
   const { t } = useTranslation('article');
 
-  const types = (
-    <TextComponent text={article.type.join(', ')} className={s.types} />
-  );
+  const types = <TextComponent text={article.type.join(', ')} className={s.types} />;
   const views = (
     <>
       <TextComponent text={String(article.views)} className={s.views} />
@@ -46,21 +36,13 @@ const ArticleListItem: FC<ArticleListItemProps> = ({
   );
 
   if (view === ArticleViewEnum.BIG) {
-    const textBlock = article.blocks.find(
-      (block) => block.type === ArticleBlockTypeEnum.TEXT,
-    ) as IArticleTextBlock;
+    const textBlock = article.blocks.find((block) => block.type === ArticleBlockTypeEnum.TEXT) as IArticleTextBlock;
     return (
-      <div
-        data-testid="ArticleListItem"
-        className={classNames(s.articleListItem, {}, [className, s[view]])}
-      >
+      <div data-testid="ArticleListItem" className={classNames(s.articleListItem, {}, [className, s[view]])}>
         <Card>
           <div className={s.header}>
             <Avatar size={30} src={article.user.avatar} />
-            <TextComponent
-              text={article.user.username}
-              className={s.username}
-            />
+            <TextComponent text={article.user.username} className={s.username} />
             <TextComponent text={article.createdAt} className={s.date} />
           </div>
           <TextComponent title={article.title} className={s.title} />
@@ -71,9 +53,7 @@ const ArticleListItem: FC<ArticleListItemProps> = ({
             alt={article.title}
             fallback={<Skeleton width="100%" height={250} />}
           />
-          {textBlock && (
-            <ArticleTextBlock block={textBlock} className={s.textBlock} />
-          )}
+          {textBlock && <ArticleTextBlock block={textBlock} className={s.textBlock} />}
           <div className={s.footer}>
             <AppLink to={getRouteArticlesDetails(article.id)}>
               <Button theme={ThemeButtonEnum.CLEAR}>{t('Read more')}</Button>

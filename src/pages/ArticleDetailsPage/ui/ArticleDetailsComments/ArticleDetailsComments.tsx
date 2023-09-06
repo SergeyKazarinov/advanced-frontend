@@ -6,9 +6,9 @@ import { AddCommentFormAsync } from '@features/addComment';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
-import { Loader } from '@shared/ui/Loader';
-import { VStack } from '@shared/ui/Stack';
-import { TextComponent, TextSizeEnum } from '@shared/ui/TextComponent';
+import { Loader } from '@shared/ui/deprecated/Loader';
+import { VStack } from '@shared/ui/deprecated/Stack';
+import { TextComponent, TextSizeEnum } from '@shared/ui/deprecated/TextComponent';
 
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import addCommentForArticle from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -20,10 +20,7 @@ interface ArticleDetailsCommentsProps {
   id?: string;
 }
 
-const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({
-  className,
-  id,
-}) => {
+const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({ className, id }) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);

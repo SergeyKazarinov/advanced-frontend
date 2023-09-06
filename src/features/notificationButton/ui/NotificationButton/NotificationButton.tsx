@@ -3,9 +3,9 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { NotificationList } from '@entities/Notification';
 import { classNames } from '@shared/lib/classNames';
-import { Button, ThemeButtonEnum } from '@shared/ui/Button';
-import { Drawer } from '@shared/ui/Drawer';
-import { Popover } from '@shared/ui/Popups';
+import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
+import { Drawer } from '@shared/ui/deprecated/Drawer';
+import { Popover } from '@shared/ui/deprecated/Popups';
 
 import s from './NotificationButton.module.scss';
 
@@ -33,10 +33,7 @@ const NotificationButton: FC<NotificationButtonProps> = ({ className }) => {
   return (
     <div>
       <BrowserView>
-        <Popover
-          className={classNames(s.notificationButton, {}, [className])}
-          trigger={trigger}
-        >
+        <Popover className={classNames(s.notificationButton, {}, [className])} trigger={trigger}>
           <NotificationList className={s.notifications} />
         </Popover>
       </BrowserView>

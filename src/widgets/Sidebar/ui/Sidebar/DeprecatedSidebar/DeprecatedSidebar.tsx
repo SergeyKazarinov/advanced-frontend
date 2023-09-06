@@ -2,8 +2,8 @@ import { FC, memo, ReactNode } from 'react';
 import { LangSwitcher } from '@features/LangSwitcher';
 import { ThemeSwitcher } from '@features/ThemeSwitcher';
 import { classNames } from '@shared/lib/classNames';
-import { Button, SizeButtonEnum, ThemeButtonEnum } from '@shared/ui/Button';
-import { VStack } from '@shared/ui/Stack';
+import { Button, SizeButtonEnum, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
+import { VStack } from '@shared/ui/deprecated/Stack';
 
 import s from './DeprecatedSidebar.module.scss';
 

@@ -1,8 +1,8 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@shared/lib/classNames';
-import { VStack } from '@shared/ui/Stack';
-import { TextComponent } from '@shared/ui/TextComponent';
+import { VStack } from '@shared/ui/deprecated/Stack';
+import { TextComponent } from '@shared/ui/deprecated/TextComponent';
 
 import { IComment } from '../../model/types/comment';
 import CommentItem from '../CommentItem/CommentItem';
@@ -13,11 +13,7 @@ interface CommentListProps {
   isLoading?: boolean;
 }
 
-const CommentList: FC<CommentListProps> = ({
-  className,
-  comments,
-  isLoading,
-}) => {
+const CommentList: FC<CommentListProps> = ({ className, comments, isLoading }) => {
   const { t } = useTranslation('article');
 
   if (isLoading) {
@@ -33,13 +29,7 @@ const CommentList: FC<CommentListProps> = ({
   return (
     <VStack gap="16" max className={classNames('', {}, [className])}>
       {comments?.length ? (
-        comments.map((comment) => (
-          <CommentItem
-            key={comment.id}
-            comment={comment}
-            isLoading={isLoading}
-          />
-        ))
+        comments.map((comment) => <CommentItem key={comment.id} comment={comment} isLoading={isLoading} />)
       ) : (
         <TextComponent text={t('No comments')} />
       )}

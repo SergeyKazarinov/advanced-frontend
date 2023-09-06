@@ -1,6 +1,6 @@
 import { FC, memo, ReactNode } from 'react';
 import { classNames } from '@shared/lib/classNames';
-import { AppLogo } from '@shared/ui/AppLogo';
+import { AppLogo } from '@shared/ui/deprecated/AppLogo';
 
 import s from './RedesignedSidebar.module.scss';
 

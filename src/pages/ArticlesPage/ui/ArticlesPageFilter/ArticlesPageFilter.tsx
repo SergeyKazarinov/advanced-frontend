@@ -1,11 +1,7 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import {
-  ArticleSortFieldEnum,
-  ArticleTypeEnum,
-  ArticleViewEnum,
-} from '@entities/Article';
+import { ArticleSortFieldEnum, ArticleTypeEnum, ArticleViewEnum } from '@entities/Article';
 import { ArticleSortSelector } from '@features/articleSortSelector';
 import { ArticleTypeTabs } from '@features/articleTypeTabs';
 import { ArticleViewSelector } from '@features/ArticleViewSelector';
@@ -13,8 +9,8 @@ import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@shared/lib/hooks/useDebounce';
 import { TSortOrder } from '@shared/types';
-import { Card } from '@shared/ui/Card';
-import { Input } from '@shared/ui/Input';
+import { Card } from '@shared/ui/deprecated/Card';
+import { Input } from '@shared/ui/deprecated/Input';
 
 import { getArticlePageOrder } from '../../model/selectors/getArticlePageOrder/getArticlePageOrder';
 import { getArticlePageSearch } from '../../model/selectors/getArticlePageSearch/getArticlePageSearch';
@@ -102,17 +98,9 @@ const ArticlesPageFilter: FC<ArticlesPageFilterProps> = ({ className }) => {
         <ArticleViewSelector view={view} onViewClick={handleChangeView} />
       </div>
       <Card className={s.search}>
-        <Input
-          placeholder={t('Serach')}
-          value={search}
-          onChange={handleChangeSearch}
-        />
+        <Input placeholder={t('Serach')} value={search} onChange={handleChangeSearch} />
       </Card>
-      <ArticleTypeTabs
-        className={s.tabs}
-        value={type}
-        onChangeType={handleChangeType}
-      />
+      <ArticleTypeTabs className={s.tabs} value={type} onChangeType={handleChangeType} />
     </div>
   );
 };

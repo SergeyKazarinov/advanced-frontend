@@ -1,11 +1,7 @@
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@shared/lib/classNames';
-import {
-  TextAlignEnum,
-  TextComponent,
-  TextSizeEnum,
-} from '@shared/ui/TextComponent';
+import { TextAlignEnum, TextComponent, TextSizeEnum } from '@shared/ui/deprecated/TextComponent';
 
 import { ArticleViewEnum } from '../../model/consts/consts';
 import { IArticle } from '../../model/types/article';
@@ -32,38 +28,23 @@ const ArticleList: FC<ArticleListProps> = ({
   const { t } = useTranslation('article');
 
   const getSkeletons = (view: ArticleViewEnum) =>
-    new Array(view === ArticleViewEnum.SMALL ? 9 : 3)
-      .fill(0)
-      .map((item, index) => (
-        // eslint-disable-next-line
-        <ArticleListItemSkeleton key={index} view={view} />
-      ));
+    new Array(view === ArticleViewEnum.SMALL ? 9 : 3).fill(0).map((item, index) => (
+      // eslint-disable-next-line
+      <ArticleListItemSkeleton key={index} view={view} />
+    ));
 
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(s.articleList, {}, [className, s[view]])}>
-        <TextComponent
-          size={TextSizeEnum.L}
-          text={t('Articles not found')}
-          align={TextAlignEnum.CENTER}
-        />
+        <TextComponent size={TextSizeEnum.L} text={t('Articles not found')} align={TextAlignEnum.CENTER} />
       </div>
     );
   }
 
   return (
-    <div
-      className={classNames(s.articleList, {}, [className, s[view]])}
-      data-testid="ArticleList"
-    >
+    <div className={classNames(s.articleList, {}, [className, s[view]])} data-testid="ArticleList">
       {articles.map((item) => (
-        <ArticleListItem
-          view={view}
-          article={item}
-          className={s.card}
-          target={target}
-          key={item.id}
-        />
+        <ArticleListItem view={view} article={item} className={s.card} target={target} key={item.id} />
       ))}
 
       {isLoading && getSkeletons(view)}

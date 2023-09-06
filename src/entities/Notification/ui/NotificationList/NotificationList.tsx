@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { classNames } from '@shared/lib/classNames';
-import { Skeleton } from '@shared/ui/Skeleton';
-import { VStack } from '@shared/ui/Stack';
+import { Skeleton } from '@shared/ui/deprecated/Skeleton';
+import { VStack } from '@shared/ui/deprecated/Stack';
 
 import { useNotifications } from '../../api/notificationApi';
 import NotificationItem from '../NotificationItem/NotificationItem';
@@ -27,9 +27,7 @@ const NotificationList: FC<NotificationListProps> = ({ className }) => {
 
   return (
     <VStack max gap="16" className={classNames('', {}, [className])}>
-      {notifications?.map((item) => (
-        <NotificationItem key={item.id} notification={item} />
-      ))}
+      {notifications?.map((item) => <NotificationItem key={item.id} notification={item} />)}
     </VStack>
   );
 };

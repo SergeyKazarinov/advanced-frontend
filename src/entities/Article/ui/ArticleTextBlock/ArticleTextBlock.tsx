@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@shared/lib/classNames';
-import { TextComponent } from '@shared/ui/TextComponent';
+import { TextComponent } from '@shared/ui/deprecated/TextComponent';
 
 import { IArticleTextBlock } from '../../model/types/article';
 
@@ -18,11 +18,7 @@ const ArticleTextBlock: FC<ArticleTextBlockProps> = ({ className, block }) => {
     <div className={classNames(s.articleTextBlock, {}, [className])}>
       {block.title && <TextComponent title={block.title} className={s.title} />}
       {block.paragraphs.map((paragraph) => (
-        <TextComponent
-          key={paragraph}
-          text={paragraph}
-          className={s.paragraph}
-        />
+        <TextComponent key={paragraph} text={paragraph} className={s.paragraph} />
       ))}
     </div>
   );

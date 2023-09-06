@@ -1,6 +1,6 @@
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@shared/ui/Popups';
+import { ListBox } from '@shared/ui/deprecated/Popups';
 
 import { CountryEnum } from '../../model/types/country';
 
@@ -11,12 +11,7 @@ interface CountrySelectProps {
   readonly?: boolean;
 }
 
-const CountrySelect: FC<CountrySelectProps> = ({
-  className,
-  value,
-  onChange,
-  readonly,
-}) => {
+const CountrySelect: FC<CountrySelectProps> = ({ className, value, onChange, readonly }) => {
   const { t } = useTranslation('profile');
 
   const optionList = useMemo(

@@ -3,15 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { CountryEnum, CountrySelect } from '@entities/Country';
 import { CurrencyEnum, CurrencySelect } from '@entities/Currency';
 import { classNames, TMods } from '@shared/lib/classNames';
-import { Avatar } from '@shared/ui/Avatar';
-import { Input } from '@shared/ui/Input';
-import { Loader } from '@shared/ui/Loader';
-import { HStack, VStack } from '@shared/ui/Stack';
-import {
-  TextAlignEnum,
-  TextComponent,
-  TextThemeEnum,
-} from '@shared/ui/TextComponent';
+import { Avatar } from '@shared/ui/deprecated/Avatar';
+import { Input } from '@shared/ui/deprecated/Input';
+import { Loader } from '@shared/ui/deprecated/Loader';
+import { HStack, VStack } from '@shared/ui/deprecated/Stack';
+import { TextAlignEnum, TextComponent, TextThemeEnum } from '@shared/ui/deprecated/TextComponent';
 
 import { IProfile } from '../../model/types/profile';
 
@@ -52,11 +48,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
 
   if (isLoading) {
     return (
-      <HStack
-        max
-        justify="center"
-        className={classNames(s.profileCard, {}, [className, s.loading])}
-      >
+      <HStack max justify="center" className={classNames(s.profileCard, {}, [className, s.loading])}>
         <Loader />
       </HStack>
     );
@@ -64,11 +56,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
 
   if (error) {
     return (
-      <HStack
-        max
-        justify="center"
-        className={classNames(s.profileCard, {}, [className, s.error])}
-      >
+      <HStack max justify="center" className={classNames(s.profileCard, {}, [className, s.error])}>
         <TextComponent
           theme={TextThemeEnum.ERROR}
           title={t('An error occurred while loading the profile')}
@@ -102,18 +90,8 @@ const ProfileCard: FC<ProfileCardProps> = ({
         readonly={readonly}
         data-testid="ProfileCard.LastName"
       />
-      <Input
-        value={data?.age || 0}
-        placeholder={t('Your age')}
-        onChange={onChangeAge}
-        readonly={readonly}
-      />
-      <Input
-        value={data?.city || ''}
-        placeholder={t('Your city')}
-        onChange={onChangeCity}
-        readonly={readonly}
-      />
+      <Input value={data?.age || 0} placeholder={t('Your age')} onChange={onChangeAge} readonly={readonly} />
+      <Input value={data?.city || ''} placeholder={t('Your city')} onChange={onChangeCity} readonly={readonly} />
       <Input
         value={data?.username || ''}
         placeholder={t('Your username')}
@@ -127,16 +105,8 @@ const ProfileCard: FC<ProfileCardProps> = ({
         onChange={onChangeAvatar}
         readonly={readonly}
       />
-      <CurrencySelect
-        value={data?.currency}
-        onChange={onChangeCurrency}
-        readonly={readonly}
-      />
-      <CountrySelect
-        value={data?.country}
-        onChange={onChangeCountry}
-        readonly={readonly}
-      />
+      <CurrencySelect value={data?.currency} onChange={onChangeCurrency} readonly={readonly} />
+      <CountrySelect value={data?.country} onChange={onChangeCountry} readonly={readonly} />
     </VStack>
   );
 };

@@ -2,8 +2,8 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from '@entities/Article';
 import { classNames } from '@shared/lib/classNames';
-import { VStack } from '@shared/ui/Stack';
-import { TextComponent, TextSizeEnum } from '@shared/ui/TextComponent';
+import { VStack } from '@shared/ui/deprecated/Stack';
+import { TextComponent, TextSizeEnum } from '@shared/ui/deprecated/TextComponent';
 
 import { useArticleRecommendationsList } from '../api/articleRecommendationsApi';
 
@@ -11,9 +11,7 @@ interface ArticleRecommendationsListProps {
   className?: string;
 }
 
-const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = ({
-  className,
-}) => {
+const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = ({ className }) => {
   const { t } = useTranslation('article');
   const { data: articles, isLoading, error } = useArticleRecommendationsList(3);
 
@@ -22,10 +20,7 @@ const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = ({
   }
 
   return (
-    <VStack
-      data-testid="ArticleRecommendationsList"
-      className={classNames('', {}, [className])}
-    >
+    <VStack data-testid="ArticleRecommendationsList" className={classNames('', {}, [className])}>
       <TextComponent size={TextSizeEnum.L} title={t('Recomendations')} />
       <ArticleList articles={articles} target="_blank" />
     </VStack>

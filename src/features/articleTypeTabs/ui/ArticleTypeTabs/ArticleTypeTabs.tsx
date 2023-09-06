@@ -1,7 +1,7 @@
 import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleTypeEnum } from '@entities/Article';
-import { ITabItem, Tabs } from '@shared/ui/Tabs';
+import { ITabItem, Tabs } from '@shared/ui/deprecated/Tabs';
 
 interface ArticleTypeTabsProps {
   className?: string;
@@ -9,11 +9,7 @@ interface ArticleTypeTabsProps {
   onChangeType: (type: ArticleTypeEnum) => void;
 }
 
-const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({
-  className,
-  value,
-  onChangeType,
-}) => {
+const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({ className, value, onChangeType }) => {
   const { t } = useTranslation('article');
 
   const typeTabs = useMemo<ITabItem[]>(
@@ -45,14 +41,7 @@ const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({
     [onChangeType],
   );
 
-  return (
-    <Tabs
-      className={className}
-      tabs={typeTabs}
-      value={value}
-      onTabClick={handleChangeType}
-    />
-  );
+  return <Tabs className={className} tabs={typeTabs} value={value} onTabClick={handleChangeType} />;
 };
 
 export default memo(ArticleTypeTabs);

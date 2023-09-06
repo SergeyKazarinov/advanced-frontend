@@ -1,11 +1,11 @@
 import { FC, memo } from 'react';
 import { getRouteProfile } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';
-import { AppLink } from '@shared/ui/AppLink';
-import { Avatar } from '@shared/ui/Avatar';
-import { Skeleton } from '@shared/ui/Skeleton';
-import { VStack } from '@shared/ui/Stack';
-import { TextComponent } from '@shared/ui/TextComponent';
+import { AppLink } from '@shared/ui/deprecated/AppLink';
+import { Avatar } from '@shared/ui/deprecated/Avatar';
+import { Skeleton } from '@shared/ui/deprecated/Skeleton';
+import { VStack } from '@shared/ui/deprecated/Stack';
+import { TextComponent } from '@shared/ui/deprecated/TextComponent';
 
 import { IComment } from '../../model/types/comment';
 
@@ -17,17 +17,10 @@ interface CommentItemProps {
   isLoading?: boolean;
 }
 
-const CommentItem: FC<CommentItemProps> = ({
-  className,
-  comment,
-  isLoading,
-}) => {
+const CommentItem: FC<CommentItemProps> = ({ className, comment, isLoading }) => {
   if (isLoading) {
     return (
-      <div
-        data-testid="CommentItem.Loading"
-        className={classNames(s.commentItem, {}, [className, s.loading])}
-      >
+      <div data-testid="CommentItem.Loading" className={classNames(s.commentItem, {}, [className, s.loading])}>
         <div className={s.header}>
           <Skeleton width={30} height={30} border="50%" />
           <Skeleton height={16} width={100} />
@@ -41,11 +34,7 @@ const CommentItem: FC<CommentItemProps> = ({
     return null;
   }
   return (
-    <VStack
-      data-testid="CommentItem.Content"
-      max
-      className={classNames(s.commentItem, {}, [className])}
-    >
+    <VStack data-testid="CommentItem.Content" max className={classNames(s.commentItem, {}, [className])}>
       <AppLink to={getRouteProfile(comment.user.id)} className={s.header}>
         <Avatar size={30} src={comment.user.avatar} />
         <TextComponent title={comment.user.username} />

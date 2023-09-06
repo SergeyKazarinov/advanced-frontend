@@ -3,20 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import {
-  DynamicModuleLoader,
-  TReducerList,
-} from '@shared/lib/ui/DynamicModuleLoader';
-import { Button } from '@shared/ui/Button';
-import { Input } from '@shared/ui/Input';
-import { HStack } from '@shared/ui/Stack';
+import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
+import { Button } from '@shared/ui/deprecated/Button';
+import { Input } from '@shared/ui/deprecated/Input';
+import { HStack } from '@shared/ui/deprecated/Stack';
 
 import { getAddCommentFormError } from '../../model/selectors/getAddCommentFormError/getAddCommentFormError';
 import { getAddCommentFormText } from '../../model/selectors/getAddCommentFormText/getAddCommentFormText';
-import {
-  addCommentFormActions,
-  addCommentFormReducer,
-} from '../../model/slice/addCommentFormSlice';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 
 import s from './AddCommentForm.module.scss';
 
@@ -29,10 +23,7 @@ const reducers: TReducerList = {
   addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm: FC<AddCommentFormProps> = ({
-  className,
-  onSendComment,
-}) => {
+const AddCommentForm: FC<AddCommentFormProps> = ({ className, onSendComment }) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const text = useSelector(getAddCommentFormText);

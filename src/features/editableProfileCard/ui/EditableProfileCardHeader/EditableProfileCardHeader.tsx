@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@entities/User';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Button, ThemeButtonEnum } from '@shared/ui/Button';
-import { HStack } from '@shared/ui/Stack';
-import { TextComponent } from '@shared/ui/TextComponent';
+import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
+import { HStack } from '@shared/ui/deprecated/Stack';
+import { TextComponent } from '@shared/ui/deprecated/TextComponent';
 
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -17,9 +17,7 @@ interface EditableProfileCardHeaderProps {
   className?: string;
 }
 
-const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
-  className,
-}) => {
+const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ className }) => {
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);
@@ -45,11 +43,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
       {canEdit && (
         <div>
           {readonly ? (
-            <Button
-              theme={ThemeButtonEnum.OUTLINE}
-              onClick={onEdit}
-              data-testid="EditableProfileCardHeader.EditButton"
-            >
+            <Button theme={ThemeButtonEnum.OUTLINE} onClick={onEdit} data-testid="EditableProfileCardHeader.EditButton">
               {t('Edit')}
             </Button>
           ) : (

@@ -1,6 +1,6 @@
 import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@shared/ui/Popups';
+import { ListBox } from '@shared/ui/deprecated/Popups';
 
 import { CurrencyEnum } from '../../model/types/currency';
 
@@ -11,12 +11,7 @@ interface CurrencySelectProps {
   readonly?: boolean;
 }
 
-const CurrencySelect: FC<CurrencySelectProps> = ({
-  className,
-  value,
-  onChange,
-  readonly,
-}) => {
+const CurrencySelect: FC<CurrencySelectProps> = ({ className, value, onChange, readonly }) => {
   const { t } = useTranslation('profile');
 
   const optionList = useMemo(

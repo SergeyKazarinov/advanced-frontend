@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@shared/lib/classNames';
-import { Code } from '@shared/ui/Code';
+import { Code } from '@shared/ui/deprecated/Code';
 
 import { IArticleCodeBlock } from '../../model/types/article';
 

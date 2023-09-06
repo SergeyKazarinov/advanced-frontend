@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { classNames } from '@shared/lib/classNames';
-import { Loader } from '@shared/ui/Loader';
+import { Loader } from '@shared/ui/deprecated/Loader';
 
 import s from './PageLoader.module.scss';
 

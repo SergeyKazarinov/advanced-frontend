@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleSortFieldEnum } from '@entities/Article';
 import { classNames } from '@shared/lib/classNames';
 import { TSortOrder } from '@shared/types';
-import { ISelectOption, Select } from '@shared/ui/Select';
+import { ISelectOption, Select } from '@shared/ui/deprecated/Select';
 
 import s from './ArticleSortSelector.module.scss';
 
@@ -15,13 +15,7 @@ interface ArticleSortSelectorProps {
   onChangeSort: (newSort: ArticleSortFieldEnum) => void;
 }
 
-const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
-  className,
-  order,
-  sort,
-  onChangeOrder,
-  onChangeSort,
-}) => {
+const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({ className, order, sort, onChangeOrder, onChangeSort }) => {
   const { t } = useTranslation('article');
 
   const orderOptions = useMemo<ISelectOption<TSortOrder>[]>(
@@ -64,12 +58,7 @@ const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
         value={sort}
         onChange={onChangeSort}
       />
-      <Select
-        options={orderOptions}
-        label={t('By')}
-        value={order}
-        onChange={onChangeOrder}
-      />
+      <Select options={orderOptions} label={t('By')} value={order} onChange={onChangeOrder} />
     </div>
   );
 };

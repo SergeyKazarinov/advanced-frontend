@@ -10,8 +10,4 @@ const VStack = (props: TVStackProps) => {
   );
 };
 
-/**
- * Этот компонент устарел и не рекомендуется к использованию
- * @deprecated
- */
 export default VStack;

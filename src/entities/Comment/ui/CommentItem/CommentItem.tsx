@@ -4,8 +4,8 @@ import { classNames } from '@shared/lib/classNames';
 import { AppLink } from '@shared/ui/deprecated/AppLink';
 import { Avatar } from '@shared/ui/deprecated/Avatar';
 import { Skeleton } from '@shared/ui/deprecated/Skeleton';
-import { VStack } from '@shared/ui/deprecated/Stack';
 import { TextComponent } from '@shared/ui/deprecated/TextComponent';
+import { VStack } from '@shared/ui/redesigned/Stack';
 
 import { IComment } from '../../model/types/comment';
 

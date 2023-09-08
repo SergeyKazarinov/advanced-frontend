@@ -10,8 +10,8 @@ import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
 import { AppLink, AppLinkThemeEnum } from '@shared/ui/deprecated/AppLink';
 import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
-import { HStack } from '@shared/ui/deprecated/Stack';
 import { TextComponent, TextThemeEnum } from '@shared/ui/deprecated/TextComponent';
+import { HStack } from '@shared/ui/redesigned/Stack';
 
 import s from './Navbar.module.scss';
 

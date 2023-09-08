@@ -9,8 +9,8 @@ import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
 import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
 import { Avatar } from '@shared/ui/deprecated/Avatar';
 import { Skeleton } from '@shared/ui/deprecated/Skeleton';
-import { HStack, VStack } from '@shared/ui/deprecated/Stack';
 import { TextComponent, TextSizeEnum } from '@shared/ui/deprecated/TextComponent';
+import { HStack, VStack } from '@shared/ui/redesigned/Stack';
 
 import { ArticleBlockTypeEnum } from '../../model/consts/consts';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';

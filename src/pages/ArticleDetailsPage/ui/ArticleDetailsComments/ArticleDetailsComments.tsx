@@ -7,8 +7,8 @@ import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
 import { Loader } from '@shared/ui/deprecated/Loader';
-import { VStack } from '@shared/ui/deprecated/Stack';
 import { TextComponent, TextSizeEnum } from '@shared/ui/deprecated/TextComponent';
+import { VStack } from '@shared/ui/redesigned/Stack';
 
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import addCommentForArticle from '../../model/services/addCommentForArticle/addCommentForArticle';

@@ -7,8 +7,4 @@ const HStack = (props: THStackProps) => (
   <Flex direction="row" {...props} />
 );
 
-/**
- * Этот компонент устарел и не рекомендуется к использованию
- * @deprecated
- */
 export default HStack;

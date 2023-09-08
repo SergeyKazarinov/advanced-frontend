@@ -5,8 +5,8 @@ import { getUserAuthData } from '@entities/User';
 import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
-import { HStack } from '@shared/ui/deprecated/Stack';
 import { TextComponent } from '@shared/ui/deprecated/TextComponent';
+import { HStack } from '@shared/ui/redesigned/Stack';
 
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

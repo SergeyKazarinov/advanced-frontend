@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { AiFillEye } from 'react-icons/ai';
 import { getRouteArticlesDetails } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';
-import { AppImage } from '@shared/ui/deprecated/AppImage';
 import { AppLink } from '@shared/ui/deprecated/AppLink';
 import { Avatar } from '@shared/ui/deprecated/Avatar';
 import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
 import { Card } from '@shared/ui/deprecated/Card';
 import { Skeleton } from '@shared/ui/deprecated/Skeleton';
 import { TextComponent } from '@shared/ui/deprecated/TextComponent';
+import { AppImage } from '@shared/ui/redesigned/AppImage';
 
 import { ArticleBlockTypeEnum, ArticleViewEnum } from '../../model/consts/consts';
 import { IArticle, IArticleTextBlock } from '../../model/types/article';

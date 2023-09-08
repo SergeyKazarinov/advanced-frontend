@@ -6,8 +6,8 @@ import { classNames, TMods } from '@shared/lib/classNames';
 import { Avatar } from '@shared/ui/deprecated/Avatar';
 import { Input } from '@shared/ui/deprecated/Input';
 import { Loader } from '@shared/ui/deprecated/Loader';
-import { HStack, VStack } from '@shared/ui/deprecated/Stack';
 import { TextAlignEnum, TextComponent, TextThemeEnum } from '@shared/ui/deprecated/TextComponent';
+import { HStack, VStack } from '@shared/ui/redesigned/Stack';
 
 import { IProfile } from '../../model/types/profile';
 

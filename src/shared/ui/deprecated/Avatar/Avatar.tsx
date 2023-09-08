@@ -2,7 +2,7 @@ import { CSSProperties, FC, memo, useMemo } from 'react';
 import { RxAvatar } from 'react-icons/rx';
 import { classNames } from '@shared/lib/classNames';
 
-import { AppImage } from '../AppImage';
+import { AppImage } from '../../redesigned/AppImage';
 import { Skeleton } from '../Skeleton';
 
 import s from './Avatar.module.scss';
@@ -24,7 +24,7 @@ const Avatar: FC<AvatarProps> = ({ className, src, size, alt }) => {
   );
 
   const fallback = <Skeleton width={size} height={size} border="50%" />;
-  const errorFallback = <RxAvatar size="50%" className={s.icon} />;
+  const errorFallback = <RxAvatar size={30} className={s.icon} />;
 
   return (
     <AppImage

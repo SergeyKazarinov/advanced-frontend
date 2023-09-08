@@ -3,8 +3,8 @@ import { classNames, TMods } from '@shared/lib/classNames';
 import { useModal } from '@shared/lib/hooks/useModal';
 import { useTheme } from '@shared/lib/hooks/useTheme/useTheme';
 
-import { Overlay } from '../Overlay';
-import { Portal } from '../Portal';
+import { Overlay } from '../../redesigned/Overlay';
+import { Portal } from '../../redesigned/Portal';
 
 import s from './Modal.module.scss';
 

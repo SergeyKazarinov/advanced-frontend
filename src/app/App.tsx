@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserIsLoadPage, initAuthData } from '@entities/User';

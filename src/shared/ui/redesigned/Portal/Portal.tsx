@@ -8,7 +8,4 @@ interface PortalProps {
 
 const Portal: FC<PortalProps> = ({ children, element = document.body }) => createPortal(children, element);
 
-/**
- * @deprecated
- */
 export default Portal;

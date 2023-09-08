@@ -35,8 +35,4 @@ const AppImage: FC<AppImageProps> = ({ className, src, alt = 'image', fallback, 
   return <img className={classNames('', {}, [className])} alt={alt} src={src} {...otherProps} />;
 };
 
-/**
- * Этот компонент устарел и не рекомендуется к использованию
- * @deprecated
- */
 export default AppImage;

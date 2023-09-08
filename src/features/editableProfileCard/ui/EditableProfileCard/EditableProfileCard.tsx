@@ -8,8 +8,8 @@ import { classNames } from '@shared/lib/classNames';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
 import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
-import { VStack } from '@shared/ui/deprecated/Stack';
 import { TextComponent, TextThemeEnum } from '@shared/ui/deprecated/TextComponent';
+import { VStack } from '@shared/ui/redesigned/Stack';
 
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';

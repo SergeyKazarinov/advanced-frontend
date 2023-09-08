@@ -3,8 +3,8 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { LangSwitcher } from '@features/LangSwitcher';
 import { ThemeSwitcher } from '@features/ThemeSwitcher';
 import { classNames } from '@shared/lib/classNames';
-import { VStack } from '@shared/ui/deprecated/Stack';
 import { AppLogo } from '@shared/ui/redesigned/AppLogo';
+import { VStack } from '@shared/ui/redesigned/Stack';
 
 import s from './RedesignedSidebar.module.scss';
 

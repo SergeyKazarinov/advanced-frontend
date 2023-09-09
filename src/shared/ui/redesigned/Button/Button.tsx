@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, memo } from 'react';
+import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
 import { TMods } from '@shared/lib/classNames';
 
 import { classNames } from '../../../lib/classNames/classNames';
@@ -16,6 +16,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: TSizeButtonVariant;
   disabled?: boolean;
   fullWidth?: boolean;
+  addonRight?: ReactNode;
+  addonLeft?: ReactNode;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -26,6 +28,8 @@ const Button: FC<ButtonProps> = ({
   size = 'm',
   disabled,
   fullWidth,
+  addonLeft,
+  addonRight,
   ...otherProps
 }) => {
   const mods: TMods = {
@@ -41,7 +45,9 @@ const Button: FC<ButtonProps> = ({
       disabled={disabled}
       {...otherProps}
     >
+      <div className={s.addonLeft}>{addonLeft}</div>
       {children}
+      <div className={s.addonRight}>{addonRight}</div>
     </button>
   );
 };

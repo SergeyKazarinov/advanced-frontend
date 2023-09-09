@@ -1,4 +1,5 @@
 import { Fragment, ReactNode, useMemo } from 'react';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from '@shared/lib/classNames';
 import { TDropDownDirection } from '@shared/types';
@@ -48,7 +49,7 @@ const ListBox = <T extends string>({
         disabled={readonly}
       >
         <HListBox.Button as="div" className={popupCls.btn}>
-          <Button variant="filled" disabled={readonly}>
+          <Button addonRight={<MdKeyboardArrowDown />} variant="filled" disabled={readonly}>
             {selectedItem?.content ?? defaultValue}
           </Button>
         </HListBox.Button>
@@ -68,7 +69,7 @@ const ListBox = <T extends string>({
                   )}
                 >
                   {selected}
-                  {item.value}
+                  {item.content}
                 </li>
               )}
             </HListBox.Option>

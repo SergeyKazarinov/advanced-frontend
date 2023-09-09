@@ -1,55 +1,51 @@
 .inputWrapper {
   display: flex;
+  align-items: center;
+  border-radius: 48px;
+  padding: 8px 16px;
+  border: 1px solid var(--icon-redesigned);
+  height: 32px;
+  width: 100%;
 }
 
-.placeHolder {
-  margin-right: 5px;
+.addonLeft,
+.addonRight {
+  display: flex;
+}
+
+.withAddonLeft {
+  padding-left: 8px;
+}
+
+.withAddonRight {
+  padding-right: 8px;
 }
 
 .readonly {
   opacity: 0.7;
 }
 
+.focused {
+  border: 1px solid var(--accent-redesigned);
+
+  .addonLeft,
+  .addonRight {
+    color: var(--accent-redesigned)
+  }
+}
+
 .input {
-  background: transparent;
-  padding-left: 5px;
   border: none;
   outline: none;
   width: 100%;
-  color: transparent;
-  text-shadow: 0 0 0 var(--primary-color);
+  color: var(--text-redesigned);
+  background: none;
+
+  &::placeholder {
+    color: var(--hint-redesigned)
+  }
 
   &:focus {
     outline: none; 
-  }
-}
-
-.caretWrapper {
-  flex-grow: 1;
-  position: relative;
-}
-
-.caret {
-  height: 3px;
-  width: 9px;
-  background: var(--primary-color);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  animation: blink 0.7s forwards infinite;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.01;
-  }
-
-  100% {
-    opacity: 1;
-
   }
 }

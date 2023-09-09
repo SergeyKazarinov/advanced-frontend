@@ -1,5 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { BiSearchAlt2 } from 'react-icons/bi';
 import { ArticleSortFieldEnum, ArticleTypeEnum } from '@entities/Article';
 import { ArticleSortSelector } from '@features/articleSortSelector';
 import { ArticleTypeTabs } from '@features/articleTypeTabs';
@@ -35,11 +36,10 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
   value,
 }) => {
   const { t } = useTranslation('article');
-
   return (
     <Card className={classNames(s.articlesFilters, {}, [className])} padding="24">
       <VStack gap="32">
-        <Input placeholder={t('Serach')} value={search} onChange={onChangeSearch} />
+        <Input placeholder={t('Serach')} value={search} onChange={onChangeSearch} addonLeft={<BiSearchAlt2 />} />
         <ArticleTypeTabs className={s.tabs} value={value} onChangeType={onChangeType} />
         <ArticleSortSelector order={order} sort={sort} onChangeOrder={onChangeOrder} onChangeSort={onChangeSort} />
       </VStack>

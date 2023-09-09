@@ -3,7 +3,7 @@
   position: absolute;
   z-index: 15;
   box-shadow: 4px 4px 8px var(--dark-bg-redesigned);
-  padding: 15px;
+  border-radius: 12px;
 }
 
 .item {
@@ -11,5 +11,10 @@
 }
 
 .active {
-  background-color: var(--light-bg-redesigned)  
+  background-color: var(--light-bg-redesigned);
+  cursor: pointer;
+}
+
+.selected {
+  background: var(--light-bg-redesigned);
 }

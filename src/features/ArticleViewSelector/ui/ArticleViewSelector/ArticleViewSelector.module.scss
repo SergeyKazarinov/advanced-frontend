@@ -1,3 +1,22 @@
-.viewSelected {
-  color: var(--secondary-color);
+.articleViewSelector {
+  .viewSelected {
+    color: var(--secondary-color);
+  }
+  
+}
+
+.articleViewSelectorRedesigned {
+  cursor: pointer;
+
+  .notSelected {
+    color: var(--bg-redesigned);
+  }
+  
+  .icon {
+    transition: 0.2s;
+
+    &:hover {
+      color: var(--text-redesigned);
+    }
+  }
 }

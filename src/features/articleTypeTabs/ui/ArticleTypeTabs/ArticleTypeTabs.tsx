@@ -1,7 +1,9 @@
 import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleTypeEnum } from '@entities/Article';
-import { ITabItem, Tabs } from '@shared/ui/deprecated/Tabs';
+import { ToggleFeatures } from '@shared/lib/features';
+import { ITabItem, Tabs as TabsRedesigned } from '@shared/ui/deprecated/Tabs';
+import { Tabs } from '@shared/ui/redesigned/Tabs';
 
 interface ArticleTypeTabsProps {
   className?: string;
@@ -41,7 +43,13 @@ const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({ className, value, onChangeT
     [onChangeType],
   );
 
-  return <Tabs className={className} tabs={typeTabs} value={value} onTabClick={handleChangeType} />;
+  return (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<Tabs direction="column" className={className} tabs={typeTabs} value={value} onTabClick={handleChangeType} />}
+      off={<TabsRedesigned className={className} tabs={typeTabs} value={value} onTabClick={handleChangeType} />}
+    />
+  );
 };
 
 export default memo(ArticleTypeTabs);

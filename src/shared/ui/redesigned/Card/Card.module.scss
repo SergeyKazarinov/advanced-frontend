@@ -1,5 +1,5 @@
 .normal {
-  background: var(--darg-bg-redesigned);
+  background: var(--dark-bg-redesigned);
 }
 
 .outline {
@@ -7,7 +7,7 @@
 }
 
 .light {
-  background: 1px solid var(--light-bg-redesigned)
+  background: var(--light-bg-redesigned);
 }
 
 .max {
@@ -28,4 +28,12 @@
 
 .gap_24 {
   padding: 24px;
+}
+
+.borderRound {
+  border-radius: 40px;
+}
+
+.borderNormal {
+  border-radius: 12px;
 }

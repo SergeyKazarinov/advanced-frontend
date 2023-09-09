@@ -21,6 +21,14 @@
   color: var(--light-bg-redesigned);
 }
 
+.filled {
+  background: var(--bg-redesigned);
+  border: none;
+  outline: none;
+  border-radius: 34px;
+  padding: 8px 16px;
+}
+
 .square {
   padding: 0;
 }

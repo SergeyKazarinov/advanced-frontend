@@ -1,10 +1,12 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { AiOutlineTable } from 'react-icons/ai';
 import { BsList } from 'react-icons/bs';
 import { ArticleViewEnum } from '@entities/Article';
 import { classNames } from '@shared/lib/classNames';
-import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
+import { ToggleFeatures } from '@shared/lib/features';
+import { Button as ButtonDeprecated, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
+import { Card } from '@shared/ui/redesigned/Card';
+import { HStack } from '@shared/ui/redesigned/Stack';
 
 import s from './ArticleViewSelector.module.scss';
 
@@ -26,26 +28,45 @@ const viewTypes = [
 ];
 
 const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({ className, view, onViewClick }) => {
-  const { t } = useTranslation();
-
   const handleClick = (newView: ArticleViewEnum) => () => {
     onViewClick?.(newView);
   };
   return (
-    <div className={classNames(s.articleViewSelector, {}, [className])}>
-      {viewTypes.map((viewType) => (
-        <Button
-          key={viewType.view}
-          theme={ThemeButtonEnum.CLEAR}
-          onClick={handleClick(viewType.view)}
-          className={classNames('', {
-            [s.viewSelected]: viewType.view === view,
-          })}
-        >
-          <viewType.Icon size={28} />
-        </Button>
-      ))}
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Card className={classNames(s.articleViewSelectorRedesigned, {}, [className])} border="round">
+          <HStack>
+            {viewTypes.map((viewType) => (
+              <viewType.Icon
+                key={viewType.view}
+                size={28}
+                className={classNames(s.icon, {
+                  [s.notSelected]: viewType.view !== view,
+                })}
+                onClick={handleClick(viewType.view)}
+              />
+            ))}
+          </HStack>
+        </Card>
+      }
+      off={
+        <div className={classNames(s.articleViewSelector, {}, [className])}>
+          {viewTypes.map((viewType) => (
+            <ButtonDeprecated
+              key={viewType.view}
+              theme={ThemeButtonEnum.CLEAR}
+              onClick={handleClick(viewType.view)}
+              className={classNames('', {
+                [s.viewSelected]: viewType.view === view,
+              })}
+            >
+              <viewType.Icon size={28} />
+            </ButtonDeprecated>
+          ))}
+        </div>
+      }
+    />
   );
 };
 

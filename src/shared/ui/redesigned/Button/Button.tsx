@@ -5,7 +5,7 @@ import { classNames } from '../../../lib/classNames/classNames';
 
 import s from './Button.module.scss';
 
-export type TButtonVariant = 'clear' | 'outline';
+export type TButtonVariant = 'clear' | 'outline' | 'filled';
 
 export type TSizeButtonVariant = 'm' | 'l' | 'xl';
 

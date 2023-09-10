@@ -1,6 +1,9 @@
 import { ChangeEvent, FC, InputHTMLAttributes, memo, ReactNode, useEffect, useRef, useState } from 'react';
 import { classNames } from '@shared/lib/classNames';
 
+import { HStack } from '../Stack';
+import { TextComponent } from '../TextComponent';
+
 import s from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
@@ -9,6 +12,7 @@ interface InputProps extends HTMLInputProps {
   className?: string;
   onChange?: (value: string) => void;
   value?: string | number;
+  label?: string;
   readonly?: boolean;
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
@@ -18,6 +22,7 @@ const Input: FC<InputProps> = ({
   className,
   type = 'text',
   value,
+  label,
   onChange,
   placeholder,
   autoFocus,
@@ -55,7 +60,7 @@ const Input: FC<InputProps> = ({
     [s.withAddonRight]: Boolean(addonRight),
   };
 
-  return (
+  const input = (
     <div className={classNames(s.inputWrapper, mods, [className])}>
       <div className={s.addonLeft}>{addonLeft}</div>
       <div className={s.caretWrapper}>
@@ -75,6 +80,17 @@ const Input: FC<InputProps> = ({
       </div>
     </div>
   );
+
+  if (label) {
+    return (
+      <HStack max>
+        <TextComponent text={label} />
+        {input}
+      </HStack>
+    );
+  }
+
+  return input;
 };
 
 export default memo(Input);

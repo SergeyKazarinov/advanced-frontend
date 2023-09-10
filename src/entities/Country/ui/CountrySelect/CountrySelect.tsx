@@ -1,6 +1,8 @@
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@shared/ui/deprecated/Popups';
+import { ToggleFeatures } from '@shared/lib/features';
+import { ListBox as ListBoxDeprecated } from '@shared/ui/deprecated/Popups';
+import { ListBox } from '@shared/ui/redesigned/Popups';
 
 import { CountryEnum } from '../../model/types/country';
 
@@ -32,16 +34,34 @@ const CountrySelect: FC<CountrySelectProps> = ({ className, value, onChange, rea
     [onChange],
   );
 
+  const props = {
+    className,
+    onChange: handleChange,
+    value,
+    defaultValue: t('Specify the country'),
+    label: t('Specify the country'),
+    readonly,
+    items: optionList,
+    direction: 'topRight' as const,
+  };
+
   return (
-    <ListBox
-      className={className}
-      onChange={handleChange}
-      value={value}
-      defaultValue={t('Specify the country')}
-      label={t('Specify the country')}
-      readonly={readonly}
-      items={optionList}
-      direction="topRight"
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      // eslint-disable-next-line
+      on={<ListBox {...props} />}
+      off={
+        <ListBoxDeprecated
+          className={className}
+          onChange={handleChange}
+          value={value}
+          defaultValue={t('Specify the country')}
+          label={t('Specify the country')}
+          readonly={readonly}
+          items={optionList}
+          direction="topRight"
+        />
+      }
     />
   );
 };

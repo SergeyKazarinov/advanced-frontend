@@ -6,7 +6,7 @@ import s from './Flex.module.scss';
 export type TFlexJustify = 'start' | 'center' | 'end' | 'between';
 export type TFlexAlign = 'start' | 'center' | 'end';
 export type TFlexDirection = 'row' | 'column';
-export type TFlexGap = '4' | '8' | '16' | '32';
+export type TFlexGap = '4' | '8' | '16' | '24' | '32';
 
 const justifyClasses: Record<TFlexJustify, string> = {
   start: s.justifyStart,
@@ -29,13 +29,11 @@ const gapClasses: Record<TFlexGap, string> = {
   4: s.gap4,
   8: s.gap8,
   16: s.gap16,
+  24: s.gap24,
   32: s.gap32,
 };
 
-type DivProps = DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
+type DivProps = DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 export interface FlexProps extends DivProps {
   className?: string;

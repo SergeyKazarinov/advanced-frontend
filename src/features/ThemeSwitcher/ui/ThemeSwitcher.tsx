@@ -16,7 +16,7 @@ interface ThemeSwitcherProps {
 }
 
 const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
   const dispatch = useAppDispatch();
 
   const onToggleHandler = useCallback(() => {
@@ -29,12 +29,7 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
     <ToggleFeatures
       feature="isAppRedesigned"
       on={
-        <Button
-          className={classNames('', {}, [className])}
-          onClick={onToggleHandler}
-          style={{ height: 30, width: 30 }}
-          variant="clear"
-        >
+        <Button className={classNames('', {}, [className])} onClick={onToggleHandler} variant="clear">
           <Icon Svg={ThemeIcon} width={30} height={30} />
         </Button>
       }

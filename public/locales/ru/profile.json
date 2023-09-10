@@ -20,5 +20,11 @@
   "Incorrect user data": "Неверные данные пользователя",
   "No data": "Нет данных",
   "Incorrect city": "Неверный город",
-  "Profile not found": "Профиль не найден"
+  "Profile not found": "Профиль не найден",
+  "Name": "Имя",
+  "Lastname": "Фамилия",
+  "Age": "Восраст",
+  "City": "Город",
+  "Username": "Пользователь",
+  "Avatar": "Аватар"
 }

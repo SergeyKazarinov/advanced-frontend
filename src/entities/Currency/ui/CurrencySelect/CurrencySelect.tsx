@@ -1,6 +1,8 @@
 import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@shared/ui/deprecated/Popups';
+import { ToggleFeatures } from '@shared/lib/features';
+import { ListBox as ListBoxDeprecated } from '@shared/ui/deprecated/Popups';
+import { ListBox } from '@shared/ui/redesigned/Popups';
 
 import { CurrencyEnum } from '../../model/types/currency';
 
@@ -31,15 +33,32 @@ const CurrencySelect: FC<CurrencySelectProps> = ({ className, value, onChange, r
   );
 
   return (
-    <ListBox
-      className={className}
-      onChange={handleChange}
-      value={value}
-      defaultValue={t('Specify the currency')}
-      label={t('Specify the currency')}
-      readonly={readonly}
-      items={optionList}
-      direction="topRight"
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <ListBox
+          className={className}
+          onChange={handleChange}
+          value={value}
+          defaultValue={t('Specify the currency')}
+          label={t('Specify the currency')}
+          readonly={readonly}
+          items={optionList}
+          direction="topRight"
+        />
+      }
+      off={
+        <ListBoxDeprecated
+          className={className}
+          onChange={handleChange}
+          value={value}
+          defaultValue={t('Specify the currency')}
+          label={t('Specify the currency')}
+          readonly={readonly}
+          items={optionList}
+          direction="topRight"
+        />
+      }
     />
   );
 };

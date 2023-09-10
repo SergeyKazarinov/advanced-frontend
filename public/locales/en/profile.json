@@ -20,5 +20,11 @@
   "Incorrect user data": "Incorrect user data",
   "No data": "No data",
   "Incorrect city": "Incorrect city",
-  "Profile not found": "Profile not found"
+  "Profile not found": "Profile not found",
+  "Name": "Name",
+  "Lastname": "Lastname",
+  "Age": "Age",
+  "City": "City",
+  "Username": "Username",
+  "Avatar": "Avatar"
 }

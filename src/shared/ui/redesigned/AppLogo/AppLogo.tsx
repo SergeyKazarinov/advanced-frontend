@@ -13,9 +13,9 @@ interface AppLogoProps {
 
 const AppLogo: FC<AppLogoProps> = ({ className, size = 50 }) => (
   <HStack max justify="center" className={classNames(s.appLogoWrapper, {}, [className])}>
+    <IoLogoOctocat size={size} className={s.appLogo} />
     <div className={s.gradientBig} />
     <div className={s.gradientBig} />
-    <IoLogoOctocat size={size} />
   </HStack>
 );
 

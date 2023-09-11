@@ -1,7 +1,9 @@
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@shared/lib/classNames';
+import { ToggleFeatures } from '@shared/lib/features';
 import { TextAlignEnum, TextComponent, TextSizeEnum } from '@shared/ui/deprecated/TextComponent';
+import { HStack } from '@shared/ui/redesigned/Stack';
 
 import { ArticleViewEnum } from '../../model/consts/consts';
 import { IArticle } from '../../model/types/article';
@@ -42,13 +44,32 @@ const ArticleList: FC<ArticleListProps> = ({
   }
 
   return (
-    <div className={classNames(s.articleList, {}, [className, s[view]])} data-testid="ArticleList">
-      {articles.map((item) => (
-        <ArticleListItem view={view} article={item} className={s.card} target={target} key={item.id} />
-      ))}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <HStack
+          gap="16"
+          wrap="wrap"
+          className={classNames(s.articleListRedesigned, {}, [className])}
+          data-testid="ArticleList"
+        >
+          {articles.map((item) => (
+            <ArticleListItem view={view} article={item} className={s.card} target={target} key={item.id} />
+          ))}
 
-      {isLoading && getSkeletons(view)}
-    </div>
+          {isLoading && getSkeletons(view)}
+        </HStack>
+      }
+      off={
+        <div className={classNames(s.articleList, {}, [className, s[view]])} data-testid="ArticleList">
+          {articles.map((item) => (
+            <ArticleListItem view={view} article={item} className={s.card} target={target} key={item.id} />
+          ))}
+
+          {isLoading && getSkeletons(view)}
+        </div>
+      }
+    />
   );
 };
 

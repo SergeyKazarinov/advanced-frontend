@@ -16,7 +16,7 @@ interface TextProps {
   variant?: TTextVariant;
   align?: TTextAlignVariant;
   size?: TTextSize;
-
+  bold?: boolean;
   'data-testid'?: string;
 }
 
@@ -36,12 +36,17 @@ const TextComponent: FC<TextProps> = ({
   variant = 'primary',
   align = 'left',
   size = 'size_m',
+  bold,
   'data-testid': dataTestId = 'Text',
 }) => {
   const HeaderTag = mapSizeToHeaderTag[size];
 
+  const mods = {
+    [s.bold]: bold,
+  };
+
   return (
-    <div className={classNames(s.textComponent, {}, [className, s[variant], s[align], s[size]])}>
+    <div className={classNames(s.textComponent, mods, [className, s[variant], s[align], s[size]])}>
       {title && (
         <HeaderTag className={s.title} data-testid={`${dataTestId}.Header`}>
           {title}

@@ -1,7 +1,10 @@
 import { FC, memo } from 'react';
 import { classNames } from '@shared/lib/classNames';
-import { Card } from '@shared/ui/deprecated/Card';
-import { Skeleton } from '@shared/ui/deprecated/Skeleton';
+import { toggleFeatures } from '@shared/lib/features';
+import { Card as CardDeprecated } from '@shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@shared/ui/deprecated/Skeleton';
+import { Card as CardRedesigned } from '@shared/ui/redesigned/Card';
+import { Skeleton as SkeletonRedesigned } from '@shared/ui/redesigned/Skeleton';
 
 import { ArticleViewEnum } from '../../model/consts/consts';
 
@@ -13,9 +16,22 @@ interface ArticleListItemSkeletonProps {
 }
 
 const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ className, view }) => {
+  const Card = toggleFeatures({ name: 'isAppRedesigned', on: () => CardRedesigned, off: () => CardDeprecated });
+  const Skeleton = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
+  });
+
+  const mainClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => s.articleListItemRedesigned,
+    off: () => s.articleListItem,
+  });
+
   if (view === ArticleViewEnum.BIG) {
     return (
-      <div className={classNames(s.articleListItem, {}, [className, s[view]])}>
+      <div className={classNames(mainClass, {}, [className, s[view]])}>
         <Card>
           <div className={s.header}>
             <Skeleton width={30} height={30} border="50%" />
@@ -33,7 +49,7 @@ const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ className, 
   }
 
   return (
-    <div className={classNames(s.articleListItem, {}, [className, s[view]])}>
+    <div className={classNames(mainClass, {}, [className, s[view]])}>
       <Card>
         <div className={s.imageWrapper}>
           <Skeleton className={s.image} width={200} height={200} />

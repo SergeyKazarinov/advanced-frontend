@@ -6,6 +6,7 @@ import s from './Flex.module.scss';
 export type TFlexJustify = 'start' | 'center' | 'end' | 'between';
 export type TFlexAlign = 'start' | 'center' | 'end';
 export type TFlexDirection = 'row' | 'column';
+export type TFlexWrap = 'nowrap' | 'wrap';
 export type TFlexGap = '4' | '8' | '16' | '24' | '32';
 
 const justifyClasses: Record<TFlexJustify, string> = {
@@ -43,6 +44,7 @@ export interface FlexProps extends DivProps {
   direction?: TFlexDirection;
   gap?: TFlexGap;
   max?: boolean;
+  wrap?: TFlexWrap;
 }
 
 const Flex: FC<FlexProps> = ({
@@ -53,6 +55,7 @@ const Flex: FC<FlexProps> = ({
   direction = 'row',
   gap = '8',
   max,
+  wrap = 'nowrap',
   ...otherProps
 }) => {
   const classes = [
@@ -61,6 +64,7 @@ const Flex: FC<FlexProps> = ({
     alignClasses[align],
     directionClasses[direction],
     gapClasses[gap],
+    s[wrap],
   ];
 
   const mods: TMods = {

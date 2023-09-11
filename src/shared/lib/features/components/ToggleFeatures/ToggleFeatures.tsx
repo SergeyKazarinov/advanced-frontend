@@ -1,7 +1,7 @@
 import { FC, memo, ReactElement } from 'react';
 
-import { IFeatureFlags } from '../../../types';
-import { getFeatureFlag } from '../setGetFeatures';
+import { IFeatureFlags } from '../../../../types';
+import { getFeatureFlag } from '../../lib/setGetFeatures';
 
 interface ToggleFeaturesProps {
   feature: keyof IFeatureFlags;

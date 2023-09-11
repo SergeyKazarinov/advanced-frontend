@@ -1,20 +1,21 @@
 import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@entities/User';
-import { getRouteAdmin, getRouteProfile } from '@shared/const/router';
+import { getRouteAdmin, getRouteProfile, getRouteSettings } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
 import { Avatar as AvatarDeprecated } from '@shared/ui/deprecated/Avatar';
 import { Dropdown as DropdownDeprecated } from '@shared/ui/deprecated/Popups';
 import { Avatar } from '@shared/ui/redesigned/Avatar';
 import { Dropdown } from '@shared/ui/redesigned/Popups';
-import { t } from 'i18next';
 
 interface AvatarDropdownProps {
   className?: string;
 }
 
 const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
+  const { t } = useTranslation('main');
   const dispatch = useDispatch();
   const isAdmin = useSelector(isUserAdmin);
   const isManager = useSelector(isUserManager);
@@ -42,6 +43,10 @@ const AvatarDropdown: FC<AvatarDropdownProps> = ({ className }) => {
     {
       content: t('User profile'),
       href: getRouteProfile(userAuthData.id),
+    },
+    {
+      content: t('User Settings'),
+      href: getRouteSettings(),
     },
     {
       content: t('Logout'),

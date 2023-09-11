@@ -40,7 +40,7 @@ const ListBox = <T extends string>({
   const selectedItem = useMemo(() => items?.find((item) => item.value === value), [items, value]);
   return (
     <HStack gap="4">
-      {label && <span className={classNames('', { [popupCls.disabled]: readonly }, [])}>{`${label} > `}</span>}
+      {label && <span className={classNames('', { [popupCls.disabled]: readonly }, [])}>{`${label}: `}</span>}
       <HListBox
         as="div"
         className={classNames('', {}, [className, popupCls.popup])}
@@ -49,7 +49,7 @@ const ListBox = <T extends string>({
         disabled={readonly}
       >
         <HListBox.Button as="div" className={popupCls.btn}>
-          <Button addonRight={<MdKeyboardArrowDown />} variant="filled" disabled={readonly}>
+          <Button className={s.listBoxButton} addonRight={<MdKeyboardArrowDown />} variant="filled" disabled={readonly}>
             {selectedItem?.content ?? defaultValue}
           </Button>
         </HListBox.Button>

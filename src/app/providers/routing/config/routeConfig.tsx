@@ -8,6 +8,7 @@ import { ForbiddenPageLazy } from '@pages/ForbiddenPage';
 import { MainPageLazy } from '@pages/MainPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
 import { ProfilePageLazy } from '@pages/ProfilePage';
+import { SettingsPageLazy } from '@pages/SettingsPage';
 import {
   AppRoutesEnum,
   getRouteAbout,
@@ -20,6 +21,7 @@ import {
   getRouteMain,
   getRouteNotFound,
   getRouteProfile,
+  getRouteSettings,
 } from '@shared/const/router';
 import { AppRoutesProps } from '@shared/types';
 
@@ -27,6 +29,10 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.MAIN]: {
     path: getRouteMain(),
     element: <MainPageLazy />,
+  },
+  [AppRoutesEnum.SETTINGS]: {
+    path: getRouteSettings(),
+    element: <SettingsPageLazy />,
   },
   [AppRoutesEnum.ABOUT]: {
     path: getRouteAbout(),

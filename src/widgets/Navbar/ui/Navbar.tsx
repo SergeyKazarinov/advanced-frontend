@@ -21,7 +21,7 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ className }) => {
   const { t } = useTranslation('main');
-  const [isAuthModal, setIsAuthModal] = useState(false);
+  const [isAuthModal, setIsAuthModal] = useState(true);
   const userAuthData = useSelector(getUserAuthData);
 
   const onCloseModal = useCallback(() => {

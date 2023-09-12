@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { useSelector } from 'react-redux';
 import { ArticleList } from '@entities/Article';
-import { TextComponent, TextThemeEnum } from '@shared/ui/deprecated/TextComponent';
+import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 
 import { getArticlePageError } from '../../model/selectors/getArticlePageError/getArticlePageError';
 import { getArticlePageIsLoading } from '../../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';
@@ -19,7 +19,7 @@ const ArticleInfiniteList: FC<ArticleInfiniteListProps> = ({ className }) => {
   const error = useSelector(getArticlePageError);
 
   if (error) {
-    return <TextComponent text={error} theme={TextThemeEnum.ERROR} />;
+    return <TextComponent text={error} variant="error" />;
   }
 
   return <ArticleList isLoading={isLoading} articles={articles} view={view} className={className} />;

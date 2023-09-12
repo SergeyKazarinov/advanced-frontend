@@ -5,8 +5,8 @@ import { NotificationList } from '@entities/Notification';
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
 import { Button as ButtonDeprecated, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
-import { Drawer } from '@shared/ui/deprecated/Drawer';
 import { Popover as PopoverDeprecated } from '@shared/ui/deprecated/Popups';
+import { Drawer } from '@shared/ui/redesigned/Drawer';
 import { Popover } from '@shared/ui/redesigned/Popups';
 
 import s from './NotificationButton.module.scss';

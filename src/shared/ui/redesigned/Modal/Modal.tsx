@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { classNames, TMods } from '@shared/lib/classNames';
+import { toggleFeatures } from '@shared/lib/features';
 import { useModal } from '@shared/lib/hooks/useModal';
 import { useTheme } from '@shared/lib/hooks/useTheme/useTheme';
 
@@ -25,18 +26,20 @@ const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose, lazy }) =
   });
 
   const mods: TMods = {
-    [s.opened]: opened && isOpen,
+    [s.opened]: opened && true,
   };
 
-  const modalPortal = document.getElementById('modal') ?? document.body;
+  const modalPortal = document.getElementById('app') ?? document.body;
 
   if (lazy && !isMounted) {
     return null;
   }
 
+  const designClass = toggleFeatures({ name: 'isAppRedesigned', on: () => s.modalNew, off: () => s.modalOld });
+
   return (
     <Portal element={modalPortal}>
-      <div className={classNames(s.modal, mods, [className, theme])}>
+      <div className={classNames(s.modal, mods, [className, theme, designClass])}>
         <Overlay onClick={handleClose} />
         <div className={s.content}>{children}</div>
       </div>
@@ -44,8 +47,4 @@ const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose, lazy }) =
   );
 };
 
-/**
- * Этот компонент устарел и не рекомендуется к использованию
- * @deprecated
- */
 export default Modal;

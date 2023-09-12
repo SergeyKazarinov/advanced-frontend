@@ -3,9 +3,9 @@ import { isMobile } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 import { saveJsonSettings, useJsonSettings } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
-import { Drawer } from '@shared/ui/deprecated/Drawer';
-import { Modal } from '@shared/ui/deprecated/Modal';
 import { TextComponent } from '@shared/ui/deprecated/TextComponent';
+import { Drawer } from '@shared/ui/redesigned/Drawer';
+import { Modal } from '@shared/ui/redesigned/Modal';
 
 const ArticlePageGreeting: FC = () => {
   const { t } = useTranslation();

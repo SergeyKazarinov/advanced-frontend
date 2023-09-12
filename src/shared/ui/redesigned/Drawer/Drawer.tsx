@@ -1,11 +1,12 @@
 import { FC, memo, ReactNode, useCallback, useEffect } from 'react';
 import { classNames, TMods } from '@shared/lib/classNames';
+import { toggleFeatures } from '@shared/lib/features';
 import { useModal } from '@shared/lib/hooks/useModal';
 import { useTheme } from '@shared/lib/hooks/useTheme/useTheme';
 import { AnimationProvider, useAnimationLibs } from '@shared/lib/ui/AnimationProvider';
 
-import { Overlay } from '../../redesigned/Overlay';
-import { Portal } from '../../redesigned/Portal';
+import { Overlay } from '../Overlay';
+import { Portal } from '../Portal';
 
 import s from './Drawer.module.scss';
 
@@ -75,15 +76,16 @@ const DrawerContent: FC<DrawerProps> = ({ className, children, isOpen, onClose }
     [s.opened]: opened,
   };
 
-  const modalPortal = document.getElementById('modal') ?? document.body;
+  const modalPortal = document.getElementById('app') ?? document.body;
 
   if (!isOpen) {
     return null;
   }
 
+  const designClass = toggleFeatures({ name: 'isAppRedesigned', on: () => s.drawerNew, off: () => s.drawerOld });
   return (
     <Portal element={modalPortal}>
-      <div className={classNames(s.drawer, mods, [className, theme])}>
+      <div className={classNames(s.drawer, mods, [className, theme, designClass])}>
         <Overlay onClick={close} />
         <Spring.a.div
           className={s.sheet}
@@ -113,8 +115,4 @@ const Drawer: FC<DrawerProps> = (props) => (
   </AnimationProvider>
 );
 
-/**
- * Этот компонент устарел и не рекомендуется к использованию
- * @deprecated
- */
 export default Drawer;

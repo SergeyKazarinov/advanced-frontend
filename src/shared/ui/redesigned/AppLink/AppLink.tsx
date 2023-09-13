@@ -1,5 +1,6 @@
 import { FC, memo } from 'react';
 import { LinkProps, NavLink } from 'react-router-dom';
+
 import { classNames } from '@shared/lib/classNames';
 
 import s from './AppLink.module.scss';

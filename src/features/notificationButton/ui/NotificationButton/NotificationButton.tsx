@@ -1,6 +1,7 @@
 import { FC, memo, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { IoMdNotificationsOutline } from 'react-icons/io';
+
 import { NotificationList } from '@entities/Notification';
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';

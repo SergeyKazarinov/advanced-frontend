@@ -24,5 +24,8 @@
   "Recomendations": "Featured",
   "Edit": "Edit",
   "Rate the article": "Rate the article",
-  "Thanks": "Thank you for rating"
+  "Thanks": "Thank you for rating",
+  "{{count}} views_zero": "{{count}} views",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }

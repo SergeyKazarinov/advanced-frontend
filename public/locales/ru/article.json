@@ -15,7 +15,6 @@
   "descending": "убыванию",
   "date of creation": "дате создания",
   "name": "названию",
-  "views": "просмотрам",
   "IT": "IT",
   "All": "Все",
   "Economics": "Экономика",
@@ -24,5 +23,10 @@
   "Recomendations": "Рекомендуемые",
   "Edit": "Редактировать",
   "Rate the article": "Оцените статью",
-  "Thanks": "Спасибо за оценку"
+  "Thanks": "Спасибо за оценку",
+  "views": "просмотрам",
+  "{{count}} views_zero": "{{count}} просмотров",
+  "{{count}} views_one": "{{count}} просмотр",
+  "{{count}} views_few": "{{count}} просмотра",
+  "{{count}} views_many": "{{count}} просмотров"
 }

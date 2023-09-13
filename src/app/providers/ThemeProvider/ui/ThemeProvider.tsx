@@ -1,4 +1,5 @@
 import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
+
 import { useJsonSettings } from '@entities/User';
 import { ThemeEnum } from '@shared/const/theme';
 import { ThemeContext } from '@shared/lib/context/ThemeContext';

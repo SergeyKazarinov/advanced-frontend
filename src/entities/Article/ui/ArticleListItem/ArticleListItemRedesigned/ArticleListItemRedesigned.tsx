@@ -1,6 +1,7 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiFillEye } from 'react-icons/ai';
+
 import { getRouteArticlesDetails } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';
 import { AppImage } from '@shared/ui/redesigned/AppImage';
@@ -21,7 +22,6 @@ import s from './ArticleListItemRedesigned.module.scss';
 const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({ className, article, view, target }) => {
   const { t } = useTranslation('article');
 
-  const types = <TextComponent text={article.type.join(', ')} className={s.types} />;
   const views = (
     <HStack>
       <AiFillEye />
@@ -73,12 +73,12 @@ const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({ className, articl
       to={getRouteArticlesDetails(article.id)}
       className={classNames(s.articleListItem, {}, [className, s[view]])}
     >
-      <Card className={s.card} border="round">
+      <Card className={s.card} border="round" padding="0">
         <AppImage
           src={article.img}
           className={s.image}
           alt={article.title}
-          fallback={<Skeleton width={200} height={200} />}
+          fallback={<Skeleton width="100%" height={200} />}
         />
         <VStack className={s.info} gap="4" max>
           <TextComponent bold title={article.title} className={s.title} />
@@ -88,7 +88,7 @@ const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({ className, articl
               {views}
             </HStack>
             <HStack>
-              <Avatar size={32} src={article.user.avatar} />
+              <Avatar size={32} src={article.user.avatar} className={s.avatar} />
               <TextComponent bold text={article.user.username} />
             </HStack>
           </VStack>

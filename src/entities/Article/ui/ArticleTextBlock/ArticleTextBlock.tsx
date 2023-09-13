@@ -1,7 +1,9 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
+
 import { classNames } from '@shared/lib/classNames';
-import { TextComponent } from '@shared/ui/deprecated/TextComponent';
+import { ToggleFeatures } from '@shared/lib/features';
+import { TextComponent as TextComponentDeprecated } from '@shared/ui/deprecated/TextComponent';
+import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 
 import { IArticleTextBlock } from '../../model/types/article';
 
@@ -12,16 +14,23 @@ interface ArticleTextBlockProps {
   block: IArticleTextBlock;
 }
 
-const ArticleTextBlock: FC<ArticleTextBlockProps> = ({ className, block }) => {
-  const { t } = useTranslation('article');
-  return (
-    <div className={classNames(s.articleTextBlock, {}, [className])}>
-      {block.title && <TextComponent title={block.title} className={s.title} />}
-      {block.paragraphs.map((paragraph) => (
-        <TextComponent key={paragraph} text={paragraph} className={s.paragraph} />
-      ))}
-    </div>
-  );
-};
+const ArticleTextBlock: FC<ArticleTextBlockProps> = ({ className, block }) => (
+  <div className={classNames(s.articleTextBlock, {}, [className])}>
+    {block.title && (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<TextComponent title={block.title} className={s.title} />}
+        off={<TextComponentDeprecated title={block.title} className={s.title} />}
+      />
+    )}
+    {block.paragraphs.map((paragraph) => (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<TextComponent key={paragraph} text={paragraph} className={s.paragraph} />}
+        off={<TextComponentDeprecated key={paragraph} text={paragraph} className={s.paragraph} />}
+      />
+    ))}
+  </div>
+);
 
 export default memo(ArticleTextBlock);

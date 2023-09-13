@@ -1,4 +1,5 @@
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
+
 import { ToggleFeatures } from '@shared/lib/features';
 
 import { ArticleViewEnum } from '../../model/consts/consts';

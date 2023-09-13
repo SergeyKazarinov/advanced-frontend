@@ -1,7 +1,10 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames } from '@shared/lib/classNames';
-import { TextAlignEnum, TextComponent } from '@shared/ui/deprecated/TextComponent';
+import { ToggleFeatures } from '@shared/lib/features';
+import { TextAlignEnum, TextComponent as TextComponentDeprecated } from '@shared/ui/deprecated/TextComponent';
+import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 
 import { IArticleImageBlock } from '../../model/types/article';
 
@@ -17,7 +20,13 @@ const ArticleImageBlock: FC<ArticleImageBlockProps> = ({ className, block }) => 
   return (
     <div className={classNames(s.articleImageBlock, {}, [className])}>
       <img src={block.src} alt={block.title} className={s.image} />
-      {block.title && <TextComponent text={block.title} align={TextAlignEnum.CENTER} />}
+      {block.title && (
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<TextComponent text={block.title} align="center" />}
+          off={<TextComponentDeprecated text={block.title} align={TextAlignEnum.CENTER} />}
+        />
+      )}
     </div>
   );
 };

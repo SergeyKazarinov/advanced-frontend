@@ -10,6 +10,7 @@
     "start:dev:vite": "concurrently \"npm run start:dev:server\" \"npm run start:vite\"",
     "start:dev:server": "node ./json-server/index.js",
     "build": "webpack --env mode=production",
+    "build:vite": "vite build",
     "build:dev": "webpack --env mode=development",
     "prettier": "npx prettier --write **/*.{ts,tsx}",
     "lint": "eslint \"**/*.{ts,tsx}\"",
@@ -39,6 +40,7 @@
     "@babel/preset-env": "^7.22.4",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
+    "@originjs/vite-plugin-federation": "^1.2.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
     "@storybook/addon-essentials": "^7.0.20",
     "@storybook/addon-interactions": "^7.0.20",
@@ -168,6 +170,8 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": ["eslint"]
+    "**/*.{ts,tsx}": [
+      "eslint"
+    ]
   }
 }

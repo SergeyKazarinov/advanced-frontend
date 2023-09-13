@@ -1,4 +1,5 @@
 import { FC, ImgHTMLAttributes, ReactElement, useLayoutEffect, useState } from 'react';
+
 import { classNames } from '@shared/lib/classNames';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {

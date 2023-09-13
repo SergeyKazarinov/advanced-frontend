@@ -1,4 +1,5 @@
 import { FC, memo } from 'react';
+
 import { classNames } from '@shared/lib/classNames';
 
 import s from './TextComponent.module.scss';

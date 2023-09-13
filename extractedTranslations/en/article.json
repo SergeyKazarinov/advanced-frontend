@@ -30,5 +30,7 @@
   "feedback": "",
   "name": "",
   "views": "",
+  "{{count}} views": "",
+  "{{count}} views_plural": "",
   "Произошла ошибка при загрузке страницы": ""
 }

@@ -1,4 +1,5 @@
 import { ChangeEvent, FC, InputHTMLAttributes, memo, ReactNode, useEffect, useRef, useState } from 'react';
+
 import { classNames } from '@shared/lib/classNames';
 
 import { HStack } from '../Stack';
@@ -63,21 +64,19 @@ const Input: FC<InputProps> = ({
   const input = (
     <div className={classNames(s.inputWrapper, mods, [className])}>
       <div className={s.addonLeft}>{addonLeft}</div>
-      <div className={s.caretWrapper}>
-        <input
-          ref={ref}
-          onBlur={onBlur}
-          onFocus={onFocus}
-          className={classNames(s.input, {}, [])}
-          type={type}
-          value={value}
-          onChange={handleChange}
-          readOnly={readonly}
-          placeholder={placeholder}
-          {...otherProps}
-        />
-        <div className={s.addonRight}>{addonRight}</div>
-      </div>
+      <input
+        ref={ref}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        className={classNames(s.input, {}, [])}
+        type={type}
+        value={value}
+        onChange={handleChange}
+        readOnly={readonly}
+        placeholder={placeholder}
+        {...otherProps}
+      />
+      <div className={s.addonRight}>{addonRight}</div>
     </div>
   );
 

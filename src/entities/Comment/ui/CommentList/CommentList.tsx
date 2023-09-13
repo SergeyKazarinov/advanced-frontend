@@ -1,8 +1,11 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames } from '@shared/lib/classNames';
-import { TextComponent } from '@shared/ui/deprecated/TextComponent';
+import { ToggleFeatures } from '@shared/lib/features';
+import { TextComponent as TextComponentDeprecated } from '@shared/ui/deprecated/TextComponent';
 import { VStack } from '@shared/ui/redesigned/Stack';
+import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 
 import { IComment } from '../../model/types/comment';
 import CommentItem from '../CommentItem/CommentItem';
@@ -31,7 +34,11 @@ const CommentList: FC<CommentListProps> = ({ className, comments, isLoading }) =
       {comments?.length ? (
         comments.map((comment) => <CommentItem key={comment.id} comment={comment} isLoading={isLoading} />)
       ) : (
-        <TextComponent text={t('No comments')} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<TextComponent text={t('No comments')} />}
+          off={<TextComponentDeprecated text={t('No comments')} />}
+        />
       )}
     </VStack>
   );

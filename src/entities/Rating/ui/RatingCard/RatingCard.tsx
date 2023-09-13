@@ -1,15 +1,20 @@
 import { FC, memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@shared/lib/classNames';
-import { Button, SizeButtonEnum, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
-import { Card } from '@shared/ui/deprecated/Card';
-import { Input } from '@shared/ui/deprecated/Input';
-import { StarRating } from '@shared/ui/deprecated/StarRating';
-import { TextComponent } from '@shared/ui/deprecated/TextComponent';
+
+import { ToggleFeatures, toggleFeatures } from '@shared/lib/features';
+import { Button as ButtonDeprecated, SizeButtonEnum, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
+import { Card as CardDeprecated } from '@shared/ui/deprecated/Card';
+import { Input as InputDeprecated } from '@shared/ui/deprecated/Input';
+import { TextComponent as TextComponentDeprecated } from '@shared/ui/deprecated/TextComponent';
+import { Button } from '@shared/ui/redesigned/Button';
+import { Card as CardRedesigned } from '@shared/ui/redesigned/Card';
 import { Drawer } from '@shared/ui/redesigned/Drawer';
+import { Input } from '@shared/ui/redesigned/Input';
 import { Modal } from '@shared/ui/redesigned/Modal';
 import { HStack, VStack } from '@shared/ui/redesigned/Stack';
+import { StarRating } from '@shared/ui/redesigned/StarRating';
+import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 
 interface RatingCardProps {
   className?: string;
@@ -58,30 +63,85 @@ const RatingCard: FC<RatingCardProps> = ({
   }, [onCancel, starsCount]);
 
   const modalContent = (
-    <>
-      <TextComponent title={feedbackTitle} />
-      <Input data-testid="ArticleRating.Input" value={feedback} onChange={setFeedback} placeholder={t('feedback')} />
-    </>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <>
+          <TextComponent title={feedbackTitle} />
+          <Input
+            data-testid="ArticleRating.Input"
+            value={feedback}
+            onChange={setFeedback}
+            placeholder={t('feedback')}
+          />
+        </>
+      }
+      off={
+        <>
+          <TextComponentDeprecated title={feedbackTitle} />
+          <InputDeprecated
+            data-testid="ArticleRating.Input"
+            value={feedback}
+            onChange={setFeedback}
+            placeholder={t('feedback')}
+          />
+        </>
+      }
+    />
   );
 
+  const Card = toggleFeatures({ name: 'isAppRedesigned', on: () => CardRedesigned, off: () => CardDeprecated });
+
   return (
-    <Card data-testid="ArticleRating" max className={classNames('', {}, [className])}>
+    <Card data-testid="ArticleRating" max className={className}>
       <VStack align="center">
-        <TextComponent title={starsCount ? t('Thanks') : title} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<TextComponent title={starsCount ? t('Thanks') : title} />}
+          off={<TextComponentDeprecated title={starsCount ? t('Thanks') : title} />}
+        />
+
         <StarRating selectedStars={starsCount} size={40} onSelect={handleSelectStars} />
       </VStack>
       <BrowserView>
         <Modal isOpen={isOpenModal}>
           <VStack max gap="32">
             {modalContent}
-            <HStack gap="16" max justify="end">
-              <Button data-testid="ArticleRating.Close" theme={ThemeButtonEnum.OUTLINE_RED} onClick={handleCancel}>
-                {t('Close')}
-              </Button>
-              <Button data-testid="ArticleRating.Send" theme={ThemeButtonEnum.OUTLINE} onClick={handleAccept}>
-                {t('Send')}
-              </Button>
-            </HStack>
+            <ToggleFeatures
+              feature="isAppRedesigned"
+              on={
+                <HStack gap="16" max justify="end">
+                  <Button data-testid="ArticleRating.Close" onClick={handleCancel}>
+                    {t('Close')}
+                  </Button>
+                  <ButtonDeprecated
+                    data-testid="ArticleRating.Send"
+                    theme={ThemeButtonEnum.OUTLINE}
+                    onClick={handleAccept}
+                  >
+                    {t('Send')}
+                  </ButtonDeprecated>
+                </HStack>
+              }
+              off={
+                <HStack gap="16" max justify="end">
+                  <ButtonDeprecated
+                    data-testid="ArticleRating.Close"
+                    theme={ThemeButtonEnum.OUTLINE_RED}
+                    onClick={handleCancel}
+                  >
+                    {t('Close')}
+                  </ButtonDeprecated>
+                  <ButtonDeprecated
+                    data-testid="ArticleRating.Send"
+                    theme={ThemeButtonEnum.OUTLINE}
+                    onClick={handleAccept}
+                  >
+                    {t('Send')}
+                  </ButtonDeprecated>
+                </HStack>
+              }
+            />
           </VStack>
         </Modal>
       </BrowserView>
@@ -89,15 +149,25 @@ const RatingCard: FC<RatingCardProps> = ({
         <Drawer isOpen={isOpenModal} onClose={handleCancel}>
           <VStack gap="32">
             {modalContent}
-            <Button
-              data-testid="ArticleRating.Feedback"
-              theme={ThemeButtonEnum.OUTLINE}
-              onClick={handleAccept}
-              size={SizeButtonEnum.L}
-              fullWidth
-            >
-              {t('Send')}
-            </Button>
+            <ToggleFeatures
+              feature="isAppRedesigned"
+              on={
+                <Button data-testid="ArticleRating.Feedback" onClick={handleAccept} size="l" fullWidth>
+                  {t('Send')}
+                </Button>
+              }
+              off={
+                <ButtonDeprecated
+                  data-testid="ArticleRating.Feedback"
+                  theme={ThemeButtonEnum.OUTLINE}
+                  onClick={handleAccept}
+                  size={SizeButtonEnum.L}
+                  fullWidth
+                >
+                  {t('Send')}
+                </ButtonDeprecated>
+              }
+            />
           </VStack>
         </Drawer>
       </MobileView>

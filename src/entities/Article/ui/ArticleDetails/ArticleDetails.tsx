@@ -3,15 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames } from '@shared/lib/classNames';
-import { ToggleFeatures } from '@shared/lib/features';
+import { ToggleFeatures, toggleFeatures } from '@shared/lib/features';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@shared/lib/hooks/useInitialEffect';
 import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
-import { Skeleton } from '@shared/ui/deprecated/Skeleton';
-import { TextComponent } from '@shared/ui/deprecated/TextComponent';
+import { Skeleton as SkeletonDeprecated } from '@shared/ui/deprecated/Skeleton';
+import { TextComponent as TextComponentDeprecated } from '@shared/ui/deprecated/TextComponent';
+import { Skeleton as SkeletonRedesigned } from '@shared/ui/redesigned/Skeleton';
 import { VStack } from '@shared/ui/redesigned/Stack';
+import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 
-import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
 import fetchArticleById from '../../model/services/fetchArticleById/fetchArticleById';
@@ -35,7 +36,6 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
-  const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
   useInitialEffect(() => {
@@ -43,6 +43,12 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
   });
 
   let content;
+
+  const Skeleton = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
+  });
 
   if (isLoading) {
     content = (
@@ -54,7 +60,13 @@ const ArticleDetails: FC<ArticleDetailsProps> = ({ className, id }) => {
       </>
     );
   } else if (error) {
-    content = <TextComponent text={t('An error occurred while loading the page')} />;
+    content = (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<TextComponent text={t('An error occurred while loading the page')} />}
+        off={<TextComponentDeprecated text={t('An error occurred while loading the page')} />}
+      />
+    );
   } else {
     content = (
       <ToggleFeatures feature="isAppRedesigned" on={<ArticleDetailsRedesigned />} off={<ArticleDetailsDeprecated />} />

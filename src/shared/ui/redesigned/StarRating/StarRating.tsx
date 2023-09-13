@@ -1,6 +1,8 @@
 import { FC, memo, useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
+
 import { classNames } from '@shared/lib/classNames';
+import { toggleFeatures } from '@shared/lib/features';
 
 import s from './StarRating.module.scss';
 
@@ -35,8 +37,14 @@ const StarRating: FC<StarRatingProps> = ({ className, onSelect, size = 30, selec
       setIsSelected(true);
     }
   };
+
+  const starRatingClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => s.starRatingRedesigned,
+    off: () => s.starRating,
+  });
   return (
-    <div className={classNames(s.starRaiting, {}, [className])}>
+    <div className={classNames(starRatingClass, {}, [className])}>
       {starts.map((starNumber) => (
         <AiFillStar
           fill="none"
@@ -62,8 +70,4 @@ const StarRating: FC<StarRatingProps> = ({ className, onSelect, size = 30, selec
   );
 };
 
-/**
- * Этот компонент устарел и не рекомендуется к использованию
- * @deprecated
- */
 export default memo(StarRating);

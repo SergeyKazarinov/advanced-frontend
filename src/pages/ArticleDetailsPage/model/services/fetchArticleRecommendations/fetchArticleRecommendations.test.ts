@@ -1,6 +1,7 @@
+import axios from 'axios';
+
 import { ARTICLE } from '@entities/Article';
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk';
-import axios from 'axios';
 
 import fetchArticleRecommendations from './fetchArticleRecommendations';
 

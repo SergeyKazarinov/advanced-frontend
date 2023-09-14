@@ -1,4 +1,5 @@
 import { FC, memo } from 'react';
+
 import { classNames } from '@shared/lib/classNames';
 import { Loader } from '@shared/ui/deprecated/Loader';
 

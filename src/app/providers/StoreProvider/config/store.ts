@@ -1,12 +1,13 @@
-import { counterReducer } from '@entities/Counter';
-import { userReducer } from '@entities/User';
-import { scrollSaveReducer } from '@features/ScrollSave';
 import {
   CombinedState,
   configureStore,
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
+
+import { counterReducer } from '@entities/Counter';
+import { userReducer } from '@entities/User';
+import { scrollSaveReducer } from '@features/ScrollSave';
 import { $api } from '@shared/api/api';
 import { rtkApi } from '@shared/api/rtkApi';
 

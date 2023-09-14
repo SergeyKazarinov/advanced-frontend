@@ -1,6 +1,7 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiSearchAlt2 } from 'react-icons/bi';
+
 import { ArticleSortFieldEnum, ArticleTypeEnum } from '@entities/Article';
 import { ArticleSortSelector } from '@features/articleSortSelector';
 import { ArticleTypeTabs } from '@features/articleTypeTabs';

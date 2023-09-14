@@ -1,5 +1,6 @@
-import { IThunkConfig } from '@app/providers/StoreProvider';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { IThunkConfig } from '@app/providers/StoreProvider';
 
 import { getArticlePageHasMore } from '../../selectors/getArticlePageHasMore/getArticlePageHasMore';
 import { getArticlePageIsLoading } from '../../selectors/getArticlePageIsLoading/getArticlePageIsLoading';

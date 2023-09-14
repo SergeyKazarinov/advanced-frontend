@@ -1,3 +1,12 @@
+import {
+  AnyAction,
+  CombinedState,
+  EnhancedStore,
+  Reducer,
+  ReducersMapObject,
+} from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
+
 import { IArticleDetailsSchema } from '@entities/Article';
 import { ICounterSchema } from '@entities/Counter';
 import { IUserSchema } from '@entities/User';
@@ -7,15 +16,7 @@ import { IProfileSchema } from '@features/editableProfileCard';
 import { IScrollSaveSchema } from '@features/ScrollSave';
 import { IArticleDetailsPageSchema } from '@pages/ArticleDetailsPage';
 import { IArticlePageSchema } from '@pages/ArticlesPage';
-import {
-  AnyAction,
-  CombinedState,
-  EnhancedStore,
-  Reducer,
-  ReducersMapObject,
-} from '@reduxjs/toolkit';
 import { rtkApi } from '@shared/api/rtkApi';
-import { AxiosInstance } from 'axios';
 
 export interface IStateSchema {
   counter: ICounterSchema;

@@ -1,5 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
 import { Button as ButtonDeprecated, ThemeButtonEnum } from '@shared/ui/deprecated/Button';

@@ -1,5 +1,6 @@
-import { IStateSchema } from '@app/providers/StoreProvider';
 import { createSelector } from '@reduxjs/toolkit';
+
+import { IStateSchema } from '@app/providers/StoreProvider';
 
 import { UserRoleEnum } from '../../consts/consts';
 

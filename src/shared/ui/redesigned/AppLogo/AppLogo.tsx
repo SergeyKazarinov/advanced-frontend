@@ -1,5 +1,6 @@
 import { FC, memo } from 'react';
 import { IoLogoOctocat } from 'react-icons/io';
+
 import { classNames } from '@shared/lib/classNames';
 
 import { HStack } from '../Stack';

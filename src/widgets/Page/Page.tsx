@@ -1,6 +1,7 @@
 import { FC, memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+
 import { IStateSchema } from '@app/providers/StoreProvider';
 import { getScrollSaveByPath, scrollSaveActions } from '@features/ScrollSave';
 import { classNames } from '@shared/lib/classNames';

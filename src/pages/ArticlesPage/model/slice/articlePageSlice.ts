@@ -1,3 +1,9 @@
+import {
+  createEntityAdapter,
+  createSlice,
+  PayloadAction,
+} from '@reduxjs/toolkit';
+
 import { IStateSchema } from '@app/providers/StoreProvider';
 import {
   ArticleSortFieldEnum,
@@ -5,11 +11,6 @@ import {
   ArticleViewEnum,
   IArticle,
 } from '@entities/Article';
-import {
-  createEntityAdapter,
-  createSlice,
-  PayloadAction,
-} from '@reduxjs/toolkit';
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from '@shared/const/localStorage';
 import { TSortOrder } from '@shared/types';
 

@@ -1,7 +1,8 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { ArticleSortFieldEnum } from '@entities/Article';
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook';
 import { ThemeEnum } from '@shared/const/theme';
-import type { Meta, StoryObj } from '@storybook/react';
 
 import ArticleSortSelector from './ArticleSortSelector';
 

@@ -1,6 +1,7 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@entities/User';
 import { getRouteAdmin, getRouteProfile, getRouteSettings } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';

@@ -1,4 +1,5 @@
 import { FC, memo } from 'react';
+
 import { classNames } from '@shared/lib/classNames';
 import { toggleFeatures } from '@shared/lib/features';
 import { Skeleton as SkeletonDeprecated } from '@shared/ui/deprecated/Skeleton';

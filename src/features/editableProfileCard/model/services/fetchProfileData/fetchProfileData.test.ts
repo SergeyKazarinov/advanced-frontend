@@ -1,7 +1,8 @@
+import axios from 'axios';
+
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import { TestAsyncThunk } from '@shared/lib/tests/TestAsyncThunk';
-import axios from 'axios';
 
 import fetchProfileData from './fetchProfileData';
 

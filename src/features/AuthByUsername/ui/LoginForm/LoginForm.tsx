@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { useForceUpdate } from '@shared/lib/render/forceUpdate';
 import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
 import { Button as ButtonDeprecated, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@shared/ui/deprecated/Input';
@@ -39,6 +40,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
   const isLoading = useSelector(getLoginIsLoading);
+  const forceUpdate = useForceUpdate();
 
   const errorMessage = t('The username or password you entered is incorrect');
   const onChangeUsername = useCallback(
@@ -59,8 +61,9 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
+      forceUpdate();
     }
-  }, [onSuccess, dispatch, username, password]);
+  }, [onSuccess, dispatch, username, password, forceUpdate]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>

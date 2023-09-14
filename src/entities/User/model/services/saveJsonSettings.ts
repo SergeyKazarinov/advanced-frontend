@@ -1,5 +1,6 @@
-import { IThunkConfig } from '@app/providers/StoreProvider';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { IThunkConfig } from '@app/providers/StoreProvider';
 
 import { setJsonSettingsMutation } from '../../api/userApi';
 import { getUserAuthData } from '../selectors/getUserAuthData/getUserAuthData';

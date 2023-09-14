@@ -1,6 +1,7 @@
 import { FC, memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { getUserAuthData } from '@entities/User';
 import { getFeatureFlag, updateFeatureFlags } from '@shared/lib/features';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';

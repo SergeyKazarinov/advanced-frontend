@@ -1,6 +1,7 @@
-import { componentRender } from '@shared/lib/tests/componentRender';
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
+
+import { componentRender } from '@shared/lib/tests/componentRender';
 
 import '@testing-library/jest-dom';
 

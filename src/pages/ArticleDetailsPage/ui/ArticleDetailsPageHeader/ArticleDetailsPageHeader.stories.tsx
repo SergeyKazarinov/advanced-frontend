@@ -1,8 +1,9 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { ARTICLE } from '@entities/Article';
 import { StoreDecorator } from '@shared/config/storybook';
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
 import { ThemeEnum } from '@shared/const/theme';
-import type { Meta, StoryObj } from '@storybook/react';
 
 import ArticleDetailsPageHeader from './ArticleDetailsPageHeader';
 

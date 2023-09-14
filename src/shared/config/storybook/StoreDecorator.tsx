@@ -1,3 +1,5 @@
+import { StoryFn } from '@storybook/react';
+
 import { IStateSchema, StoreProvider } from '@app/providers/StoreProvider';
 import { articleDetailsReducer } from '@entities/Article/testing';
 import { addCommentFormReducer } from '@features/addComment/testing';
@@ -6,7 +8,6 @@ import { profileReducer } from '@features/editableProfileCard/testing';
 import { articleDetailsPageReducers } from '@pages/ArticleDetailsPage/testing';
 import { articlePageReducer } from '@pages/ArticlesPage/testing';
 import { TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
-import { StoryFn } from '@storybook/react';
 
 const defaultAsyncReducers: TReducerList = {
   loginForm: loginReducer,

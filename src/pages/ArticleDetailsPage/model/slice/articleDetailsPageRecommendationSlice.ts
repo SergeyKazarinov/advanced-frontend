@@ -1,10 +1,11 @@
-import { IStateSchema } from '@app/providers/StoreProvider';
-import { IArticle } from '@entities/Article';
 import {
   createEntityAdapter,
   createSlice,
   PayloadAction,
 } from '@reduxjs/toolkit';
+
+import { IStateSchema } from '@app/providers/StoreProvider';
+import { IArticle } from '@entities/Article';
 
 import fetchArticleRecommendation from '../services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { IArticleDetailsRecommendationSchema } from '../types/articleDetailsPageRecommendation';

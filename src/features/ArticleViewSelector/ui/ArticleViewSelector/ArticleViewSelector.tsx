@@ -1,6 +1,7 @@
 import { FC, memo } from 'react';
 import { AiOutlineTable } from 'react-icons/ai';
 import { BsList } from 'react-icons/bs';
+
 import { ArticleViewEnum } from '@entities/Article';
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';

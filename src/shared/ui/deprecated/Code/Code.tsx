@@ -1,5 +1,6 @@
 import { FC, memo, useCallback } from 'react';
 import { BiCopy } from 'react-icons/bi';
+
 import { classNames } from '@shared/lib/classNames';
 
 import { Button, SizeButtonEnum, ThemeButtonEnum } from '../Button';

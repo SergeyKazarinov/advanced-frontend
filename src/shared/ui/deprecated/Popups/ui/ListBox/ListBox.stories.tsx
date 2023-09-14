@@ -1,6 +1,7 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook';
 import { ThemeEnum } from '@shared/const/theme';
-import type { Meta, StoryObj } from '@storybook/react';
 
 import ListBox from './ListBox';
 

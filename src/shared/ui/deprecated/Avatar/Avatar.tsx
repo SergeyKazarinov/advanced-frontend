@@ -1,5 +1,6 @@
 import { CSSProperties, FC, memo, useMemo } from 'react';
 import { RxAvatar } from 'react-icons/rx';
+
 import { classNames } from '@shared/lib/classNames';
 
 import { AppImage } from '../../redesigned/AppImage';

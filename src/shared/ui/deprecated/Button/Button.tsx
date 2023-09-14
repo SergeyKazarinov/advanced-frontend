@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, FC, memo } from 'react';
+
 import { TMods } from '@shared/lib/classNames';
 
 import { classNames } from '../../../lib/classNames/classNames';

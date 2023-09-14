@@ -1,4 +1,5 @@
 import { FC, memo, useCallback } from 'react';
+
 import { classNames } from '@shared/lib/classNames';
 
 import { Card } from '../Card';

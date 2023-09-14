@@ -1,5 +1,6 @@
 import { FC, memo } from 'react';
 import { useSelector } from 'react-redux';
+
 import { ArticleList } from '@entities/Article';
 import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 

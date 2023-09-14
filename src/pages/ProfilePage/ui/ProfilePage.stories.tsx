@@ -1,10 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import avatar from '@shared/assets/tests/avatar.jpg';
 import { StoreDecorator } from '@shared/config/storybook/StoreDecorator';
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
 import { ThemeEnum } from '@shared/const/theme';
-import type { Meta, StoryObj } from '@storybook/react';
 
 import ProfilePage from './ProfilePage';
 

@@ -1,5 +1,6 @@
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
 import { TextAlignEnum, TextComponent, TextSizeEnum } from '@shared/ui/deprecated/TextComponent';

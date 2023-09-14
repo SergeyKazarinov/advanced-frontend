@@ -1,5 +1,6 @@
 import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { ArticleTypeEnum } from '@entities/Article';
 import { ToggleFeatures } from '@shared/lib/features';
 import { ITabItem, Tabs as TabsRedesigned } from '@shared/ui/deprecated/Tabs';

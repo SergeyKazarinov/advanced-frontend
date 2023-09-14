@@ -1,7 +1,8 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { StoreDecorator } from '@shared/config/storybook/StoreDecorator';
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
 import { ThemeEnum } from '@shared/const/theme';
-import type { Meta, StoryObj } from '@storybook/react';
 
 import LoginForm from './LoginForm';
 

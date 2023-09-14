@@ -1,7 +1,8 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { ARTICLE } from '@entities/Article';
 import { StoreDecorator, ThemeDecorator } from '@shared/config/storybook';
 import { ThemeEnum } from '@shared/const/theme';
-import type { Meta, StoryObj } from '@storybook/react';
 
 import ArticleRecommendationsList from './ArticleRecommendationsList';
 

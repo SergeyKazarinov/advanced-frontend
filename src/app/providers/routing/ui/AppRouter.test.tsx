@@ -1,3 +1,5 @@
+import { screen } from '@testing-library/dom';
+
 import { UserRoleEnum } from '@entities/User';
 import {
   getRouteAbout,
@@ -5,7 +7,6 @@ import {
   getRouteProfile,
 } from '@shared/const/router';
 import { componentRender } from '@shared/lib/tests/componentRender';
-import { screen } from '@testing-library/dom';
 
 import AppRouter from './AppRouter';
 

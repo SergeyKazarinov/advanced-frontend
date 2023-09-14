@@ -1,5 +1,6 @@
 import { FC, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
 import { ArticlePageGreeting } from '@features/articlePageGreeting';
 import { StickyContentLayout } from '@shared/layouts/StickyContentLayout';
 import { ToggleFeatures } from '@shared/lib/features';

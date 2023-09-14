@@ -1,10 +1,11 @@
+import { screen } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
+
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import { IProfile } from '@entities/Profile';
 import { $api } from '@shared/api/api';
 import { componentRender } from '@shared/lib/tests/componentRender';
-import { screen } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
 
 import '@testing-library/jest-dom';
 

@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+
 import { Button } from '@shared/ui/deprecated/Button';
 
 import { useCounter } from '../model/selectors/getCounter/getCounter';

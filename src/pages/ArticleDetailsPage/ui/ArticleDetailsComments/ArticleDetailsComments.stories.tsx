@@ -1,8 +1,9 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import avatar from '@shared/assets/tests/avatar.jpg';
 import { StoreDecorator } from '@shared/config/storybook';
 import { ThemeDecoratorWithFullHeight } from '@shared/config/storybook/ThemeDecoratorWithFullHeight';
 import { ThemeEnum } from '@shared/const/theme';
-import type { Meta, StoryObj } from '@storybook/react';
 
 import ArticleDetailsComments from './ArticleDetailsComments';
 

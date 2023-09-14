@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { CountrySelect } from '@entities/Country';
 import { CurrencySelect } from '@entities/Currency';
 import { classNames } from '@shared/lib/classNames';

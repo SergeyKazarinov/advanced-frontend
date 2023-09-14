@@ -1,4 +1,5 @@
 import { DetailedHTMLProps, FC, memo, ReactNode } from 'react';
+
 import { classNames, TMods } from '@shared/lib/classNames';
 
 import s from './Flex.module.scss';

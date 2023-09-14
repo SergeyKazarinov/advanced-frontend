@@ -1,5 +1,6 @@
 import { FC, memo, ReactNode } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
+
 import { LangSwitcher } from '@features/LangSwitcher';
 import { ThemeSwitcher } from '@features/ThemeSwitcher';
 import { classNames } from '@shared/lib/classNames';

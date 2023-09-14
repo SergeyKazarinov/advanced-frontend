@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+
 import { DesignSwitcher } from '@features/designSwitcher';
 import { VStack } from '@shared/ui/redesigned/Stack';
 import { TextComponent } from '@shared/ui/redesigned/TextComponent';

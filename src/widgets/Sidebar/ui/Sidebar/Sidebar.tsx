@@ -1,5 +1,6 @@
 import { FC, memo, useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
+
 import { ToggleFeatures } from '@shared/lib/features';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';

@@ -1,6 +1,7 @@
 import { FC, memo, useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
+
 import { saveJsonSettings, useJsonSettings } from '@entities/User';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { TextComponent } from '@shared/ui/deprecated/TextComponent';

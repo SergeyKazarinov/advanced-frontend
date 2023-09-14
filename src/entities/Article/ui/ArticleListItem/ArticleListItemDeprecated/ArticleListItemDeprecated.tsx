@@ -1,6 +1,7 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiFillEye } from 'react-icons/ai';
+
 import { getRouteArticlesDetails } from '@shared/const/router';
 import { classNames } from '@shared/lib/classNames';
 import { AppLink } from '@shared/ui/deprecated/AppLink';

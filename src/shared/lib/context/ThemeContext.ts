@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+
 import { ThemeEnum } from '@shared/const/theme';
 
 export interface IThemeContextProps {

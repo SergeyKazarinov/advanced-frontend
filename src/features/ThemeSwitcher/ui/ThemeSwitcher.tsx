@@ -1,4 +1,5 @@
 import { FC, memo, useCallback } from 'react';
+
 import { saveJsonSettings } from '@entities/User';
 import ThemeIcon from '@shared/assets/icons/theme.svg';
 import ThemeIconDeprecated from '@shared/assets/icons/theme-dark.svg';

@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { ThemeEnum } from '@shared/const/theme';
 
 import { ThemeContext } from '../../context/ThemeContext';

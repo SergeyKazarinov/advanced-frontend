@@ -1,6 +1,7 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { ThemeDecorator } from '@shared/config/storybook';
 import { ThemeEnum } from '@shared/const/theme';
-import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleBlockTypeEnum } from '../../model/consts/consts';
 import { IArticleCodeBlock } from '../../model/types/article';

@@ -1,4 +1,5 @@
 import { FC, HTMLAttributes, memo, ReactNode } from 'react';
+
 import { classNames } from '@shared/lib/classNames';
 
 import s from './Card.module.scss';

@@ -1,4 +1,5 @@
 import { FC, memo } from 'react';
+
 import { classNames } from '@shared/lib/classNames';
 import { toggleFeatures } from '@shared/lib/features';
 import { Card as CardDeprecated } from '@shared/ui/deprecated/Card';

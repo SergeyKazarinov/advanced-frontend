@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+
 import { IStateSchema } from '@app/providers/StoreProvider';
 
 type TSelector<T, Args extends any[]> = (state: IStateSchema, ...args: Args) => T;

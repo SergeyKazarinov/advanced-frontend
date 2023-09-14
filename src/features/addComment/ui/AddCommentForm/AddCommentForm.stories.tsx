@@ -1,7 +1,8 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { ThemeDecorator } from '@shared/config/storybook';
 import { StoreDecorator } from '@shared/config/storybook/StoreDecorator';
 import { ThemeEnum } from '@shared/const/theme';
-import type { Meta, StoryObj } from '@storybook/react';
 
 import AddCommentForm from './AddCommentForm';
 

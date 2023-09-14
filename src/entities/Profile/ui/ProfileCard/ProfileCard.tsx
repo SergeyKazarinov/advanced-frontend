@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import { ToggleFeatures } from '@shared/lib/features';

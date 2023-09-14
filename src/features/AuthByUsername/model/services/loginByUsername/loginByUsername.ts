@@ -1,6 +1,7 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { IThunkConfig } from '@app/providers/StoreProvider';
 import { IUser, userActions } from '@entities/User';
-import { createAsyncThunk } from '@reduxjs/toolkit';
 
 interface ILoginByUsernameProps {
   username: string;

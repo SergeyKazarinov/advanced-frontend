@@ -1,4 +1,5 @@
 import { FC, memo } from 'react';
+
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
 import { AppLink } from '@shared/ui/deprecated/AppLink';

@@ -1,5 +1,6 @@
 import { FC, memo } from 'react';
 import { useSelector } from 'react-redux';
+
 import { getUserAuthData } from '@entities/User';
 import { ToggleFeatures } from '@shared/lib/features';
 

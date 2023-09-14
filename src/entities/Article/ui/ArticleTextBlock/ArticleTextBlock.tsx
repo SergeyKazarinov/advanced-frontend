@@ -25,6 +25,7 @@ const ArticleTextBlock: FC<ArticleTextBlockProps> = ({ className, block }) => (
     )}
     {block.paragraphs.map((paragraph) => (
       <ToggleFeatures
+        key={paragraph}
         feature="isAppRedesigned"
         on={<TextComponent key={paragraph} text={paragraph} className={s.paragraph} />}
         off={<TextComponentDeprecated key={paragraph} text={paragraph} className={s.paragraph} />}

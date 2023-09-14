@@ -1,7 +1,8 @@
+import { LOCAL_STORAGE_DESIGN_KEY } from '@shared/const/localStorage';
 import { IFeatureFlags } from '@shared/types';
 
 let featureFlags: IFeatureFlags = {
-  isAppRedesigned: false,
+  isAppRedesigned: localStorage.getItem(LOCAL_STORAGE_DESIGN_KEY) === 'new',
   isArticleRatingEnabled: false,
   isCounterEnabled: false,
 };

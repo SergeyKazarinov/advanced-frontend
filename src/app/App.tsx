@@ -2,6 +2,7 @@ import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getUserIsLoadPage, initAuthData } from '@entities/User';
+import { AppLoaderLayout } from '@shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@shared/layouts/MainLayout';
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
@@ -23,7 +24,17 @@ const App = () => {
   }, [dispatch]);
 
   if (!isLoadPage) {
-    return <PageLoader />;
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <div id="app" className={classNames('app_redesigned', {}, [theme])}>
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    );
   }
 
   return (

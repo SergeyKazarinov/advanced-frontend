@@ -1,4 +1,5 @@
 import { FC, memo, ReactElement } from 'react';
+
 import { classNames } from '@shared/lib/classNames';
 
 import s from './MainLayout.module.scss';

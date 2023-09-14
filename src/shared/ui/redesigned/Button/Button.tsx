@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
+
 import { TMods } from '@shared/lib/classNames';
 
 import { classNames } from '../../../lib/classNames/classNames';
@@ -6,6 +7,7 @@ import { classNames } from '../../../lib/classNames/classNames';
 import s from './Button.module.scss';
 
 export type TButtonVariant = 'clear' | 'outline' | 'filled';
+export type TButtonColor = 'normal' | 'success' | 'error';
 
 export type TSizeButtonVariant = 'm' | 'l' | 'xl';
 
@@ -18,6 +20,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   addonRight?: ReactNode;
   addonLeft?: ReactNode;
+  color?: TButtonColor;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -30,6 +33,7 @@ const Button: FC<ButtonProps> = ({
   fullWidth,
   addonLeft,
   addonRight,
+  color = 'normal',
   ...otherProps
 }) => {
   const mods: TMods = {
@@ -41,7 +45,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       type="button"
-      className={classNames(s.button, mods, [className, s[variant], s[size]])}
+      className={classNames(s.button, mods, [className, s[variant], s[size], s[color]])}
       disabled={disabled}
       {...otherProps}
     >

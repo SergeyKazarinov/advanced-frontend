@@ -1,12 +1,18 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { classNames } from '@shared/lib/classNames';
+import { ToggleFeatures } from '@shared/lib/features';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
 import { DynamicModuleLoader, TReducerList } from '@shared/lib/ui/DynamicModuleLoader';
-import { Button, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
-import { Input } from '@shared/ui/deprecated/Input';
-import { TextComponent, TextThemeEnum } from '@shared/ui/deprecated/TextComponent';
+import { Button as ButtonDeprecated, ThemeButtonEnum } from '@shared/ui/deprecated/Button';
+import { Input as InputDeprecated } from '@shared/ui/deprecated/Input';
+import { TextComponent as TextComponentDeprecated, TextThemeEnum } from '@shared/ui/deprecated/TextComponent';
+import { Button } from '@shared/ui/redesigned/Button';
+import { Input } from '@shared/ui/redesigned/Input';
+import { VStack } from '@shared/ui/redesigned/Stack';
+import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -58,15 +64,51 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <div className={classNames(s.loginForm, {}, [className])}>
-        <TextComponent title={t('Authorization') ?? ''} className={s.title} />
-        <Input autoFocus placeholder={t('Enter username') ?? ''} value={username} onChange={onChangeUsername} />
-        <Input placeholder={t('Enter password') ?? ''} type="password" value={password} onChange={onChangePassword} />
-        {error && <TextComponent text={errorMessage} theme={TextThemeEnum.ERROR} />}
-        <Button className={s.loginBtn} theme={ThemeButtonEnum.CLEAR} onClick={onLoginClick} disabled={isLoading}>
-          {t('Sign In')}
-        </Button>
-      </div>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <VStack gap="16" className={classNames(s.loginFormRedesigned, {}, [className])}>
+            <TextComponent title={t('Authorization') ?? ''} className={s.title} />
+            <Input autoFocus placeholder={t('Enter username') ?? ''} value={username} onChange={onChangeUsername} />
+            <Input
+              placeholder={t('Enter password') ?? ''}
+              type="password"
+              value={password}
+              onChange={onChangePassword}
+            />
+            {error && <TextComponent text={errorMessage} variant="error" />}
+            <Button className={s.loginBtn} onClick={onLoginClick} disabled={isLoading}>
+              {t('Sign In')}
+            </Button>
+          </VStack>
+        }
+        off={
+          <VStack className={classNames(s.loginForm, {}, [className])}>
+            <TextComponentDeprecated title={t('Authorization') ?? ''} className={s.title} />
+            <InputDeprecated
+              autoFocus
+              placeholder={t('Enter username') ?? ''}
+              value={username}
+              onChange={onChangeUsername}
+            />
+            <InputDeprecated
+              placeholder={t('Enter password') ?? ''}
+              type="password"
+              value={password}
+              onChange={onChangePassword}
+            />
+            {error && <TextComponentDeprecated text={errorMessage} theme={TextThemeEnum.ERROR} />}
+            <ButtonDeprecated
+              className={s.loginBtn}
+              theme={ThemeButtonEnum.CLEAR}
+              onClick={onLoginClick}
+              disabled={isLoading}
+            >
+              {t('Sign In')}
+            </ButtonDeprecated>
+          </VStack>
+        }
+      />
     </DynamicModuleLoader>
   );
 };

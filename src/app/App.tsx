@@ -12,13 +12,15 @@ import { Navbar } from '@widgets/Navbar';
 import { PageLoader } from '@widgets/PageLoader';
 import { Sidebar } from '@widgets/Sidebar';
 
+import { useAppToolbar } from './lib/useAppToolbar';
 import { AppRouter } from './providers/routing';
 
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const isLoadPage = useSelector(getUserIsLoadPage);
-
+  const toolbar = useAppToolbar();
+  console.log(toolbar);
   useEffect(() => {
     dispatch(initAuthData());
   }, [dispatch]);
@@ -43,7 +45,7 @@ const App = () => {
       on={
         <div id="app" className={classNames('app_redesigned', {}, [theme])}>
           <Suspense fallback="loading">
-            <MainLayout content={<AppRouter />} header={<Navbar />} sidebar={<Sidebar />} />
+            <MainLayout content={<AppRouter />} header={<Navbar />} sidebar={<Sidebar />} toolbar={toolbar} />
           </Suspense>
         </div>
       }

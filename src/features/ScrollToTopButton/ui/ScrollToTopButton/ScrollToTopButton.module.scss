@@ -1,0 +1,9 @@
+.scrollToTopButton {
+  cursor: pointer;
+  color: var(--icon-redesigned);
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--accent-redesigned)
+  }
+}

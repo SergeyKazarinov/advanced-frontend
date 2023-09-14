@@ -24,6 +24,19 @@ export const getRouteAdmin = () => '/admin';
 export const getRouteForbidden = () => '/forbidden';
 export const getRouteNotFound = () => '*';
 
+export const AppRouteByPathPattern: Record<string, AppRoutesEnum> = {
+  [getRouteMain()]: AppRoutesEnum.MAIN,
+  [getRouteSettings()]: AppRoutesEnum.SETTINGS,
+  [getRouteAbout()]: AppRoutesEnum.ABOUT,
+  [getRouteProfile(':id')]: AppRoutesEnum.PROFILE,
+  [getRouteArticles()]: AppRoutesEnum.ARTICLES,
+  [getRouteArticlesDetails(':id')]: AppRoutesEnum.ARTICLE_DETAILS,
+  [getRouteArticleCreate()]: AppRoutesEnum.ARTICLE_CREATE,
+  [getRouteArticleEdit(':id')]: AppRoutesEnum.ARTICLE_EDIT,
+  [getRouteAdmin()]: AppRoutesEnum.ADMIN_PANEL,
+  [getRouteForbidden()]: AppRoutesEnum.FORBIDDEN,
+};
+
 // либо второй вариант ниже
 
 export const RoutePath: Record<AppRoutesEnum, string> = {

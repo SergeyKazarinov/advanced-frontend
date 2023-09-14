@@ -1,10 +1,6 @@
 import { Preview } from '@storybook/react';
 
-import {
-  RouteDecorator,
-  SuspenseDecorator,
-  ThemeDecorator,
-} from '../../src/shared/config/storybook';
+import { FeaturesFlagsDecorator, RouteDecorator, SuspenseDecorator } from '../../src/shared/config/storybook';
 import { ThemeEnum } from '../../src/shared/const/theme';
 
 import '../../src/app/styles/index.scss';
@@ -25,16 +21,15 @@ const preview: Preview = {
         { name: 'light', class: ThemeEnum.LIGHT, color: '#dedede' },
         { name: 'dark', class: ThemeEnum.DARK, color: '#0b0b1f' },
         { name: 'pure', class: ThemeEnum.PURE, color: '#3b0f3b' },
+        { name: 'lightRedesigned', class: [ThemeEnum.LIGHT, 'app_redesigned'], color: '#eff5f6ce' },
+        { name: 'darkRedesigned', class: [ThemeEnum.DARK, 'app_redesigned'], color: '#0c1214' },
+        { name: 'orangeRedesigned', class: [ThemeEnum.PURE, 'app_redesigned'], color: '#F0C048' },
       ],
     },
     backgrounds: { disable: true },
   },
 
-  decorators: [
-    ThemeDecorator(ThemeEnum.LIGHT),
-    RouteDecorator,
-    SuspenseDecorator,
-  ],
+  decorators: [RouteDecorator, SuspenseDecorator, FeaturesFlagsDecorator({})],
 };
 
 export default preview;

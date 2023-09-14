@@ -14,13 +14,14 @@ import { Sidebar } from '@widgets/Sidebar';
 
 import { useAppToolbar } from './lib/useAppToolbar';
 import { AppRouter } from './providers/routing';
+import withTheme from './providers/ThemeProvider/ui/withTheme';
 
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const isLoadPage = useSelector(getUserIsLoadPage);
   const toolbar = useAppToolbar();
-  console.log(toolbar);
+
   useEffect(() => {
     dispatch(initAuthData());
   }, [dispatch]);
@@ -64,4 +65,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withTheme(App);

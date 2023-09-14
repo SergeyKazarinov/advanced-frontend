@@ -3,6 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CountryEnum } from '@entities/Country';
 import { CurrencyEnum } from '@entities/Currency';
 import avatar from '@shared/assets/tests/avatar.jpg';
+import { FeaturesFlagsDecorator } from '@shared/config/storybook';
+import { NewDesignDecorator } from '@shared/config/storybook/NewDesignDecorator';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
 import { ThemeEnum } from '@shared/const/theme';
 
@@ -31,6 +33,22 @@ export const Primary: Story = {
       avatar,
     },
   },
+};
+
+export const NormalRedesigned: Story = {
+  args: {
+    data: {
+      name: 'Name',
+      lastName: 'LastName',
+      age: 22,
+      city: 'Perm',
+      country: CountryEnum.Russia,
+      currency: CurrencyEnum.RUB,
+      username: 'UserName',
+      avatar,
+    },
+  },
+  decorators: [FeaturesFlagsDecorator({ isAppRedesigned: true }), NewDesignDecorator],
 };
 
 export const Error: Story = {

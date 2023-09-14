@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import avatar from '@shared/assets/tests/avatar.jpg';
+import { FeaturesFlagsDecorator } from '@shared/config/storybook';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
 import { ThemeEnum } from '@shared/const/theme';
 
@@ -24,6 +25,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Comment: Story = {
   args: {},
+};
+
+export const CommentRedesigned: Story = {
+  args: {},
+  decorators: [FeaturesFlagsDecorator({ isAppRedesigned: true })],
 };
 
 export const Loading: Story = {

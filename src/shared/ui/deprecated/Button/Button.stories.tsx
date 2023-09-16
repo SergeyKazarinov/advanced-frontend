@@ -6,7 +6,7 @@ import { ThemeEnum } from '@shared/const/theme';
 import Button, { SizeButtonEnum, ThemeButtonEnum } from './Button';
 
 const meta = {
-  title: 'shared/Button',
+  title: 'shared/deprecated/Button',
   component: Button,
   argTypes: { onClick: { action: 'clicked' } },
   tags: ['autodocs'],

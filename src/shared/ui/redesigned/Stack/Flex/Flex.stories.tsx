@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from '@shared/config/storybook';
-import { ThemeEnum } from '@shared/const/theme';
+import { NewDesignDecorator } from '@shared/config/storybook/NewDesignDecorator';
 
 import Flex from './Flex';
 
 const meta = {
-  title: 'shared/Stack/Flex',
+  title: 'shared/redesigned/Stack/Flex',
   component: Flex,
   tags: ['autodocs'],
   args: {
@@ -20,22 +19,12 @@ const meta = {
       </>
     ),
   },
-  decorators: [ThemeDecorator(ThemeEnum.LIGHT)],
+  decorators: [NewDesignDecorator],
 } satisfies Meta<typeof Flex>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
+export const Redesigned: Story = {
   args: {},
-};
-
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(ThemeEnum.DARK)],
-};
-
-export const Pure: Story = {
-  args: {},
-  decorators: [ThemeDecorator(ThemeEnum.PURE)],
 };

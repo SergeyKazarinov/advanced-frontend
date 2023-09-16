@@ -7,7 +7,7 @@ export const NewDesignDecorator = (Story: StoryFn) => {
   setFeatureFlags({ ...getAllFeatureFlag(), isAppRedesigned: true });
 
   return (
-    <div className="app_redesigned">
+    <div className="stories_redesigned">
       <Story />
     </div>
   );

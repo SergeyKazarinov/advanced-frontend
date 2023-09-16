@@ -6,7 +6,7 @@ import { ThemeEnum } from '@shared/const/theme';
 import ListBox from './ListBox';
 
 const meta = {
-  title: 'shared/ListBox',
+  title: 'shared/deprecated/ListBox',
   component: ListBox,
   tags: ['autodocs'],
   args: {

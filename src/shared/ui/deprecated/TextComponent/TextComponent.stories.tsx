@@ -6,7 +6,7 @@ import { ThemeEnum } from '@shared/const/theme';
 import TextComponent, { TextSizeEnum, TextThemeEnum } from './TextComponent';
 
 const meta = {
-  title: 'shared/TextComponent',
+  title: 'shared/deprecated/TextComponent',
   component: TextComponent,
   tags: ['autodocs'],
   args: {

@@ -6,7 +6,7 @@ import { ThemeEnum } from '@shared/const/theme';
 import AppLink, { AppLinkThemeEnum } from './AppLink';
 
 const meta = {
-  title: 'shared/AppLink',
+  title: 'shared/deprecated/AppLink',
   component: AppLink,
   tags: ['autodocs'],
   args: {

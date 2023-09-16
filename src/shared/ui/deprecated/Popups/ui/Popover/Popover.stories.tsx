@@ -6,7 +6,7 @@ import { ThemeEnum } from '@shared/const/theme';
 import Popover from './Popover';
 
 const meta = {
-  title: 'shared/Popover',
+  title: 'shared/deprecated/Popover',
   component: Popover,
   tags: ['autodocs'],
   args: {

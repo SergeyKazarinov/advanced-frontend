@@ -18,12 +18,10 @@ const preview: Preview = {
     themes: {
       default: 'light',
       list: [
-        { name: 'light', class: ThemeEnum.LIGHT, color: '#dedede' },
-        { name: 'dark', class: ThemeEnum.DARK, color: '#0b0b1f' },
-        { name: 'pure', class: ThemeEnum.PURE, color: '#3b0f3b' },
-        { name: 'lightRedesigned', class: [ThemeEnum.LIGHT, 'app_redesigned'], color: '#eff5f6ce' },
-        { name: 'darkRedesigned', class: [ThemeEnum.DARK, 'app_redesigned'], color: '#0c1214' },
-        { name: 'orangeRedesigned', class: [ThemeEnum.PURE, 'app_redesigned'], color: '#F0C048' },
+        { name: 'Light', class: ThemeEnum.LIGHT, color: '#dedede' },
+        { name: 'Dark', class: ThemeEnum.DARK, color: '#0b0b1f' },
+        { name: 'Pure', class: ThemeEnum.PURE, color: '#3b0f3b' },
+        { name: 'Orange Redesigned', class: [ThemeEnum.PURE, 'app_redesigned'], color: '#F0C048' },
       ],
     },
     backgrounds: { disable: true },

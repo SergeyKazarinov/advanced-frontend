@@ -2,20 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { NewDesignDecorator } from '@shared/config/storybook/NewDesignDecorator';
 
-import StarRating from './StarRating';
+import AppLogo from './AppLogo';
 
 const meta = {
-  title: 'shared/redesigned/StarRating',
-  component: StarRating,
+  title: 'shared/redesigned/AppLogo',
+  component: AppLogo,
   tags: ['autodocs'],
-  args: {},
+  args: {
+    size: 100,
+  },
   decorators: [NewDesignDecorator],
-} satisfies Meta<typeof StarRating>;
+} satisfies Meta<typeof AppLogo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Redesigned: Story = {
+export const Primary: Story = {
   args: {},
-  decorators: [],
 };

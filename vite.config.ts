@@ -26,7 +26,7 @@ export default defineConfig({
     federation({
       name: 'todo-app',
       remotes: {
-        todo: 'http://localhost:5000/assets/remoteEntry.js',
+        microfrontend: 'http://localhost:4173/assets/remoteEntry.js',
       },
       shared: ['react', 'react-dom'],
     }),

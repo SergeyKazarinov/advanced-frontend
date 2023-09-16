@@ -1,12 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from '@shared/config/storybook';
-import { ThemeEnum } from '@shared/const/theme';
+import { NewDesignDecorator } from '@shared/config/storybook/NewDesignDecorator';
 
 import Tabs from './Tabs';
 
 const meta = {
-  title: 'shared/deprecated/Tabs',
+  title: 'shared/redesigned/Tabs',
   component: Tabs,
   tags: ['autodocs'],
   args: {
@@ -26,7 +25,14 @@ const meta = {
       },
     ],
   },
-  decorators: [ThemeDecorator(ThemeEnum.LIGHT)],
+  decorators: [
+    NewDesignDecorator,
+    (Story: StoryFn) => (
+      <div style={{ width: '100%' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
@@ -34,14 +40,4 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {},
-};
-
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(ThemeEnum.DARK)],
-};
-
-export const Pure: Story = {
-  args: {},
-  decorators: [ThemeDecorator(ThemeEnum.PURE)],
 };

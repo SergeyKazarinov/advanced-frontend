@@ -8,7 +8,7 @@ import { TextComponent } from '../TextComponent';
 import Card, { CardThemeEnum } from './Card';
 
 const meta = {
-  title: 'shared/Card',
+  title: 'shared/deprecated/Card',
   component: Card,
   tags: ['autodocs'],
   args: {

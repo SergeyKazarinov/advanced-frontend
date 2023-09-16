@@ -6,7 +6,7 @@ import { ThemeEnum } from '@shared/const/theme';
 import Input from './Input';
 
 const meta = {
-  title: 'shared/Input',
+  title: 'shared/deprecated/Input',
   component: Input,
   tags: ['autodocs'],
 } satisfies Meta<typeof Input>;

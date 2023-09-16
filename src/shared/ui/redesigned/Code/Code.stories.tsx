@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator';
-import { ThemeEnum } from '@shared/const/theme';
+import { NewDesignDecorator } from '@shared/config/storybook/NewDesignDecorator';
 
 import Code from './Code';
 
 const meta = {
-  title: 'shared/deprecated/Code',
+  title: 'shared/redesigned/Code',
   component: Code,
   tags: ['autodocs'],
   args: {
@@ -29,21 +28,12 @@ const meta = {
     export default meta;
     type Story = StoryObj<typeof meta>;`,
   },
+  decorators: [NewDesignDecorator],
 } satisfies Meta<typeof Code>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
+export const Primary: Story = {
   args: {},
-};
-
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(ThemeEnum.DARK)],
-};
-
-export const Pure: Story = {
-  args: {},
-  decorators: [ThemeDecorator(ThemeEnum.PURE)],
 };

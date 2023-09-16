@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from '@shared/config/storybook';
+import { ThemeDecorator, ThemeDecoratorWithFullHeight } from '@shared/config/storybook';
+import { NewDesignDecorator } from '@shared/config/storybook/NewDesignDecorator';
 import { ThemeEnum } from '@shared/const/theme';
 
 import { Button } from '../../../Button';
@@ -8,7 +9,7 @@ import { Button } from '../../../Button';
 import Dropdown from './Dropdown';
 
 const meta = {
-  title: 'shared/deprecated/DropDown',
+  title: 'shared/redesigned/DropDown',
   component: Dropdown,
   tags: ['autodocs'],
   args: {
@@ -22,7 +23,7 @@ const meta = {
       },
     ],
   },
-  decorators: [ThemeDecorator(ThemeEnum.LIGHT)],
+  decorators: [NewDesignDecorator, ThemeDecoratorWithFullHeight(ThemeEnum.LIGHT)],
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;

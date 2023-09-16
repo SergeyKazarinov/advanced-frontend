@@ -6,7 +6,7 @@ import { ThemeEnum } from '@shared/const/theme';
 import Select from './Select';
 
 const meta = {
-  title: 'shared/Select',
+  title: 'shared/deprecated/Select',
   component: Select,
   tags: ['autodocs'],
   args: {

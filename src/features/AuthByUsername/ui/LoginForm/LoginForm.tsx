@@ -34,7 +34,7 @@ const initialReducers: TReducerList = {
 };
 
 const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('');
   const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);

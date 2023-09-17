@@ -27,7 +27,7 @@ const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose, lazy }) =
   });
 
   const mods: TMods = {
-    [s.opened]: opened && true,
+    [s.opened]: opened,
   };
 
   const modalPortal = document.getElementById('app') ?? document.body;

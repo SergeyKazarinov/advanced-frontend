@@ -52,13 +52,17 @@ const RatingCard: FC<RatingCardProps> = ({
     [hasFeedback, onAccept],
   );
 
-  const handleAccept = useCallback(() => {
+  const handleClose = () => {
     setIsOpenModal(false);
+  };
+
+  const handleAccept = useCallback(() => {
+    handleClose();
     onAccept?.(starsCount, feedback);
   }, [feedback, onAccept, starsCount]);
 
   const handleCancel = useCallback(() => {
-    setIsOpenModal(false);
+    handleClose();
     onCancel?.(starsCount);
   }, [onCancel, starsCount]);
 
@@ -104,23 +108,19 @@ const RatingCard: FC<RatingCardProps> = ({
         <StarRating selectedStars={starsCount} size={40} onSelect={handleSelectStars} />
       </VStack>
       <BrowserView>
-        <Modal isOpen={isOpenModal}>
+        <Modal isOpen={isOpenModal} onClose={handleClose} lazy>
           <VStack max gap="32">
             {modalContent}
             <ToggleFeatures
               feature="isAppRedesigned"
               on={
                 <HStack gap="16" max justify="end">
-                  <Button data-testid="ArticleRating.Close" onClick={handleCancel}>
+                  <Button data-testid="ArticleRating.Close" color="error" onClick={handleCancel}>
                     {t('Close')}
                   </Button>
-                  <ButtonDeprecated
-                    data-testid="ArticleRating.Send"
-                    theme={ThemeButtonEnum.OUTLINE}
-                    onClick={handleAccept}
-                  >
+                  <Button data-testid="ArticleRating.Send" onClick={handleAccept}>
                     {t('Send')}
-                  </ButtonDeprecated>
+                  </Button>
                 </HStack>
               }
               off={

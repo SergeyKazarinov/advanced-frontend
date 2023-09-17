@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
@@ -15,20 +14,17 @@ interface ArticleImageBlockProps {
   block: IArticleImageBlock;
 }
 
-const ArticleImageBlock: FC<ArticleImageBlockProps> = ({ className, block }) => {
-  const { t } = useTranslation('article');
-  return (
-    <div className={classNames(s.articleImageBlock, {}, [className])}>
-      <img src={block.src} alt={block.title} className={s.image} />
-      {block.title && (
-        <ToggleFeatures
-          feature="isAppRedesigned"
-          on={<TextComponent text={block.title} align="center" />}
-          off={<TextComponentDeprecated text={block.title} align={TextAlignEnum.CENTER} />}
-        />
-      )}
-    </div>
-  );
-};
+const ArticleImageBlock: FC<ArticleImageBlockProps> = ({ className, block }) => (
+  <div className={classNames(s.articleImageBlock, {}, [className])}>
+    <img src={block.src} alt={block.title} className={s.image} />
+    {block.title && (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<TextComponent text={block.title} align="center" />}
+        off={<TextComponentDeprecated text={block.title} align={TextAlignEnum.CENTER} />}
+      />
+    )}
+  </div>
+);
 
 export default memo(ArticleImageBlock);

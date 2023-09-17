@@ -13,9 +13,10 @@ interface ArticleAdditionalInfoProps {
   author: IUser;
   createdAt: string;
   views: number;
+  canEdit: boolean;
 }
 
-const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({ className, author, createdAt, views }) => {
+const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({ className, author, createdAt, views, canEdit }) => {
   const { t } = useTranslation('article');
 
   return (
@@ -25,7 +26,7 @@ const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = ({ className, auth
         <TextComponent text={author.username} bold />
         <TextComponent text={createdAt} />
       </HStack>
-      <ArticleEditButton />
+      {canEdit && <ArticleEditButton />}
       <TextComponent text={t('{{count}} views', { count: views })} />
     </VStack>
   );

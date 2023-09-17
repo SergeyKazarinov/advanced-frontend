@@ -2,7 +2,7 @@
 
 #### Webpack
 
-- Подключен [_webpack_](https://webpack.js.org/). Настроен _[tsconfig.json](tsconfig.json)_
+- Подключен [_webpack_](https://webpack.js.org/). Настроен _[tsconfig.json](../tsconfig.json)_
 - Декомпозиция _[webpack.config.ts](/webpack.config.ts)_
 - Настроен [webpack-dev-server](https://webpack.js.org/configuration/dev-server/). Настроены переменные окружения для сборки
 - Добавлены пакеты [react](https://ru.reactjs.org), [react-dom](https://ru.reactjs.org/docs/react-dom.html). Настроен webpack для [scss](https://sass-scss.ru), [css-modules](https://github.com/css-modules/css-modules).
@@ -13,7 +13,7 @@
 
 - Настроен конфиг для router
 - Добавлен webpack [SVGr](https://www.npmjs.com/package/@svgr/webpack) для svg, [file-loader](https://v4.webpack.js.org/loaders/file-loader/) для jpeg,gif,png и т.п.
-- Добавлен [i18n](https://react.i18next.com/). [Define plugin](https://webpack.js.org/plugins/define-plugin/). Добавлен [LangSwitcher](src/shared/UI/LangSwitcher/LangSwitcher.tsx)
+- Добавлен [i18n](https://react.i18next.com/). [Define plugin](https://webpack.js.org/plugins/define-plugin/). Добавлен [LangSwitcher](../src/features/LangSwitcher/ui/LangSwitcher.tsx)
 - Добавлен [react-refresh-webpack-plugin](https://www.npmjs.com/package/@pmmmwh/react-refresh-webpack-plugin) для отображения изменений в Реакт компонентах без перезагрузки страницы и [hot-module-replacement-plugin](https://webpack.js.org/plugins/hot-module-replacement-plugin/) для стилей и т.п.
 - Настроен [ESLint](https://eslint.org/). Создан [.eslintrc.js](../.eslintrc.js)
 - Настроен [Stylelint](https://stylelint.io/). Создан [.stylelintrc.json](/.stylelintrc.json)
@@ -22,7 +22,7 @@
 
 #### Storybook, RTL, Bundle analyzer, Error Boundary, UI tests
 
-- Добавлен ErrorBoundary, компонент ошибки PageError
+- Добавлен [ErrorBoundary](../src/app/providers/ErrorBoundary/ui/ErrorBoundary.tsx), компонент ошибки PageError
 - Установлен [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) для отслеживания размера бандла
 - Установлен [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/).
 - Установлен [Storybook](https://storybook.js.org/docs/react/get-started/introduction). Написана stories на каждую страницу и компонент
@@ -38,7 +38,7 @@
 #### Авторизация. Husky. Input. Работа с текстом. Lazy modal. Reducers, slices, async thunk
 
 - Добавлен Lazy Modal и CreatePortal
-- Добавлен husky pre-push. В конфиг [husky](../.husky/pre-commit) добавлена проверка линтеров.
+- Добавлен husky pre-push. В конфиг [husky](../.husky/pre-commit) добавлена проверка линтеров, прогон тестов и сборка проекта.
 - Добавлена форма авторизации. Авторизация через redux-toolkit.
 
 #### Async reducers. Тесты. Instance API. TS strict mode. Модуль профиля
@@ -97,4 +97,5 @@
 
 #### Редизайн проекта
 
-- Добавлен Layout для нового дизайна.
+- Добавлен Layouts для нового дизайна.
+- Создан новый дизайн проекта. Переключить дизайн можно в настройках пользователя. По умолчанию страница отображена в старом дизайне. При редизайне проекта используется компонент [`ToggleFeatures`](../src//shared/lib/features/components/ToggleFeatures/ToggleFeatures.tsx) и функция [`toggleFeatures`](../src//shared/lib/features/lib/toggleFeatures.ts).

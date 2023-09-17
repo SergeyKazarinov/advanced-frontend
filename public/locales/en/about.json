@@ -1,3 +1,24 @@
 {
-  "About site": "About Site"
+  "About site": "About Site",
+  "About site Description": "This page provides information about the site, technologies and tools that were used during development, as well as what capabilities this application has.",
+  "Design": "Design",
+  "Design description": "The application design is implemented in two versions: old and new. \nTo switch in the code, Feature Flags are used. \nAlso, if necessary, you can remove the old or new design from the code using a special script for removing features.",
+  "Design connection": "To switch the design, log in to the site using the username and password provided below. \nSwitching the design is in the \"User Settings\" tab.",
+  "login": "Login: user",
+  "password": "Password: 123",
+  "Internationalisation": "Internationalization",
+  "Internationalisation description": "The site is presented in two languages: Russian and English. \nThe i18next library is used for translations.",
+  "Articles": "Articles",
+  "Articles description": "The page with articles is of a demo nature and shows the capabilities of the site. \nThe text of the articles is copied from the Internet and is for demonstrative purposes only. \nThe article section uses filtering by title and article type, and also sorts articles. \nFiltering is implemented on the server side. \nSearch also uses the useDebounce hook to prevent frequent requests to the server.",
+  "Articles scroll": "The page has an endless feed. \nUseInfiniteScroll hook to load new articles",
+  "Design theme": "The site also has three color schemes, both for the old design and the new one. \nThe project architecture is implemented in such a way that you can easily remove or add a new color scheme. \nTo change the theme, use ThemeProvider and useTheme hook",
+  "URLSearchParams": "To work with a URL string, URLSearchParams is used. \nThus, the page has the ability to share a link while saving the filtering parameters.",
+  "Scrolling": "Scrolling",
+  "Scrolling description": "Site pages have the ability to save the scroll position when returning to a page, for example, an articles page. \nTo implement the functionality, useThrottle hook is used.",
+  "Users": "Users",
+  "Users description": "Users have different roles: ADMIN, MANAGER, USER. \nEach role has different accesses, in particular, a user with the ADMIN or MANAGER roles has access to the admin panel.",
+  "Users settings": "The user has server-side settings (JSON Settings): theme, design and first visit. \nThese settings determine which design and color theme to display on any user device.",
+  "Profile settings": "The \"Profile\" tab contains information about the user and the ability to change data. \nIt is also possible to visit the profile pages of other users, while the pages will be protected from editing.",
+  "Server": "Server",
+  "Server description": "To work with data and implement requests, the site uses a fake server - json-server. \nFor queries to the server, Redux Toolkit, RTK Query and Axios are used."
 }

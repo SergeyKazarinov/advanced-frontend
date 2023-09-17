@@ -1,5 +1,4 @@
 import { FC, Fragment, memo, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Menu } from '@headlessui/react';
 
 import { classNames } from '@shared/lib/classNames';
@@ -24,49 +23,45 @@ interface DropDownProps {
   direction?: TDropDownDirection;
 }
 
-const DropDown: FC<DropDownProps> = ({ className, items, trigger, direction = 'bottomRight' }) => {
-  const { t } = useTranslation();
+const DropDown: FC<DropDownProps> = ({ className, items, trigger, direction = 'bottomRight' }) => (
+  <Menu as="div" className={classNames('', {}, [className, popupCls.popup])}>
+    <Menu.Button className={popupCls.btn}>{trigger}</Menu.Button>
+    <Menu.Items className={classNames(s.menu, {}, [popupCls[direction], popupCls.menu])}>
+      {items.map((item, index) => {
+        const content = ({ active }: { active: boolean }) => (
+          <button
+            type="button"
+            disabled={item.disabled}
+            onClick={item.onClick}
+            className={classNames(s.item, { [popupCls.active]: active })}
+          >
+            {item.content}
+          </button>
+        );
 
-  return (
-    <Menu as="div" className={classNames('', {}, [className, popupCls.popup])}>
-      <Menu.Button className={popupCls.btn}>{trigger}</Menu.Button>
-      <Menu.Items className={classNames(s.menu, {}, [popupCls[direction], popupCls.menu])}>
-        {items.map((item, index) => {
-          const content = ({ active }: { active: boolean }) => (
-            <button
-              type="button"
-              disabled={item.disabled}
-              onClick={item.onClick}
-              className={classNames(s.item, { [popupCls.active]: active })}
-            >
-              {item.content}
-            </button>
-          );
-
-          if (item.href) {
-            return (
-              <Menu.Item
-                as={AppLink}
-                to={item.href}
-                // eslint-disable-next-line
-                key={index}
-                disabled={item.disabled}
-              >
-                {content}
-              </Menu.Item>
-            );
-          }
-
+        if (item.href) {
           return (
-            // eslint-disable-next-line
-            <Menu.Item as={Fragment} key={index} disabled={item.disabled}>
+            <Menu.Item
+              as={AppLink}
+              to={item.href}
+              // eslint-disable-next-line
+              key={index}
+              disabled={item.disabled}
+            >
               {content}
             </Menu.Item>
           );
-        })}
-      </Menu.Items>
-    </Menu>
-  );
-};
+        }
+
+        return (
+          // eslint-disable-next-line
+          <Menu.Item as={Fragment} key={index} disabled={item.disabled}>
+            {content}
+          </Menu.Item>
+        );
+      })}
+    </Menu.Items>
+  </Menu>
+);
 
 export default memo(DropDown);

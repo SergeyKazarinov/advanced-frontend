@@ -6,11 +6,7 @@ interface IUseModalProps {
   animationDelay: number;
 }
 
-export const useModal = ({
-  animationDelay,
-  isOpen,
-  onClose,
-}: IUseModalProps) => {
+export const useModal = ({ animationDelay, isOpen, onClose }: IUseModalProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const [opened, setOpened] = useState(false);
 

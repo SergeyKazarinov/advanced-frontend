@@ -5,6 +5,8 @@ import { getArticleDetailsData } from '@entities/Article';
 import { Card } from '@shared/ui/redesigned/Card';
 import { ArticleAdditionalInfo } from '@widgets/ArticleAdditionalInfo';
 
+import { getCanEditArticle } from '../../model/selectors/getCanEditArticle';
+
 import s from './AdditionalInfoContainer.module.scss';
 
 interface AdditionalInfoContainerProps {
@@ -13,6 +15,7 @@ interface AdditionalInfoContainerProps {
 
 const AdditionalInfoContainer: FC<AdditionalInfoContainerProps> = ({ className }) => {
   const article = useSelector(getArticleDetailsData);
+  const canEdit = useSelector(getCanEditArticle);
 
   if (!article) {
     return null;
@@ -24,6 +27,7 @@ const AdditionalInfoContainer: FC<AdditionalInfoContainerProps> = ({ className }
         author={article.user}
         createdAt={article.createdAt}
         views={article.views}
+        canEdit={canEdit}
       />
     </Card>
   );

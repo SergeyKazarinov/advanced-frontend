@@ -1,4 +1,6 @@
-# Проект находится на этапе разработки
+# Advanced Frontend (Проект находится на этапе разработки)
+
+<img src='./src/shared/assets/advanced-frontend.jpg' width="100%">
 
 ## Содержание
 
@@ -7,7 +9,7 @@
 - [Архитектура проекта](#fsd)
 - [Работа с переводами](#translate)
 - [Тесты](#tests)
-- [Линтинг](#linting)
+- [Линтинг и собственный eslint-плагин](#linting)
 - [Storybook](#storybook)
 - [Конфигурация проекта](#config)
 - [CI pipeline и pre commit хуки](#ci)
@@ -44,8 +46,9 @@ npm run start:dev
 - `npm run start:dev` - Запуск frontend проекта на webpack dev server + backend
 - `npm run start:dev:vite` - Запуск frontend проекта на Vite dev server + backend
 - `npm run start:dev:server` - Запуск backend сервера
-- `npm run build` - Сборка в prod режиме
-- `npm run build:dev` - Сборка в dev режиме (не минимизирован)
+- `npm run build` - Webpack cборка в prod режиме
+- `npm run build:dev` - Webpack cборка в dev режиме (не минимизирован)
+- `npm run build:vite` - Vite cборка в prod
 - `npm run prettier` - Запустить форматирование кода
 - `npm run lint` - Проверка ts файлов линтером
 - `npm run lint:fix` - Исправление ts файлов линтером
@@ -96,10 +99,14 @@ npm run start:dev
 В проекте используется [ESlint](https://eslint.org/) для проверки TypeScript кода и Stylelint для проверки файлов со стилями.
 
 Также для строгого контроля главных архитектурных принципов
-используется собственный eslint plugin [eslint-plugin-fsd-import-plugin](https://www.npmjs.com/package/eslint-plugin-fsd-import-plugin),
-который, в настоящий момент имеет 1 правило:
+используется собственный eslint plugin [eslint-plugin-kss-fsd-imports](https://www.npmjs.com/package/eslint-plugin-kss-fsd-imports),
+который имеет следующие правила:
 
-1. path-checker - запрещает использовать абсолютные импорты в рамках одного модуля
+1. `Path Checker` - запрещает использовать абсолютные импорты в рамках одного модуля.
+2. `Layer Imports` - запрещает использование импонтов более высоких слоев в нижних слоях.
+3. `Public Api Imports` - Это правило позволяет использовать импорт из других модулей только из публичного API (index.ts).
+
+Более подробно о правила и использовании можете ознакомиться на [сайте](https://www.npmjs.com/package/eslint-plugin-kss-fsd-imports) плагина.
 
 #### Запуск линтеров
 
@@ -113,7 +120,7 @@ npm run start:dev
 В проекте для каждого компонента описываются стори-кейсы.
 Запросы на сервер мокаются с помощью [storybook-addon-mock](https://storybook-addon-mock.netlify.app/?path=/docs/docs-introduction--docs).
 
-Файл со сторикейсами создает рядом с компонентом с расширением .stories.tsx
+Файл со сторикейсами находится рядом с компонентом с расширением .stories.tsx
 
 #### Запуск сторибук
 
@@ -121,15 +128,19 @@ npm run start:dev
 
 Документация [Storybook](https://storybook.js.org/)
 
+Подбробно про использование storybook в проекте можете ознакомиться [здесь](./docs/storybook.md)
+
 ## <a id="config" ></a>Конфигурация проекта
 
-Для разработки проект содержит Webpack-конфиг - ./config/build  
+Для разработки проект содержит [Webpack-конфиг](/config/build/buildWebpackConfig.ts) - ./config/build  
 Вся конфигурация хранится в /config
 
-- /config/babel - babel
-- /config/build - конфигурация webpack
-- /config/jest - конфигурация тестовой среды
-- /config/storybook - конфигурация сторибука
+- [/config/babel](/config/babel/babelRemovePropsPlugin.ts) - babel
+- [/config/build](/config/build/) - конфигурация webpack
+- [/config/jest](/config/jest/) - конфигурация тестовой среды
+- [/config/storybook](/config/storybook/) - конфигурация сторибука
+
+Также в проекте используется второй сборщик - Vite, конфигурация которого находится в вайле [vite.config.ts](./vite.config.ts)
 
 ## <a id="ci" ></a>CI pipeline и pre commit хуки
 
@@ -150,14 +161,30 @@ npm run start:dev
 
 ## <a id="feature-flags" ></a>Работа с feature-flags
 
-Разрешено использоваение feature flags только с помощью хелпера [`toggleFeatures`](/src//shared/lib/features/toggleFeatures.ts).  
+Разрешено использоваение feature flags только с помощью хелпера [`toggleFeatures`](/src//shared/lib/features/lib//toggleFeatures.ts).  
 В него передается объект с опциями:
 
 ```javascript
 {
-  name: название фича-флага
+  name: название feature-флага
   on: функция, которая отработает после включения фичи
   off: функция, которая отработает после выключения фичи
+}
+```
+
+---
+
+Для работы с компонентами используется компонент [`ToggleFeatures`](/src//shared/lib/features/components/ToggleFeatures/ToggleFeatures.tsx).
+
+В него передаются следующие пропсы:
+
+```typeScript
+{
+  <ToggleFeatures
+    features='название feature-флага'
+    on={} //компонент, которые будет отображаться после включения фичи
+    off={} //компонент, который будет отображаться после выключения фичи
+  />
 }
 ```
 
@@ -184,8 +211,5 @@ npm run start:dev
 
 ## <a id="next" ></a> Что планируется сделать
 
-- Задокументировать entities и features
+- Задокументировать features
 - Покрыть проект e2e тестированием, а также дописать тесты на существующие компоненты, функции
-- Расширить собственный ESLint плагин новыми правилами
-- Добавить prettier
-- Сделать редизайн проекта

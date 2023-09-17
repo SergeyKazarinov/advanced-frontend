@@ -16,7 +16,6 @@ const MainPage = () => {
     <Page data-testid="MainPage">
       {t('Main page')}
       {/* {counter} */}
-      {/* <RatingCard title="Как вам статья" feedbackTitle="Оставьте пожалуйста отзыв" hasFeedback /> */}
     </Page>
   );
 };

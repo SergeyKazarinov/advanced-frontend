@@ -667,10 +667,10 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true,
-        "isAppRedesigned": true
+        "isAppRedesigned": false
       },
       "jsonSettings": {
-        "theme": "app_pure_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageGasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -690,7 +690,7 @@
         "isAppRedesigned": false
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageGasBeenOpen": false
       }
@@ -784,38 +784,261 @@
   ],
   "article-ratings": [
     {
-      "id": "1",
-      "rate": 4,
-      "feedback": "Хорошая статья",
+      "articleId": "6",
       "userId": "1",
-      "articleId": "1"
+      "rate": 4,
+      "id": 1
     },
     {
-      "id": "1",
-      "rate": 4,
-      "feedback": "Хорошая статья",
+      "articleId": "6",
       "userId": "1",
-      "articleId": "3"
+      "rate": 4,
+      "id": 2
     },
     {
-      "id": "1",
-      "rate": 4,
-      "feedback": "Хорошая статья",
+      "articleId": "6",
       "userId": "1",
-      "articleId": "2"
+      "rate": 4,
+      "id": 3
     },
     {
-      "articleId": "7",
+      "articleId": "6",
       "userId": "1",
       "rate": 4,
       "feedback": "",
-      "id": "VUxzPQZ"
+      "id": 4
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "rate": 4,
+      "id": 5
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "rate": 4,
+      "id": 6
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "rate": 4,
+      "id": 7
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "rate": 4,
+      "id": 8
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "",
+      "id": 9
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 5,
+      "id": 10
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 5,
+      "id": 11
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 5,
+      "id": 12
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 5,
+      "id": 13
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "",
+      "id": 14
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "",
+      "id": 15
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "rate": 4,
+      "id": 16
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "rate": 4,
+      "id": 17
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "rate": 4,
+      "id": 18
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "",
+      "id": 19
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 5,
+      "id": 20
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "",
+      "id": 21
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "",
+      "id": 22
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 5,
+      "id": 23
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 5,
+      "id": 24
     },
     {
       "articleId": "4",
       "userId": "1",
+      "rate": 4,
+      "id": 25
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 4,
+      "id": 26
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 4,
+      "id": 27
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 4,
+      "id": 28
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 4,
+      "id": 29
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 4,
+      "id": 30
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
       "rate": 5,
-      "id": "AaS4tME"
+      "id": 31
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "",
+      "id": 32
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "d",
+      "id": 33
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "rate": 5,
+      "id": 34
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "rate": 5,
+      "id": 35
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "rate": 5,
+      "id": 36
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "sfs",
+      "id": 37
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "rate": 4,
+      "id": 38
+    },
+    {
+      "articleId": "9",
+      "userId": "1",
+      "rate": 4,
+      "id": 39
+    },
+    {
+      "articleId": "9",
+      "userId": "1",
+      "rate": 4,
+      "id": 40
+    },
+    {
+      "articleId": "9",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "",
+      "id": 41
     }
   ]
 }

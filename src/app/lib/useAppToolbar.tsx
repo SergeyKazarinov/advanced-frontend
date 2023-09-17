@@ -10,6 +10,7 @@ export const useAppToolbar = () => {
   const toolbarByAppRout: OptionalRecord<AppRoutesEnum, ReactElement> = {
     [AppRoutesEnum.ARTICLES]: <ScrollToolbar />,
     [AppRoutesEnum.ARTICLE_DETAILS]: <ScrollToolbar />,
+    [AppRoutesEnum.ABOUT]: <ScrollToolbar />,
   };
 
   return toolbarByAppRout[appRoute];

@@ -7,6 +7,7 @@ import { Card as CardDeprecated } from '@shared/ui/deprecated/Card';
 import { TextComponent as TextComponentDeprecated } from '@shared/ui/deprecated/TextComponent';
 import { AppImage } from '@shared/ui/redesigned/AppImage';
 import { Card as CardRedesigned } from '@shared/ui/redesigned/Card';
+import { Link } from '@shared/ui/redesigned/Link';
 import { HStack, VStack } from '@shared/ui/redesigned/Stack';
 import { TextComponent as TextComponentRedesigned } from '@shared/ui/redesigned/TextComponent';
 import { Page } from '@widgets/Page';
@@ -26,7 +27,7 @@ const AboutPage = () => {
 
   return (
     <Page data-testid="AboutPage">
-      <VStack align="center" gap="24">
+      <VStack className={s.aboutPage} align="center" gap="24">
         <TextComponent title={t('About site')} size="size_xl" />
         <Card padding="16" max>
           <TextComponent text={t('About site Description')} />
@@ -80,6 +81,12 @@ const AboutPage = () => {
             <TextComponent title={t('Server')} />
             <TextComponent text={t('Server description')} />
           </VStack>
+        </Card>
+        <Card max padding="16">
+          <HStack gap="16">
+            <TextComponent text={t('More Readme')} />
+            <Link href="https://github.com/SergeyKazarinov/advanced-frontend">{t('Link to GitHub')}</Link>
+          </HStack>
         </Card>
       </VStack>
     </Page>

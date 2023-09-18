@@ -99,3 +99,4 @@
 
 - Добавлен Layouts для нового дизайна.
 - Создан новый дизайн проекта. Переключить дизайн можно в настройках пользователя. По умолчанию страница отображена в старом дизайне. При редизайне проекта используется компонент [`ToggleFeatures`](../src//shared/lib/features/components/ToggleFeatures/ToggleFeatures.tsx) и функция [`toggleFeatures`](../src//shared/lib/features/lib/toggleFeatures.ts).
+- Добавлена анимация для страниц.

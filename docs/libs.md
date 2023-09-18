@@ -32,3 +32,4 @@
 - [vite](https://vitejs.dev/) - инструмент для настройки среды разработки
 - [ts-morph](https://ts-morph.com/) - библиотека для изменения TypeScript кода
 - [Cypress](https://www.cypress.io/) - библиотека для e2e тестов
+- [Framer Motion](https://www.framer.com/motion/) - библиотека для анимации

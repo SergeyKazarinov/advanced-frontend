@@ -20,5 +20,7 @@
   "Users settings": "The user has server-side settings (JSON Settings): theme, design and first visit. \nThese settings determine which design and color theme to display on any user device.",
   "Profile settings": "The \"Profile\" tab contains information about the user and the ability to change data. \nIt is also possible to visit the profile pages of other users, while the pages will be protected from editing.",
   "Server": "Server",
-  "Server description": "To work with data and implement requests, the site uses a fake server - json-server. \nFor queries to the server, Redux Toolkit, RTK Query and Axios are used."
+  "Server description": "To work with data and implement requests, the site uses a fake server - json-server. \nFor queries to the server, Redux Toolkit, RTK Query and Axios are used.",
+  "More Readme": "Detailed information about the project can be found in the project repository",
+  "Link to GitHub": "Link to GitHub"
 }

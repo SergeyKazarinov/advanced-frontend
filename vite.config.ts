@@ -1,4 +1,4 @@
-import federation from '@originjs/vite-plugin-federation';
+// import federation from '@originjs/vite-plugin-federation';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
@@ -23,13 +23,13 @@ export default defineConfig({
         },
       },
     }),
-    federation({
-      name: 'todo-app',
-      remotes: {
-        microfrontend: 'http://localhost:4174/assets/remoteEntry.js',
-      },
-      shared: ['react', 'react-dom'],
-    }),
+    // federation({
+    //   name: 'todo-app',
+    //   remotes: {
+    //     microfrontend: 'http://localhost:4174/assets/remoteEntry.js',
+    //   },
+    //   shared: ['react', 'react-dom'],
+    // }),
   ],
   server: {
     port: 3000,
@@ -49,17 +49,17 @@ export default defineConfig({
     __API__: JSON.stringify('http://localhost:8000'),
     __PROJECT__: JSON.stringify('frontend'),
   },
-  build: {
-    modulePreload: false,
-    target: 'esnext',
-    minify: false,
-    cssCodeSplit: true,
-    rollupOptions: {
-      output: {
-        format: 'system',
-        entryFileNames: 'assets/[name].js',
-        minifyInternalExports: false,
-      },
-    },
-  },
+  // build: {
+  //   modulePreload: false,
+  //   target: 'esnext',
+  //   minify: false,
+  //   cssCodeSplit: true,
+  //   rollupOptions: {
+  //     output: {
+  //       format: 'system',
+  //       entryFileNames: 'assets/[name].js',
+  //       minifyInternalExports: false,
+  //     },
+  //   },
+  // },
 });

@@ -53,6 +53,13 @@ export default defineConfig({
     modulePreload: false,
     target: 'esnext',
     minify: false,
-    cssCodeSplit: false,
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        format: 'system',
+        entryFileNames: 'assets/[name].js',
+        minifyInternalExports: false,
+      },
+    },
   },
 });

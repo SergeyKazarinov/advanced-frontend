@@ -1,0 +1,8 @@
+.link {
+  color: var(--text-redesigned);
+  transition: 0.2s;
+
+  &:hover {
+    color: var(--icon-redesigned);
+  }
+}

@@ -2,7 +2,6 @@ import { FC, memo, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { AppRoutesProps } from '@shared/types';
-import { PageLoader } from '@widgets/PageLoader';
 
 import { routeConfig } from '../config/routeConfig';
 
@@ -31,7 +30,7 @@ const AppRouter: FC = () => {
   const routesAuth = Object.values(routeConfig);
 
   return (
-    <Suspense fallback={<PageLoader />}>
+    <Suspense>
       <Routes>{routesAuth.map(renderWithWrapper)}</Routes>
     </Suspense>
   );

@@ -1,0 +1,29 @@
+.resumeLayout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  grid-template-areas: 
+    'contacts experience'
+    'skills experience'
+    'education experience';
+  row-gap: 16px;
+  padding-bottom: 40px;
+}
+
+.contacts {
+  grid-area: contacts;
+  width: 100%;
+  justify-self: center;
+}
+
+.skills {
+  grid-area: skills;
+}
+
+.education {
+  grid-area: education;
+}
+
+.experience {
+  grid-area: experience;
+}

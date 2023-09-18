@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import App from '@app/App';
 import { ErrorBoundary } from '@app/providers/ErrorBoundary';
@@ -19,12 +20,14 @@ const root = createRoot(container);
 
 root.render(
   <BrowserRouter>
-    <StoreProvider>
-      <ErrorBoundary>
-        <ForceUpdateProvider>
-          <App />
-        </ForceUpdateProvider>
-      </ErrorBoundary>
-    </StoreProvider>
+    <AnimatePresence>
+      <StoreProvider>
+        <ErrorBoundary>
+          <ForceUpdateProvider>
+            <App />
+          </ForceUpdateProvider>
+        </ErrorBoundary>
+      </StoreProvider>
+    </AnimatePresence>
   </BrowserRouter>,
 );

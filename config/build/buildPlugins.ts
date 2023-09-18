@@ -13,6 +13,8 @@ import {
 
 import { IBuildOptions } from './types/config';
 
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 export const buildPlugins = (options: IBuildOptions): WebpackPluginInstance[] => {
@@ -24,6 +26,13 @@ export const buildPlugins = (options: IBuildOptions): WebpackPluginInstance[] =>
   } = options;
 
   const plugins = [
+    new ModuleFederationPlugin({
+      name: 'host',
+      remotes: {
+        'microfrontend': 'remote-app@http://localhost:4174/assets/remoteEntry.js'
+      }
+    }),
+    
     new HtmlWebpackPlugin({
       template: paths!.html,
     }),

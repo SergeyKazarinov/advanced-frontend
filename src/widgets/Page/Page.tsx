@@ -1,6 +1,7 @@
 import { FC, memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import { IStateSchema } from '@app/providers/StoreProvider';
 import { getScrollSaveByPath, scrollSaveActions } from '@features/ScrollSave';
@@ -21,6 +22,19 @@ interface PageProps extends ITestProps {
 }
 
 export const PAGE_ID = 'PAGE_ID';
+
+const pageVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { duration: 1 },
+  },
+  exit: {
+    opacity: 0,
+  },
+};
 
 const Page: FC<PageProps> = ({ className, children, onScrollEnd, ...props }) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -59,7 +73,11 @@ const Page: FC<PageProps> = ({ className, children, onScrollEnd, ...props }) => 
   });
 
   return (
-    <main
+    <motion.main
+      variants={pageVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       ref={wrapperRef}
       className={classNames(pageClass, {}, [className])}
       onScroll={handleScroll}
@@ -68,7 +86,7 @@ const Page: FC<PageProps> = ({ className, children, onScrollEnd, ...props }) => 
     >
       {children}
       {onScrollEnd && <div className={s.trigger} ref={triggerRef} />}
-    </main>
+    </motion.main>
   );
 };
 

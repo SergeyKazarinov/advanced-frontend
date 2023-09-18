@@ -143,6 +143,7 @@
     "@use-gesture/react": "^10.2.27",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
+    "framer-motion": "^10.16.4",
     "i18next": "^22.5.1",
     "i18next-browser-languagedetector": "^7.0.2",
     "i18next-http-backend": "^2.2.1",

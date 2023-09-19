@@ -15,5 +15,6 @@
   "Enter password": "Введите пароль",
   "Authorization": "Авторизация",
   "The username or password you entered is incorrect": "Неверное имя пользователя или пароль",
-  "Logout": "Выйти"
+  "Logout": "Выйти",
+  "Microfrontend": "Микрофронтенд"
 }

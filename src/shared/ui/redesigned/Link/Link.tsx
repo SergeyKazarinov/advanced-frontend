@@ -11,12 +11,18 @@ interface LinkProps {
   href: string;
   target?: TTargetVariants;
   children: ReactNode;
+  underline?: boolean;
 }
 
-const Link: FC<LinkProps> = ({ className, href, target = '_blank', children }) => (
-  <a className={classNames(s.link, {}, [className])} href={href} target={target}>
-    {children}
-  </a>
-);
+const Link: FC<LinkProps> = ({ className, href, target = '_blank', children, underline = false }) => {
+  const mods = {
+    [s.underline]: underline,
+  };
+  return (
+    <a className={classNames(s.link, mods, [className])} href={href} target={target}>
+      {children}
+    </a>
+  );
+};
 
 export default memo(Link);

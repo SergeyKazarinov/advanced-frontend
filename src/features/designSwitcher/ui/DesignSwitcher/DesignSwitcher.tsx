@@ -35,7 +35,7 @@ const DesignSwitcher: FC = () => {
         updateFeatureFlags({
           userId: authData.id,
           features: {
-            isAppRedesigned: value === 'new',
+            isAppRedesigned: value === 'old',
           },
         }),
       ).unwrap();
@@ -49,7 +49,7 @@ const DesignSwitcher: FC = () => {
       {isLoading ? (
         <Skeleton width={120} height={40} border="20px" />
       ) : (
-        <ListBox onChange={handleChange} items={items} value={isAppRedesigned ? 'new' : 'old'} />
+        <ListBox onChange={handleChange} items={items} value={isAppRedesigned ? 'old' : 'new'} />
       )}
     </HStack>
   );

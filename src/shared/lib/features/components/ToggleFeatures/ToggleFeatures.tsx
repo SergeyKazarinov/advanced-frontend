@@ -10,7 +10,7 @@ interface ToggleFeaturesProps {
 }
 
 const ToggleFeatures: FC<ToggleFeaturesProps> = ({ feature, on, off }) => {
-  if (getFeatureFlag(feature)) {
+  if (!getFeatureFlag(feature)) {
     return on;
   }
 

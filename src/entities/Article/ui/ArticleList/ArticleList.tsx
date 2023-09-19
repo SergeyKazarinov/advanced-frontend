@@ -3,8 +3,13 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@shared/lib/classNames';
 import { ToggleFeatures } from '@shared/lib/features';
-import { TextAlignEnum, TextComponent, TextSizeEnum } from '@shared/ui/deprecated/TextComponent';
+import {
+  TextAlignEnum,
+  TextComponent as TextComponentDeprecated,
+  TextSizeEnum,
+} from '@shared/ui/deprecated/TextComponent';
 import { HStack } from '@shared/ui/redesigned/Stack';
+import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 
 import { ArticleViewEnum } from '../../model/consts/consts';
 import { IArticle } from '../../model/types/article';
@@ -39,7 +44,17 @@ const ArticleList: FC<ArticleListProps> = ({
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(s.articleList, {}, [className, s[view]])}>
-        <TextComponent size={TextSizeEnum.L} text={t('Articles not found')} align={TextAlignEnum.CENTER} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<TextComponent size={TextSizeEnum.L} text={t('Articles not found')} align={TextAlignEnum.CENTER} />}
+          off={
+            <TextComponentDeprecated
+              size={TextSizeEnum.L}
+              text={t('Articles not found')}
+              align={TextAlignEnum.CENTER}
+            />
+          }
+        />
       </div>
     );
   }
@@ -57,7 +72,7 @@ const ArticleList: FC<ArticleListProps> = ({
           {articles.map((item) => (
             <ArticleListItem view={view} article={item} className={s.card} target={target} key={item.id} />
           ))}
-
+          {getSkeletons(view)}
           {isLoading && getSkeletons(view)}
         </HStack>
       }

@@ -46,5 +46,8 @@
   "Added i18n internationalization": "Добавлена интернациолизация i18n",
   "The project is a drag-and-drop constructor with which you can build a calculator": "Проект представляет собой drag-and-drop конструктор, с помощью которого можно собрать калькулятор",
   "More projects": "Еще больше проектов ",
-  "Here": "здесь."
+  "Here": "здесь.",
+  "Microfrontend": "Микрофронтенд",
+  "Microfrontend description": "На странице представлена простая реализация микрофронтенда. Ниже представлен блок, который импортирован из стороннего приложения. ",
+  "Link to microfrontend": "Ссылка на репозиторий удаленного проекта"
 }

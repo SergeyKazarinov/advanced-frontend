@@ -6,6 +6,7 @@ import { ArticleEditPageLazy } from '@pages/ArticleEditPage';
 import { ArticlesPageLazy } from '@pages/ArticlesPage';
 import { ForbiddenPageLazy } from '@pages/ForbiddenPage';
 import { MainPageLazy } from '@pages/MainPage';
+import { MicrofrontendPageLazy } from '@pages/MicrofrontendPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
 import { ProfilePageLazy } from '@pages/ProfilePage';
 import { SettingsPageLazy } from '@pages/SettingsPage';
@@ -19,6 +20,7 @@ import {
   getRouteArticlesDetails,
   getRouteForbidden,
   getRouteMain,
+  getRouteMicrofrontend,
   getRouteNotFound,
   getRouteProfile,
   getRouteSettings,
@@ -47,6 +49,10 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: getRouteArticles(),
     element: <ArticlesPageLazy />,
     authOnly: true,
+  },
+  [AppRoutesEnum.MICROFRONTEND]: {
+    path: getRouteMicrofrontend(),
+    element: <MicrofrontendPageLazy />,
   },
   [AppRoutesEnum.ARTICLE_CREATE]: {
     path: getRouteArticleCreate(),

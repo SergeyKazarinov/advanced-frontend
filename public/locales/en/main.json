@@ -46,5 +46,8 @@
   "Added i18n internationalization": "Added i18n internationalization",
   "The project is a drag-and-drop constructor with which you can build a calculator": "The project is a drag-and-drop constructor with which you can build a calculator",
   "More projects": "Even more projects",
-  "Here": "is here."
+  "Here": "is here.",
+  "Microfrontend": "Microfrontend",
+  "Microfrontend description": "The page shows a simple microfrontend implementation. \nBelow is a block that is imported from a third party application.",
+  "Link to microfrontend": "Link to the remote project repository"
 }

@@ -8,10 +8,10 @@ interface IToggleFeaturesOptions<T> {
   off: () => T;
 }
 
-export const toggleFeatures = <T>({name, off, on}: IToggleFeaturesOptions<T>): T => {
-  if (getFeatureFlag(name)) {
+export const toggleFeatures = <T>({ name, off, on }: IToggleFeaturesOptions<T>): T => {
+  if (!getFeatureFlag(name)) {
     return on();
   }
 
   return off();
-}
+};

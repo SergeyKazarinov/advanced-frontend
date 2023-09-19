@@ -15,5 +15,6 @@
   "Enter password": "Enter password",
   "Authorization": "Authorization",
   "The username or password you entered is incorrect": "The username or password you entered is incorrect",
-  "Logout": "Logout"
+  "Logout": "Logout",
+  "Microfrontend": "Microfrontend"
 }

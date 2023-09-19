@@ -29,7 +29,7 @@ export const buildPlugins = (options: IBuildOptions): WebpackPluginInstance[] =>
     new ModuleFederationPlugin({
       name: 'host',
       remotes: {
-        'microfrontend': 'remote-app@http://localhost:4174/assets/remoteEntry.js'
+        'microfrontend': 'todo-app@https://microfrontend-todo.vercel.app/assets/remoteEntry.js'
       }
     }),
     

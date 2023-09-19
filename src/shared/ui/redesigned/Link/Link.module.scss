@@ -1,8 +1,13 @@
 .link {
   color: var(--text-redesigned);
+  text-decoration: none;
   transition: 0.2s;
 
   &:hover {
     color: var(--icon-redesigned);
   }
+}
+
+.underline {
+  text-decoration: underline;
 }

@@ -82,8 +82,8 @@ const Input: FC<InputProps> = ({
 
   if (label) {
     return (
-      <HStack max>
-        <TextComponent text={label} />
+      <HStack align="center" max>
+        <TextComponent text={label} className={s.label} />
         {input}
       </HStack>
     );

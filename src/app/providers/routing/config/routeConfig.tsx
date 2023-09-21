@@ -35,6 +35,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.SETTINGS]: {
     path: getRouteSettings(),
     element: <SettingsPageLazy />,
+    authOnly: true,
   },
   [AppRoutesEnum.ABOUT]: {
     path: getRouteAbout(),

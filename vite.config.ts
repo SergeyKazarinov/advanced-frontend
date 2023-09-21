@@ -52,9 +52,6 @@ export default defineConfig({
     __PROJECT__: JSON.stringify('frontend'),
   },
   build: {
-    modulePreload: false,
     target: 'esnext',
-    minify: false,
-    cssCodeSplit: false,
   },
 });

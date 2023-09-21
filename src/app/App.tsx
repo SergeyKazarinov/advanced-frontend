@@ -45,14 +45,14 @@ const App = () => {
       feature="isAppRedesigned"
       on={
         <div id="app" className={classNames('app_redesigned', {}, [theme])}>
-          <Suspense fallback="loading">
+          <Suspense>
             <MainLayout content={<AppRouter />} header={<Navbar />} sidebar={<Sidebar />} toolbar={toolbar} />
           </Suspense>
         </div>
       }
       off={
         <div id="app" className={classNames('app', {}, [theme])}>
-          <Suspense fallback="loading">
+          <Suspense>
             <Navbar />
             <div className="content-page">
               <Sidebar />

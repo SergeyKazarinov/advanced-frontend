@@ -43,7 +43,7 @@
   width: 230px;
   transition: 0.3s;
   cursor: pointer;
-  
+
   .imageWrapper {
     width: 200px;
     height: 200px;
@@ -108,8 +108,16 @@
     width: 100%;
   }
 
-  // &.SMALL {
-  //   width: 240px;
-  //   height: 350px;
-  // }
+  &.SMALL {
+    width: 240px;
+    height: 350px;
+  }
+  
+  .avatarSkeleton {
+    margin-left: 16px;
+  }
+
+  .cardRedesigned {
+    overflow: hidden;
+  }
 }

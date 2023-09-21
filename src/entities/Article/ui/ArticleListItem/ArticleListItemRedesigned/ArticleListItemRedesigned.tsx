@@ -50,7 +50,7 @@ const ArticleListItemRedesigned: FC<ArticleListItemProps> = ({ className, articl
             src={article.img}
             className={s.image}
             alt={article.title}
-            fallback={<Skeleton width="100%" height={250} />}
+            fallback={<Skeleton width="100%" height={313} />}
           />
           {textBlock?.paragraphs && (
             <TextComponent text={textBlock.paragraphs.slice(0, 2).join(' ')} className={s.textBlock} />

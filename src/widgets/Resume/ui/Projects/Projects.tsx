@@ -60,7 +60,7 @@ const Projects: FC = () => {
       {projectsList.map((item) => (
         <ProjectItem item={item} />
       ))}
-      <HStack max justify="center">
+      <HStack max justify="center" align="center">
         <TextComponent text={t('More projects')} />
         <Link href="https://kazarinov.nomoredomains.club/">{t('Here')}</Link>
       </HStack>

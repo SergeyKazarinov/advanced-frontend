@@ -21,7 +21,7 @@ const AppLoaderLayout: FC = () => (
       //   education={<Skeleton width="350px" height={300} border="16px" />}
       //   experience={<Skeleton width="100%" height="100vh" border="16px" />}
       // />
-      <Skeleton width="100%" height="100vh" border="16px" />
+      <Skeleton width="100%" height="100%" border="24px" />
     }
     sidebar={<Skeleton border="32px" width={220} height="100%" />}
   />

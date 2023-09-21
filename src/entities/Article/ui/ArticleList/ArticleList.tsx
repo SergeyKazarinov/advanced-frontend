@@ -36,7 +36,7 @@ const ArticleList: FC<ArticleListProps> = ({
   const { t } = useTranslation('article');
 
   const getSkeletons = (view: ArticleViewEnum) =>
-    new Array(view === ArticleViewEnum.SMALL ? 9 : 3).fill(0).map((item, index) => (
+    new Array(view === ArticleViewEnum.SMALL ? 12 : 3).fill(0).map((item, index) => (
       // eslint-disable-next-line
       <ArticleListItemSkeleton key={index} view={view} />
     ));
@@ -72,7 +72,6 @@ const ArticleList: FC<ArticleListProps> = ({
           {articles.map((item) => (
             <ArticleListItem view={view} article={item} className={s.card} target={target} key={item.id} />
           ))}
-          {getSkeletons(view)}
           {isLoading && getSkeletons(view)}
         </HStack>
       }
@@ -81,7 +80,6 @@ const ArticleList: FC<ArticleListProps> = ({
           {articles.map((item) => (
             <ArticleListItem view={view} article={item} className={s.card} target={target} key={item.id} />
           ))}
-
           {isLoading && getSkeletons(view)}
         </div>
       }

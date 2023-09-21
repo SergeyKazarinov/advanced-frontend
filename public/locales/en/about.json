@@ -22,5 +22,6 @@
   "Server": "Server",
   "Server description": "To work with data and implement requests, the site uses a fake server - json-server. \nFor queries to the server, Redux Toolkit, RTK Query and Axios are used.",
   "More Readme": "Detailed information about the project can be found in the project repository",
-  "Link to GitHub": "Link to GitHub"
+  "Link to GitHub": "Link to GitHub",
+  "Site is in developing": "The site is currently under development, however, it already has a lot of functionality"
 }

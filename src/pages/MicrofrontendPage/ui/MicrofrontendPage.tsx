@@ -1,7 +1,8 @@
+import { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
-import Todo from 'microfrontend/Todo';
 
 import { Link } from '@shared/ui/redesigned/Link';
+import { Skeleton } from '@shared/ui/redesigned/Skeleton';
 import { VStack } from '@shared/ui/redesigned/Stack';
 import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 import { Page } from '@widgets/Page';
@@ -10,6 +11,8 @@ import s from './MicrofrontendPage.module.scss';
 
 const MicrofrontendPage = () => {
   const { t } = useTranslation('main');
+
+  const Todo = lazy(() => import('microfrontend/Todo'));
 
   // const counter = toggleFeatures({
   //   name: 'isCounterEnabled',
@@ -27,7 +30,9 @@ const MicrofrontendPage = () => {
           {t('Link to microfrontend')}
         </Link>
         <div className={s.todo}>
-          <Todo />
+          <Suspense fallback={<Skeleton width="100%" height={52} />}>
+            <Todo />
+          </Suspense>
         </div>
       </VStack>
     </Page>

@@ -1,7 +1,25 @@
 .aboutPage {
   padding-bottom: 32px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cardWrapper { 
+  min-width: 100%;
 }
 
 .image {
   width: 50%;
+}
+
+.unvisible {
+  opacity: 0;
+  position: relative;
+  transform: translateX(90%);
+  transition: 1s;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(0);
 }

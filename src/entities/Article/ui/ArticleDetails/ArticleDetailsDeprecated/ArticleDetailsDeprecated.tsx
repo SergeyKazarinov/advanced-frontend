@@ -14,7 +14,6 @@ import s from './ArticleDetailsDeprecated.module.scss';
 
 const ArticleDetailsDeprecated: FC = () => {
   const article = useSelector(getArticleDetailsData);
-
   return (
     <>
       <HStack justify="center" max className={s.avatarWrapper}>

@@ -6,15 +6,9 @@ import { Link } from '@shared/ui/redesigned/Link';
 import { HStack, VStack } from '@shared/ui/redesigned/Stack';
 import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 
-import s from './ProjectItem.module.scss';
+import { IProjectItem } from '../../const/projectList';
 
-export interface IProjectItem {
-  name: string;
-  responsibilities: string[];
-  link: string;
-  site?: string;
-  stacks: string[];
-}
+import s from './ProjectItem.module.scss';
 
 interface ProjectItemProps {
   item: IProjectItem;

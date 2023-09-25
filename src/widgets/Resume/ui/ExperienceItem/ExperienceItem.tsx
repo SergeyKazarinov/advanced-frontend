@@ -6,17 +6,9 @@ import { Link } from '@shared/ui/redesigned/Link';
 import { HStack, VStack } from '@shared/ui/redesigned/Stack';
 import { TextComponent } from '@shared/ui/redesigned/TextComponent';
 
-import s from './ExperienceItem.module.scss';
+import { IExperienceItem } from '../../const/experienceList';
 
-export interface IExperienceItem {
-  job: string;
-  jobTitle?: string;
-  startDate?: string;
-  endDate?: string;
-  responsibilities: string[];
-  link?: string;
-  stacks?: string[];
-}
+import s from './ExperienceItem.module.scss';
 
 interface ExperienceItemProps {
   item: IExperienceItem;

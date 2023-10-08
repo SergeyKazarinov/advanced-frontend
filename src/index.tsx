@@ -1,3 +1,5 @@
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -24,7 +26,9 @@ root.render(
       <StoreProvider>
         <ErrorBoundary>
           <ForceUpdateProvider>
-            <App />
+            <DndProvider backend={HTML5Backend}>
+              <App />
+            </DndProvider>
           </ForceUpdateProvider>
         </ErrorBoundary>
       </StoreProvider>

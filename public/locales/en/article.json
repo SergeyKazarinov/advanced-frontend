@@ -27,5 +27,8 @@
   "Thanks": "Thank you for rating",
   "{{count}} views_zero": "{{count}} views",
   "{{count}} views_one": "{{count}} view",
-  "{{count}} views_other": "{{count}} views"
+  "{{count}} views_other": "{{count}} views",
+  "Add text block": "Add text block",
+  "Add code block": "Add code block",
+  "Add image block": "Add an image"
 }

@@ -1,0 +1,10 @@
+.articleTypeTab {
+  cursor: pointer;
+  min-width: 100px;
+  text-align: center;
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--icon-redesigned)
+  }
+}

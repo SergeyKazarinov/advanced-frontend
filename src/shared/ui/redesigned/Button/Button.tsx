@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, FC, LegacyRef, memo, ReactNode } from 'react';
 
 import { TMods } from '@shared/lib/classNames';
 
@@ -21,6 +21,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   addonRight?: ReactNode;
   addonLeft?: ReactNode;
   color?: TButtonColor;
+  ref?: LegacyRef<HTMLButtonElement>;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -34,6 +35,7 @@ const Button: FC<ButtonProps> = ({
   addonLeft,
   addonRight,
   color = 'normal',
+  ref,
   ...otherProps
 }) => {
   const mods: TMods = {
@@ -47,6 +49,7 @@ const Button: FC<ButtonProps> = ({
       type="button"
       className={classNames(s.button, mods, [className, s[variant], s[size], s[color]])}
       disabled={disabled}
+      ref={ref}
       {...otherProps}
     >
       <div className={s.addonLeft}>{addonLeft}</div>

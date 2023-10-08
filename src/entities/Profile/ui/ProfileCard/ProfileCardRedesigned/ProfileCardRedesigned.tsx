@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { CSSProperties, FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CountrySelect } from '@entities/Country';
@@ -71,6 +71,8 @@ const ProfileCardRedesigned: FC<ProfileCardProps> = ({
     );
   }
 
+  const styleLabel: CSSProperties = { width: '100px', textAlign: 'end' };
+
   return (
     <Card max padding="24" className={classNames(s.profileCardRedesigned, {}, [className])}>
       {data?.avatar && (
@@ -83,6 +85,7 @@ const ProfileCardRedesigned: FC<ProfileCardProps> = ({
           <Input
             value={data?.name || ''}
             label={t('Name')}
+            styleLabel={styleLabel}
             onChange={onChangeName}
             readonly={readonly}
             data-testid="ProfileCard.FirstName"
@@ -90,18 +93,38 @@ const ProfileCardRedesigned: FC<ProfileCardProps> = ({
           <Input
             value={data?.lastName || ''}
             label={t('Lastname')}
+            styleLabel={styleLabel}
             onChange={onChangeLastName}
             readonly={readonly}
             data-testid="ProfileCard.LastName"
           />
-          <Input value={data?.age || 0} label={t('Age')} onChange={onChangeAge} readonly={readonly} />
-          <Input value={data?.city || ''} label={t('City')} onChange={onChangeCity} readonly={readonly} />
+          <Input
+            value={data?.age || 0}
+            label={t('Age')}
+            styleLabel={styleLabel}
+            onChange={onChangeAge}
+            readonly={readonly}
+          />
+          <Input
+            value={data?.city || ''}
+            label={t('City')}
+            styleLabel={styleLabel}
+            onChange={onChangeCity}
+            readonly={readonly}
+          />
         </VStack>
         <VStack gap="16" max>
-          <Input value={data?.username || ''} label={t('Username')} onChange={onChangeUsername} readonly={readonly} />
+          <Input
+            value={data?.username || ''}
+            label={t('Username')}
+            styleLabel={styleLabel}
+            onChange={onChangeUsername}
+            readonly={readonly}
+          />
           <Input
             value={data?.avatar || ''}
             label={t('Avatar')}
+            styleLabel={styleLabel}
             className={s.input}
             onChange={onChangeAvatar}
             readonly={readonly}

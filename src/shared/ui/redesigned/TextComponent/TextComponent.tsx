@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { CSSProperties, FC, memo } from 'react';
 
 import { classNames } from '@shared/lib/classNames';
 
@@ -18,6 +18,7 @@ interface TextProps {
   align?: TTextAlignVariant;
   size?: TTextSize;
   bold?: boolean;
+  style?: CSSProperties;
   'data-testid'?: string;
 }
 
@@ -38,6 +39,7 @@ const TextComponent: FC<TextProps> = ({
   align = 'left',
   size = 'size_m',
   bold,
+  style = {},
   'data-testid': dataTestId = 'Text',
 }) => {
   const HeaderTag = mapSizeToHeaderTag[size];
@@ -54,7 +56,7 @@ const TextComponent: FC<TextProps> = ({
         </HeaderTag>
       )}
       {text && (
-        <p className={s.text} data-testid={`${dataTestId}.Paragraph`}>
+        <p className={s.text} data-testid={`${dataTestId}.Paragraph`} style={style}>
           {text}
         </p>
       )}

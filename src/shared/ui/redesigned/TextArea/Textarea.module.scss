@@ -1,10 +1,9 @@
-.inputWrapper {
+.textareaWrapper {
   display: flex;
   align-items: center;
-  border-radius: 48px;
+  border-radius: 16px;
   padding: 8px 16px;
   border: 1px solid var(--icon-redesigned);
-  height: 32px;
   width: 100%;
 }
 
@@ -34,12 +33,15 @@
   }
 }
 
-.input {
+.textarea {
   border: none;
   outline: none;
   width: 100%;
   color: var(--text-redesigned);
   background: none;
+  resize: vertical;
+  min-height: 32px;
+  max-height: 500px;
 
   &::placeholder {
     color: var(--hint-redesigned);
@@ -48,9 +50,4 @@
   &:focus {
     outline: none; 
   }
-}
-
-.label {
-  // min-width: 100px;
-  // text-align: end;
 }

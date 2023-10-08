@@ -1,8 +1,4 @@
-export {
-  ArticleSortFieldEnum,
-  ArticleTypeEnum,
-  ArticleViewEnum,
-} from './model/consts/consts';
+export { ArticleBlockTypeEnum, ArticleSortFieldEnum, ArticleTypeEnum, ArticleViewEnum } from './model/consts/consts';
 export { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData';
 export type { IArticle } from './model/types/article';
 export type { IArticleDetailsSchema } from './model/types/ArticleDetailsSchema';

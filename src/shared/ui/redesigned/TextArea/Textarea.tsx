@@ -15,11 +15,11 @@ import { classNames } from '@shared/lib/classNames';
 import { HStack } from '../Stack';
 import { TextComponent } from '../TextComponent';
 
-import s from './Input.module.scss';
+import s from './Textarea.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
+type HTMLTextareaProps = Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'value' | 'onChange' | 'readOnly'>;
 
-interface InputProps extends HTMLInputProps {
+interface TextareaProps extends HTMLTextareaProps {
   className?: string;
   onChange?: (value: string) => void;
   value?: string | number;
@@ -30,9 +30,8 @@ interface InputProps extends HTMLInputProps {
   styleLabel?: CSSProperties;
 }
 
-const Input: FC<InputProps> = ({
+const Textarea: FC<TextareaProps> = ({
   className,
-  type = 'text',
   value,
   label,
   onChange,
@@ -45,7 +44,7 @@ const Input: FC<InputProps> = ({
   ...otherProps
 }) => {
   const [isFocus, setIsFocus] = useState(false);
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (autoFocus) {
@@ -54,7 +53,7 @@ const Input: FC<InputProps> = ({
     }
   }, [autoFocus]);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     onChange?.(e.target.value);
   };
 
@@ -73,15 +72,14 @@ const Input: FC<InputProps> = ({
     [s.withAddonRight]: Boolean(addonRight),
   };
 
-  const input = (
-    <div className={classNames(s.inputWrapper, mods, [className])}>
+  const textarea = (
+    <div className={classNames(s.textareaWrapper, mods, [className])}>
       <div className={s.addonLeft}>{addonLeft}</div>
-      <input
+      <textarea
         ref={ref}
         onBlur={onBlur}
         onFocus={onFocus}
-        className={classNames(s.input, {}, [])}
-        type={type}
+        className={s.textarea}
         value={value}
         onChange={handleChange}
         readOnly={readonly}
@@ -96,12 +94,12 @@ const Input: FC<InputProps> = ({
     return (
       <HStack align="center" max>
         <TextComponent text={label} className={s.label} style={styleLabel} />
-        {input}
+        {textarea}
       </HStack>
     );
   }
 
-  return input;
+  return textarea;
 };
 
-export default memo(Input);
+export default memo(Textarea);

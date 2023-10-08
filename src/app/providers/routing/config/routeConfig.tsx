@@ -1,6 +1,7 @@
 import { UserRoleEnum } from '@entities/User';
 import { AboutPageLazy } from '@pages/AboutPage';
 import { AdminPanelPageLazy } from '@pages/AdminPanelPage';
+import { ArticleCreatePageLazy } from '@pages/ArticleCreatePage';
 import { ArticleDetailsPageLazy } from '@pages/ArticleDetailsPage';
 import { ArticleEditPageLazy } from '@pages/ArticleEditPage';
 import { ArticlesPageLazy } from '@pages/ArticlesPage';
@@ -57,7 +58,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ARTICLE_CREATE]: {
     path: getRouteArticleCreate(),
-    element: <ArticleEditPageLazy />,
+    element: <ArticleCreatePageLazy />,
     authOnly: true,
   },
   [AppRoutesEnum.ARTICLE_EDIT]: {

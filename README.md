@@ -1,4 +1,4 @@
-# Advanced Frontend (Проект находится на этапе разработки)
+# Advanced Frontend
 
 <img src='./src/shared/assets/advanced-frontend.jpg' width="100%">
 
